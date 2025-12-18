@@ -1,0 +1,101 @@
+{
+    "month": "February 2025",
+    "days": [
+        {
+            "date": "2025-02-16",
+            "events": [
+                {
+                    "text": "Gilgit-Baltistan government approved historic land reforms",
+                    "category": "National",
+                    "tags": [
+                        "Gilgit-Baltistan",
+                        "Land Reforms"
+                    ]
+                }
+            ]
+        },
+        {
+            "date": "2025-02-18",
+            "events": [
+                {
+                    "text": "PM Shehbaz Sharif inaugurated the Recep Tayyip Erdogan Interchange in Islamabad",
+                    "category": "National",
+                    "tags": [
+                        "Infrastructure",
+                        "Diplomacy"
+                    ]
+                },
+                {
+                    "text": "Balochistan police appointed Shoaib Khan Zehri as its goodwill ambassador",
+                    "category": "Sports",
+                    "tags": [
+                        "Balochistan",
+                        "Boxing"
+                    ]
+                }
+            ]
+        },
+        {
+            "date": "2025-02-19",
+            "events": [
+                {
+                    "text": "Tahir Rai appointed as IG Pakistan Railways Police",
+                    "category": "National",
+                    "tags": [
+                        "Appointment",
+                        "Railways"
+                    ]
+                }
+            ]
+        },
+        {
+            "date": "2025-02-21",
+            "events": [
+                {
+                    "text": "KP Public Service Commission increased age limit for PMS exams from 30 to 32 years",
+                    "category": "National",
+                    "tags": [
+                        "KPPSC",
+                        "Education"
+                    ]
+                }
+            ]
+        },
+        {
+            "date": "2025-02-27",
+            "events": [
+                {
+                    "text": "Pakistan's democracy ranking dropped from 3.25 to 2.84 in EIU report",
+                    "category": "Reports",
+                    "tags": [
+                        "Democracy Index",
+                        "EIU"
+                    ]
+                }
+            ]
+        },
+        {
+            "date": "2025-02-28",
+            "events": [
+                {
+                    "text": "Maulana Samiul Haq (JUI-S chief) assassination details surfaced",
+                    "category": "National",
+                    "tags": [
+                        "Politics",
+                        "Obituary"
+                    ]
+                }
+            ]
+        }
+    ],
+    "knowledgeBoxes": [
+        {
+            "title": "World's Most Valuable Banks (2025)",
+            "content": "China's ICBC retained its top position with a brand value of $79.1B. Top 3 are all Chinese banks: ICBC, CCB, and Agricultural Bank of China."
+        },
+        {
+            "title": "What is Google Wallet?",
+            "content": "A digital payment system enabled on Android phones in Pakistan. It allows users to tap-and-pay in stores and access boarding passes seamlessly."
+        }
+    ]
+}

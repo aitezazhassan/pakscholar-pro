@@ -1,0 +1,15 @@
+question: "Which is the longest river in Pakistan?"
+optionA: "Jhelum"
+optionB: "Chenab"
+optionC: "Indus"
+optionD: "Ravi"
+correctAnswer: "C"
+explanation: "The Indus River, approximately 3,180 km long, is the longest river in Pakistan and forms the backbone of the country's irrigation system."
+category: "general-knowledge"
+difficulty: "easy"
+examTypes:
+  - "ppsc"
+  - "fpsc"
+source: "Geography"
+tags:
+  - "Rivers"

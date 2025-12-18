@@ -1,0 +1,259 @@
+{
+    "month": "November 2024",
+    "days": [
+        {
+            "date": "2024-11-30",
+            "events": [
+                {
+                    "text": "Pakistan Army conducts successful test of indigenous Fatah-II guided missile system",
+                    "category": "National",
+                    "tags": [
+                        "Defense",
+                        "Technology"
+                    ]
+                },
+                {
+                    "text": "Islamabad High Court suspends trial court proceedings in cipher case",
+                    "category": "National",
+                    "tags": [
+                        "Judiciary",
+                        "Legal"
+                    ]
+                },
+                {
+                    "text": "Asian Development Bank approves $500 million loan for Pakistan's energy sector reforms",
+                    "category": "Economy",
+                    "tags": [
+                        "ADB",
+                        "Energy"
+                    ]
+                }
+            ]
+        },
+        {
+            "date": "2024-11-29",
+            "events": [
+                {
+                    "text": "Pakistan announces visa-on-arrival facility for nationals of 126 countries to boost tourism",
+                    "category": "National",
+                    "tags": [
+                        "Tourism",
+                        "Policy"
+                    ]
+                },
+                {
+                    "text": "Karachi Stock Exchange crosses 95,000-point milestone for first time in history",
+                    "category": "Economy",
+                    "tags": [
+                        "Stock Market",
+                        "Finance"
+                    ]
+                },
+                {
+                    "text": "UNESCO declares Mohenjo-daro conservation plan as model for heritage sites",
+                    "category": "International",
+                    "tags": [
+                        "Heritage",
+                        "Culture"
+                    ]
+                }
+            ]
+        },
+        {
+            "date": "2024-11-28",
+            "events": [
+                {
+                    "text": "Federal cabinet approves National Climate Change Policy 2024 targeting 60% renewable energy by 2030",
+                    "category": "National",
+                    "tags": [
+                        "Climate",
+                        "Policy"
+                    ]
+                },
+                {
+                    "text": "Pakistan and Turkey sign MoU for joint production of ATAK helicopters",
+                    "category": "International",
+                    "tags": [
+                        "Defense",
+                        "Turkey"
+                    ]
+                },
+                {
+                    "text": "Lahore Smart City project Phase-I inaugurated with 5G connectivity",
+                    "category": "Technology",
+                    "tags": [
+                        "Smart City",
+                        "5G"
+                    ]
+                }
+            ]
+        },
+        {
+            "date": "2024-11-27",
+            "events": [
+                {
+                    "text": "State Bank of Pakistan maintains policy rate at 15% citing inflation control measures",
+                    "category": "Economy",
+                    "tags": [
+                        "SBP",
+                        "Monetary Policy"
+                    ]
+                },
+                {
+                    "text": "Pakistan wins UN Security Council non-permanent seat for 2025-26 term",
+                    "category": "International",
+                    "tags": [
+                        "UN",
+                        "Diplomacy"
+                    ]
+                },
+                {
+                    "text": "Faisalabad industrial zone generates 500 MW solar power reducing grid dependency",
+                    "category": "Economy",
+                    "tags": [
+                        "Solar",
+                        "Industry"
+                    ]
+                }
+            ]
+        },
+        {
+            "date": "2024-11-26",
+            "events": [
+                {
+                    "text": "Supreme Court issues detailed judgment on Article 63-A constitutional interpretation",
+                    "category": "National",
+                    "tags": [
+                        "Constitution",
+                        "Judiciary"
+                    ]
+                },
+                {
+                    "text": "Pakistan-China Joint Statement emphasizes CPEC Phase-II infrastructure completion by 2025",
+                    "category": "International",
+                    "tags": [
+                        "CPEC",
+                        "China"
+                    ]
+                },
+                {
+                    "text": "Digital Census 2024 reveals population crossed 240 million milestone",
+                    "category": "National",
+                    "tags": [
+                        "Census",
+                        "Population"
+                    ]
+                }
+            ]
+        },
+        {
+            "date": "2024-11-25",
+            "events": [
+                {
+                    "text": "Punjab government launches Kisan Card providing Rs. 150,000 interest-free loans to farmers",
+                    "category": "Economy",
+                    "tags": [
+                        "Agriculture",
+                        "Punjab"
+                    ]
+                },
+                {
+                    "text": "Pakistan Information Technology exports reach $3.2 billion in FY 2023-24",
+                    "category": "Technology",
+                    "tags": [
+                        "IT",
+                        "Exports"
+                    ]
+                },
+                {
+                    "text": "Gwadar Port handles record 2 million tons cargo in single quarter",
+                    "category": "Infrastructure",
+                    "tags": [
+                        "Gwadar",
+                        "CPEC"
+                    ]
+                }
+            ]
+        },
+        {
+            "date": "2024-11-24",
+            "events": [
+                {
+                    "text": "Pakistan Medical Commission revises MBBS curriculum adding AI and telemedicine modules",
+                    "category": "Education",
+                    "tags": [
+                        "Medical",
+                        "Curriculum"
+                    ]
+                },
+                {
+                    "text": "Quetta-Karachi highway M-8 section completed reducing travel time to 6 hours",
+                    "category": "Infrastructure",
+                    "tags": [
+                        "Motorway",
+                        "Balochistan"
+                    ]
+                },
+                {
+                    "text": "Pakistan signs Paris Agreement on Climate Finance securing $2 billion green fund",
+                    "category": "International",
+                    "tags": [
+                        "Climate",
+                        "Finance"
+                    ]
+                }
+            ]
+        },
+        {
+            "date": "2024-11-23",
+            "events": [
+                {
+                    "text": "Shehbaz Sharif inaugurates Diamer-Bhasha Dam Phase-II with Chinese delegation",
+                    "category": "National",
+                    "tags": [
+                        "Dam",
+                        "Water"
+                    ]
+                },
+                {
+                    "text": "Pakistan cricket team defeats Australia 2-1 in ODI series at home",
+                    "category": "Sports",
+                    "tags": [
+                        "Cricket",
+                        "Australia"
+                    ]
+                },
+                {
+                    "text": "Sindh Assembly passes Sindh Local Government Amendment Act 2024",
+                    "category": "National",
+                    "tags": [
+                        "Sindh",
+                        "Legislation"
+                    ]
+                }
+            ]
+        }
+    ],
+    "knowledgeBoxes": [
+        {
+            "title": "Fatah-II Missile System",
+            "content": "Indigenous Pakistani guided rocket artillery system with 400km range. Developed by NESCOM under Strategic Plans Division. Features precision strike capability and GNSS guidance."
+        },
+        {
+            "title": "Article 63-A Explained",
+            "content": "Constitutional provision regarding disqualification of members on defection from political party. Added through 18th Amendment. Grants parliamentary party head authority over member votes."
+        },
+        {
+            "title": "CPEC Phase-II Projects",
+            "content": "Includes Gwadar Free Zone, ML-1 railway upgrade, Diamer-Bhasha Dam, and Industrial Cooperation zones. Total investment: $30 billion. Focus on agriculture and industrialization."
+        },
+        {
+            "title": "Digital Census 2024",
+            "content": "First-ever digital house listing and population count in Pakistan. Used tablets and GPS. Revealed population: 241.49 million. Urban population: 40.9%, Rural: 59.1%."
+        },
+        {
+            "title": "Pakistan IT Exports Growth",
+            "content": "Key sectors: Software development, BPO, freelancing. Top markets: USA (40%), UK (25%), Middle East (20%). Remittances through freelancing: $400M annually."
+        }
+    ]
+}

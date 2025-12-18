@@ -1,0 +1,16 @@
+question: "Who presented the Lahore Resolution in 1940?"
+optionA: "Muhammad Ali Jinnah"
+optionB: "Allama Iqbal"
+optionC: "A.K. Fazlul Haq"
+optionD: "Liaquat Ali Khan"
+correctAnswer: "C"
+explanation: "A.K. Fazlul Haq, the Chief Minister of Bengal, presented the historic Lahore Resolution on March 23, 1940, which laid the foundation for the creation of Pakistan."
+category: "pakistan-affairs"
+difficulty: "medium"
+examTypes:
+  - "ppsc"
+  - "fpsc"
+  - "css"
+source: "Pakistan History"
+tags:
+  - "Pakistan Movement"

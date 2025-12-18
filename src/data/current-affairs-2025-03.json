@@ -1,0 +1,63 @@
+{
+    "month": "March 2025",
+    "days": [
+        {
+            "date": "2025-03-04",
+            "events": [
+                {
+                    "text": "Punjab government appointed Amjad Pervaiz as Advocate General",
+                    "category": "National",
+                    "tags": [
+                        "Punjab",
+                        "Legal"
+                    ]
+                }
+            ]
+        },
+        {
+            "date": "2025-03-05",
+            "events": [
+                {
+                    "text": "Ali Jehangir Siddiqui appointed as Chief Adviser to Finance Minister on Crypto Council",
+                    "category": "Economy",
+                    "tags": [
+                        "Cryptocurrency",
+                        "Finance"
+                    ]
+                }
+            ]
+        },
+        {
+            "date": "2025-03-08",
+            "events": [
+                {
+                    "text": "Moosa Harraj elected as Oxford Union President for Michaelmas Term 2025",
+                    "category": "International",
+                    "tags": [
+                        "Oxford",
+                        "Pakistan Students"
+                    ]
+                }
+            ]
+        },
+        {
+            "date": "2025-03-14",
+            "events": [
+                {
+                    "text": "Mark Carney sworn in as Canada's 24th Prime Minister",
+                    "category": "International",
+                    "tags": [
+                        "Canada",
+                        "Politics"
+                    ]
+                }
+            ]
+        }
+    ],
+    "knowledgeBoxes": [
+        {
+            "title": "Portuguese Rise and Fall",
+            "content": "Vasco da Gama arrived at Calicut in 1498. The Portuguese established their first fort at Cochin in 1503 and lost control of Hormuz in 1622."
+        }
+    ]
+}

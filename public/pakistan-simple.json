@@ -1,0 +1,180 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "NAME_1": "Punjab",
+                "capital": "Lahore",
+                "population": "110M"
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            69.5,
+                            32.5
+                        ],
+                        [
+                            74.5,
+                            32.5
+                        ],
+                        [
+                            74.5,
+                            28.5
+                        ],
+                        [
+                            69.5,
+                            28.5
+                        ],
+                        [
+                            69.5,
+                            32.5
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "NAME_1": "Sindh",
+                "capital": "Karachi",
+                "population": "47M"
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            67.5,
+                            28.5
+                        ],
+                        [
+                            71.5,
+                            28.5
+                        ],
+                        [
+                            71.5,
+                            23.5
+                        ],
+                        [
+                            67.5,
+                            23.5
+                        ],
+                        [
+                            67.5,
+                            28.5
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "NAME_1": "Khyber Pakhtunkhwa",
+                "capital": "Peshawar",
+                "population": "30M"
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            69.5,
+                            36.5
+                        ],
+                        [
+                            73.5,
+                            36.5
+                        ],
+                        [
+                            73.5,
+                            32.5
+                        ],
+                        [
+                            69.5,
+                            32.5
+                        ],
+                        [
+                            69.5,
+                            36.5
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "NAME_1": "Balochistan",
+                "capital": "Quetta",
+                "population": "12M"
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            61.5,
+                            31.5
+                        ],
+                        [
+                            69.5,
+                            31.5
+                        ],
+                        [
+                            69.5,
+                            24.5
+                        ],
+                        [
+                            61.5,
+                            24.5
+                        ],
+                        [
+                            61.5,
+                            31.5
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "NAME_1": "Gilgit-Baltistan",
+                "capital": "Gilgit",
+                "population": "2M"
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            73.5,
+                            37.5
+                        ],
+                        [
+                            77.5,
+                            37.5
+                        ],
+                        [
+                            77.5,
+                            34.5
+                        ],
+                        [
+                            73.5,
+                            34.5
+                        ],
+                        [
+                            73.5,
+                            37.5
+                        ]
+                    ]
+                ]
+            }
+        }
+    ]
+}

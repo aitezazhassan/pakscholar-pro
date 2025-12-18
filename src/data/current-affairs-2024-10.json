@@ -1,0 +1,255 @@
+{
+    "month": "October 2024",
+    "days": [
+        {
+            "date": "2024-10-31",
+            "events": [
+                {
+                    "text": "Pakistan exports cross $30 billion in first quarter of FY 2024-25",
+                    "category": "Economy",
+                    "tags": [
+                        "Exports",
+                        "Trade"
+                    ]
+                },
+                {
+                    "text": "Naya Pakistan Housing Scheme delivers 100,000th house in Lahore",
+                    "category": "National",
+                    "tags": [
+                        "Housing",
+                        "Welfare"
+                    ]
+                },
+                {
+                    "text": "WHO declares Pakistan polio-free for 18 consecutive months",
+                    "category": "National",
+                    "tags": [
+                        "Health",
+                        "WHO"
+                    ]
+                }
+            ]
+        },
+        {
+            "date": "2024-10-30",
+            "events": [
+                {
+                    "text": "Election Commission announces new delimitation for general elections 2024",
+                    "category": "National",
+                    "tags": [
+                        "Elections",
+                        "ECP"
+                    ]
+                },
+                {
+                    "text": "Pakistan signs Free Trade Agreement with Indonesia boosting bilateral trade to $5 billion",
+                    "category": "International",
+                    "tags": [
+                        "Trade",
+                        "Indonesia"
+                    ]
+                },
+                {
+                    "text": "Peshawar Metro Bus Service Phase-II connects 15 new stations",
+                    "category": "Infrastructure",
+                    "tags": [
+                        "KPK",
+                        "Transport"
+                    ]
+                }
+            ]
+        },
+        {
+            "date": "2024-10-29",
+            "events": [
+                {
+                    "text": "Federal government launches Ehsaas Rashan Program providing subsidized food to 10 million families",
+                    "category": "National",
+                    "tags": [
+                        "Welfare",
+                        "Ehsaas"
+                    ]
+                },
+                {
+                    "text": "Pakistan Navy inducts PNS Babur Chinese Type-054A frigate enhancing maritime defense",
+                    "category": "National",
+                    "tags": [
+                        "Navy",
+                        "Defense"
+                    ]
+                },
+                {
+                    "text": "Karachi Circular Railway project awarded to Chinese consortium worth $6.7 billion",
+                    "category": "Infrastructure",
+                    "tags": [
+                        "KCR",
+                        "Sindh"
+                    ]
+                }
+            ]
+        },
+        {
+            "date": "2024-10-28",
+            "events": [
+                {
+                    "text": "Higher Education Commission announces 5,000 scholarships for science and technology students",
+                    "category": "Education",
+                    "tags": [
+                        "HEC",
+                        "Scholarships"
+                    ]
+                },
+                {
+                    "text": "Pakistan Agricultural Research Council develops drought-resistant wheat variety yielding 30% more",
+                    "category": "National",
+                    "tags": [
+                        "Agriculture",
+                        "Research"
+                    ]
+                },
+                {
+                    "text": "Islamabad airport handles record 2 million passengers in single month",
+                    "category": "Infrastructure",
+                    "tags": [
+                        "Aviation",
+                        "Tourism"
+                    ]
+                }
+            ]
+        },
+        {
+            "date": "2024-10-27",
+            "events": [
+                {
+                    "text": "Pakistan and Saudi Arabia renew $3 billion deposit agreement supporting forex reserves",
+                    "category": "Economy",
+                    "tags": [
+                        "Saudi Arabia",
+                        "Forex"
+                    ]
+                },
+                {
+                    "text": "Supreme Court declares lifetime disqualification clause unconstitutional",
+                    "category": "National",
+                    "tags": [
+                        "Judiciary",
+                        "Constitution"
+                    ]
+                },
+                {
+                    "text": "Multan Sultan wins Pakistan Super League 2024 defeating Islamabad United",
+                    "category": "Sports",
+                    "tags": [
+                        "PSL",
+                        "Cricket"
+                    ]
+                }
+            ]
+        },
+        {
+            "date": "2024-10-26",
+            "events": [
+                {
+                    "text": "Pakistan establishes first semiconductor manufacturing plant in Islamabad with Korean partnership",
+                    "category": "Technology",
+                    "tags": [
+                        "Semiconductors",
+                        "Industry"
+                    ]
+                },
+                {
+                    "text": "Balochistan government announces Rs. 50 billion uplift package for Gwadar district",
+                    "category": "National",
+                    "tags": [
+                        "Balochistan",
+                        "Development"
+                    ]
+                },
+                {
+                    "text": "Pakistan wins ICC Champions Trophy hosting rights for 2025",
+                    "category": "Sports",
+                    "tags": [
+                        "Cricket",
+                        "ICC"
+                    ]
+                }
+            ]
+        },
+        {
+            "date": "2024-10-25",
+            "events": [
+                {
+                    "text": "Federal Board of Revenue digitizes all tax returns achieving 98% e-filing compliance",
+                    "category": "National",
+                    "tags": [
+                        "FBR",
+                        "Taxation"
+                    ]
+                },
+                {
+                    "text": "Mansehra-Naran-Jalkhad Road reconstruction completed reducing landslide risks",
+                    "category": "Infrastructure",
+                    "tags": [
+                        "KPK",
+                        "Tourism"
+                    ]
+                },
+                {
+                    "text": "Pakistan and UAE sign extradition treaty strengthening legal cooperation",
+                    "category": "International",
+                    "tags": [
+                        "UAE",
+                        "Legal"
+                    ]
+                }
+            ]
+        },
+        {
+            "date": "2024-10-24",
+            "events": [
+                {
+                    "text": "Punjab government launches Green Pakistan Drive planting 10 million trees in one month",
+                    "category": "National",
+                    "tags": [
+                        "Environment",
+                        "Punjab"
+                    ]
+                },
+                {
+                    "text": "Pakistan Stock Exchange becomes first South Asian bourse to adopt T+1 settlement cycle",
+                    "category": "Economy",
+                    "tags": [
+                        "PSX",
+                        "Finance"
+                    ]
+                },
+                {
+                    "text": "Gilgit-Baltistan University inaugurates first research center on glaciology",
+                    "category": "Education",
+                    "tags": [
+                        "Research",
+                        "Climate"
+                    ]
+                }
+            ]
+        }
+    ],
+    "knowledgeBoxes": [
+        {
+            "title": "Ehsaas Program",
+            "content": "Largest social safety initiative in Pakistan. Budget: Rs. 260 billion. Components: Rashan, Nashonuma (nutrition), Undergraduate Scholarships, Emergency Cash. Beneficiaries: 12 million families."
+        },
+        {
+            "title": "PNS Babur Frigate",
+            "content": "Type-054A/P class warship built in China. Length: 134m, Displacement: 4,500 tons. Armed with anti-ship missiles, anti-aircraft systems, torpedoes. Enhances Pakistan Navy's blue-water capability."
+        },
+        {
+            "title": "Karachi Circular Railway",
+            "content": "59 km track with 30 stations. Connects Karachi outskirts to city center. Expected ridership: 500,000 daily. Will reduce traffic congestion by 30%. Completion: December 2026."
+        },
+        {
+            "title": "T+1 Settlement Cycle",
+            "content": "Trade settlement within 1 business day (previously T+2). Improves liquidity, reduces counterparty risk. Pakistan 2nd country in Asia after India. Implemented Oct 2024."
+        }
+    ]
+}

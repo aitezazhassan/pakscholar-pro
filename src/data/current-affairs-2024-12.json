@@ -1,0 +1,94 @@
+{
+    "month": "December 2024",
+    "days": [
+        {
+            "date": "2024-12-18",
+            "events": [
+                {
+                    "text": "PM Shehbaz Sharif inaugurated the Recep Tayyip Erdogan Interchange in Islamabad",
+                    "category": "National",
+                    "tags": [
+                        "Infrastructure",
+                        "Diplomacy"
+                    ]
+                },
+                {
+                    "text": "Shoaib Khan Zehri appointed as WBC World Title holder ambassador",
+                    "category": "Sports",
+                    "tags": [
+                        "Boxing",
+                        "Youth"
+                    ]
+                },
+                {
+                    "text": "Pakistan's GDP growth rate reaches 3.5% this quarter",
+                    "category": "Economy",
+                    "tags": [
+                        "GDP",
+                        "Growth"
+                    ]
+                }
+            ]
+        },
+        {
+            "date": "2024-12-17",
+            "events": [
+                {
+                    "text": "New education policy announced for Punjab province focusing on STEM",
+                    "category": "Education",
+                    "tags": [
+                        "Policy",
+                        "STEM"
+                    ]
+                },
+                {
+                    "text": "Pakistan joins BRICS Plus initiative strengthening economic ties",
+                    "category": "International",
+                    "tags": [
+                        "BRICS",
+                        "Diplomacy"
+                    ]
+                }
+            ]
+        },
+        {
+            "date": "2024-12-15",
+            "events": [
+                {
+                    "text": "Lahore-Islamabad Motorway interchange completed reducing travel time by 45 minutes",
+                    "category": "Infrastructure",
+                    "tags": [
+                        "Motorway",
+                        "Transport"
+                    ]
+                },
+                {
+                    "text": "Digital Pakistan Initiative launches nationwide internet connectivity program",
+                    "category": "Technology",
+                    "tags": [
+                        "Digital",
+                        "Internet"
+                    ]
+                }
+            ]
+        }
+    ],
+    "knowledgeBoxes": [
+        {
+            "title": "What is Google Wallet?",
+            "content": "Digital payment system allowing users to make contactless payments using smartphones. Launched in Pakistan in 2024, enabling secure transactions at retail outlets."
+        },
+        {
+            "title": "World's Most Valuable Banks",
+            "content": "1. JPMorgan Chase (USA) - $450B\n2. Bank of America (USA) - $320B\n3. Industrial & Commercial Bank of China - $310B\n4. China Construction Bank - $260B"
+        },
+        {
+            "title": "CPEC Milestone",
+            "content": "China-Pakistan Economic Corridor has completed 70% of infrastructure projects with $25 billion total investment. Major highways, power plants, and Gwadar Port development underway."
+        },
+        {
+            "title": "Pakistan's Nuclear Program",
+            "content": "Pakistan became the 7th nuclear state in 1998. Dr. Abdul Qadeer Khan led the uranium enrichment program. Currently maintains strategic deterrence capability."
+        }
+    ]
+}

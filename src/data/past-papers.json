@@ -1,0 +1,552 @@
+[
+    {
+        "examName": "Assistant Director (BS-17) - Livestock & Dairy Development",
+        "year": 2024,
+        "department": "Livestock & Dairy Development",
+        "downloadUrl": "/papers/ppsc-ad-livestock-2024.pdf",
+        "subjects": [
+            "General Knowledge",
+            "English",
+            "Mathematics"
+        ]
+    },
+    {
+        "examName": "Tehsildar (BS-16)",
+        "year": 2024,
+        "department": "Revenue Department",
+        "downloadUrl": "/papers/ppsc-tehsildar-2024.pdf",
+        "subjects": [
+            "Pakistan Studies",
+            "General Knowledge",
+            "English"
+        ]
+    },
+    {
+        "examName": "Sub Inspector (BS-14)",
+        "year": 2024,
+        "department": "Punjab Police",
+        "downloadUrl": "/papers/ppsc-si-2024.pdf",
+        "subjects": [
+            "General Knowledge",
+            "English",
+            "Current Affairs"
+        ]
+    },
+    {
+        "examName": "Lecturer Economics (BS-17)",
+        "year": 2023,
+        "department": "Higher Education",
+        "downloadUrl": "/papers/ppsc-lecturer-economics-2023.pdf",
+        "subjects": [
+            "Economics",
+            "General Knowledge",
+            "English"
+        ]
+    },
+    {
+        "examName": "Assistant (BS-15) - Board of Revenue",
+        "year": 2023,
+        "department": "Board of Revenue",
+        "downloadUrl": "/papers/ppsc-assistant-bor-2023.pdf",
+        "subjects": [
+            "General Knowledge",
+            "Computer Science",
+            "English"
+        ]
+    },
+    {
+        "examName": "Food Safety Officer (BS-16)",
+        "year": 2023,
+        "department": "Food Authority",
+        "downloadUrl": "/papers/ppsc-fso-2023.pdf",
+        "subjects": [
+            "Food Science",
+            "General Knowledge",
+            "Chemistry"
+        ]
+    },
+    {
+        "examName": "Assistant Director (BS-17) - Local Government",
+        "year": 2022,
+        "department": "Local Government",
+        "downloadUrl": "/papers/ppsc-ad-lg-2022.pdf",
+        "subjects": [
+            "General Knowledge",
+            "Pakistan Studies",
+            "English"
+        ]
+    },
+    {
+        "examName": "Sub-Engineer (BS-14)",
+        "year": 2022,
+        "department": "Communication & Works",
+        "downloadUrl": "/papers/ppsc-sub-engineer-2022.pdf",
+        "subjects": [
+            "General Knowledge",
+            "Mathematics",
+            "Engineering"
+        ]
+    },
+    {
+        "examName": "Assistant Director (BS-17) - Social Welfare",
+        "year": 2024,
+        "department": "Social Welfare",
+        "downloadUrl": "/papers/ppsc-ad-sw-2024.pdf",
+        "subjects": [
+            "Social Sciences",
+            "General Knowledge",
+            "English"
+        ]
+    },
+    {
+        "examName": "Deputy District Education Officer (BS-17)",
+        "year": 2024,
+        "department": "Education Department",
+        "downloadUrl": "/papers/ppsc-ddeo-2024.pdf",
+        "subjects": [
+            "Education",
+            "General Knowledge",
+            "English"
+        ]
+    },
+    {
+        "examName": "Inspector Cooperative Societies (BS-16)",
+        "year": 2024,
+        "department": "Cooperative Department",
+        "downloadUrl": "/papers/ppsc-inspector-coop-2024.pdf",
+        "subjects": [
+            "Economics",
+            "General Knowledge",
+            "Mathematics"
+        ]
+    },
+    {
+        "examName": "Naib Tehsildar (BS-14)",
+        "year": 2023,
+        "department": "Revenue Department",
+        "downloadUrl": "/papers/ppsc-naib-tehsildar-2023.pdf",
+        "subjects": [
+            "Pakistan Studies",
+            "General Knowledge",
+            "Urdu"
+        ]
+    },
+    {
+        "examName": "Assistant Superintendent Jail (BS-16)",
+        "year": 2023,
+        "department": "Prisons Department",
+        "downloadUrl": "/papers/ppsc-asj-2023.pdf",
+        "subjects": [
+            "General Knowledge",
+            "English",
+            "Pakistan Studies"
+        ]
+    },
+    {
+        "examName": "District Officer Agriculture (BS-17)",
+        "year": 2023,
+        "department": "Agriculture Department",
+        "downloadUrl": "/papers/ppsc-do-agri-2023.pdf",
+        "subjects": [
+            "Agriculture",
+            "General Knowledge",
+            "English"
+        ]
+    },
+    {
+        "examName": "Junior Auditor (BS-14)",
+        "year": 2024,
+        "department": "Audit & Accounts",
+        "downloadUrl": "/papers/ppsc-junior-auditor-2024.pdf",
+        "subjects": [
+            "Accounting",
+            "Mathematics",
+            "General Knowledge"
+        ]
+    },
+    {
+        "examName": "Sub-Inspector Anti-Corruption (BS-14)",
+        "year": 2024,
+        "department": "Anti-Corruption",
+        "downloadUrl": "/papers/ppsc-si-anticorruption-2024.pdf",
+        "subjects": [
+            "Law",
+            "General Knowledge",
+            "English"
+        ]
+    },
+    {
+        "examName": "Excise & Taxation Inspector (BS-14)",
+        "year": 2023,
+        "department": "Excise & Taxation",
+        "downloadUrl": "/papers/ppsc-eti-2023.pdf",
+        "subjects": [
+            "Taxation",
+            "General Knowledge",
+            "Mathematics"
+        ]
+    },
+    {
+        "examName": "Assistant Registrar Cooperative Societies (BS-16)",
+        "year": 2023,
+        "department": "Cooperative Department",
+        "downloadUrl": "/papers/ppsc-ar-coop-2023.pdf",
+        "subjects": [
+            "Economics",
+            "General Knowledge",
+            "English"
+        ]
+    },
+    {
+        "examName": "Labor Officer (BS-16)",
+        "year": 2024,
+        "department": "Labor Department",
+        "downloadUrl": "/papers/ppsc-labor-officer-2024.pdf",
+        "subjects": [
+            "Labor Laws",
+            "General Knowledge",
+            "English"
+        ]
+    },
+    {
+        "examName": "Assistant Director (BS-17) - Youth Affairs",
+        "year": 2024,
+        "department": "Youth Affairs",
+        "downloadUrl": "/papers/ppsc-ad-ya-2024.pdf",
+        "subjects": [
+            "General Knowledge",
+            "English",
+            "Pakistan Studies"
+        ]
+    },
+    {
+        "examName": "Planning Officer (BS-17)",
+        "year": 2023,
+        "department": "Planning & Development",
+        "downloadUrl": "/papers/ppsc-planning-officer-2023.pdf",
+        "subjects": [
+            "Economics",
+            "Statistics",
+            "General Knowledge"
+        ]
+    },
+    {
+        "examName": "Surveyor (BS-15)",
+        "year": 2023,
+        "department": "Revenue Department",
+        "downloadUrl": "/papers/ppsc-surveyor-2023.pdf",
+        "subjects": [
+            "Mathematics",
+            "General Knowledge",
+            "Surveying"
+        ]
+    },
+    {
+        "examName": "Pharmacist (BS-14)",
+        "year": 2024,
+        "department": "Health Department",
+        "downloadUrl": "/papers/ppsc-pharmacist-2024.pdf",
+        "subjects": [
+            "Pharmacy",
+            "General Knowledge",
+            "Chemistry"
+        ]
+    },
+    {
+        "examName": "Physiotherapist (BS-16)",
+        "year": 2024,
+        "department": "Health Department",
+        "downloadUrl": "/papers/ppsc-physiotherapist-2024.pdf",
+        "subjects": [
+            "Physiotherapy",
+            "General Knowledge",
+            "Biology"
+        ]
+    },
+    {
+        "examName": "Veterinary Assistant (BS-14)",
+        "year": 2023,
+        "department": "Livestock",
+        "downloadUrl": "/papers/ppsc-vet-assistant-2023.pdf",
+        "subjects": [
+            "Veterinary Science",
+            "General Knowledge",
+            "Biology"
+        ]
+    },
+    {
+        "examName": "Motor Vehicle Examiner (BS-14)",
+        "year": 2024,
+        "department": "Transport Department",
+        "downloadUrl": "/papers/ppsc-mve-2024.pdf",
+        "subjects": [
+            "Automobile",
+            "General Knowledge",
+            "Mathematics"
+        ]
+    },
+    {
+        "examName": "Legal Assistant (BS-15)",
+        "year": 2023,
+        "department": "Law Department",
+        "downloadUrl": "/papers/ppsc-legal-assistant-2023.pdf",
+        "subjects": [
+            "Law",
+            "General Knowledge",
+            "English"
+        ]
+    },
+    {
+        "examName": "District Public Prosecutor (BS-17)",
+        "year": 2024,
+        "department": "Prosecution Department",
+        "downloadUrl": "/papers/ppsc-dpp-2024.pdf",
+        "subjects": [
+            "Law",
+            "General Knowledge",
+            "Constitution"
+        ]
+    },
+    {
+        "examName": "Assistant Computer Operator (BS-12)",
+        "year": 2023,
+        "department": "Various Departments",
+        "downloadUrl": "/papers/ppsc-aco-2023.pdf",
+        "subjects": [
+            "Computer Science",
+            "General Knowledge",
+            "English"
+        ]
+    },
+    {
+        "examName": "Data Entry Operator (BS-11)",
+        "year": 2024,
+        "department": "Various Departments",
+        "downloadUrl": "/papers/ppsc-deo-2024.pdf",
+        "subjects": [
+            "Computer Science",
+            "English",
+            "General Knowledge"
+        ]
+    },
+    {
+        "examName": "Sanitary Inspector (BS-14)",
+        "year": 2023,
+        "department": "Health Department",
+        "downloadUrl": "/papers/ppsc-si-sanitary-2023.pdf",
+        "subjects": [
+            "Public Health",
+            "General Knowledge",
+            "Biology"
+        ]
+    },
+    {
+        "examName": "Fisheries Officer (BS-16)",
+        "year": 2024,
+        "department": "Fisheries Department",
+        "downloadUrl": "/papers/ppsc-fo-2024.pdf",
+        "subjects": [
+            "Fisheries",
+            "General Knowledge",
+            "Biology"
+        ]
+    },
+    {
+        "examName": "Tourist Officer (BS-16)",
+        "year": 2023,
+        "department": "Tourism Department",
+        "downloadUrl": "/papers/ppsc-to-2023.pdf",
+        "subjects": [
+            "Tourism",
+            "General Knowledge",
+            "Geography"
+        ]
+    },
+    {
+        "examName": "Assistant Director (BS-17) - Industries",
+        "year": 2024,
+        "department": "Industries Department",
+        "downloadUrl": "/papers/ppsc-ad-industries-2024.pdf",
+        "subjects": [
+            "Economics",
+            "General Knowledge",
+            "English"
+        ]
+    },
+    {
+        "examName": "Deputy Director Sports (BS-17)",
+        "year": 2023,
+        "department": "Sports Department",
+        "downloadUrl": "/papers/ppsc-dd-sports-2023.pdf",
+        "subjects": [
+            "Sports",
+            "General Knowledge",
+            "English"
+        ]
+    },
+    {
+        "examName": "Librarian (BS-16)",
+        "year": 2024,
+        "department": "Education Department",
+        "downloadUrl": "/papers/ppsc-librarian-2024.pdf",
+        "subjects": [
+            "Library Science",
+            "General Knowledge",
+            "English"
+        ]
+    },
+    {
+        "examName": "Stenographer (BS-14)",
+        "year": 2023,
+        "department": "Various Departments",
+        "downloadUrl": "/papers/ppsc-steno-2023.pdf",
+        "subjects": [
+            "Shorthand",
+            "English",
+            "General Knowledge"
+        ]
+    },
+    {
+        "examName": "Assistant Director (BS-17) - Public Relations",
+        "year": 2024,
+        "department": "Information Department",
+        "downloadUrl": "/papers/ppsc-ad-pr-2024.pdf",
+        "subjects": [
+            "Mass Communication",
+            "General Knowledge",
+            "English"
+        ]
+    },
+    {
+        "examName": "Statistical Officer (BS-16)",
+        "year": 2023,
+        "department": "Bureau of Statistics",
+        "downloadUrl": "/papers/ppsc-stat-officer-2023.pdf",
+        "subjects": [
+            "Statistics",
+            "Mathematics",
+            "General Knowledge"
+        ]
+    },
+    {
+        "examName": "Soil Conservation Officer (BS-16)",
+        "year": 2024,
+        "department": "Agriculture Department",
+        "downloadUrl": "/papers/ppsc-sco-2024.pdf",
+        "subjects": [
+            "Agriculture",
+            "General Knowledge",
+            "Chemistry"
+        ]
+    },
+    {
+        "examName": "Horticulture Officer (BS-16)",
+        "year": 2023,
+        "department": "Agriculture Department",
+        "downloadUrl": "/papers/ppsc-ho-2023.pdf",
+        "subjects": [
+            "Horticulture",
+            "General Knowledge",
+            "Botany"
+        ]
+    },
+    {
+        "examName": "Meteorological Assistant (BS-14)",
+        "year": 2024,
+        "department": "Meteorological Department",
+        "downloadUrl": "/papers/ppsc-met-assistant-2024.pdf",
+        "subjects": [
+            "Physics",
+            "General Knowledge",
+            "Mathematics"
+        ]
+    },
+    {
+        "examName": "Research Officer (BS-17)",
+        "year": 2023,
+        "department": "Various Research Institutes",
+        "downloadUrl": "/papers/ppsc-ro-2023.pdf",
+        "subjects": [
+            "Research Methodology",
+            "General Knowledge",
+            "English"
+        ]
+    },
+    {
+        "examName": "Assistant Director (BS-17) - Environment",
+        "year": 2024,
+        "department": "Environment Department",
+        "downloadUrl": "/papers/ppsc-ad-env-2024.pdf",
+        "subjects": [
+            "Environmental Science",
+            "General Knowledge",
+            "Chemistry"
+        ]
+    },
+    {
+        "examName": "Community Development Officer (BS-16)",
+        "year": 2023,
+        "department": "Community Development",
+        "downloadUrl": "/papers/ppsc-cdo-2023.pdf",
+        "subjects": [
+            "Social Sciences",
+            "General Knowledge",
+            "English"
+        ]
+    },
+    {
+        "examName": "Assistant Programmer (BS-16)",
+        "year": 2024,
+        "department": "IT Department",
+        "downloadUrl": "/papers/ppsc-programmer-2024.pdf",
+        "subjects": [
+            "Computer Science",
+            "Programming",
+            "General Knowledge"
+        ]
+    },
+    {
+        "examName": "Building Inspector (BS-14)",
+        "year": 2023,
+        "department": "Housing Department",
+        "downloadUrl": "/papers/ppsc-building-inspector-2023.pdf",
+        "subjects": [
+            "Civil Engineering",
+            "General Knowledge",
+            "Mathematics"
+        ]
+    },
+    {
+        "examName": "Mines Inspector (BS-16)",
+        "year": 2024,
+        "department": "Mines & Minerals",
+        "downloadUrl": "/papers/ppsc-mines-inspector-2024.pdf",
+        "subjects": [
+            "Mining Engineering",
+            "General Knowledge",
+            "Geology"
+        ]
+    },
+    {
+        "examName": "Wildlife Officer (BS-16)",
+        "year": 2023,
+        "department": "Wildlife Department",
+        "downloadUrl": "/papers/ppsc-wildlife-officer-2023.pdf",
+        "subjects": [
+            "Zoology",
+            "General Knowledge",
+            "Environmental Science"
+        ]
+    },
+    {
+        "examName": "Forest Officer (BS-17)",
+        "year": 2024,
+        "department": "Forest Department",
+        "downloadUrl": "/papers/ppsc-fo-forest-2024.pdf",
+        "subjects": [
+            "Forestry",
+            "General Knowledge",
+            "Botany"
+        ]
+    }
+]

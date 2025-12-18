@@ -1,0 +1,38 @@
+{
+    "month": "January 2025",
+    "days": [
+        {
+            "date": "2025-01-17",
+            "events": [
+                {
+                    "text": "SUPARCO successfully launched indigenous Electro Optical Satellite from China",
+                    "category": "Technology",
+                    "tags": [
+                        "SUPARCO",
+                        "Satellite",
+                        "Space"
+                    ]
+                }
+            ]
+        },
+        {
+            "date": "2025-01-27",
+            "events": [
+                {
+                    "text": "India and Pakistan agreed to resume direct flights after a 6-year pause",
+                    "category": "International",
+                    "tags": [
+                        "Aviation",
+                        "India-Pakistan Relations"
+                    ]
+                }
+            ]
+        }
+    ],
+    "knowledgeBoxes": [
+        {
+            "title": "Top Countries by AI Investment",
+            "content": "1. USA ($47.1B)\n2. China ($11.9B)\n3. UK ($2.8B)\n\nIndia ranks 6th globally in AI investment."
+        }
+    ]
+}

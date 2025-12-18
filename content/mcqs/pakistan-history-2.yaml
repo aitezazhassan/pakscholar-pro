@@ -1,0 +1,16 @@
+question: "When was the first Constitution of Pakistan promulgated?"
+optionA: "1947"
+optionB: "1956"
+optionC: "1962"
+optionD: "1973"
+correctAnswer: "B"
+explanation: "Pakistan's first Constitution was promulgated in 1956, establishing the country as an Islamic Republic with a parliamentary system."
+category: "pakistan-affairs"
+difficulty: "easy"
+examTypes:
+  - "ppsc"
+  - "fpsc"
+  - "css"
+source: "Pakistan History"
+tags:
+  - "Constitution"
