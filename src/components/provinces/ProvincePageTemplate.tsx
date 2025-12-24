@@ -40,7 +40,7 @@ export default function ProvincePageTemplate({ data, colorScheme }: ProvincePage
         { id: 'admin', label: 'Administrative', icon: Landmark },
         { id: 'economy', label: 'Economy', icon: TrendingUp },
         { id: 'culture', label: 'Culture', icon: Users },
-        { id: 'education', label: 'Education', icon: GraduationCat },
+        { id: 'education', label: 'Education', icon: GraduationCap },
         { id: 'sites', label: 'Historical Sites', icon: Factory }
     ];
 
@@ -87,8 +87,8 @@ export default function ProvincePageTemplate({ data, colorScheme }: ProvincePage
                                     key={tab.id}
                                     onClick={() => setActiveTab(tab.id as any)}
                                     className={`flex items-center gap-2 whitespace-nowrap rounded-lg px-4 py-2 text-sm font-semibold transition-all ${activeTab === tab.id
-                                            ? `bg-${c.primary} text-white shadow-lg`
-                                            : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
+                                        ? `bg-${c.primary} text-white shadow-lg`
+                                        : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
                                         }`}
                                 >
                                     <Icon className="h-4 w-4" />
