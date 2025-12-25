@@ -33,6 +33,7 @@ export default function Header() {
     const resources = [
         { name: 'Practice Tests', href: '/practice' },
         { name: 'Past Papers', href: '/past-papers' },
+        { name: 'PMS Model Papers', href: '/pms-model-papers' },
         { name: 'Study Resources', href: '/resources' }
     ];
 
