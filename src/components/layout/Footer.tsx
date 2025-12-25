@@ -4,9 +4,9 @@ export default function Footer() {
     return (
         <footer className="bg-gray-900 text-white">
             <div className="mx-auto max-w-7xl px-6 py-16 sm:px-8">
-                <div className="grid gap-12 md:grid-cols-4">
+                <div className="grid gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
                     {/* About Section */}
-                    <div className="md:col-span-2">
+                    <div className="sm:col-span-2">
                         <h3 className="mb-4 text-xl font-bold">PakScholar Pro</h3>
                         <p className="mb-6 leading-relaxed text-gray-300">
                             Pakistan's dedicated platform for PPSC, FPSC, and CSS exam preparation.
@@ -41,10 +41,10 @@ export default function Footer() {
                         </ul>
                     </div>
 
-                    {/* Practice */}
+                    {/* Practice & Company combined for mobile */}
                     <div>
                         <h4 className="mb-4 text-base font-semibold">Practice</h4>
-                        <ul className="space-y-3">
+                        <ul className="space-y-3 mb-6">
                             <li>
                                 <Link href="/practice" className="text-sm text-gray-300 transition-colors hover:text-white">
                                     Mock Tests
@@ -55,9 +55,45 @@ export default function Footer() {
                                     Past Papers
                                 </Link>
                             </li>
+                        </ul>
+
+                        <h4 className="mb-4 text-base font-semibold">Company</h4>
+                        <ul className="space-y-3">
                             <li>
-                                <Link href="/rapid-quiz" className="text-sm text-gray-300 transition-colors hover:text-white">
-                                    Topic Quizzes
+                                <Link href="/about" className="text-sm text-gray-300 transition-colors hover:text-white">
+                                    About Us
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href="/contact" className="text-sm text-gray-300 transition-colors hover:text-white">
+                                    Contact
+                                </Link>
+                            </li>
+                        </ul>
+                    </div>
+
+                    {/* Legal */}
+                    <div>
+                        <h4 className="mb-4 text-base font-semibold">Legal</h4>
+                        <ul className="space-y-3">
+                            <li>
+                                <Link href="/privacy" className="text-sm text-gray-300 transition-colors hover:text-white">
+                                    Privacy Policy
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href="/terms" className="text-sm text-gray-300 transition-colors hover:text-white">
+                                    Terms of Service
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href="/cookies" className="text-sm text-gray-300 transition-colors hover:text-white">
+                                    Cookie Policy
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href="/disclaimer" className="text-sm text-gray-300 transition-colors hover:text-white">
+                                    Disclaimer
                                 </Link>
                             </li>
                         </ul>
