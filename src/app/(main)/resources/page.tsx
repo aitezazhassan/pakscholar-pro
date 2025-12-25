@@ -31,13 +31,7 @@ export default function ResourcesPage() {
         <main className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
             {/* Header */}
             <header className="border-b border-slate-200 bg-white">
-                <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-                    <Link href="/" className="group mb-4 inline-flex items-center gap-2 text-sm text-slate-600 transition-colors hover:text-slate-900">
-                        <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" />
-                        Back to Dashboard
-                    </Link>
-
-                    <div className="flex items-center gap-3">
+                <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8"><div className="flex items-center gap-3">
                         <div className="rounded-xl bg-indigo-600 p-3">
                             <Globe className="h-6 w-6 text-white" />
                         </div>
