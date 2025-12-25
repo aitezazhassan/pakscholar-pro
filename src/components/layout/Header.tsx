@@ -1,12 +1,19 @@
 'use client';
 
 import Link from 'next/link';
-import { useState } from 'react';
-import { Menu, X, ChevronDown } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { Menu, X, ChevronDown, BookOpen } from 'lucide-react';
 
 export default function Header() {
+    const [scrolled, setScrolled] = useState(false);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+
+    useEffect(() => {
+        const handleScroll = () => setScrolled(window.scrollY > 20);
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
 
     const subjects = [
         { name: 'Pakistan Studies', href: '/pakistan-studies' },
@@ -38,23 +45,23 @@ export default function Header() {
 
     return (
         <>
-            <header className="sticky top-0 z-50 bg-white border-b border-gray-200 shadow-sm">
-                <div className="mx-auto max-w-7xl px-6 sm:px-8">
-                    <div className="flex h-18 items-center justify-between">
+            <header className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white/80 backdrop-blur-xl shadow-sm' : 'bg-transparent'}`}>
+                <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                    <div className="flex h-16 items-center justify-between">
                         {/* Logo */}
-                        <Link href="/" className="flex items-center gap-3 group">
-                            <div className="h-10 w-10 rounded-lg bg-[#01411C] flex items-center justify-center text-white font-bold text-lg shadow-sm transition-transform group-hover:scale-105">
-                                PS
+                        <Link href="/" className="flex items-center space-x-2">
+                            <div className="w-8 h-8 bg-gradient-to-br from-emerald-600 to-emerald-800 rounded-lg flex items-center justify-center">
+                                <BookOpen className="w-5 h-5 text-white" />
                             </div>
-                            <span className="text-xl font-bold text-gray-900">PakScholar Pro</span>
+                            <span className="text-xl font-semibold text-gray-900">PakScholar Pro</span>
                         </Link>
 
                         {/* Desktop Navigation */}
-                        <nav className="hidden lg:flex items-center gap-8">
+                        <nav className="hidden lg:flex items-center space-x-8">
                             {/* Subjects Dropdown */}
                             <div className="relative group">
                                 <button
-                                    className="flex items-center gap-1 text-[15px] font-medium text-gray-600 transition-colors hover:text-[#01411C]"
+                                    className="flex items-center gap-1 text-sm font-medium text-gray-700 hover:text-emerald-700 transition-colors"
                                     onMouseEnter={() => setActiveDropdown('subjects')}
                                     onMouseLeave={() => setActiveDropdown(null)}
                                 >
@@ -62,7 +69,7 @@ export default function Header() {
                                 </button>
                                 {activeDropdown === 'subjects' && (
                                     <div
-                                        className="absolute left-0 mt-2 w-56 rounded-lg bg-white shadow-lg ring-1 ring-black ring-opacity-5"
+                                        className="absolute left-0 mt-2 w-56 rounded-2xl bg-white shadow-xl ring-1 ring-black ring-opacity-5"
                                         onMouseEnter={() => setActiveDropdown('subjects')}
                                         onMouseLeave={() => setActiveDropdown(null)}
                                     >
@@ -71,7 +78,7 @@ export default function Header() {
                                                 <Link
                                                     key={item.href}
                                                     href={item.href}
-                                                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-emerald-50 hover:text-[#01411C]"
+                                                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-emerald-50 hover:text-emerald-700 transition-colors"
                                                 >
                                                     {item.name}
                                                 </Link>
@@ -84,7 +91,7 @@ export default function Header() {
                             {/* Exams Dropdown */}
                             <div className="relative group">
                                 <button
-                                    className="flex items-center gap-1 text-[15px] font-medium text-gray-600 transition-colors hover:text-[#01411C]"
+                                    className="flex items-center gap-1 text-sm font-medium text-gray-700 hover:text-emerald-700 transition-colors"
                                     onMouseEnter={() => setActiveDropdown('exams')}
                                     onMouseLeave={() => setActiveDropdown(null)}
                                 >
@@ -92,7 +99,7 @@ export default function Header() {
                                 </button>
                                 {activeDropdown === 'exams' && (
                                     <div
-                                        className="absolute left-0 mt-2 w-48 rounded-lg bg-white shadow-lg ring-1 ring-black ring-opacity-5"
+                                        className="absolute left-0 mt-2 w-48 rounded-2xl bg-white shadow-xl ring-1 ring-black ring-opacity-5"
                                         onMouseEnter={() => setActiveDropdown('exams')}
                                         onMouseLeave={() => setActiveDropdown(null)}
                                     >
@@ -101,7 +108,7 @@ export default function Header() {
                                                 <Link
                                                     key={item.href}
                                                     href={item.href}
-                                                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-emerald-50 hover:text-[#01411C]"
+                                                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-emerald-50 hover:text-emerald-700 transition-colors"
                                                 >
                                                     {item.name}
                                                 </Link>
@@ -114,7 +121,7 @@ export default function Header() {
                             {/* Resources Dropdown */}
                             <div className="relative group">
                                 <button
-                                    className="flex items-center gap-1 text-[15px] font-medium text-gray-600 transition-colors hover:text-[#01411C]"
+                                    className="flex items-center gap-1 text-sm font-medium text-gray-700 hover:text-emerald-700 transition-colors"
                                     onMouseEnter={() => setActiveDropdown('resources')}
                                     onMouseLeave={() => setActiveDropdown(null)}
                                 >
@@ -122,7 +129,7 @@ export default function Header() {
                                 </button>
                                 {activeDropdown === 'resources' && (
                                     <div
-                                        className="absolute left-0 mt-2 w-48 rounded-lg bg-white shadow-lg ring-1 ring-black ring-opacity-5"
+                                        className="absolute left-0 mt-2 w-48 rounded-2xl bg-white shadow-xl ring-1 ring-black ring-opacity-5"
                                         onMouseEnter={() => setActiveDropdown('resources')}
                                         onMouseLeave={() => setActiveDropdown(null)}
                                     >
@@ -131,7 +138,7 @@ export default function Header() {
                                                 <Link
                                                     key={item.href}
                                                     href={item.href}
-                                                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-emerald-50 hover:text-[#01411C]"
+                                                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-emerald-50 hover:text-emerald-700 transition-colors"
                                                 >
                                                     {item.name}
                                                 </Link>
@@ -144,7 +151,7 @@ export default function Header() {
                             {/* Help Dropdown */}
                             <div className="relative group">
                                 <button
-                                    className="flex items-center gap-1 text-[15px] font-medium text-gray-600 transition-colors hover:text-[#01411C]"
+                                    className="flex items-center gap-1 text-sm font-medium text-gray-700 hover:text-emerald-700 transition-colors"
                                     onMouseEnter={() => setActiveDropdown('help')}
                                     onMouseLeave={() => setActiveDropdown(null)}
                                 >
@@ -152,7 +159,7 @@ export default function Header() {
                                 </button>
                                 {activeDropdown === 'help' && (
                                     <div
-                                        className="absolute right-0 mt-2 w-48 rounded-lg bg-white shadow-lg ring-1 ring-black ring-opacity-5"
+                                        className="absolute right-0 mt-2 w-48 rounded-2xl bg-white shadow-xl ring-1 ring-black ring-opacity-5"
                                         onMouseEnter={() => setActiveDropdown('help')}
                                         onMouseLeave={() => setActiveDropdown(null)}
                                     >
@@ -161,7 +168,7 @@ export default function Header() {
                                                 <Link
                                                     key={item.href}
                                                     href={item.href}
-                                                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-emerald-50 hover:text-[#01411C]"
+                                                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-emerald-50 hover:text-emerald-700 transition-colors"
                                                 >
                                                     {item.name}
                                                 </Link>
@@ -174,9 +181,17 @@ export default function Header() {
                             {/* About Link */}
                             <Link
                                 href="/about"
-                                className="text-[15px] font-medium text-gray-600 transition-colors hover:text-[#01411C]"
+                                className="text-sm font-medium text-gray-700 hover:text-emerald-700 transition-colors"
                             >
                                 About
+                            </Link>
+
+                            {/* CTA Button */}
+                            <Link
+                                href="/pakistan-studies"
+                                className="px-5 py-2 bg-emerald-700 text-white text-sm font-medium rounded-full hover:bg-emerald-800 transition-all hover:shadow-lg hover:shadow-emerald-200"
+                            >
+                                Start Learning
                             </Link>
                         </nav>
 
@@ -186,11 +201,7 @@ export default function Header() {
                             className="rounded-lg p-2 text-gray-700 hover:bg-gray-100 lg:hidden"
                             aria-label="Toggle menu"
                         >
-                            {mobileMenuOpen ? (
-                                <X className="h-6 w-6" />
-                            ) : (
-                                <Menu className="h-6 w-6" />
-                            )}
+                            {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
                         </button>
                     </div>
                 </div>
@@ -207,7 +218,7 @@ export default function Header() {
 
                     {/* Drawer */}
                     <div className="fixed right-0 top-0 z-50 h-full w-4/5 max-w-sm overflow-y-auto bg-white shadow-xl lg:hidden">
-                        <div className="flex h-18 items-center justify-between border-b border-gray-200 px-6">
+                        <div className="flex h-16 items-center justify-between border-b border-gray-100 px-6">
                             <span className="text-xl font-bold text-gray-900">Menu</span>
                             <button
                                 onClick={() => setMobileMenuOpen(false)}
@@ -216,74 +227,91 @@ export default function Header() {
                                 <X className="h-6 w-6" />
                             </button>
                         </div>
-                        <nav className="flex flex-col p-6">
+                        <nav className="flex flex-col p-6 space-y-6">
                             {/* Subjects */}
-                            <div className="border-b border-gray-100 pb-4">
+                            <div>
                                 <h3 className="mb-3 text-sm font-semibold text-gray-900">Subjects</h3>
-                                {subjects.map((item) => (
-                                    <Link
-                                        key={item.href}
-                                        href={item.href}
-                                        onClick={() => setMobileMenuOpen(false)}
-                                        className="block py-2 pl-4 text-sm text-gray-700 hover:text-[#01411C]"
-                                    >
-                                        {item.name}
-                                    </Link>
-                                ))}
+                                <div className="space-y-2">
+                                    {subjects.map((item) => (
+                                        <Link
+                                            key={item.href}
+                                            href={item.href}
+                                            onClick={() => setMobileMenuOpen(false)}
+                                            className="block py-2 pl-4 text-sm text-gray-700 hover:text-emerald-700 transition-colors"
+                                        >
+                                            {item.name}
+                                        </Link>
+                                    ))}
+                                </div>
                             </div>
 
                             {/* Exams */}
-                            <div className="border-b border-gray-100 py-4">
+                            <div>
                                 <h3 className="mb-3 text-sm font-semibold text-gray-900">Exams</h3>
-                                {exams.map((item) => (
-                                    <Link
-                                        key={item.href}
-                                        href={item.href}
-                                        onClick={() => setMobileMenuOpen(false)}
-                                        className="block py-2 pl-4 text-sm text-gray-700 hover:text-[#01411C]"
-                                    >
-                                        {item.name}
-                                    </Link>
-                                ))}
+                                <div className="space-y-2">
+                                    {exams.map((item) => (
+                                        <Link
+                                            key={item.href}
+                                            href={item.href}
+                                            onClick={() => setMobileMenuOpen(false)}
+                                            className="block py-2 pl-4 text-sm text-gray-700 hover:text-emerald-700 transition-colors"
+                                        >
+                                            {item.name}
+                                        </Link>
+                                    ))}
+                                </div>
                             </div>
 
                             {/* Resources */}
-                            <div className="border-b border-gray-100 py-4">
+                            <div>
                                 <h3 className="mb-3 text-sm font-semibold text-gray-900">Resources</h3>
-                                {resources.map((item) => (
-                                    <Link
-                                        key={item.href}
-                                        href={item.href}
-                                        onClick={() => setMobileMenuOpen(false)}
-                                        className="block py-2 pl-4 text-sm text-gray-700 hover:text-[#01411C]"
-                                    >
-                                        {item.name}
-                                    </Link>
-                                ))}
+                                <div className="space-y-2">
+                                    {resources.map((item) => (
+                                        <Link
+                                            key={item.href}
+                                            href={item.href}
+                                            onClick={() => setMobileMenuOpen(false)}
+                                            className="block py-2 pl-4 text-sm text-gray-700 hover:text-emerald-700 transition-colors"
+                                        >
+                                            {item.name}
+                                        </Link>
+                                    ))}
+                                </div>
                             </div>
 
                             {/* Help */}
-                            <div className="border-b border-gray-100 py-4">
+                            <div>
                                 <h3 className="mb-3 text-sm font-semibold text-gray-900">Help</h3>
-                                {help.map((item) => (
-                                    <Link
-                                        key={item.href}
-                                        href={item.href}
-                                        onClick={() => setMobileMenuOpen(false)}
-                                        className="block py-2 pl-4 text-sm text-gray-700 hover:text-[#01411C]"
-                                    >
-                                        {item.name}
-                                    </Link>
-                                ))}
+                                <div className="space-y-2">
+                                    {help.map((item) => (
+                                        <Link
+                                            key={item.href}
+                                            href={item.href}
+                                            onClick={() => setMobileMenuOpen(false)}
+                                            className="block py-2 pl-4 text-sm text-gray-700 hover:text-emerald-700 transition-colors"
+                                        >
+                                            {item.name}
+                                        </Link>
+                                    ))}
+                                </div>
                             </div>
 
                             {/* About */}
                             <Link
                                 href="/about"
                                 onClick={() => setMobileMenuOpen(false)}
-                                className="border-b border-gray-100 py-4 text-sm font-medium text-gray-700 hover:text-[#01411C]"
+                                className="text-sm font-medium text-gray-700 hover:text-emerald-700 transition-colors"
                             >
                                 About Us
+                            </Link>
+
+                            {/* CTA Button */}
+                            <Link
+                                href="/pakistan-studies"
+                                onClick={() => setMobileMenuOpen(false)}
+                                className="w-full px-5 py-3 bg-emerald-700 text-white text-sm font-medium rounded-full text-center hover:bg-emerald-800 transition-colors"
+                            >
+                                Start Learning
                             </Link>
                         </nav>
                     </div>

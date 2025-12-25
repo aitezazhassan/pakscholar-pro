@@ -1,62 +1,40 @@
 import Link from 'next/link';
+import { BookOpen } from 'lucide-react';
 
 export default function Footer() {
     return (
-        <footer className="bg-gray-900 text-white">
-            <div className="mx-auto max-w-7xl px-6 py-16 sm:px-8">
-                <div className="grid gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
-                    {/* About Section - Spans 2 columns */}
-                    <div className="sm:col-span-2">
-                        <h3 className="mb-4 text-xl font-bold">PakScholar Pro</h3>
-                        <p className="mb-6 leading-relaxed text-gray-300">
-                            Pakistan's dedicated platform for PPSC, FPSC, and CSS exam preparation.
-                            Committed to helping students achieve their career goals through quality education.
-                        </p>
-                    </div>
-
-                    {/* Subjects */}
+        <footer className="bg-gray-900 text-gray-400 py-12">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="grid md:grid-cols-4 gap-8 mb-8">
+                    {/* About Section */}
                     <div>
-                        <h4 className="mb-4 text-base font-semibold">Subjects</h4>
-                        <ul className="space-y-3">
-                            <li>
-                                <Link href="/pakistan-studies" className="text-sm text-gray-300 transition-colors hover:text-white">
-                                    Pakistan Studies
-                                </Link>
-                            </li>
-                            <li>
-                                <Link href="/islamic-studies" className="text-sm text-gray-300 transition-colors hover:text-white">
-                                    Islamic Studies
-                                </Link>
-                            </li>
-                            <li>
-                                <Link href="/mathematics" className="text-sm text-gray-300 transition-colors hover:text-white">
-                                    Mathematics
-                                </Link>
-                            </li>
-                            <li>
-                                <Link href="/english" className="text-sm text-gray-300 transition-colors hover:text-white">
-                                    English
-                                </Link>
-                            </li>
-                        </ul>
+                        <div className="flex items-center space-x-2 mb-4">
+                            <div className="w-8 h-8 bg-gradient-to-br from-emerald-600 to-emerald-800 rounded-lg flex items-center justify-center">
+                                <BookOpen className="w-5 h-5 text-white" />
+                            </div>
+                            <span className="text-xl font-semibold text-white">PakScholar Pro</span>
+                        </div>
+                        <p className="text-sm leading-relaxed">
+                            Pakistan's premier competitive exam preparation platform for PPSC, FPSC, and CSS.
+                        </p>
                     </div>
 
                     {/* Exams */}
                     <div>
-                        <h4 className="mb-4 text-base font-semibold">Exams</h4>
-                        <ul className="space-y-3">
+                        <h4 className="text-white font-semibold mb-4">Exams</h4>
+                        <ul className="space-y-2 text-sm">
                             <li>
-                                <Link href="/exams/ppsc" className="text-sm text-gray-300 transition-colors hover:text-white">
+                                <Link href="/exams/ppsc" className="hover:text-emerald-400 transition-colors">
                                     PPSC Guide
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/exams/fpsc" className="text-sm text-gray-300 transition-colors hover:text-white">
+                                <Link href="/exams/fpsc" className="hover:text-emerald-400 transition-colors">
                                     FPSC Guide
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/exams/css" className="text-sm text-gray-300 transition-colors hover:text-white">
+                                <Link href="/exams/css" className="hover:text-emerald-400 transition-colors">
                                     CSS Guide
                                 </Link>
                             </li>
@@ -65,99 +43,51 @@ export default function Footer() {
 
                     {/* Resources */}
                     <div>
-                        <h4 className="mb-4 text-base font-semibold">Resources</h4>
-                        <ul className="space-y-3">
+                        <h4 className="text-white font-semibold mb-4">Resources</h4>
+                        <ul className="space-y-2 text-sm">
                             <li>
-                                <Link href="/practice" className="text-sm text-gray-300 transition-colors hover:text-white">
+                                <Link href="/practice" className="hover:text-emerald-400 transition-colors">
                                     Practice Tests
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/past-papers" className="text-sm text-gray-300 transition-colors hover:text-white">
+                                <Link href="/past-papers" className="hover:text-emerald-400 transition-colors">
                                     Past Papers
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/resources" className="text-sm text-gray-300 transition-colors hover:text-white">
+                                <Link href="/resources" className="hover:text-emerald-400 transition-colors">
                                     Study Materials
-                                </Link>
-                            </li>
-                            <li>
-                                <Link href="/current-affairs" className="text-sm text-gray-300 transition-colors hover:text-white">
-                                    Current Affairs
                                 </Link>
                             </li>
                         </ul>
                     </div>
 
-                    {/* Company & Help Combined */}
+                    {/* Company */}
                     <div>
-                        <h4 className="mb-4 text-base font-semibold">Company</h4>
-                        <ul className="space-y-3 mb-6">
+                        <h4 className="text-white font-semibold mb-4">Company</h4>
+                        <ul className="space-y-2 text-sm">
                             <li>
-                                <Link href="/about" className="text-sm text-gray-300 transition-colors hover:text-white">
+                                <Link href="/about" className="hover:text-emerald-400 transition-colors">
                                     About Us
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/team" className="text-sm text-gray-300 transition-colors hover:text-white">
-                                    Our Team
-                                </Link>
-                            </li>
-                            <li>
-                                <Link href="/contact" className="text-sm text-gray-300 transition-colors hover:text-white">
+                                <Link href="/contact" className="hover:text-emerald-400 transition-colors">
                                     Contact
                                 </Link>
                             </li>
-                        </ul>
-
-                        <h4 className="mb-4 text-base font-semibold">Help</h4>
-                        <ul className="space-y-3">
                             <li>
-                                <Link href="/how-it-works" className="text-sm text-gray-300 transition-colors hover:text-white">
-                                    How It Works
-                                </Link>
-                            </li>
-                            <li>
-                                <Link href="/faq" className="text-sm text-gray-300 transition-colors hover:text-white">
-                                    FAQ
-                                </Link>
-                            </li>
-                            <li>
-                                <Link href="/help" className="text-sm text-gray-300 transition-colors hover:text-white">
-                                    Help Center
+                                <Link href="/privacy" className="hover:text-emerald-400 transition-colors">
+                                    Privacy
                                 </Link>
                             </li>
                         </ul>
                     </div>
                 </div>
 
-                {/* Legal Links Row */}
-                <div className="mt-12 border-t border-gray-800 pt-8">
-                    <div className="flex flex-wrap items-center justify-center gap-6 text-sm text-gray-400">
-                        <Link href="/privacy" className="transition-colors hover:text-white">
-                            Privacy Policy
-                        </Link>
-                        <Link href="/terms" className="transition-colors hover:text-white">
-                            Terms of Service
-                        </Link>
-                        <Link href="/cookies" className="transition-colors hover:text-white">
-                            Cookie Policy
-                        </Link>
-                        <Link href="/disclaimer" className="transition-colors hover:text-white">
-                            Disclaimer
-                        </Link>
-                        <Link href="/sitemap-page" className="transition-colors hover:text-white">
-                            Sitemap
-                        </Link>
-                    </div>
-                </div>
-
-                {/* Bottom Bar */}
-                <div className="mt-8 text-center">
-                    <p className="text-sm text-gray-400">
-                        © 2025 PakScholar Pro. Made in Pakistan 🇵🇰
-                    </p>
+                <div className="border-t border-gray-800 pt-8 text-center text-sm">
+                    <p>© 2025 PakScholar Pro. Made with ❤️ for Pakistani Students 🇵🇰</p>
                 </div>
             </div>
         </footer>
