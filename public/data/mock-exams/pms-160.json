@@ -3,7 +3,7 @@
   "title": "PMS Model Paper 160",
   "description": "Complete 100-question mock exam for PMS preparation covering all major subjects",
   "duration": 120,
-  "totalQuestions": 3,
+  "totalQuestions": 100,
   "passingScore": 50,
   "subjects": {
     "General Knowledge": 28,
@@ -20,12 +20,7 @@
     {
       "id": 1,
       "question": "Where is the Kala Pani Jail located?",
-      "options": [
-        "Lakshadweep Islands",
-        "Andaman Islands",
-        "Mauritius",
-        "Sri Lanka"
-      ],
+      "options": ["Lakshadweep Islands", "Andaman Islands", "Mauritius", "Sri Lanka"],
       "correctAnswer": 1,
       "subject": "General Knowledge",
       "topic": "History",
@@ -34,12 +29,7 @@
     {
       "id": 2,
       "question": "To which country did Benjamin Franklin (1706-1790) belong?",
-      "options": [
-        "US",
-        "UK",
-        "Canada",
-        "China"
-      ],
+      "options": ["US", "UK", "Canada", "China"],
       "correctAnswer": 0,
       "subject": "General Knowledge",
       "topic": "Personalities",
@@ -48,12 +38,7 @@
     {
       "id": 3,
       "question": "What was the profession of the President of Ukraine, Volodymyr Zelenskyy, before he became president?",
-      "options": [
-        "Lawyer",
-        "Politician",
-        "Comedian",
-        "Scientist"
-      ],
+      "options": ["Lawyer", "Politician", "Comedian", "Scientist"],
       "correctAnswer": 2,
       "subject": "General Knowledge",
       "topic": "Current Leaders",
