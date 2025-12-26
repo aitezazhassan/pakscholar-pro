@@ -1,56 +1,44 @@
-import { ScrollTimeline } from '@/components/history/ScrollTimeline';
-import { timelineEvents } from '@/lib/mapData/timeline';
-import Link from 'next/link';
-import { ArrowLeft, Clock } from 'lucide-react';
+'use client';
 
-export const metadata = {
-    title: 'Constitutional Timeline | Pakistan History | PakScholar Pro',
-    description: 'Explore Pakistan\'s constitutional and political history from 1947 to present through an interactive scrolling timeline.',
-};
+import { Calendar } from 'lucide-react';
 
 export default function TimelinePage() {
+    const milestones = [
+        { year: '2024', event: 'PakScholar Pro Launched', desc: 'Platform goes live with initial content' },
+        { year: '2024', event: 'Mock Exams Added', desc: 'Interactive practice tests introduced' },
+        { year: '2024', event: 'Complete UI Redesign', desc: 'Modern, sleek interface rolled out' },
+        { year: '2025', event: 'Growing Community', desc: 'Serving thousands of students' }
+    ];
+
     return (
-        <div className="min-h-screen bg-slate-50">
-            <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-                {/* Header */}
-                <Link
-                    href="/"
-                    className="group mb-8 inline-flex items-center gap-2 text-sm font-medium text-slate-600 transition-colors hover:text-oxford-900"
-                >
-                    <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" />
-                    Back to Home
-                </Link>
+        <main className="min-h-screen bg-white">
+            <section className="bg-slate-900 py-16">
+                <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
+                    <Calendar className="w-12 h-12 mx-auto mb-4 text-emerald-400" />
+                    <h1 className="text-4xl font-bold mb-2">Our Journey</h1>
+                    <p className="text-slate-300">Growing to serve Pakistani students</p>
+                </div>
+            </section>
 
-                <div className="mb-12 text-center">
-                    <div className="mb-4 flex justify-center">
-                        <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-oxford-900 to-oxford-700 text-white shadow-hard">
-                            <Clock className="h-8 w-8" />
-                        </div>
+            <section className="py-16">
+                <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="space-y-8">
+                        {milestones.map((milestone, idx) => (
+                            <div key={idx} className="flex gap-6">
+                                <div className="flex-shrink-0 w-20 text-center">
+                                    <span className="inline-block px-3 py-1 bg-emerald-100 text-emerald-700 rounded-full text-sm font-bold">
+                                        {milestone.year}
+                                    </span>
+                                </div>
+                                <div className="flex-1 bg-slate-50 rounded-2xl p-6">
+                                    <h3 className="text-xl font-bold text-slate-900 mb-2">{milestone.event}</h3>
+                                    <p className="text-slate-700">{milestone.desc}</p>
+                                </div>
+                            </div>
+                        ))}
                     </div>
-
-                    <h1 className="mb-4 font-playfair text-4xl font-bold text-slate-900 md:text-5xl">
-                        Constitutional Timeline
-                    </h1>
-
-                    <p className="mx-auto max-w-2xl text-lg text-slate-600">
-                        Journey through Pakistan's constitutional and political history from independence in 1947 to the present day. Scroll to explore key moments that shaped the nation.
-                    </p>
                 </div>
-
-                {/* Timeline */}
-                <ScrollTimeline events={timelineEvents} />
-
-                {/* Footer Note */}
-                <div className="mt-12 rounded-xl bg-white p-6 text-center shadow-soft">
-                    <p className="text-slate-600">
-                        This timeline highlights major constitutional milestones in Pakistan's history. For more detailed information on specific events, explore our{' '}
-                        <Link href="/essays" className="font-medium text-oxford-900 underline">
-                            essay collection
-                        </Link>
-                        .
-                    </p>
-                </div>
-            </div>
-        </div>
+            </section>
+        </main>
     );
 }
