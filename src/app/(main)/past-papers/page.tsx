@@ -1,115 +1,64 @@
 'use client';
 
-import { useState } from 'react';
-import { Shield, Search, Download } from 'lucide-react';
-import pastPapersData from '@/data/past-papers.json';
+import { FileText, Download, Calendar } from 'lucide-react';
 
 export default function PastPapersPage() {
-    const [searchQuery, setSearchQuery] = useState('');
-
-    const filteredPapers = pastPapersData.filter(paper =>
-        paper.examName.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        paper.department.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        paper.year.toString().includes(searchQuery)
-    );
+    const papers = [
+        { exam: 'PPSC', year: 2024, subject: 'General Knowledge', questions: 100 },
+        { exam: 'FPSC', year: 2024, subject: 'Pakistan Studies', questions: 100 },
+        { exam: 'CSS', year: 2023, subject: 'Essay', questions: 1 },
+        { exam: 'PPSC', year: 2023, subject: 'Islamic Studies', questions: 100 }
+    ];
 
     return (
-        <main className="min-h-screen bg-slate-50">
-            {/* Official Header */}
-            <header className="border-b-4 border-emerald-950 bg-emerald-950">
-                <div className="mx-auto max-w-7xl px-4 py-3 sm:px-6 lg:px-8">
-                    <div className="flex items-center justify-between">
-                        <div className="flex items-center gap-3">
-                            <Shield className="h-6 w-6 text-amber-400" />
-                            <div>
-                                <h1 className="text-xl font-bold text-white">Past Papers Archive</h1>
-                                <p className="text-sm text-emerald-200">PPSC/FPSC 2020-2024</p>
-                            </div>
-                        </div>
-                        <div className="relative">
-                            <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-emerald-700" />
-                            <input
-                                type="text"
-                                value={searchQuery}
-                                onChange={(e) => setSearchQuery(e.target.value)}
-                                placeholder="Search exam, department, year..."
-                                className="rounded border border-emerald-700 bg-emerald-900 py-2 pl-10 pr-4 text-sm text-white placeholder-emerald-300 focus:outline-none focus:ring-2 focus:ring-amber-400"
-                            />
-                        </div>
-                    </div>
+        <main className="min-h-screen bg-white">
+            <section className="relative isolate overflow-hidden bg-slate-900 pt-24 pb-20">
+                <div className="absolute inset-0 -z-10">
+                    <div className="absolute top-0 z-[-2] h-full w-full bg-[#000000] bg-[radial-gradient(#ffffff33_1px,#00091d_1px)] bg-[size:20px_20px] opacity-[0.2]"></div>
+                    <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-amber-700/20 blur-[100px]" />
                 </div>
-            </header>
 
-            <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-                {/* Results Count */}
-                <div className="mb-4">
-                    <p className="text-sm text-slate-600">
-                        Showing <span className="font-bold">{filteredPapers.length}</span> of{' '}
-                        <span className="font-bold">{pastPapersData.length}</span> papers
+                <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center text-white">
+                    <FileText className="w-16 h-16 mx-auto mb-6 text-amber-400" />
+                    <h1 className="text-5xl font-bold mb-4 font-serif">Past Papers</h1>
+                    <p className="text-xl text-slate-300 max-w-2xl mx-auto">
+                        Practice with actual exam questions from previous years
                     </p>
                 </div>
+            </section>
 
-                {/* Dense Data Table */}
-                <div className="overflow-hidden rounded-lg border-2 border-slate-300 bg-white">
-                    {/* Table Header */}
-                    <div className="grid grid-cols-12 gap-4 border-b-2 border-emerald-950 bg-emerald-950 px-4 py-3 text-sm font-bold text-white">
-                        <div className="col-span-5">Exam Name</div>
-                        <div className="col-span-1">Year</div>
-                        <div className="col-span-3">Department</div>
-                        <div className="col-span-2">Subjects</div>
-                        <div className="col-span-1 text-center">Download</div>
-                    </div>
-
-                    {/* Table Rows */}
-                    <div className="divide-y divide-slate-200">
-                        {filteredPapers.length === 0 ? (
-                            <div className="px-4 py-8 text-center text-slate-600">
-                                No papers found for "{searchQuery}"
-                            </div>
-                        ) : (
-                            filteredPapers.map((paper, index) => (
-                                <div
-                                    key={index}
-                                    className="grid grid-cols-12 gap-4 px-4 py-3 text-sm hover:bg-slate-50"
-                                >
-                                    <div className="col-span-5 font-medium text-slate-900">
-                                        {paper.examName}
-                                    </div>
-                                    <div className="col-span-1">
-                                        <span className="rounded bg-emerald-100 px-2 py-1 text-xs font-bold text-emerald-900">
-                                            {paper.year}
-                                        </span>
-                                    </div>
-                                    <div className="col-span-3 text-slate-700">{paper.department}</div>
-                                    <div className="col-span-2">
-                                        <div className="flex flex-wrap gap-1">
-                                            {paper.subjects.slice(0, 2).map((subject, idx) => (
-                                                <span
-                                                    key={idx}
-                                                    className="rounded bg-slate-100 px-2 py-0.5 text-xs text-slate-600"
-                                                >
-                                                    {subject}
-                                                </span>
-                                            ))}
-                                            {paper.subjects.length > 2 && (
-                                                <span className="rounded bg-slate-100 px-2 py-0.5 text-xs text-slate-600">
-                                                    +{paper.subjects.length - 2}
-                                                </span>
-                                            )}
-                                        </div>
-                                    </div>
-                                    <div className="col-span-1 text-center">
-                                        <button className="inline-flex items-center gap-1 rounded bg-amber-600 px-3 py-1 text-xs font-bold text-white hover:bg-amber-700">
-                                            <Download className="h-3 w-3" />
-                                            PDF
-                                        </button>
-                                    </div>
+            <section className="py-20 bg-white">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        {papers.map((paper, idx) => (
+                            <div key={idx} className="bg-white rounded-2xl border-2 border-slate-200 p-6 hover:shadow-xl transition-all hover:-translate-y-1">
+                                <div className="flex items-center justify-between mb-4">
+                                    <span className="px-3 py-1 bg-amber-100 text-amber-700 rounded-full text-sm font-bold">{paper.exam}</span>
+                                    <span className="text-sm text-slate-500 flex items-center gap-1">
+                                        <Calendar className="w-4 h-4" />
+                                        {paper.year}
+                                    </span>
                                 </div>
-                            ))
-                        )}
+                                <h3 className="text-xl font-bold text-slate-900 mb-2">{paper.subject}</h3>
+                                <p className="text-slate-600 mb-4">{paper.questions} Questions</p>
+                                <button className="w-full py-3 bg-slate-900 text-white rounded-lg font-semibold hover:bg-slate-800 transition-all flex items-center justify-center gap-2">
+                                    <Download className="w-4 h-4" />
+                                    Download PDF
+                                </button>
+                            </div>
+                        ))}
                     </div>
                 </div>
-            </div>
+            </section>
+
+            <section className="py-20 bg-gradient-to-br from-amber-900 to-slate-900 text-white">
+                <div className="max-w-4xl mx-auto px-4 text-center">
+                    <h2 className="text-4xl font-bold mb-6">More Papers Coming Soon</h2>
+                    <p className="text-xl text-amber-100 mb-8">
+                        We're constantly adding new past papers to help you prepare
+                    </p>
+                </div>
+            </section>
         </main>
     );
 }
