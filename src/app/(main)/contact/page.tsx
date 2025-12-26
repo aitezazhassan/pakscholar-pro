@@ -1,216 +1,65 @@
 'use client';
 
-import type { Metadata } from 'next';
-import Link from 'next/link';
-import { useState } from 'react';
-import { Mail, MessageSquare, Clock } from 'lucide-react';
+import { Mail, MapPin, Phone, Send } from 'lucide-react';
 
-export default function ContactUs() {
-    const [formData, setFormData] = useState({
-        name: '',
-        email: '',
-        subject: '',
-        message: ''
-    });
-    const [submitted, setSubmitted] = useState(false);
-
-    const handleSubmit = (e: React.FormEvent) => {
-        e.preventDefault();
-        // In a real app, this would send to a backend
-        setSubmitted(true);
-        setTimeout(() => setSubmitted(false), 5000);
-    };
-
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-        setFormData(prev => ({
-            ...prev,
-            [e.target.name]: e.target.value
-        }));
-    };
-
+export default function ContactPage() {
     return (
         <main className="min-h-screen bg-white">
-            <div className="mx-auto max-w-5xl px-6 py-16 sm:px-8 sm:py-24">
-                {/* Header */}
-                <div className="mb-12 text-center">
-                    <h1 className="mb-4 text-4xl font-bold text-gray-900 sm:text-5xl">Contact Us</h1>
-                    <p className="text-xl text-gray-600">
-                        We're here to help! Reach out with any questions or feedback.
-                    </p>
+            <section className="relative isolate overflow-hidden bg-slate-900 pt-24 pb-20">
+                <div className="absolute inset-0 -z-10">
+                    <div className="absolute top-0 z-[-2] h-full w-full bg-[#000000] bg-[radial-gradient(#ffffff33_1px,#00091d_1px)] bg-[size:20px_20px] opacity-[0.2]"></div>
+                    <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-emerald-700/20 blur-[100px]" />
                 </div>
 
-                <div className="grid gap-12 lg:grid-cols-2">
-                    {/* Contact Info */}
-                    <div>
-                        <h2 className="mb-6 text-2xl font-bold text-gray-900">Get in Touch</h2>
+                <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center text-white">
+                    <Mail className="w-16 h-16 mx-auto mb-6 text-emerald-400" />
+                    <h1 className="text-5xl font-bold mb-4 font-serif">Contact Us</h1>
+                    <p className="text-xl text-slate-300">Get in touch with our team</p>
+                </div>
+            </section>
 
-                        <div className="space-y-6">
-                            <div className="flex items-start gap-4">
-                                <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-lg bg-emerald-50">
-                                    <Mail className="h-6 w-6 text-[#01411C]" />
-                                </div>
-                                <div>
-                                    <h3 className="mb-1 font-semibold text-gray-900">Email</h3>
-                                    <p className="mb-1 text-gray-700">
-                                        <a href="mailto:support@pakscholarpro.com" className="text-[#01411C] hover:underline">
-                                            support@pakscholarpro.com
-                                        </a>
-                                    </p>
-                                    <p className="text-sm text-gray-600">For general inquiries and support</p>
-                                </div>
-                            </div>
-
-                            <div className="flex items-start gap-4">
-                                <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-lg bg-emerald-50">
-                                    <MessageSquare className="h-6 w-6 text-[#01411C]" />
-                                </div>
-                                <div>
-                                    <h3 className="mb-1 font-semibold text-gray-900">Feedback</h3>
-                                    <p className="mb-1 text-gray-700">
-                                        <a href="mailto:feedback@pakscholarpro.com" className="text-[#01411C] hover:underline">
-                                            feedback@pakscholarpro.com
-                                        </a>
-                                    </p>
-                                    <p className="text-sm text-gray-600">Share your suggestions and ideas</p>
-                                </div>
-                            </div>
-
-                            <div className="flex items-start gap-4">
-                                <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-lg bg-emerald-50">
-                                    <Clock className="h-6 w-6 text-[#01411C]" />
-                                </div>
-                                <div>
-                                    <h3 className="mb-1 font-semibold text-gray-900">Response Time</h3>
-                                    <p className="text-gray-700">We typically respond within 24-48 hours</p>
-                                    <p className="text-sm text-gray-600">Monday to Friday, 9 AM - 6 PM PKT</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        {/* FAQ Link */}
-                        <div className="mt-8 rounded-lg bg-emerald-50 p-6">
-                            <h3 className="mb-2 font-semibold text-gray-900">Have a quick question?</h3>
-                            <p className="mb-4 text-gray-700">
-                                Check our FAQ page for instant answers to common questions.
-                            </p>
-                            <Link
-                                href="/resources"
-                                className="inline-flex items-center font-medium text-[#01411C] hover:underline"
-                            >
-                                View FAQ →
-                            </Link>
-                        </div>
-                    </div>
-
-                    {/* Contact Form */}
-                    <div>
-                        <h2 className="mb-6 text-2xl font-bold text-gray-900">Send a Message</h2>
-
-                        {submitted ? (
-                            <div className="rounded-lg border-2 border-[#01411C] bg-emerald-50 p-8 text-center">
-                                <div className="mb-4 text-5xl">✓</div>
-                                <h3 className="mb-2 text-xl font-bold text-gray-900">Message Sent!</h3>
-                                <p className="text-gray-700">
-                                    Thank you for contacting us. We'll get back to you soon.
-                                </p>
-                            </div>
-                        ) : (
-                            <form onSubmit={handleSubmit} className="space-y-6">
-                                <div>
-                                    <label htmlFor="name" className="mb-2 block font-medium text-gray-900">
-                                        Your Name *
-                                    </label>
-                                    <input
-                                        type="text"
-                                        id="name"
-                                        name="name"
-                                        required
-                                        value={formData.name}
-                                        onChange={handleChange}
-                                        className="w-full rounded-lg border-2 border-gray-300 px-4 py-3 transition-colors focus:border-[#01411C] focus:outline-none"
-                                        placeholder="Enter your full name"
-                                    />
-                                </div>
-
-                                <div>
-                                    <label htmlFor="email" className="mb-2 block font-medium text-gray-900">
-                                        Email Address *
-                                    </label>
-                                    <input
-                                        type="email"
-                                        id="email"
-                                        name="email"
-                                        required
-                                        value={formData.email}
-                                        onChange={handleChange}
-                                        className="w-full rounded-lg border-2 border-gray-300 px-4 py-3 transition-colors focus:border-[#01411C] focus:outline-none"
-                                        placeholder="your.email@example.com"
-                                    />
-                                </div>
-
-                                <div>
-                                    <label htmlFor="subject" className="mb-2 block font-medium text-gray-900">
-                                        Subject *
-                                    </label>
-                                    <select
-                                        id="subject"
-                                        name="subject"
-                                        required
-                                        value={formData.subject}
-                                        onChange={handleChange}
-                                        className="w-full rounded-lg border-2 border-gray-300 px-4 py-3 transition-colors focus:border-[#01411C] focus:outline-none"
-                                    >
-                                        <option value="">Select a subject</option>
-                                        <option value="general">General Inquiry</option>
-                                        <option value="content">Content Question</option>
-                                        <option value="technical">Technical Issue</option>
-                                        <option value="feedback">Feedback</option>
-                                        <option value="other">Other</option>
-                                    </select>
-                                </div>
-
-                                <div>
-                                    <label htmlFor="message" className="mb-2 block font-medium text-gray-900">
-                                        Message *
-                                    </label>
-                                    <textarea
-                                        id="message"
-                                        name="message"
-                                        required
-                                        value={formData.message}
-                                        onChange={handleChange}
-                                        rows={6}
-                                        className="w-full rounded-lg border-2 border-gray-300 px-4 py-3 transition-colors focus:border-[#01411C] focus:outline-none"
-                                        placeholder="Tell us how we can help..."
-                                    />
-                                </div>
-
-                                <button
-                                    type="submit"
-                                    className="w-full rounded-lg bg-[#01411C] px-8 py-4 font-semibold text-white shadow-md transition-all hover:bg-[#0A6638] hover:shadow-lg"
-                                >
+            <section className="py-20 bg-white">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="grid md:grid-cols-2 gap-12">
+                        <div>
+                            <h2 className="text-3xl font-bold text-slate-900 mb-6">Send us a Message</h2>
+                            <form className="space-y-4">
+                                <input type="text" placeholder="Your Name" className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-emerald-500 focus:outline-none" />
+                                <input type="email" placeholder="Your Email" className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-emerald-500 focus:outline-none" />
+                                <textarea placeholder="Your Message" rows={6} className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-emerald-500 focus:outline-none"></textarea>
+                                <button type="submit" className="w-full px-8 py-4 bg-emerald-700 text-white rounded-lg font-bold hover:bg-emerald-800 flex items-center justify-center gap-2">
+                                    <Send className="w-5 h-5" />
                                     Send Message
                                 </button>
-
-                                <p className="text-sm text-gray-600">
-                                    * Required fields. We respect your privacy. See our{' '}
-                                    <Link href="/privacy" className="font-medium text-[#01411C] hover:underline">
-                                        Privacy Policy
-                                    </Link>
-                                    .
-                                </p>
                             </form>
-                        )}
+                        </div>
+
+                        <div>
+                            <h2 className="text-3xl font-bold text-slate-900 mb-6">Contact Information</h2>
+                            <div className="space-y-6">
+                                <div className="flex items-start gap-4">
+                                    <Mail className="w-6 h-6 text-emerald-600 flex-shrink-0 mt-1" />
+                                    <div>
+                                        <h3 className="font-bold text-slate-900">Email</h3>
+                                        <p className="text-slate-700">support@pakscholarpro.com</p>
+                                    </div>
+                                </div>
+                                <div className="flex items-start gap-4">
+                                    <MapPin className="w-6 h-6 text-emerald-600 flex-shrink-0 mt-1" />
+                                    <div>
+                                        <h3 className="font-bold text-slate-900">Location</h3>
+                                        <p className="text-slate-700">Pakistan</p>
+                                    </div>
+                                </div>
+                                <div className="bg-emerald-50 rounded-2xl p-6 border-2 border-emerald-100">
+                                    <h3 className="font-bold text-slate-900 mb-2">Response Time</h3>
+                                    <p className="text-slate-700">We typically respond within 24-48 hours</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-
-                {/* Back Link */}
-                <div className="mt-12">
-                    <Link href="/" className="inline-flex items-center font-medium text-[#01411C] hover:underline">
-                        ← Back to Home
-                    </Link>
-                </div>
-            </div>
+            </section>
         </main>
     );
 }
