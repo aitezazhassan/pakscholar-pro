@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect, use } from 'react';
-import { useRouter } from 'next/navigation';
+import { useRouter, useParams } from 'next/navigation';
 import { Clock, ChevronLeft, ChevronRight, CheckCircle } from 'lucide-react';
 
 interface ExamData {
@@ -20,9 +20,10 @@ interface ExamData {
     }>;
 }
 
-export default function ExamPage({ params }: { params: Promise<{ id: string }> }) {
+export default function ExamPage() {
     const router = useRouter();
-    const { id } = use(params);
+    const params = useParams();
+    const id = params?.id as string;
     const [examData, setExamData] = useState<ExamData | null>(null);
     const [currentQuestion, setCurrentQuestion] = useState(0);
     const [answers, setAnswers] = useState<Record<number, number>>({});
@@ -31,6 +32,8 @@ export default function ExamPage({ params }: { params: Promise<{ id: string }> }
 
     // Load exam data
     useEffect(() => {
+        if (!id) return;
+
         fetch(`/data/mock-exams/${id}.json`)
             .then(res => res.json())
             .then(data => {

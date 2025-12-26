@@ -2,6 +2,7 @@
 
 import { useEffect, useState, use } from 'react';
 import Link from 'next/link';
+import { useRouter, useParams } from 'next/navigation';
 import { Award, CheckCircle, XCircle, Home, RefreshCw } from 'lucide-react';
 
 interface ExamData {
@@ -28,8 +29,9 @@ interface Results {
     timeSpent: number;
 }
 
-export default function ResultsPage({ params }: { params: Promise<{ id: string }> }) {
-    const { id } = use(params);
+export default function ResultsPage() {
+    const params = useParams();
+    const id = params?.id as string;
     const [examData, setExamData] = useState<ExamData | null>(null);
     const [results, setResults] = useState<Results | null>(null);
     const [showAnswers, setShowAnswers] = useState(false);
@@ -40,10 +42,12 @@ export default function ResultsPage({ params }: { params: Promise<{ id: string }
             setResults(JSON.parse(stored));
         }
 
-        fetch(`/data/mock-exams/${id}.json`)
-            .then(res => res.json())
-            .then(data => setExamData(data))
-            .catch(err => console.error('Failed to load exam:', err));
+        if (id) {
+            fetch(`/data/mock-exams/${id}.json`)
+                .then(res => res.json())
+                .then(data => setExamData(data))
+                .catch(err => console.error('Failed to load exam:', err));
+        }
     }, [id]);
 
     if (!results || !examData) {
