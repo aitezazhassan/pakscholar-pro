@@ -1,183 +1,74 @@
 'use client';
 
-import { useState } from 'react';
-import Link from 'next/link';
-import { ArrowLeft, Atom, Beaker, Heart, Lightbulb, Award } from 'lucide-react';
-import {
-    allScienceTopics,
-    scienceCategories,
-    physicsTopics,
-    chemistryTopics,
-    biologyTopics,
-    everydayScience,
-    famousScientists,
-    majorInventions
-} from '@/lib/scienceData/general-science';
-
 export default function SciencePage() {
-    const [activeTab, setActiveTab] = useState<'physics' | 'chemistry' | 'biology' | 'everyday' | 'scientists'>('physics');
-    const [selectedCategory, setSelectedCategory] = useState<string>('all');
-
-    const getTabData = () => {
-        switch (activeTab) {
-            case 'physics': return physicsTopics;
-            case 'chemistry': return chemistryTopics;
-            case 'biology': return biologyTopics;
-            case 'everyday': return everydayScience;
-            default: return [];
-        }
-    };
-
-    const tabData = getTabData();
+    const topics = [
+        { icon: '🔬', title: 'Biology', desc: 'Cells, Genetics, Evolution', count: 45 },
+        { icon: '⚡', title: 'Physics', desc: 'Motion, Energy, Waves', count: 42 },
+        { icon: '🧪', title: 'Chemistry', desc: 'Elements, Reactions, Bonds', count: 48 },
+        { icon: '🌍', title: 'Earth Science', desc: 'Geology, Climate, Rocks', count: 35 },
+        { icon: '🚀', title: 'Space Science', desc: 'Solar System, Galaxies', count: 28 },
+        { icon: '💊', title: 'Human Body', desc: 'Systems, Organs, Health', count: 38 }
+    ];
 
     return (
-        <main className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
-            <header className="border-b border-slate-200 bg-white">
-                <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8"><div className="flex items-center gap-3">
-                        <div className="rounded-xl bg-cyan-600 p-3">
-                            <Atom className="h-6 w-6 text-white" />
-                        </div>
-                        <div>
-                            <h1 className="text-3xl font-semibold text-slate-900">General Science</h1>
-                            <p className="mt-1 text-slate-600">Physics, Chemistry, Biology & Everyday Science</p>
-                        </div>
-                    </div>
+        <main className="min-h-screen bg-white">
+            <section className="relative isolate overflow-hidden bg-slate-900 pt-24 pb-20">
+                <div className="absolute inset-0 -z-10">
+                    <div className="absolute top-0 z-[-2] h-full w-full bg-[#000000] bg-[radial-gradient(#ffffff33_1px,#00091d_1px)] bg-[size:20px_20px] opacity-[0.2]"></div>
+                    <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-cyan-700/20 blur-[100px]" />
+                </div>
 
-                    {/* Stats */}
-                    <div className="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
-                        <div className="rounded-lg border border-slate-200 bg-slate-50 p-4">
-                            <div className="text-xs text-slate-600">Total Topics</div>
-                            <div className="mt-1 text-2xl font-bold text-cyan-600">{allScienceTopics.length}</div>
-                        </div>
-                        <div className="rounded-lg border border-slate-200 bg-slate-50 p-4">
-                            <div className="text-xs text-slate-600">Scientists</div>
-                            <div className="mt-1 text-2xl font-bold text-emerald-600">{famousScientists.length}</div>
-                        </div>
-                        <div className="rounded-lg border border-slate-200 bg-slate-50 p-4">
-                            <div className="text-xs text-slate-600">Inventions</div>
-                            <div className="mt-1 text-2xl font-bold text-purple-600">{majorInventions.length}</div>
-                        </div>
-                        <div className="rounded-lg border border-slate-200 bg-slate-50 p-4">
-                            <div className="text-xs text-slate-600">Categories</div>
-                            <div className="mt-1 text-2xl font-bold text-blue-600">{scienceCategories.length}</div>
-                        </div>
-                    </div>
+                <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
+                    <div className="text-8xl mb-6">🔬</div>
+                    <h1 className="text-5xl font-bold text-white mb-4 font-serif">General Science</h1>
+                    <p className="text-xl text-slate-300 max-w-2xl mx-auto mb-8">
+                        Physics, Chemistry, Biology, and Everyday Science for all competitive exams
+                    </p>
 
-                    {/* Tabs */}
-                    <div className="mt-6 flex gap-2 overflow-x-auto">
-                        {[
-                            { id: 'physics', label: 'Physics', icon: Atom },
-                            { id: 'chemistry', label: 'Chemistry', icon: Beaker },
-                            { id: 'biology', label: 'Biology', icon: Heart },
-                            { id: 'everyday', label: 'Everyday Science', icon: Lightbulb },
-                            { id: 'scientists', label: 'Scientists & Inventions', icon: Award }
-                        ].map((tab) => {
-                            const Icon = tab.icon;
-                            return (
-                                <button
-                                    key={tab.id}
-                                    onClick={() => setActiveTab(tab.id as any)}
-                                    className={`flex items-center gap-2 whitespace-nowrap rounded-lg px-4 py-2 text-sm font-semibold transition-all ${activeTab === tab.id
-                                            ? 'bg-cyan-600 text-white shadow-lg'
-                                            : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
-                                        }`}
-                                >
-                                    <Icon className="h-4 w-4" />
-                                    {tab.label}
-                                </button>
-                            );
-                        })}
+                    <div className="flex flex-wrap justify-center gap-6 mt-12">
+                        <div className="bg-white/10 backdrop-blur-lg rounded-2xl px-6 py-4 border border-white/20">
+                            <div className="text-3xl font-bold text-cyan-400">236+</div>
+                            <div className="text-sm text-slate-300">Topics</div>
+                        </div>
+                        <div className="bg-white/10 backdrop-blur-lg rounded-2xl px-6 py-4 border border-white/20">
+                            <div className="text-3xl font-bold text-cyan-400">800+</div>
+                            <div className="text-sm text-slate-300">Questions</div>
+                        </div>
+                        <div className="bg-white/10 backdrop-blur-lg rounded-2xl px-6 py-4 border border-white/20">
+                            <div className="text-3xl font-bold text-cyan-400">60+</div>
+                            <div className="text-sm text-slate-300">Diagrams</div>
+                        </div>
                     </div>
                 </div>
-            </header>
+            </section>
 
-            <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
-                {/* TOPIC TABS */}
-                {activeTab !== 'scientists' && (
-                    <div className="space-y-4">
-                        {tabData.map((topic) => (
-                            <div key={topic.id} className="rounded-xl border border-slate-200 bg-white p-6">
-                                <div className="mb-4 flex items-start justify-between">
-                                    <div>
-                                        <h3 className="text-xl font-bold text-slate-900">{topic.topic}</h3>
-                                        <div className="mt-1 inline-block rounded-full bg-cyan-100 px-3 py-1 text-xs font-semibold text-cyan-900">
-                                            {topic.subject}
-                                        </div>
-                                    </div>
-                                    <span className={`rounded-full px-3 py-1 text-xs font-semibold ${topic.importance === 'Critical' ? 'bg-red-100 text-red-900' :
-                                            topic.importance === 'High' ? 'bg-amber-100 text-amber-900' :
-                                                'bg-blue-100 text-blue-900'
-                                        }`}>
-                                        {topic.importance}
-                                    </span>
-                                </div>
+            <section className="py-20 bg-white">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="text-center mb-12">
+                        <h2 className="text-3xl font-bold text-slate-900 mb-3">Science Topics</h2>
+                        <p className="text-lg text-slate-600">Complete coverage of all science branches</p>
+                    </div>
 
-                                <div className="mb-3 rounded-lg bg-cyan-50 p-4">
-                                    <div className="mb-1 text-xs font-semibold text-cyan-900">CONCEPT:</div>
-                                    <p className="text-sm text-cyan-800">{topic.concept}</p>
-                                </div>
-
-                                <div className="mb-3">
-                                    <div className="mb-1 text-xs font-semibold text-slate-900">EXPLANATION:</div>
-                                    <p className="text-sm text-slate-700">{topic.explanation}</p>
-                                </div>
-
-                                {topic.formula && (
-                                    <div className="mb-3 rounded-lg bg-purple-50 p-3">
-                                        <div className="mb-1 text-xs font-semibold text-purple-900">FORMULA:</div>
-                                        <code className="text-sm font-mono text-purple-800">{topic.formula}</code>
-                                    </div>
-                                )}
-
-                                {topic.example && (
-                                    <div className="rounded-lg bg-emerald-50 p-3">
-                                        <div className="mb-1 text-xs font-semibold text-emerald-900">EXAMPLE:</div>
-                                        <p className="text-sm text-emerald-800">{topic.example}</p>
-                                    </div>
-                                )}
+                    <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                        {topics.map((topic, idx) => (
+                            <div key={idx} className="group p-8 rounded-2xl border-2 border-slate-200 hover:border-cyan-300 hover:shadow-lg transition-all hover:-translate-y-1">
+                                <div className="text-5xl mb-4">{topic.icon}</div>
+                                <h3 className="text-xl font-bold text-slate-900 mb-2">{topic.title}</h3>
+                                <p className="text-sm text-slate-600 mb-4">{topic.desc}</p>
+                                <span className="text-xs font-semibold text-cyan-700">{topic.count} lessons</span>
                             </div>
                         ))}
                     </div>
-                )}
+                </div>
+            </section>
 
-                {/* SCIENTISTS TAB */}
-                {activeTab === 'scientists' && (
-                    <div className="grid gap-8">
-                        <div>
-                            <h2 className="mb-6 text-2xl font-bold text-slate-900">Famous Scientists</h2>
-                            <div className="grid gap-4 md:grid-cols-2">
-                                {famousScientists.map((scientist, index) => (
-                                    <div key={index} className="rounded-xl border border-slate-200 bg-white p-6">
-                                        <h3 className="mb-2 text-lg font-bold text-slate-900">{scientist.name}</h3>
-                                        <div className="mb-2 inline-block rounded-full bg-blue-100 px-3 py-1 text-xs font-semibold text-blue-900">
-                                            {scientist.field}
-                                        </div>
-                                        <p className="mb-2 text-sm text-slate-700">{scientist.contribution}</p>
-                                        <div className="text-xs text-slate-600">Era: {scientist.era}</div>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-
-                        <div>
-                            <h2 className="mb-6 text-2xl font-bold text-slate-900">Major Inventions</h2>
-                            <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-                                {majorInventions.map((item, index) => (
-                                    <div key={index} className="rounded-xl border border-amber-200 bg-white p-6">
-                                        <h3 className="mb-2 font-bold text-amber-900">{item.invention}</h3>
-                                        <div className="mb-1 text-sm text-slate-700">
-                                            <span className="font-semibold">Inventor:</span> {item.inventor}
-                                        </div>
-                                        <div className="text-sm text-slate-600">
-                                            <span className="font-semibold">Year:</span> {item.year}
-                                        </div>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-                    </div>
-                )}
-            </div>
+            <section className="py-20 bg-gradient-to-br from-cyan-900 to-slate-900 text-white">
+                <div className="max-w-4xl mx-auto px-4 text-center">
+                    <h2 className="text-4xl font-bold mb-6">Excel in Science</h2>
+                    <p className="text-xl text-cyan-100 mb-8">Master all science topics with visual diagrams</p>
+                    <button className="px-8 py-4 bg-white text-cyan-900 rounded-full font-bold hover:bg-cyan-50">Start Learning</button>
+                </div>
+            </section>
         </main>
     );
 }
