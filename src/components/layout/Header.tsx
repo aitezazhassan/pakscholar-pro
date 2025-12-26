@@ -1,16 +1,18 @@
 'use client';
 
-import Link from 'next/link';
 import { useState, useEffect } from 'react';
-import { Menu, X, ChevronDown, BookOpen } from 'lucide-react';
+import Link from 'next/link';
+import { BookOpen, ChevronDown, Menu, X } from 'lucide-react';
 
 export default function Header() {
     const [scrolled, setScrolled] = useState(false);
-    const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+    const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
     useEffect(() => {
-        const handleScroll = () => setScrolled(window.scrollY > 20);
+        const handleScroll = () => {
+            setScrolled(window.scrollY > 10);
+        };
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
@@ -33,291 +35,228 @@ export default function Header() {
     const resources = [
         { name: 'Practice Tests', href: '/practice' },
         { name: 'Past Papers', href: '/past-papers' },
-        { name: 'PMS Model Papers', href: '/pms-model-papers' },
         { name: 'Study Resources', href: '/resources' }
     ];
 
-    const help = [
-        { name: 'How It Works', href: '/how-it-works' },
-        { name: 'FAQ', href: '/faq' },
-        { name: 'Help Center', href: '/help' },
-        { name: 'Contact Us', href: '/contact' }
-    ];
-
     return (
-        <>
-            <header className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white/80 backdrop-blur-xl shadow-sm' : 'bg-transparent'}`}>
-                <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                    <div className="flex h-16 items-center justify-between">
-                        {/* Logo */}
-                        <Link href="/" className="flex items-center space-x-2">
-                            <div className="w-8 h-8 bg-gradient-to-br from-emerald-600 to-emerald-800 rounded-lg flex items-center justify-center">
-                                <BookOpen className="w-5 h-5 text-white" />
-                            </div>
-                            <span className="text-xl font-semibold text-gray-900">PakScholar Pro</span>
-                        </Link>
+        <header className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white/95 backdrop-blur-lg shadow-sm' : 'bg-transparent'
+            }`}>
+            <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                <div className="flex h-16 items-center justify-between">
+                    {/* Logo */}
+                    <Link href="/" className="flex items-center space-x-2 group">
+                        <div className="w-8 h-8 bg-gradient-to-br from-emerald-600 to-emerald-800 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
+                            <BookOpen className="w-5 h-5 text-white" />
+                        </div>
+                        <span className={`text-xl font-bold transition-colors ${scrolled ? 'text-slate-900' : 'text-white'
+                            }`}>
+                            PakScholar Pro
+                        </span>
+                    </Link>
 
-                        {/* Desktop Navigation */}
-                        <nav className="hidden lg:flex items-center space-x-8">
-                            {/* Subjects Dropdown */}
-                            <div className="relative group">
-                                <button
-                                    className="flex items-center gap-1 text-sm font-medium text-gray-700 hover:text-emerald-700 transition-colors"
+                    {/* Desktop Navigation */}
+                    <nav className="hidden lg:flex items-center space-x-1">
+                        {/* Subjects Dropdown */}
+                        <div className="relative group">
+                            <button
+                                className={`flex items-center gap-1 px-4 py-2 rounded-lg text-sm font-semibold transition-all ${scrolled
+                                        ? 'text-slate-700 hover:bg-slate-100'
+                                        : 'text-white hover:bg-white/10'
+                                    }`}
+                                onMouseEnter={() => setActiveDropdown('subjects')}
+                            >
+                                Subjects <ChevronDown className="h-4 w-4" />
+                            </button>
+                            {activeDropdown === 'subjects' && (
+                                <div
+                                    className="absolute top-full left-0 mt-2 w-56 bg-white rounded-2xl shadow-xl border border-slate-100 py-2 z-50"
                                     onMouseEnter={() => setActiveDropdown('subjects')}
                                     onMouseLeave={() => setActiveDropdown(null)}
                                 >
-                                    Subjects <ChevronDown className="h-4 w-4" />
-                                </button>
-                                {activeDropdown === 'subjects' && (
-                                    <div
-                                        className="absolute left-0 mt-2 w-56 rounded-2xl bg-white shadow-xl ring-1 ring-black ring-opacity-5"
-                                        onMouseEnter={() => setActiveDropdown('subjects')}
-                                        onMouseLeave={() => setActiveDropdown(null)}
-                                    >
-                                        <div className="py-2">
-                                            {subjects.map((item) => (
-                                                <Link
-                                                    key={item.href}
-                                                    href={item.href}
-                                                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-emerald-50 hover:text-emerald-700 transition-colors"
-                                                >
-                                                    {item.name}
-                                                </Link>
-                                            ))}
-                                        </div>
-                                    </div>
-                                )}
-                            </div>
+                                    {subjects.map((item) => (
+                                        <Link
+                                            key={item.name}
+                                            href={item.href}
+                                            className="block px-4 py-2.5 text-sm text-slate-700 hover:bg-emerald-50 hover:text-emerald-700 transition-colors"
+                                        >
+                                            {item.name}
+                                        </Link>
+                                    ))}
+                                </div>
+                            )}
+                        </div>
 
-                            {/* Exams Dropdown */}
-                            <div className="relative group">
-                                <button
-                                    className="flex items-center gap-1 text-sm font-medium text-gray-700 hover:text-emerald-700 transition-colors"
+                        {/* Exams Dropdown */}
+                        <div className="relative group">
+                            <button
+                                className={`flex items-center gap-1 px-4 py-2 rounded-lg text-sm font-semibold transition-all ${scrolled
+                                        ? 'text-slate-700 hover:bg-slate-100'
+                                        : 'text-white hover:bg-white/10'
+                                    }`}
+                                onMouseEnter={() => setActiveDropdown('exams')}
+                            >
+                                Exams <ChevronDown className="h-4 w-4" />
+                            </button>
+                            {activeDropdown === 'exams' && (
+                                <div
+                                    className="absolute top-full left-0 mt-2 w-48 bg-white rounded-2xl shadow-xl border border-slate-100 py-2 z-50"
                                     onMouseEnter={() => setActiveDropdown('exams')}
                                     onMouseLeave={() => setActiveDropdown(null)}
                                 >
-                                    Exams <ChevronDown className="h-4 w-4" />
-                                </button>
-                                {activeDropdown === 'exams' && (
-                                    <div
-                                        className="absolute left-0 mt-2 w-48 rounded-2xl bg-white shadow-xl ring-1 ring-black ring-opacity-5"
-                                        onMouseEnter={() => setActiveDropdown('exams')}
-                                        onMouseLeave={() => setActiveDropdown(null)}
-                                    >
-                                        <div className="py-2">
-                                            {exams.map((item) => (
-                                                <Link
-                                                    key={item.href}
-                                                    href={item.href}
-                                                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-emerald-50 hover:text-emerald-700 transition-colors"
-                                                >
-                                                    {item.name}
-                                                </Link>
-                                            ))}
-                                        </div>
-                                    </div>
-                                )}
-                            </div>
+                                    {exams.map((item) => (
+                                        <Link
+                                            key={item.name}
+                                            href={item.href}
+                                            className="block px-4 py-2.5 text-sm text-slate-700 hover:bg-emerald-50 hover:text-emerald-700 transition-colors"
+                                        >
+                                            {item.name}
+                                        </Link>
+                                    ))}
+                                </div>
+                            )}
+                        </div>
 
-                            {/* Resources Dropdown */}
-                            <div className="relative group">
-                                <button
-                                    className="flex items-center gap-1 text-sm font-medium text-gray-700 hover:text-emerald-700 transition-colors"
+                        {/* Resources Dropdown */}
+                        <div className="relative group">
+                            <button
+                                className={`flex items-center gap-1 px-4 py-2 rounded-lg text-sm font-semibold transition-all ${scrolled
+                                        ? 'text-slate-700 hover:bg-slate-100'
+                                        : 'text-white hover:bg-white/10'
+                                    }`}
+                                onMouseEnter={() => setActiveDropdown('resources')}
+                            >
+                                Resources <ChevronDown className="h-4 w-4" />
+                            </button>
+                            {activeDropdown === 'resources' && (
+                                <div
+                                    className="absolute top-full left-0 mt-2 w-48 bg-white rounded-2xl shadow-xl border border-slate-100 py-2 z-50"
                                     onMouseEnter={() => setActiveDropdown('resources')}
                                     onMouseLeave={() => setActiveDropdown(null)}
                                 >
-                                    Resources <ChevronDown className="h-4 w-4" />
-                                </button>
-                                {activeDropdown === 'resources' && (
-                                    <div
-                                        className="absolute left-0 mt-2 w-48 rounded-2xl bg-white shadow-xl ring-1 ring-black ring-opacity-5"
-                                        onMouseEnter={() => setActiveDropdown('resources')}
-                                        onMouseLeave={() => setActiveDropdown(null)}
-                                    >
-                                        <div className="py-2">
-                                            {resources.map((item) => (
-                                                <Link
-                                                    key={item.href}
-                                                    href={item.href}
-                                                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-emerald-50 hover:text-emerald-700 transition-colors"
-                                                >
-                                                    {item.name}
-                                                </Link>
-                                            ))}
-                                        </div>
-                                    </div>
-                                )}
-                            </div>
+                                    {resources.map((item) => (
+                                        <Link
+                                            key={item.name}
+                                            href={item.href}
+                                            className="block px-4 py-2.5 text-sm text-slate-700 hover:bg-emerald-50 hover:text-emerald-700 transition-colors"
+                                        >
+                                            {item.name}
+                                        </Link>
+                                    ))}
+                                </div>
+                            )}
+                        </div>
 
-                            {/* Help Dropdown */}
-                            <div className="relative group">
-                                <button
-                                    className="flex items-center gap-1 text-sm font-medium text-gray-700 hover:text-emerald-700 transition-colors"
-                                    onMouseEnter={() => setActiveDropdown('help')}
-                                    onMouseLeave={() => setActiveDropdown(null)}
-                                >
-                                    Help <ChevronDown className="h-4 w-4" />
-                                </button>
-                                {activeDropdown === 'help' && (
-                                    <div
-                                        className="absolute right-0 mt-2 w-48 rounded-2xl bg-white shadow-xl ring-1 ring-black ring-opacity-5"
-                                        onMouseEnter={() => setActiveDropdown('help')}
-                                        onMouseLeave={() => setActiveDropdown(null)}
-                                    >
-                                        <div className="py-2">
-                                            {help.map((item) => (
-                                                <Link
-                                                    key={item.href}
-                                                    href={item.href}
-                                                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-emerald-50 hover:text-emerald-700 transition-colors"
-                                                >
-                                                    {item.name}
-                                                </Link>
-                                            ))}
-                                        </div>
-                                    </div>
-                                )}
-                            </div>
-
-                            {/* About Link */}
-                            <Link
-                                href="/about"
-                                className="text-sm font-medium text-gray-700 hover:text-emerald-700 transition-colors"
-                            >
-                                About
-                            </Link>
-
-                            {/* CTA Button */}
-                            <Link
-                                href="/pakistan-studies"
-                                className="px-5 py-2 bg-emerald-700 text-white text-sm font-medium rounded-full hover:bg-emerald-800 transition-all hover:shadow-lg hover:shadow-emerald-200"
-                            >
-                                Start Learning
-                            </Link>
-                        </nav>
-
-                        {/* Mobile Menu Button */}
-                        <button
-                            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                            className="rounded-lg p-2 text-gray-700 hover:bg-gray-100 lg:hidden"
-                            aria-label="Toggle menu"
+                        {/* Direct Links */}
+                        <Link
+                            href="/explore"
+                            className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all ${scrolled
+                                    ? 'text-slate-700 hover:bg-slate-100'
+                                    : 'text-white hover:bg-white/10'
+                                }`}
                         >
-                            {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-                        </button>
+                            Explore 🇵🇰
+                        </Link>
+                    </nav>
+
+                    {/* CTA Buttons */}
+                    <div className="hidden lg:flex items-center gap-3">
+                        <Link
+                            href="/contact"
+                            className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all ${scrolled
+                                    ? 'text-slate-700 hover:bg-slate-100'
+                                    : 'text-white hover:bg-white/10'
+                                }`}
+                        >
+                            Contact
+                        </Link>
+                        <Link
+                            href="/practice"
+                            className="px-6 py-2 bg-emerald-700 text-white rounded-full text-sm font-semibold hover:bg-emerald-800 transition-all hover:shadow-lg"
+                        >
+                            Start Learning
+                        </Link>
                     </div>
+
+                    {/* Mobile Menu Button */}
+                    <button
+                        className={`lg:hidden p-2 rounded-lg transition-colors ${scrolled ? 'text-slate-700 hover:bg-slate-100' : 'text-white hover:bg-white/10'
+                            }`}
+                        onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                    >
+                        {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+                    </button>
                 </div>
-            </header>
+            </div>
 
             {/* Mobile Menu */}
             {mobileMenuOpen && (
-                <>
-                    {/* Overlay */}
-                    <div
-                        className="fixed inset-0 z-40 bg-black/50 backdrop-blur-sm lg:hidden"
-                        onClick={() => setMobileMenuOpen(false)}
-                    />
-
-                    {/* Drawer */}
-                    <div className="fixed right-0 top-0 z-50 h-full w-4/5 max-w-sm overflow-y-auto bg-white shadow-xl lg:hidden">
-                        <div className="flex h-16 items-center justify-between border-b border-gray-100 px-6">
-                            <span className="text-xl font-bold text-gray-900">Menu</span>
-                            <button
-                                onClick={() => setMobileMenuOpen(false)}
-                                className="rounded-lg p-2 text-gray-700 hover:bg-gray-100"
-                            >
-                                <X className="h-6 w-6" />
-                            </button>
+                <div className="lg:hidden bg-white border-t border-slate-200 shadow-xl">
+                    <div className="px-4 py-6 space-y-4">
+                        <div>
+                            <p className="text-xs font-semibold text-slate-500 uppercase mb-2">Subjects</p>
+                            {subjects.map((item) => (
+                                <Link
+                                    key={item.name}
+                                    href={item.href}
+                                    className="block py-2 text-slate-700 hover:text-emerald-700"
+                                    onClick={() => setMobileMenuOpen(false)}
+                                >
+                                    {item.name}
+                                </Link>
+                            ))}
                         </div>
-                        <nav className="flex flex-col p-6 space-y-6">
-                            {/* Subjects */}
-                            <div>
-                                <h3 className="mb-3 text-sm font-semibold text-gray-900">Subjects</h3>
-                                <div className="space-y-2">
-                                    {subjects.map((item) => (
-                                        <Link
-                                            key={item.href}
-                                            href={item.href}
-                                            onClick={() => setMobileMenuOpen(false)}
-                                            className="block py-2 pl-4 text-sm text-gray-700 hover:text-emerald-700 transition-colors"
-                                        >
-                                            {item.name}
-                                        </Link>
-                                    ))}
-                                </div>
-                            </div>
-
-                            {/* Exams */}
-                            <div>
-                                <h3 className="mb-3 text-sm font-semibold text-gray-900">Exams</h3>
-                                <div className="space-y-2">
-                                    {exams.map((item) => (
-                                        <Link
-                                            key={item.href}
-                                            href={item.href}
-                                            onClick={() => setMobileMenuOpen(false)}
-                                            className="block py-2 pl-4 text-sm text-gray-700 hover:text-emerald-700 transition-colors"
-                                        >
-                                            {item.name}
-                                        </Link>
-                                    ))}
-                                </div>
-                            </div>
-
-                            {/* Resources */}
-                            <div>
-                                <h3 className="mb-3 text-sm font-semibold text-gray-900">Resources</h3>
-                                <div className="space-y-2">
-                                    {resources.map((item) => (
-                                        <Link
-                                            key={item.href}
-                                            href={item.href}
-                                            onClick={() => setMobileMenuOpen(false)}
-                                            className="block py-2 pl-4 text-sm text-gray-700 hover:text-emerald-700 transition-colors"
-                                        >
-                                            {item.name}
-                                        </Link>
-                                    ))}
-                                </div>
-                            </div>
-
-                            {/* Help */}
-                            <div>
-                                <h3 className="mb-3 text-sm font-semibold text-gray-900">Help</h3>
-                                <div className="space-y-2">
-                                    {help.map((item) => (
-                                        <Link
-                                            key={item.href}
-                                            href={item.href}
-                                            onClick={() => setMobileMenuOpen(false)}
-                                            className="block py-2 pl-4 text-sm text-gray-700 hover:text-emerald-700 transition-colors"
-                                        >
-                                            {item.name}
-                                        </Link>
-                                    ))}
-                                </div>
-                            </div>
-
-                            {/* About */}
+                        <div>
+                            <p className="text-xs font-semibold text-slate-500 uppercase mb-2">Exams</p>
+                            {exams.map((item) => (
+                                <Link
+                                    key={item.name}
+                                    href={item.href}
+                                    className="block py-2 text-slate-700 hover:text-emerald-700"
+                                    onClick={() => setMobileMenuOpen(false)}
+                                >
+                                    {item.name}
+                                </Link>
+                            ))}
+                        </div>
+                        <div>
+                            <p className="text-xs font-semibold text-slate-500 uppercase mb-2">Resources</p>
+                            {resources.map((item) => (
+                                <Link
+                                    key={item.name}
+                                    href={item.href}
+                                    className="block py-2 text-slate-700 hover:text-emerald-700"
+                                    onClick={() => setMobileMenuOpen(false)}
+                                >
+                                    {item.name}
+                                </Link>
+                            ))}
+                        </div>
+                        <div className="pt-4 border-t border-slate-200 space-y-2">
                             <Link
-                                href="/about"
+                                href="/explore"
+                                className="block py-2 text-slate-700 hover:text-emerald-700"
                                 onClick={() => setMobileMenuOpen(false)}
-                                className="text-sm font-medium text-gray-700 hover:text-emerald-700 transition-colors"
                             >
-                                About Us
+                                Explore Pakistan 🇵🇰
                             </Link>
-
-                            {/* CTA Button */}
                             <Link
-                                href="/pakistan-studies"
+                                href="/contact"
+                                className="block py-2 text-slate-700 hover:text-emerald-700"
                                 onClick={() => setMobileMenuOpen(false)}
-                                className="w-full px-5 py-3 bg-emerald-700 text-white text-sm font-medium rounded-full text-center hover:bg-emerald-800 transition-colors"
+                            >
+                                Contact
+                            </Link>
+                            <Link
+                                href="/practice"
+                                className="block w-full py-3 bg-emerald-700 text-white rounded-full text-center font-semibold hover:bg-emerald-800 transition-all"
+                                onClick={() => setMobileMenuOpen(false)}
                             >
                                 Start Learning
                             </Link>
-                        </nav>
+                        </div>
                     </div>
-                </>
+                </div>
             )}
-        </>
+        </header>
     );
 }
