@@ -1,63 +1,46 @@
-import { SwipeQuiz } from '@/components/quiz/SwipeQuiz';
-import { getAllMCQs } from '@/lib/keystatic/reader';
-import Link from 'next/link';
-import { ArrowLeft } from 'lucide-react';
+'use client';
 
-export const metadata = {
-    title: 'Rapid Fire Quiz | PakScholar Pro',
-    description: 'Test your knowledge with our interactive rapid-fire quiz. Build your streak and master competitive exam topics!',
-};
+import { Zap, Clock, Trophy } from 'lucide-react';
 
-export default async function RapidQuizPage() {
-    const mcqs = await getAllMCQs();
+export default function RapidQuizPage() {
+    return (
+        <main className="min-h-screen bg-white">
+            <section className="relative isolate overflow-hidden bg-gradient-to-br from-orange-900 to-slate-900 pt-24 pb-20">
+                <div className="absolute inset-0 -z-10">
+                    <div className="absolute top-0 z-[-2] h-full w-full bg-[#000000] bg-[radial-gradient(#ffffff33_1px,#00091d_1px)] bg-[size:20px_20px] opacity-[0.2]"></div>
+                </div>
 
-    // Shuffle MCQs for variety
-    const shuffledMCQs = [...mcqs].sort(() => Math.random() - 0.5);
+                <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center text-white">
+                    <Zap className="w-16 h-16 mx-auto mb-6 text-orange-400" />
+                    <h1 className="text-5xl font-bold mb-4 font-serif">Rapid Quiz</h1>
+                    <p className="text-xl text-slate-300">Quick-fire questions to test your knowledge</p>
+                </div>
+            </section>
 
-    if (mcqs.length === 0) {
-        return (
-            <div className="min-h-screen bg-slate-50 py-12">
-                <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                    <Link
-                        href="/"
-                        className="group mb-8 inline-flex items-center gap-2 text-sm font-medium text-slate-600 transition-colors hover:text-oxford-900"
-                    >
-                        <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" />
-                        Back to Home
-                    </Link>
+            <section className="py-20 bg-white">
+                <div className="max-w-4xl mx-auto px-4 text-center">
+                    <h2 className="text-3xl font-bold text-slate-900 mb-8">Coming Soon!</h2>
+                    <p className="text-lg text-slate-700 mb-12">We're working on an exciting rapid quiz feature. Stay tuned!</p>
 
-                    <div className="py-20 text-center">
-                        <h1 className="mb-4 font-playfair text-3xl font-bold text-slate-900">
-                            No Questions Available
-                        </h1>
-                        <p className="mb-8 text-slate-600">
-                            Add MCQs through the admin panel to start the quiz.
-                        </p>
-                        <Link
-                            href="/keystatic"
-                            className="inline-block rounded-lg bg-oxford-900 px-6 py-3 font-medium text-white transition-all hover:scale-105 hover:shadow-lg"
-                        >
-                            Go to Admin
-                        </Link>
+                    <div className="grid md:grid-cols-3 gap-6">
+                        <div className="bg-orange-50 rounded-2xl p-6">
+                            <Clock className="w-10 h-10 text-orange-600 mx-auto mb-3" />
+                            <h3 className="font-bold text-slate-900 mb-2">Timed Questions</h3>
+                            <p className="text-sm text-slate-700">Test under pressure</p>
+                        </div>
+                        <div className="bg-orange-50 rounded-2xl p-6">
+                            <Trophy className="w-10 h-10 text-orange-600 mx-auto mb-3" />
+                            <h3 className="font-bold text-slate-900 mb-2">Leaderboards</h3>
+                            <p className="text-sm text-slate-700">Compete with others</p>
+                        </div>
+                        <div className="bg-orange-50 rounded-2xl p-6">
+                            <Zap className="w-10 h-10 text-orange-600 mx-auto mb-3" />
+                            <h3 className="font-bold text-slate-900 mb-2">Instant Results</h3>
+                            <p className="text-sm text-slate-700">Get feedback immediately</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-        );
-    }
-
-    return (
-        <div className="min-h-screen bg-slate-50">
-            <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-                <Link
-                    href="/"
-                    className="group mb-8 inline-flex items-center gap-2 text-sm font-medium text-slate-600 transition-colors hover:text-oxford-900"
-                >
-                    <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" />
-                    Back to Home
-                </Link>
-
-                <SwipeQuiz mcqs={shuffledMCQs} />
-            </div>
-        </div>
+            </section>
+        </main>
     );
 }
