@@ -1,0 +1,48 @@
+{
+  "id": "pms-160",
+  "title": "PMS Model Paper 160",
+  "description": "Complete 100-question mock exam for PMS preparation covering all major subjects",
+  "duration": 120,
+  "totalQuestions": 100,
+  "passingScore": 50,
+  "subjects": {
+    "General Knowledge": 28,
+    "Pakistan Affairs": 9,
+    "Current Affairs": 5,
+    "Geography": 18,
+    "Everyday Science": 14,
+    "Computer": 5,
+    "Mathematics": 3,
+    "Urdu": 1,
+    "Islamiat": 2
+  },
+  "questions": [
+    {
+      "id": 1,
+      "question": "Where is the Kala Pani Jail located?",
+      "options": ["Lakshadweep Islands", "Andaman Islands", "Mauritius", "Sri Lanka"],
+      "correctAnswer": 1,
+      "subject": "General Knowledge",
+      "topic": "History",
+      "explanation": "The Kala Pani Jail, officially known as the Cellular Jail, is located in Port Blair, part of the Andaman and Nicobar Islands, India. The name reflects the immense suffering of Indian freedom fighters who were imprisoned there by the British, isolated by the vast sea."
+    },
+    {
+      "id": 2,
+      "question": "To which country did Benjamin Franklin (1706-1790) belong?",
+      "options": ["US", "UK", "Canada", "China"],
+      "correctAnswer": 0,
+      "subject": "General Knowledge",
+      "topic": "Personalities",
+      "explanation": "Benjamin Franklin was one of the Founding Fathers of the United States."
+    },
+    {
+      "id": 3,
+      "question": "What was the profession of the President of Ukraine, Volodymyr Zelenskyy, before he became president?",
+      "options": ["Lawyer", "Politician", "Comedian", "Scientist"],
+      "correctAnswer": 2,
+      "subject": "General Knowledge",
+      "topic": "Current Leaders",
+      "explanation": "Volodymyr Zelenskyy was a comedian and actor before becoming President of Ukraine."
+    }
+  ]
+}
