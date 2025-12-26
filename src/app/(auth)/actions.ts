@@ -40,9 +40,11 @@ export async function signup(formData: FormData) {
     });
 
     if (error) {
+        console.error('[Signup Error]:', error.message);
         return { error: error.message };
     }
 
+    console.log('[Signup Success] Redirecting...');
     revalidatePath('/', 'layout');
     redirect('/dashboard');
 }

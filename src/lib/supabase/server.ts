@@ -8,8 +8,12 @@ export async function createClient() {
     const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
     const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 
+    console.log('[Debug] Creating Server Client');
+    console.log('[Debug] URL Exists:', !!supabaseUrl);
+    console.log('[Debug] Key Exists:', !!supabaseKey);
+
     if (!supabaseUrl || !supabaseKey) {
-        console.error('Missing Supabase Environment Variables in Server Client');
+        console.error('[Error] Missing Supabase Environment Variables in Server Client');
         return null;
     }
 
