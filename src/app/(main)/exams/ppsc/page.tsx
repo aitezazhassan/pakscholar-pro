@@ -1,334 +1,155 @@
-import type { Metadata } from 'next';
+'use client';
+
 import Link from 'next/link';
-import { ExternalLink, BookOpen, Users, GraduationCap, Target, Clock, AlertCircle } from 'lucide-react';
+import { ExternalLink, BookOpen, Calendar, Users, Target, CheckCircle2 } from 'lucide-react';
 
-export const metadata: Metadata = {
-    title: 'PPSC Exam Information',
-    description: 'Complete guide to PPSC (Punjab Public Service Commission) exams - Pattern, eligibility, syllabus, and preparation strategies for government jobs in Punjab.',
-};
-
-export default function PPSCInfo() {
+export default function PPSCPage() {
     return (
         <main className="min-h-screen bg-white">
-            <div className="mx-auto max-w-5xl px-6 py-16 sm:px-8 sm:py-24">
-                {/* Header */}
-                <div className="mb-12 text-center">
-                    <h1 className="mb-4 text-4xl font-bold text-gray-900 sm:text-5xl">
-                        PPSC Exam Guide
-                    </h1>
-                    <p className="text-xl text-gray-600">
-                        Punjab Public Service Commission - Your Complete Preparation Resource
+            {/* Dark Hero */}
+            <section className="relative isolate overflow-hidden bg-slate-900 pt-24 pb-20">
+                <div className="absolute inset-0 -z-10">
+                    <div className="absolute top-0 z-[-2] h-full w-full bg-[#000000] bg-[radial-gradient(#ffffff33_1px,#00091d_1px)] bg-[size:20px_20px] opacity-[0.2]"></div>
+                    <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-emerald-700/20 blur-[100px]" />
+                </div>
+
+                <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
+                    <div className="inline-flex items-center justify-center w-20 h-20 bg-emerald-600 rounded-2xl mb-6">
+                        <BookOpen className="w-10 h-10 text-white" />
+                    </div>
+                    <h1 className="text-5xl font-bold text-white mb-4 font-serif">PPSC Exam Guide</h1>
+                    <p className="text-xl text-slate-300 max-w-2xl mx-auto mb-8">
+                        Complete preparation guide for Punjab Public Service Commission exams
                     </p>
-                </div>
 
-                {/* Disclaimer */}
-                <div className="mb-12 rounded-lg border-2 border-yellow-400 bg-yellow-50 p-6">
-                    <div className="flex items-start gap-3">
-                        <AlertCircle className="mt-0.5 h-6 w-6 flex-shrink-0 text-yellow-600" />
-                        <div>
-                            <h3 className="mb-2 font-semibold text-gray-900">Important Notice</h3>
-                            <p className="text-gray-700">
-                                PakScholar Pro is an independent educational platform. We are NOT affiliated with, endorsed by, or connected to PPSC (Punjab Public Service Commission).
-                                Always verify information from the official PPSC website: <a href="https://www.ppsc.gop.pk" target="_blank" rel="noopener noreferrer" className="font-medium text-[#01411C] hover:underline">ppsc.gop.pk</a>
-                            </p>
+                    <div className="flex flex-wrap justify-center gap-6 mt-12">
+                        <div className="bg-white/10 backdrop-blur-lg rounded-2xl px-6 py-4 border border-white/20">
+                            <div className="text-3xl font-bold text-emerald-400">BPS 11-17</div>
+                            <div className="text-sm text-slate-300">Job Grades</div>
+                        </div>
+                        <div className="bg-white/10 backdrop-blur-lg rounded-2xl px-6 py-4 border border-white/20">
+                            <div className="text-3xl font-bold text-emerald-400">Monthly</div>
+                            <div className="text-sm text-slate-300">New Posts</div>
+                        </div>
+                        <div className="bg-white/10 backdrop-blur-lg rounded-2xl px-6 py-4 border border-white/20">
+                            <div className="text-3xl font-bold text-emerald-400">100-150</div>
+                            <div className="text-sm text-slate-300">MCQs</div>
                         </div>
                     </div>
-                </div>
 
-                {/* What is PPSC */}
-                <section className="mb-12">
-                    <h2 className="mb-6 text-3xl font-bold text-gray-900">What is PPSC?</h2>
-                    <div className="space-y-4 text-gray-700">
-                        <p>
-                            The <strong>Punjab Public Service Commission (PPSC)</strong> is a constitutional body responsible for recruiting qualified candidates for various government positions in Punjab Province, Pakistan.
-                        </p>
-                        <p>
-                            Established under Article 242 of the Constitution of Pakistan, PPSC conducts competitive examinations for posts in BPS-11 to BPS-17 and above in different Punjab government departments.
-                        </p>
-                        <div className="grid gap-6 sm:grid-cols-2 mt-6">
-                            <div className="rounded-lg border-2 border-gray-200 p-6">
-                                <Users className="mb-3 h-8 w-8 text-[#01411C]" />
-                                <h3 className="mb-2 font-semibold text-gray-900">Job Categories</h3>
-                                <ul className="space-y-1 text-sm text-gray-700">
-                                    <li>• Educational Services</li>
-                                    <li>• Administrative Services</li>
-                                    <li>• Health Services</li>
-                                    <li>• Police Services</li>
-                                    <li>• Technical & Engineering</li>
-                                </ul>
-                            </div>
-                            <div className="rounded-lg border-2 border-gray-200 p-6">
-                                <GraduationCap className="mb-3 h-8 w-8 text-[#01411C]" />
-                                <h3 className="mb-2 font-semibold text-gray-900">Importance</h3>
-                                <p className="text-sm text-gray-700">
-                                    PPSC jobs offer job security, competitive salaries, pension benefits, and career growth opportunities in Punjab's government sector.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                {/* Exam Pattern */}
-                <section className="mb-12">
-                    <h2 className="mb-6 text-3xl font-bold text-gray-900">Exam Pattern & Structure</h2>
-                    <div className="space-y-6">
-                        <div className="rounded-lg bg-emerald-50 p-6">
-                            <h3 className="mb-4 text-xl font-semibold text-gray-900">Typical PPSC Exam Stages</h3>
-                            <ol className="space-y-3">
-                                <li className="flex items-start">
-                                    <span className="mr-3 flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full bg-[#01411C] text-sm font-bold text-white">1</span>
-                                    <div>
-                                        <strong className="text-gray-900">Written Test (MCQs):</strong>
-                                        <p className="text-gray-700">Multiple-choice questions covering general knowledge, relevant subjects, and job-specific topics. Usually 100-150 marks.</p>
-                                    </div>
-                                </li>
-                                <li className="flex items-start">
-                                    <span className="mr-3 flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full bg-[#01411C] text-sm font-bold text-white">2</span>
-                                    <div>
-                                        <strong className="text-gray-900">Physical/Skill Test:</strong>
-                                        <p className="text-gray-700">For certain positions (Police, Sports, etc.). Candidates must meet fitness or skill requirements.</p>
-                                    </div>
-                                </li>
-                                <li className="flex items-start">
-                                    <span className="mr-3 flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full bg-[#01411C] text-sm font-bold text-white">3</span>
-                                    <div>
-                                        <strong className="text-gray-900">Interview:</strong>
-                                        <p className="text-gray-700">Final stage where personality, knowledge, and suitability for the post are assessed. Usually 30-50 marks.</p>
-                                    </div>
-                                </li>
-                            </ol>
-                        </div>
-
-                        <div className="rounded-lg border-2 border-gray-200 p-6">
-                            <h3 className="mb-3 text-lg font-semibold text-gray-900">Scoring System</h3>
-                            <p className="mb-3 text-gray-700">
-                                The scoring varies by post, but typically:
-                            </p>
-                            <ul className="space-y-2 text-gray-700">
-                                <li className="flex items-start">
-                                    <span className="mr-2 text-[#01411C]">•</span>
-                                    <span><strong>Written Test:</strong> 70-85% weightage</span>
-                                </li>
-                                <li className="flex items-start">
-                                    <span className="mr-2 text-[#01411C]">•</span>
-                                    <span><strong>Interview:</strong> 15-30% weightage</span>
-                                </li>
-                                <li className="flex items-start">
-                                    <span className="mr-2 text-[#01411C]">•</span>
-                                    <span><strong>Negative Marking:</strong> Some tests have 0.25-0.5 marks deduction for wrong answers</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </section>
-
-                {/* Eligibility */}
-                <section className="mb-12">
-                    <h2 className="mb-6 text-3xl font-bold text-gray-900">Eligibility Criteria</h2>
-                    <div className="grid gap-6 md:grid-cols-2">
-                        <div className="rounded-lg border-2 border-gray-200 p-6">
-                            <h3 className="mb-3 font-semibold text-gray-900">Age Limits</h3>
-                            <ul className="space-y-2 text-gray-700">
-                                <li>• <strong>General Posts:</strong> 18-30 years</li>
-                                <li>• <strong>Relaxation for Women:</strong> +5 years</li>
-                                <li>• <strong>Relaxation for Disabled:</strong> +10 years</li>
-                                <li>• <strong>Specific Posts:</strong> Varies (check advertisement)</li>
-                            </ul>
-                        </div>
-
-                        <div className="rounded-lg border-2 border-gray-200 p-6">
-                            <h3 className="mb-3 font-semibold text-gray-900">Educational Requirements</h3>
-                            <ul className="space-y-2 text-gray-700">
-                                <li>• <strong>BPS-11 to 15:</strong> Bachelor's Degree (varies)</li>
-                                <li>• <strong>BPS-16 to 17:</strong> Master's Degree or equivalent</li>
-                                <li>• <strong>Technical Posts:</strong> Relevant technical qualifications</li>
-                                <li>• <strong>Experience:</strong> Sometimes required for senior posts</li>
-                            </ul>
-                        </div>
-
-                        <div className="rounded-lg border-2 border-gray-200 p-6">
-                            <h3 className="mb-3 font-semibold text-gray-900">Domicile Requirements</h3>
-                            <p className="text-gray-700">
-                                Candidates must hold Punjab domicile for most posts. Some positions accept candidates from other provinces based on quotas.
-                            </p>
-                        </div>
-
-                        <div className="rounded-lg border-2 border-gray-200 p-6">
-                            <h3 className="mb-3 font-semibold text-gray-900">Special Quotas</h3>
-                            <ul className="space-y-2 text-gray-700">
-                                <li>• Women Quota: 5-15%</li>
-                                <li>• Minority Quota: 5%</li>
-                                <li>• Disabled Quota: 2%</li>
-                                <li>• Sports Quota: 2%</li>
-                            </ul>
-                        </div>
-                    </div>
-                </section>
-
-                {/* Syllabus */}
-                <section className="mb-12">
-                    <h2 className="mb-6 text-3xl font-bold text-gray-900">Syllabus Overview</h2>
-                    <div className="space-y-6">
-                        <div className="rounded-lg border-2 border-gray-200 p-6">
-                            <h3 className="mb-4 text-lg font-semibold text-gray-900">
-                                <BookOpen className="mb-2 inline-block h-5 w-5 text-[#01411C]" /> Core Subjects (Common)</h3>
-                            <div className="grid gap-4 sm:grid-cols-2">
-                                <ul className="space-y-2 text-gray-700">
-                                    <li className="flex items-start">
-                                        <span className="mr-2 text-[#01411C]">✓</span>
-                                        <span>Pakistan Studies (History, Geography, Culture)</span>
-                                    </li>
-                                    <li className="flex items-start">
-                                        <span className="mr-2 text-[#01411C]">✓</span>
-                                        <span>Islamic Studies (Quran, Hadith, Islamic History)</span>
-                                    </li>
-                                    <li className="flex items-start">
-                                        <span className="mr-2 text-[#01411C]">✓</span>
-                                        <span>Current Affairs (National & International)</span>
-                                    </li>
-                                </ul>
-                                <ul className="space-y-2 text-gray-700">
-                                    <li className="flex items-start">
-                                        <span className="mr-2 text-[#01411C]">✓</span>
-                                        <span>General Knowledge</span>
-                                    </li>
-                                    <li className="flex items-start">
-                                        <span className="mr-2 text-[#01411C]">✓</span>
-                                        <span>English (Grammar, Vocabulary, Comprehension)</span>
-                                    </li>
-                                    <li className="flex items-start">
-                                        <span className="mr-2 text-[#01411C]">✓</span>
-                                        <span>Mathematics/Everyday Science (some posts)</span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div className="rounded-lg bg-gray-50 p-6">
-                            <h3 className="mb-3 text-lg font-semibold text-gray-900">Position-Specific Subjects</h3>
-                            <p className="text-gray-700">
-                                In addition to general subjects, candidates are tested on job-specific topics:
-                            </p>
-                            <ul className="mt-3 space-y-1 text-gray-700">
-                                <li>• <strong>Educators:</strong> Pedagogy, Subject Matter (Science, Math, etc.)</li>
-                                <li>• <strong>Accounts Officers:</strong> Accounting, Finance Principles</li>
-                                <li>• <strong>Engineers:</strong> Engineering subjects (Civil, Electrical, etc.)</li>
-                                <li>• <strong>Legal Positions:</strong> Law, Legal Procedures</li>
-                            </ul>
-                        </div>
-                    </div>
-                </section>
-
-                {/* Preparation Strategy */}
-                <section className="mb-12">
-                    <h2 className="mb-6 text-3xl font-bold text-gray-900">Preparation Strategy</h2>
-                    <div className="space-y-6">
-                        <div className="rounded-lg border-2 border-[#01411C] bg-emerald-50 p-6">
-                            <h3 className="mb-4 flex items-center text-xl font-semibold text-gray-900">
-                                <Clock className="mr-2 h-6 w-6 text-[#01411C]" />
-                                Recommended Timeline
-                            </h3>
-                            <div className="space-y-3 text-gray-700">
-                                <p><strong>3-6 Months Before:</strong> Complete syllabus coverage, subject-wise study</p>
-                                <p><strong>2-3 Months Before:</strong> Revision + Practice tests, identify weak areas</p>
-                                <p><strong>1 Month Before:</strong> Intensive revision, past papers, mock tests</p>
-                                <p><strong>1 Week Before:</strong> Final revision, confidence building, exam strategies</p>
-                            </div>
-                        </div>
-
-                        <div className="rounded-lg border-2 border-gray-200 p-6">
-                            <h3 className="mb-4 flex items-center text-lg font-semibold text-gray-900">
-                                <Target className="mr-2 h-5 w-5 text-[#01411C]" />
-                                Success Tips
-                            </h3>
-                            <ul className="space-y-2 text-gray-700">
-                                <li className="flex items-start">
-                                    <span className="mr-2 text-[#01411C]">1.</span>
-                                    <span><strong>Follow Official Syllabus:</strong> Always refer to the job advertisement for specific syllabus</span>
-                                </li>
-                                <li className="flex items-start">
-                                    <span className="mr-2 text-[#01411C]">2.</span>
-                                    <span><strong>Practice MCQs Daily:</strong> Solve 50-100 MCQs per day from different subjects</span>
-                                </li>
-                                <li className="flex items-start">
-                                    <span className="mr-2 text-[#01411C]">3.</span>
-                                    <span><strong>Stay Updated:</strong> Read newspapers daily for Current Affairs</span>
-                                </li>
-                                <li className="flex items-start">
-                                    <span className="mr-2 text-[#01411C]">4.</span>
-                                    <span><strong>Use Past Papers:</strong> Understand question patterns from previous exams</span>
-                                </li>
-                                <li className="flex items-start">
-                                    <span className="mr-2 text-[#01411C]">5.</span>
-                                    <span><strong>Time Management:</strong> Practice completing tests within the allocated time</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </section>
-
-                {/* Official Links */}
-                <section className="mb-12">
-                    <h2 className="mb-6 text-3xl font-bold text-gray-900">Official Resources</h2>
-                    <div className="space-y-4">
+                    <div className="mt-8">
                         <a
                             href="https://www.ppsc.gop.pk"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="flex items-center justify-between rounded-lg border-2 border-gray-200 p-6 transition-all hover:border-[#01411C] hover:shadow-md"
+                            className="inline-flex items-center gap-2 px-6 py-3 bg-white/20 backdrop-blur text-white rounded-full hover:bg-white/30 transition-all"
                         >
-                            <div>
-                                <h3 className="mb-2 font-semibold text-gray-900">PPSC Official Website</h3>
-                                <p className="text-sm text-gray-600">Latest advertisements, results, and announcements</p>
-                            </div>
-                            <ExternalLink className="h-6 w-6 text-[#01411C]" />
+                            <span>Visit Official PPSC Website</span>
+                            <ExternalLink className="w-4 h-4" />
                         </a>
+                    </div>
+                </div>
+            </section>
 
-                        <Link
-                            href="/past-papers"
-                            className="flex items-center justify-between rounded-lg border-2 border-gray-200 p-6 transition-all hover:border-[#01411C] hover:shadow-md"
-                        >
-                            <div>
-                                <h3 className="mb-2 font-semibold text-gray-900">Past Papers on PakScholar Pro</h3>
-                                <p className="text-sm text-gray-600">Access our collection of PPSC past papers</p>
+            {/* Exam Pattern */}
+            <section className="py-20 bg-white">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="text-center mb-12">
+                        <h2 className="text-3xl font-bold text-slate-900 mb-3">Exam Structure</h2>
+                        <p className="text-lg text-slate-600">Understanding the PPSC exam pattern</p>
+                    </div>
+
+                    <div className="grid md:grid-cols-3 gap-6">
+                        <div className="bg-emerald-50 rounded-2xl p-8 border-2 border-emerald-100">
+                            <div className="text-4xl font-bold text-emerald-700 mb-2">Stage 1</div>
+                            <h3 className="text-xl font-bold text-slate-900 mb-3">Written Test</h3>
+                            <p className="text-slate-700">MCQ-based exam covering general knowledge, subject-specific topics, and current affairs</p>
+                        </div>
+                        <div className="bg-blue-50 rounded-2xl p-8 border-2 border-blue-100">
+                            <div className="text-4xl font-bold text-blue-700 mb-2">Stage 2</div>
+                            <h3 className="text-xl font-bold text-slate-900 mb-3">Physical/Skill Test</h3>
+                            <p className="text-slate-700">For specific positions requiring fitness or technical skills (if applicable)</p>
+                        </div>
+                        <div className="bg-purple-50 rounded-2xl p-8 border-2 border-purple-100">
+                            <div className="text-4xl font-bold text-purple-700 mb-2">Stage 3</div>
+                            <h3 className="text-xl font-bold text-slate-900 mb-3">Interview</h3>
+                            <p className="text-slate-700">Final assessment of personality, knowledge, and suitability for the position</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* Syllabus */}
+            <section className="py-20 bg-slate-50">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <h2 className="text-3xl font-bold text-slate-900 mb-12 text-center">Common Syllabus Topics</h2>
+
+                    <div className="grid md:grid-cols-2 gap-6">
+                        {[
+                            { title: 'Pakistan Studies', topics: ['History (712 AD - Present)', 'Geography & Resources', 'Culture & Heritage', 'Constitution 1973'] },
+                            { title: 'Islamic Studies', topics: ['Quran & Hadith', 'Islamic History', 'Fiqh Basics', 'Islamic Contributions'] },
+                            { title: 'Current Affairs', topics: ['National Events', 'International Relations', 'Economy & Trade', 'Recent Developments'] },
+                            { title: 'General Knowledge', topics: ['World Geography', 'Science & Technology', 'Famous Personalities', 'Organizations & Awards'] },
+                            { title: 'English', topics: ['Grammar & Tenses', 'Vocabulary', 'Idioms & Phrases', 'Comprehension'] },
+                            { title: 'Everyday Science', topics: ['Biology Basics', 'Physics Concepts', 'Chemistry Fundamentals', 'Health & Nutrition'] }
+                        ].map((subject, idx) => (
+                            <div key={idx} className="bg-white rounded-2xl p-6 border-2 border-slate-200 hover:shadow-lg transition-all">
+                                <h3 className="text-xl font-bold text-slate-900 mb-4">{subject.title}</h3>
+                                <ul className="space-y-2">
+                                    {subject.topics.map((topic, tidx) => (
+                                        <li key={tidx} className="flex items-start gap-2 text-slate-700">
+                                            <CheckCircle2 className="w-5 h-5 text-emerald-600 flex-shrink-0 mt-0.5" />
+                                            <span>{topic}</span>
+                                        </li>
+                                    ))}
+                                </ul>
                             </div>
-                            <span className="text-[#01411C]">→</span>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* Preparation Tips */}
+            <section className="py-20 bg-white">
+                <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <h2 className="text-3xl font-bold text-slate-900 mb-12 text-center">Success Strategy</h2>
+
+                    <div className="space-y-6">
+                        {[
+                            { title: '3-6 Months Before', desc: 'Complete syllabus coverage, build foundation in all subjects' },
+                            { title: '2-3 Months Before', desc: 'Intensive practice, solve past papers, identify weak areas' },
+                            { title: '1 Month Before', desc: 'Revision + mock tests, time management practice' },
+                            { title: '1 Week Before', desc: 'Final revision, stay calm, build confidence' }
+                        ].map((tip, idx) => (
+                            <div key={idx} className="flex gap-4 p-6 bg-emerald-50 rounded-2xl border-2 border-emerald-100">
+                                <div className="flex-shrink-0 w-12 h-12 bg-emerald-600 rounded-xl flex items-center justify-center text-white font-bold text-lg">
+                                    {idx + 1}
+                                </div>
+                                <div>
+                                    <h3 className="font-bold text-slate-900 mb-1">{tip.title}</h3>
+                                    <p className="text-slate-700">{tip.desc}</p>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* CTA */}
+            <section className="py-20 bg-gradient-to-br from-emerald-900 to-slate-900 text-white">
+                <div className="max-w-4xl mx-auto px-4 text-center">
+                    <h2 className="text-4xl font-bold mb-6">Ready for PPSC Success?</h2>
+                    <p className="text-xl text-emerald-100 mb-8">Start your preparation with our comprehensive study materials</p>
+                    <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                        <Link href="/pakistan-studies" className="px-8 py-4 bg-white text-emerald-900 rounded-full font-bold hover:bg-emerald-50">
+                            Browse Study Materials
                         </Link>
-
-                        <Link
-                            href="/pakistan-studies"
-                            className="flex items-center justify-between rounded-lg border-2 border-gray-200 p-6 transition-all hover:border-[#01411C] hover:shadow-md"
-                        >
-                            <div>
-                                <h3 className="mb-2 font-semibold text-gray-900">Study Materials</h3>
-                                <p className="text-sm text-gray-600">Browse our subject-wise preparation resources</p>
-                            </div>
-                            <span className="text-[#01411C]">→</span>
+                        <Link href="/practice" className="px-8 py-4 bg-transparent border-2 border-white text-white rounded-full font-bold hover:bg-white/10">
+                            Take Practice Tests
                         </Link>
                     </div>
-                </section>
-
-                {/* CTA */}
-                <div className="rounded-lg border-2 border-[#01411C] bg-emerald-50 p-8 text-center">
-                    <h3 className="mb-4 text-2xl font-bold text-gray-900">Ready to Prepare for PPSC?</h3>
-                    <p className="mb-6 text-gray-700">
-                        Start your preparation journey with our comprehensive study materials and practice tests.
-                    </p>
-                    <Link
-                        href="/pakistan-studies"
-                        className="inline-flex items-center gap-2 rounded-lg bg-[#01411C] px-8 py-4 font-semibold text-white shadow-md transition-all hover:bg-[#0A6638] hover:shadow-lg"
-                    >
-                        Start Learning
-                    </Link>
                 </div>
-
-                {/* Back Link */}
-                <div className="mt-12">
-                    <Link href="/" className="inline-flex items-center font-medium text-[#01411C] hover:underline">
-                        ← Back to Home
-                    </Link>
-                </div>
-            </div>
+            </section>
         </main>
     );
 }
