@@ -17,7 +17,8 @@ export default function AuthenticatedKeystatic() {
         // Check if already authenticated
         const auth = sessionStorage.getItem('keystatic_auth');
         if (auth === 'true') {
-            setIsAuthenticated(true);
+            // Delay to avoid sync setState warning
+            setTimeout(() => setIsAuthenticated(true), 0);
         }
     }, []);
 

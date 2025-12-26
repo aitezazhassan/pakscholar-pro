@@ -1,6 +1,6 @@
 'use client';
 
-import { Users, Linkedin, Mail } from 'lucide-react';
+import { Users } from 'lucide-react';
 
 export default function TeamPage() {
     const team = [

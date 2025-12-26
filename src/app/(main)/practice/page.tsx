@@ -15,20 +15,22 @@ const mockExams = [
     }
 ];
 
+import { PageHero } from '@/components/ui/PageHero';
+
 export default function PracticePage() {
     return (
-        <main className="min-h-screen bg-white pt-20">
-            {/* Header */}
-            <div className="bg-gradient-to-br from-emerald-50 to-white border-b border-gray-200">
-                <div className="max-w-7xl mx-auto px-4 py-12 sm:px-6 lg:px-8">
-                    <h1 className="text-4xl font-bold text-gray-900 mb-3">
-                        Mock Exams 📝
-                    </h1>
-                    <p className="text-lg text-gray-700">
-                        Take full-length practice exams, get instant results with detailed explanations, and track your progress.
-                    </p>
-                </div>
-            </div>
+        <main className="min-h-screen bg-white">
+            <PageHero
+                icon="📝"
+                title="Mock Exams"
+                description="Take full-length practice exams, get instant results with detailed explanations, and track your progress."
+                theme="emerald"
+                stats={[
+                    { value: '100+', label: 'Mock Tests' },
+                    { value: 'Real', label: 'Pattern' },
+                    { value: 'Free', label: 'Access' }
+                ]}
+            />
 
             {/* Content */}
             <div className="max-w-7xl mx-auto px-4 py-8 sm:px-6 lg:px-8">

@@ -8,7 +8,7 @@ export default function TermsPage() {
             <section className="bg-slate-900 py-16">
                 <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
                     <FileText className="w-12 h-12 mx-auto mb-4 text-blue-400" />
-                    <h1 className="text-4xl font-bold mb-2">Terms of Service</h1>
+                    <p className="mt-6 text-lg leading-8 text-gray-300">These Terms of Service (&quot;Terms&quot;) govern your use of PakScholar Pro.</p>
                     <p className="text-slate-300">Last updated: January 2025</p>
                 </div>
             </section>

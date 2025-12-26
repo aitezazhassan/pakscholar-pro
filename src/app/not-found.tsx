@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Home, Search, BookOpen } from 'lucide-react';
+import { Home, BookOpen } from 'lucide-react';
 
 export default function NotFound() {
     return (
@@ -14,9 +14,7 @@ export default function NotFound() {
                 <h2 className="mb-4 text-3xl font-bold text-gray-900 sm:text-4xl">
                     Page Not Found
                 </h2>
-                <p className="mb-12 text-lg text-gray-600">
-                    Sorry, we couldn't find the page you're looking for. It might have been moved or doesn't exist.
-                </p>
+                <p className="mt-6 text-base leading-7 text-slate-600">Sorry, we couldn&apos;t find the page you&apos;re looking for. It might have been moved or doesn&apos;t exist.</p>
 
                 {/* Action Buttons */}
                 <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">

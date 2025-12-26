@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import {
   Search,
   BookOpen,
@@ -9,11 +9,9 @@ import {
   CheckCircle2,
   ArrowRight,
   Calculator,
-  RefreshCw,
-  Menu,
-  X,
-  GraduationCap
+  RefreshCw
 } from 'lucide-react';
+import { GradientCTA } from '@/components/ui/layout-components';
 
 // --- SUB-COMPONENT: HERO SECTION ---
 const HeroSection = () => {
@@ -166,8 +164,6 @@ const AcademicCalculator = () => {
   const [result, setResult] = useState<string | null>(null);
 
   const calculate = () => {
-    // Demo Logic: Percentage of degree * Weightage
-    // Weightage used: Matric(5), Inter(7), Bach(11), Master(17) = 40 Total
     const getScore = (obt: string, tot: string, weight: number) => {
       if (!obt || !tot) return 0;
       return (parseFloat(obt) / parseFloat(tot)) * weight;
@@ -285,17 +281,13 @@ export default function HomePage() {
       <AcademicCalculator />
       <SubjectGrid />
 
-      {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-br from-emerald-800 to-slate-900 text-white text-center">
-        <div className="max-w-4xl mx-auto px-4">
-          <h2 className="text-3xl md:text-5xl font-bold mb-6">Ready to Ace Your Exam?</h2>
-          <p className="text-emerald-100 text-lg mb-8">No hidden fees. No premium walls. Just education.</p>
-          <div className="flex justify-center gap-4">
-            <button className="px-8 py-3 bg-white text-emerald-900 rounded-full font-bold hover:bg-emerald-50 transition-colors">Start Learning Now</button>
-            <button className="px-8 py-3 bg-transparent border border-white text-white rounded-full font-bold hover:bg-white/10 transition-colors">Contact Us</button>
-          </div>
-        </div>
-      </section>
+      <GradientCTA
+        title="Ready to Ace Your Exam?"
+        subtitle="No hidden fees. No premium walls. Just education."
+        primaryBtnText="Start Learning Now"
+        secondaryBtnText="Contact Us"
+        theme="emerald"
+      />
     </main>
   );
 }

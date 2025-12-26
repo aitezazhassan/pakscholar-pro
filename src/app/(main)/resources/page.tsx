@@ -1,6 +1,6 @@
 'use client';
 
-import { BookOpen, FileText, Video } from 'lucide-react';
+import { BookOpen, FileText, Download, ExternalLink, Search, Filter } from 'lucide-react';
 
 export default function ResourcesPage() {
     return (

@@ -1,7 +1,10 @@
 'use client';
 
 import { useState } from 'react';
-import { BookOpen, FileText, Video, Download, ChevronRight, CheckCircle2, Clock } from 'lucide-react';
+import { FileText, Download, ChevronRight } from 'lucide-react';
+import { PageHero } from '@/components/ui/PageHero';
+import { TopicCard } from '@/components/ui/TopicCard';
+import { SectionHeader, GradientCTA } from '@/components/ui/layout-components';
 
 export default function PakistanStudiesPage() {
     const [activeTab, setActiveTab] = useState('history');
@@ -23,110 +26,68 @@ export default function PakistanStudiesPage() {
     ];
 
     return (
-        <main className="min-h-screen bg-white">
-            {/* Dark Hero Section */}
-            <section className="relative isolate overflow-hidden bg-slate-900 pt-24 pb-20">
-                <div className="absolute inset-0 -z-10">
-                    <div className="absolute top-0 z-[-2] h-full w-full bg-[#000000] bg-[radial-gradient(#ffffff33_1px,#00091d_1px)] bg-[size:20px_20px] opacity-[0.2]"></div>
-                    <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-emerald-700/20 blur-[100px]" />
-                    <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] rounded-full bg-blue-700/20 blur-[100px]" />
-                </div>
-
-                <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                    <div className="text-center">
-                        <div className="text-8xl mb-6">🇵🇰</div>
-                        <h1 className="text-5xl font-bold text-white mb-4 font-serif">
-                            Pakistan Studies
-                        </h1>
-                        <p className="text-xl text-slate-300 max-w-2xl mx-auto mb-8">
-                            Complete guide to Pakistan's history, geography, culture, and political development from 712 AD to present day
-                        </p>
-
-                        {/* Quick Stats */}
-                        <div className="flex flex-wrap justify-center gap-6 mt-12">
-                            <div className="bg-white/10 backdrop-blur-lg rounded-2xl px-6 py-4 border border-white/20">
-                                <div className="text-3xl font-bold text-emerald-400">150+</div>
-                                <div className="text-sm text-slate-300">Topics Covered</div>
-                            </div>
-                            <div className="bg-white/10 backdrop-blur-lg rounded-2xl px-6 py-4 border border-white/20">
-                                <div className="text-3xl font-bold text-emerald-400">500+</div>
-                                <div className="text-sm text-slate-300">Practice Questions</div>
-                            </div>
-                            <div className="bg-white/10 backdrop-blur-lg rounded-2xl px-6 py-4 border border-white/20">
-                                <div className="text-3xl font-bold text-emerald-400">50+</div>
-                                <div className="text-sm text-slate-300">Past Papers</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
+        <main className="min-h-screen bg-slate-50/50">
+            <PageHero
+                icon="🇵🇰"
+                title="Pakistan Studies"
+                description="Complete guide to Pakistan's history, geography, culture, and political development from 712 AD to present day"
+                theme="emerald"
+                stats={[
+                    { value: '150+', label: 'Topics Covered' },
+                    { value: '500+', label: 'Practice Questions' },
+                    { value: '50+', label: 'Past Papers' }
+                ]}
+            />
 
             {/* Topics Grid */}
-            <section className="py-20 bg-white">
+            <section className="py-24 bg-white relative">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="text-center mb-12">
-                        <h2 className="text-3xl font-bold text-slate-900 mb-3">Explore Topics</h2>
-                        <p className="text-lg text-slate-600">Click on any topic to dive deep into the subject matter</p>
-                    </div>
+                    <SectionHeader
+                        title="Explore Topics"
+                        subtitle="Click on any topic to dive deep into the subject matter"
+                    />
 
-                    <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
                         {topics.map((topic) => (
-                            <button
+                            <TopicCard
                                 key={topic.id}
+                                {...topic}
+                                active={activeTab === topic.id}
                                 onClick={() => setActiveTab(topic.id)}
-                                className={`group text-left p-8 rounded-2xl border-2 transition-all duration-300 hover:-translate-y-1 ${activeTab === topic.id
-                                        ? 'border-emerald-500 bg-emerald-50 shadow-xl'
-                                        : 'border-slate-200 bg-white hover:border-emerald-300 hover:shadow-lg'
-                                    }`}
-                            >
-                                <div className="text-5xl mb-4 group-hover:scale-110 transition-transform duration-300">
-                                    {topic.icon}
-                                </div>
-                                <h3 className={`text-xl font-bold mb-2 ${activeTab === topic.id ? 'text-emerald-900' : 'text-slate-900'
-                                    }`}>
-                                    {topic.title}
-                                </h3>
-                                <p className="text-sm text-slate-600 mb-4">{topic.desc}</p>
-                                <div className="flex items-center justify-between">
-                                    <span className="text-xs font-semibold text-emerald-700">
-                                        {topic.count} lessons
-                                    </span>
-                                    <ChevronRight className={`w-5 h-5 transition-all ${activeTab === topic.id ? 'text-emerald-700' : 'text-slate-400'
-                                        }`} />
-                                </div>
-                            </button>
+                                theme="emerald"
+                            />
                         ))}
                     </div>
                 </div>
             </section>
 
             {/* Past Papers Section */}
-            <section className="py-20 bg-slate-50">
+            <section className="py-24 bg-slate-50 border-y border-slate-200">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="flex items-center justify-between mb-12">
+                    <div className="flex flex-col md:flex-row items-center justify-between mb-16 gap-6 text-center md:text-left">
                         <div>
-                            <h2 className="text-3xl font-bold text-slate-900 mb-2">Past Papers</h2>
-                            <p className="text-slate-600">Practice with actual exam questions from previous years</p>
+                            <h2 className="text-3xl font-bold text-slate-900 mb-2 tracking-tight">Past Papers</h2>
+                            <p className="text-slate-600 font-light text-lg">Practice with actual exam questions from previous years</p>
                         </div>
-                        <button className="px-6 py-3 bg-emerald-700 text-white rounded-full font-semibold hover:bg-emerald-800 transition-all hidden md:block">
+                        <button className="px-8 py-3 bg-white border-2 border-slate-200 text-slate-700 rounded-full font-bold hover:border-emerald-500 hover:text-emerald-700 transition-all hover:shadow-lg active:scale-95">
                             View All Papers
                         </button>
                     </div>
 
                     <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                         {pastPapers.map((paper, idx) => (
-                            <div key={idx} className="bg-white rounded-2xl border border-slate-200 p-6 hover:shadow-xl transition-all hover:-translate-y-1 group">
+                            <div key={idx} className="bg-white rounded-2xl border border-slate-100 p-6 hover:shadow-xl hover:shadow-emerald-900/5 transition-all duration-300 hover:-translate-y-1 group">
                                 <div className="flex items-start justify-between mb-4">
-                                    <div className="w-12 h-12 bg-emerald-100 rounded-xl flex items-center justify-center group-hover:bg-emerald-700 transition-colors">
-                                        <FileText className="w-6 h-6 text-emerald-700 group-hover:text-white transition-colors" />
+                                    <div className="w-12 h-12 bg-emerald-50 rounded-xl flex items-center justify-center group-hover:bg-emerald-600 transition-colors duration-300">
+                                        <FileText className="w-6 h-6 text-emerald-600 group-hover:text-white transition-colors duration-300" />
                                     </div>
-                                    <span className="px-2 py-1 bg-slate-100 text-slate-700 text-xs font-semibold rounded-full">
+                                    <span className="px-3 py-1 bg-slate-100 text-slate-700 text-xs font-bold rounded-full uppercase tracking-wider">
                                         {paper.year}
                                     </span>
                                 </div>
-                                <h3 className="font-bold text-slate-900 mb-1">{paper.exam} Paper</h3>
-                                <p className="text-sm text-slate-500 mb-4">{paper.questions} Questions</p>
-                                <button className="w-full py-2 bg-slate-900 text-white rounded-lg text-sm font-semibold hover:bg-slate-800 transition-all flex items-center justify-center gap-2">
+                                <h3 className="font-bold text-slate-900 mb-1 text-lg">{paper.exam} Paper</h3>
+                                <p className="text-sm text-slate-500 mb-6 font-medium">{paper.questions} Questions</p>
+                                <button className="w-full py-2.5 bg-slate-900 text-white rounded-xl text-sm font-bold hover:bg-emerald-600 transition-colors flex items-center justify-center gap-2 group-hover:shadow-lg">
                                     <Download className="w-4 h-4" />
                                     Download PDF
                                 </button>
@@ -137,15 +98,15 @@ export default function PakistanStudiesPage() {
             </section>
 
             {/* Practice Preview */}
-            <section className="py-20 bg-white">
+            <section className="py-24 bg-white">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="max-w-3xl mx-auto">
-                        <div className="text-center mb-12">
-                            <h2 className="text-3xl font-bold text-slate-900 mb-3">Quick Practice</h2>
-                            <p className="text-lg text-slate-600">Test your knowledge with these sample questions</p>
-                        </div>
+                        <SectionHeader
+                            title="Quick Practice"
+                            subtitle="Test your knowledge with these sample questions"
+                        />
 
-                        <div className="space-y-6">
+                        <div className="space-y-6 mb-12">
                             {[
                                 {
                                     q: 'When did Pakistan become a nuclear power?',
@@ -158,15 +119,18 @@ export default function PakistanStudiesPage() {
                                     correct: 1
                                 }
                             ].map((item, idx) => (
-                                <div key={idx} className="bg-slate-50 rounded-2xl border-2 border-slate-200 p-6">
-                                    <h3 className="font-semibold text-slate-900 mb-4">{idx + 1}. {item.q}</h3>
-                                    <div className="space-y-2">
+                                <div key={idx} className="bg-white rounded-2xl border border-slate-200 p-8 shadow-sm hover:shadow-md transition-shadow">
+                                    <h3 className="font-bold text-slate-900 mb-6 text-lg">{idx + 1}. {item.q}</h3>
+                                    <div className="space-y-3">
                                         {item.options.map((opt, optIdx) => (
                                             <button
                                                 key={optIdx}
-                                                className="w-full text-left p-3 rounded-lg border-2 border-slate-200 hover:border-emerald-500 hover:bg-emerald-50 transition-all"
+                                                className="w-full text-left p-4 rounded-xl border border-slate-200 hover:border-emerald-500 hover:bg-emerald-50/50 transition-all duration-200 flex items-center group/opt"
                                             >
-                                                <span className="font-medium text-slate-700">{String.fromCharCode(65 + optIdx)}.</span> {opt}
+                                                <span className="w-8 h-8 rounded-full bg-slate-100 text-slate-600 flex items-center justify-center text-sm font-bold mr-4 group-hover/opt:bg-emerald-200 group-hover/opt:text-emerald-800 transition-colors">
+                                                    {String.fromCharCode(65 + optIdx)}
+                                                </span>
+                                                <span className="font-medium text-slate-700 group-hover/opt:text-slate-900">{opt}</span>
                                             </button>
                                         ))}
                                     </div>
@@ -174,8 +138,8 @@ export default function PakistanStudiesPage() {
                             ))}
                         </div>
 
-                        <div className="text-center mt-8">
-                            <button className="px-8 py-4 bg-emerald-700 text-white rounded-full font-bold text-lg hover:bg-emerald-800 transition-all hover:shadow-lg inline-flex items-center gap-2">
+                        <div className="text-center">
+                            <button className="px-10 py-4 bg-emerald-600 text-white rounded-full font-bold text-lg hover:bg-emerald-700 transition-all hover:shadow-xl hover:shadow-emerald-600/20 inline-flex items-center gap-2 active:scale-95 duration-200">
                                 Take Full Practice Test
                                 <ChevronRight className="w-5 h-5" />
                             </button>
@@ -184,23 +148,13 @@ export default function PakistanStudiesPage() {
                 </div>
             </section>
 
-            {/* CTA Section */}
-            <section className="py-20 bg-gradient-to-br from-emerald-900 to-slate-900 text-white">
-                <div className="max-w-4xl mx-auto px-4 text-center">
-                    <h2 className="text-4xl font-bold mb-6">Master Pakistan Studies Today</h2>
-                    <p className="text-xl text-emerald-100 mb-8">
-                        Join thousands of students preparing for PPSC, FPSC, and CSS exams
-                    </p>
-                    <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <button className="px-8 py-4 bg-white text-emerald-900 rounded-full font-bold hover:bg-emerald-50 transition-all">
-                            Start Learning Free
-                        </button>
-                        <button className="px-8 py-4 bg-transparent border-2 border-white text-white rounded-full font-bold hover:bg-white/10 transition-all">
-                            Download Study Guide
-                        </button>
-                    </div>
-                </div>
-            </section>
+            <GradientCTA
+                title="Master Pakistan Studies Today"
+                subtitle="Join thousands of students preparing for PPSC, FPSC, and CSS exams with our comprehensive resources."
+                primaryBtnText="Start Learning Free"
+                secondaryBtnText="Download Study Guide"
+                theme="emerald"
+            />
         </main>
     );
 }

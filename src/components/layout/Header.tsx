@@ -2,7 +2,8 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { BookOpen, ChevronDown, Menu, X } from 'lucide-react';
+import { BookOpen, Menu, X } from 'lucide-react';
+import { NavDropdown, MobileMenuLink } from '@/components/ui/nav-components';
 
 export default function Header() {
     const [scrolled, setScrolled] = useState(false);
@@ -39,119 +40,57 @@ export default function Header() {
     ];
 
     return (
-        <header className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white/95 backdrop-blur-lg shadow-sm' : 'bg-transparent'
+        <header className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white/90 backdrop-blur-md shadow-sm border-b border-slate-200/50' : 'bg-transparent'
             }`}>
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                <div className="flex h-16 items-center justify-between">
+                <div className="flex h-20 items-center justify-between">
                     {/* Logo */}
-                    <Link href="/" className="flex items-center space-x-2 group">
-                        <div className="w-8 h-8 bg-gradient-to-br from-emerald-600 to-emerald-800 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
-                            <BookOpen className="w-5 h-5 text-white" />
+                    <Link href="/" className="flex items-center space-x-3 group">
+                        <div className="w-10 h-10 bg-gradient-to-br from-emerald-600 to-emerald-800 rounded-xl shadow-lg flex items-center justify-center group-hover:scale-105 group-hover:rotate-3 transition-all duration-300">
+                            <BookOpen className="w-6 h-6 text-white" />
                         </div>
-                        <span className={`text-xl font-bold transition-colors ${scrolled ? 'text-slate-900' : 'text-white'
+                        <span className={`text-xl font-extrabold tracking-tight transition-colors ${scrolled ? 'text-slate-900' : 'text-white'
                             }`}>
-                            PakScholar Pro
+                            PakScholar<span className="text-emerald-500">Pro</span>
                         </span>
                     </Link>
 
                     {/* Desktop Navigation */}
                     <nav className="hidden lg:flex items-center space-x-1">
-                        {/* Subjects Dropdown */}
-                        <div className="relative group">
-                            <button
-                                className={`flex items-center gap-1 px-4 py-2 rounded-lg text-sm font-semibold transition-all ${scrolled
-                                        ? 'text-slate-700 hover:bg-slate-100'
-                                        : 'text-white hover:bg-white/10'
-                                    }`}
-                                onMouseEnter={() => setActiveDropdown('subjects')}
-                            >
-                                Subjects <ChevronDown className="h-4 w-4" />
-                            </button>
-                            {activeDropdown === 'subjects' && (
-                                <div
-                                    className="absolute top-full left-0 mt-2 w-56 bg-white rounded-2xl shadow-xl border border-slate-100 py-2 z-50"
-                                    onMouseEnter={() => setActiveDropdown('subjects')}
-                                    onMouseLeave={() => setActiveDropdown(null)}
-                                >
-                                    {subjects.map((item) => (
-                                        <Link
-                                            key={item.name}
-                                            href={item.href}
-                                            className="block px-4 py-2.5 text-sm text-slate-700 hover:bg-emerald-50 hover:text-emerald-700 transition-colors"
-                                        >
-                                            {item.name}
-                                        </Link>
-                                    ))}
-                                </div>
-                            )}
-                        </div>
-
-                        {/* Exams Dropdown */}
-                        <div className="relative group">
-                            <button
-                                className={`flex items-center gap-1 px-4 py-2 rounded-lg text-sm font-semibold transition-all ${scrolled
-                                        ? 'text-slate-700 hover:bg-slate-100'
-                                        : 'text-white hover:bg-white/10'
-                                    }`}
-                                onMouseEnter={() => setActiveDropdown('exams')}
-                            >
-                                Exams <ChevronDown className="h-4 w-4" />
-                            </button>
-                            {activeDropdown === 'exams' && (
-                                <div
-                                    className="absolute top-full left-0 mt-2 w-48 bg-white rounded-2xl shadow-xl border border-slate-100 py-2 z-50"
-                                    onMouseEnter={() => setActiveDropdown('exams')}
-                                    onMouseLeave={() => setActiveDropdown(null)}
-                                >
-                                    {exams.map((item) => (
-                                        <Link
-                                            key={item.name}
-                                            href={item.href}
-                                            className="block px-4 py-2.5 text-sm text-slate-700 hover:bg-emerald-50 hover:text-emerald-700 transition-colors"
-                                        >
-                                            {item.name}
-                                        </Link>
-                                    ))}
-                                </div>
-                            )}
-                        </div>
-
-                        {/* Resources Dropdown */}
-                        <div className="relative group">
-                            <button
-                                className={`flex items-center gap-1 px-4 py-2 rounded-lg text-sm font-semibold transition-all ${scrolled
-                                        ? 'text-slate-700 hover:bg-slate-100'
-                                        : 'text-white hover:bg-white/10'
-                                    }`}
-                                onMouseEnter={() => setActiveDropdown('resources')}
-                            >
-                                Resources <ChevronDown className="h-4 w-4" />
-                            </button>
-                            {activeDropdown === 'resources' && (
-                                <div
-                                    className="absolute top-full left-0 mt-2 w-48 bg-white rounded-2xl shadow-xl border border-slate-100 py-2 z-50"
-                                    onMouseEnter={() => setActiveDropdown('resources')}
-                                    onMouseLeave={() => setActiveDropdown(null)}
-                                >
-                                    {resources.map((item) => (
-                                        <Link
-                                            key={item.name}
-                                            href={item.href}
-                                            className="block px-4 py-2.5 text-sm text-slate-700 hover:bg-emerald-50 hover:text-emerald-700 transition-colors"
-                                        >
-                                            {item.name}
-                                        </Link>
-                                    ))}
-                                </div>
-                            )}
-                        </div>
+                        <NavDropdown
+                            id="subjects"
+                            label="Subjects"
+                            items={subjects}
+                            activeId={activeDropdown}
+                            scrolled={scrolled}
+                            onMouseEnter={setActiveDropdown}
+                            onMouseLeave={() => setActiveDropdown(null)}
+                        />
+                        <NavDropdown
+                            id="exams"
+                            label="Exams"
+                            items={exams}
+                            activeId={activeDropdown}
+                            scrolled={scrolled}
+                            onMouseEnter={setActiveDropdown}
+                            onMouseLeave={() => setActiveDropdown(null)}
+                        />
+                        <NavDropdown
+                            id="resources"
+                            label="Resources"
+                            items={resources}
+                            activeId={activeDropdown}
+                            scrolled={scrolled}
+                            onMouseEnter={setActiveDropdown}
+                            onMouseLeave={() => setActiveDropdown(null)}
+                        />
 
                         {/* Direct Links */}
                         <Link
                             href="/explore"
-                            className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all ${scrolled
-                                    ? 'text-slate-700 hover:bg-slate-100'
-                                    : 'text-white hover:bg-white/10'
+                            className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-300 ${scrolled
+                                ? 'text-slate-700 hover:bg-slate-100'
+                                : 'text-white hover:bg-white/10'
                                 }`}
                         >
                             Explore 🇵🇰
@@ -159,19 +98,19 @@ export default function Header() {
                     </nav>
 
                     {/* CTA Buttons */}
-                    <div className="hidden lg:flex items-center gap-3">
+                    <div className="hidden lg:flex items-center gap-4">
                         <Link
                             href="/contact"
-                            className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all ${scrolled
-                                    ? 'text-slate-700 hover:bg-slate-100'
-                                    : 'text-white hover:bg-white/10'
+                            className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-300 ${scrolled
+                                ? 'text-slate-700 hover:bg-slate-100'
+                                : 'text-white hover:bg-white/10'
                                 }`}
                         >
                             Contact
                         </Link>
                         <Link
                             href="/practice"
-                            className="px-6 py-2 bg-emerald-700 text-white rounded-full text-sm font-semibold hover:bg-emerald-800 transition-all hover:shadow-lg"
+                            className="px-6 py-2.5 bg-emerald-600 text-white rounded-full text-sm font-bold shadow-lg shadow-emerald-600/20 hover:bg-emerald-700 hover:shadow-xl hover:shadow-emerald-600/30 hover:-translate-y-0.5 transition-all duration-300"
                         >
                             Start Learning
                         </Link>
@@ -183,80 +122,68 @@ export default function Header() {
                             }`}
                         onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                     >
-                        {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+                        {/* Animated Hamburger Icon could go here, keeping simple for now */}
+                        {mobileMenuOpen ? <X className="w-7 h-7" /> : <Menu className="w-7 h-7" />}
                     </button>
                 </div>
             </div>
 
             {/* Mobile Menu */}
-            {mobileMenuOpen && (
-                <div className="lg:hidden bg-white border-t border-slate-200 shadow-xl">
-                    <div className="px-4 py-6 space-y-4">
-                        <div>
-                            <p className="text-xs font-semibold text-slate-500 uppercase mb-2">Subjects</p>
-                            {subjects.map((item) => (
-                                <Link
-                                    key={item.name}
-                                    href={item.href}
-                                    className="block py-2 text-slate-700 hover:text-emerald-700"
-                                    onClick={() => setMobileMenuOpen(false)}
-                                >
-                                    {item.name}
-                                </Link>
-                            ))}
+            <div className={`lg:hidden fixed inset-0 z-40 bg-white/95 backdrop-blur-xl transition-transform duration-500 ease-in-out ${mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
+                }`} style={{ top: '80px', height: 'calc(100vh - 80px)' }}>
+                <div className="flex flex-col h-full overflow-y-auto px-6 py-8 space-y-8">
+                    {/* Groups */}
+                    <div className="space-y-6">
+                        <div className="space-y-3">
+                            <h3 className="text-xs font-bold text-slate-400 uppercase tracking-widest pl-2">Subjects</h3>
+                            <div className="grid grid-cols-2 gap-2">
+                                {subjects.map(item => (
+                                    <MobileMenuLink key={item.name} href={item.href} onClick={() => setMobileMenuOpen(false)}>
+                                        {item.name}
+                                    </MobileMenuLink>
+                                ))}
+                            </div>
                         </div>
-                        <div>
-                            <p className="text-xs font-semibold text-slate-500 uppercase mb-2">Exams</p>
-                            {exams.map((item) => (
-                                <Link
-                                    key={item.name}
-                                    href={item.href}
-                                    className="block py-2 text-slate-700 hover:text-emerald-700"
-                                    onClick={() => setMobileMenuOpen(false)}
-                                >
-                                    {item.name}
-                                </Link>
-                            ))}
+
+                        <div className="space-y-3">
+                            <h3 className="text-xs font-bold text-slate-400 uppercase tracking-widest pl-2">Exams</h3>
+                            <div className="space-y-1">
+                                {exams.map(item => (
+                                    <MobileMenuLink key={item.name} href={item.href} onClick={() => setMobileMenuOpen(false)}>
+                                        {item.name}
+                                    </MobileMenuLink>
+                                ))}
+                            </div>
                         </div>
-                        <div>
-                            <p className="text-xs font-semibold text-slate-500 uppercase mb-2">Resources</p>
-                            {resources.map((item) => (
-                                <Link
-                                    key={item.name}
-                                    href={item.href}
-                                    className="block py-2 text-slate-700 hover:text-emerald-700"
-                                    onClick={() => setMobileMenuOpen(false)}
-                                >
-                                    {item.name}
-                                </Link>
-                            ))}
+
+                        <div className="space-y-3">
+                            <h3 className="text-xs font-bold text-slate-400 uppercase tracking-widest pl-2">Resources</h3>
+                            <div className="space-y-1">
+                                {resources.map(item => (
+                                    <MobileMenuLink key={item.name} href={item.href} onClick={() => setMobileMenuOpen(false)}>
+                                        {item.name}
+                                    </MobileMenuLink>
+                                ))}
+                            </div>
                         </div>
-                        <div className="pt-4 border-t border-slate-200 space-y-2">
-                            <Link
-                                href="/explore"
-                                className="block py-2 text-slate-700 hover:text-emerald-700"
-                                onClick={() => setMobileMenuOpen(false)}
-                            >
-                                Explore Pakistan 🇵🇰
-                            </Link>
-                            <Link
-                                href="/contact"
-                                className="block py-2 text-slate-700 hover:text-emerald-700"
-                                onClick={() => setMobileMenuOpen(false)}
-                            >
-                                Contact
-                            </Link>
-                            <Link
-                                href="/practice"
-                                className="block w-full py-3 bg-emerald-700 text-white rounded-full text-center font-semibold hover:bg-emerald-800 transition-all"
-                                onClick={() => setMobileMenuOpen(false)}
-                            >
-                                Start Learning
-                            </Link>
+                    </div>
+
+                    {/* Footer Actions */}
+                    <div className="mt-auto pt-8 border-t border-slate-100 space-y-4">
+                        <MobileMenuLink href="/explore" onClick={() => setMobileMenuOpen(false)}>
+                            Explore Pakistan 🇵🇰
+                        </MobileMenuLink>
+                        <MobileMenuLink href="/contact" onClick={() => setMobileMenuOpen(false)}>
+                            Contact Support
+                        </MobileMenuLink>
+                        <div className="pt-4">
+                            <MobileMenuLink href="/practice" primary onClick={() => setMobileMenuOpen(false)}>
+                                Start Learning Now
+                            </MobileMenuLink>
                         </div>
                     </div>
                 </div>
-            )}
+            </div>
         </header>
     );
 }

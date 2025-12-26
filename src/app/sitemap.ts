@@ -1,15 +1,15 @@
 import { MetadataRoute } from 'next';
-import { getAllEssays, getAllPastPapers } from '@/lib/keystatic/reader';
+import { getAllEssays } from '@/lib/keystatic/reader';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = 'https://pakscholarpro.com';
-  
+
   // Get all essays for dynamic routes
   const essays = await getAllEssays();
   const essayUrls = essays.map((essay) => ({
     url: `${baseUrl}/essays/${essay.slug}`,
-    lastModified: essay.entry.publishedDate 
-      ? new Date(essay.entry.publishedDate) 
+    lastModified: essay.entry.publishedDate
+      ? new Date(essay.entry.publishedDate)
       : new Date(),
     changeFrequency: 'monthly' as const,
     priority: 0.8,
