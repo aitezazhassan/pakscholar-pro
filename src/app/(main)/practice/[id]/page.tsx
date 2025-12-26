@@ -3,17 +3,46 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { Clock, ChevronLeft, ChevronRight, CheckCircle } from 'lucide-react';
-import examData from '@/data/mock-exams/pms-160.json';
+
+interface ExamData {
+    id: string;
+    title: string;
+    duration: number;
+    totalQuestions: number;
+    questions: Array<{
+        id: number;
+        question: string;
+        options: string[];
+        correctAnswer: number;
+        subject: string;
+        topic: string;
+        explanation: string;
+    }>;
+}
 
 export default function ExamPage({ params }: { params: { id: string } }) {
     const router = useRouter();
+    const [examData, setExamData] = useState<ExamData | null>(null);
     const [currentQuestion, setCurrentQuestion] = useState(0);
     const [answers, setAnswers] = useState<Record<number, number>>({});
-    const [timeRemaining, setTimeRemaining] = useState(examData.duration * 60); // Convert to seconds
+    const [timeRemaining, setTimeRemaining] = useState(0);
     const [showSubmitDialog, setShowSubmitDialog] = useState(false);
+
+    // Load exam data
+    useEffect(() => {
+        fetch(`/data/mock-exams/${params.id}.json`)
+            .then(res => res.json())
+            .then(data => {
+                setExamData(data);
+                setTimeRemaining(data.duration * 60);
+            })
+            .catch(err => console.error('Failed to load exam:', err));
+    }, [params.id]);
 
     // Timer
     useEffect(() => {
+        if (!examData || timeRemaining <= 0) return;
+
         const timer = setInterval(() => {
             setTimeRemaining((prev) => {
                 if (prev <= 1) {
@@ -26,7 +55,7 @@ export default function ExamPage({ params }: { params: { id: string } }) {
         }, 1000);
 
         return () => clearInterval(timer);
-    }, []);
+    }, [examData, timeRemaining]);
 
     const formatTime = (seconds: number) => {
         const hours = Math.floor(seconds / 3600);
@@ -40,7 +69,8 @@ export default function ExamPage({ params }: { params: { id: string } }) {
     };
 
     const handleSubmit = () => {
-        // Store results in localStorage and navigate to results page
+        if (!examData) return;
+
         const results = {
             examId: params.id,
             answers,
@@ -50,6 +80,17 @@ export default function ExamPage({ params }: { params: { id: string } }) {
         localStorage.setItem('exam-results', JSON.stringify(results));
         router.push(`/practice/${params.id}/results`);
     };
+
+    if (!examData) {
+        return (
+            <div className="min-h-screen bg-white pt-20 flex items-center justify-center">
+                <div className="text-center">
+                    <div className="text-2xl font-bold text-gray-900 mb-2">Loading exam...</div>
+                    <p className="text-gray-600">Please wait</p>
+                </div>
+            </div>
+        );
+    }
 
     const question = examData.questions[currentQuestion];
     const progress = ((Object.keys(answers).length / examData.totalQuestions) * 100).toFixed(0);
@@ -124,14 +165,14 @@ export default function ExamPage({ params }: { params: { id: string } }) {
                                     key={idx}
                                     onClick={() => selectAnswer(question.id, idx)}
                                     className={`w-full text-left p-4 rounded-xl border-2 transition-all ${isSelected
-                                        ? 'border-emerald-500 bg-emerald-50'
-                                        : 'border-gray-200 hover:border-emerald-300 hover:bg-gray-50'
+                                            ? 'border-emerald-500 bg-emerald-50'
+                                            : 'border-gray-200 hover:border-emerald-300 hover:bg-gray-50'
                                         }`}
                                 >
                                     <div className="flex items-center gap-4">
                                         <span className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center font-bold ${isSelected
-                                            ? 'bg-emerald-600 text-white'
-                                            : 'bg-gray-200 text-gray-700'
+                                                ? 'bg-emerald-600 text-white'
+                                                : 'bg-gray-200 text-gray-700'
                                             }`}>
                                             {String.fromCharCode(65 + idx)}
                                         </span>
@@ -165,10 +206,10 @@ export default function ExamPage({ params }: { params: { id: string } }) {
                                         key={questionNum}
                                         onClick={() => setCurrentQuestion(questionNum)}
                                         className={`w-10 h-10 rounded-lg font-semibold text-sm transition-all ${questionNum === currentQuestion
-                                            ? 'bg-emerald-700 text-white'
-                                            : answers[examData.questions[questionNum].id] !== undefined
-                                                ? 'bg-emerald-100 text-emerald-700'
-                                                : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                                                ? 'bg-emerald-700 text-white'
+                                                : answers[examData.questions[questionNum].id] !== undefined
+                                                    ? 'bg-emerald-100 text-emerald-700'
+                                                    : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
                                             }`}
                                     >
                                         {questionNum + 1}

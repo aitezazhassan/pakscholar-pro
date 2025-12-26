@@ -3,7 +3,23 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { Award, CheckCircle, XCircle, Home, RefreshCw } from 'lucide-react';
-import examData from '@/data/mock-exams/pms-160.json';
+
+interface ExamData {
+    id: string;
+    title: string;
+    duration: number;
+    totalQuestions: number;
+    passingScore: number;
+    questions: Array<{
+        id: number;
+        question: string;
+        options: string[];
+        correctAnswer: number;
+        subject: string;
+        topic: string;
+        explanation: string;
+    }>;
+}
 
 interface Results {
     examId: string;
@@ -13,6 +29,7 @@ interface Results {
 }
 
 export default function ResultsPage({ params }: { params: { id: string } }) {
+    const [examData, setExamData] = useState<ExamData | null>(null);
     const [results, setResults] = useState<Results | null>(null);
     const [showAnswers, setShowAnswers] = useState(false);
 
@@ -21,9 +38,14 @@ export default function ResultsPage({ params }: { params: { id: string } }) {
         if (stored) {
             setResults(JSON.parse(stored));
         }
-    }, []);
 
-    if (!results) {
+        fetch(`/data/mock-exams/${params.id}.json`)
+            .then(res => res.json())
+            .then(data => setExamData(data))
+            .catch(err => console.error('Failed to load exam:', err));
+    }, [params.id]);
+
+    if (!results || !examData) {
         return (
             <div className="min-h-screen bg-white pt-20 flex items-center justify-center">
                 <div className="text-center">
@@ -180,7 +202,7 @@ export default function ResultsPage({ params }: { params: { id: string } }) {
 
                             return (
                                 <div key={q.id} className={`rounded-2xl border-2 p-6 ${!wasAnswered ? 'bg-gray-50 border-gray-300' :
-                                    isCorrect ? 'bg-emerald-50 border-emerald-300' : 'bg-red-50 border-red-300'
+                                        isCorrect ? 'bg-emerald-50 border-emerald-300' : 'bg-red-50 border-red-300'
                                     }`}>
                                     {/* Question Header */}
                                     <div className="flex items-start justify-between mb-4">
@@ -212,14 +234,14 @@ export default function ResultsPage({ params }: { params: { id: string } }) {
                                                 <div
                                                     key={optIdx}
                                                     className={`p-3 rounded-lg border-2 ${isCorrectOption ? 'bg-green-50 border-green-500' :
-                                                        isUserAnswer && !isCorrect ? 'bg-red-50 border-red-500' :
-                                                            'bg-white border-gray-200'
+                                                            isUserAnswer && !isCorrect ? 'bg-red-50 border-red-500' :
+                                                                'bg-white border-gray-200'
                                                         }`}
                                                 >
                                                     <div className="flex items-center gap-3">
                                                         <span className={`flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold ${isCorrectOption ? 'bg-green-600 text-white' :
-                                                            isUserAnswer && !isCorrect ? 'bg-red-600 text-white' :
-                                                                'bg-gray-200 text-gray-700'
+                                                                isUserAnswer && !isCorrect ? 'bg-red-600 text-white' :
+                                                                    'bg-gray-200 text-gray-700'
                                                             }`}>
                                                             {String.fromCharCode(65 + optIdx)}
                                                         </span>
