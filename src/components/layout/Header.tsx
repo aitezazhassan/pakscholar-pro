@@ -1,11 +1,14 @@
-'use client';
-
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { BookOpen, Menu, X } from 'lucide-react';
+import { BookOpen, Menu, X, User as UserIcon, LayoutDashboard } from 'lucide-react';
 import { NavDropdown, MobileMenuLink } from '@/components/ui/nav-components';
+import { User } from '@supabase/supabase-js';
 
-export default function Header() {
+interface HeaderProps {
+    user?: User | null;
+}
+
+export default function Header({ user }: HeaderProps) {
     const [scrolled, setScrolled] = useState(false);
     const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -99,21 +102,36 @@ export default function Header() {
 
                     {/* CTA Buttons */}
                     <div className="hidden lg:flex items-center gap-4">
-                        <Link
-                            href="/contact"
-                            className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-300 ${scrolled
-                                ? 'text-slate-700 hover:bg-slate-100'
-                                : 'text-white hover:bg-white/10'
-                                }`}
-                        >
-                            Contact
-                        </Link>
-                        <Link
-                            href="/practice"
-                            className="px-6 py-2.5 bg-emerald-600 text-white rounded-full text-sm font-bold shadow-lg shadow-emerald-600/20 hover:bg-emerald-700 hover:shadow-xl hover:shadow-emerald-600/30 hover:-translate-y-0.5 transition-all duration-300"
-                        >
-                            Start Learning
-                        </Link>
+                        {user ? (
+                            <Link
+                                href="/dashboard"
+                                className={`flex items-center gap-2 px-4 py-2.5 rounded-full text-sm font-bold transition-all duration-300 ${scrolled
+                                    ? 'bg-emerald-50 text-emerald-700 hover:bg-emerald-100'
+                                    : 'bg-white/10 text-white hover:bg-white/20'
+                                    }`}
+                            >
+                                <LayoutDashboard className="w-4 h-4" />
+                                <span>Dashboard</span>
+                            </Link>
+                        ) : (
+                            <>
+                                <Link
+                                    href="/login"
+                                    className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-300 ${scrolled
+                                        ? 'text-slate-700 hover:bg-slate-100'
+                                        : 'text-white hover:bg-white/10'
+                                        }`}
+                                >
+                                    Log in
+                                </Link>
+                                <Link
+                                    href="/signup"
+                                    className="px-6 py-2.5 bg-emerald-600 text-white rounded-full text-sm font-bold shadow-lg shadow-emerald-600/20 hover:bg-emerald-700 hover:shadow-xl hover:shadow-emerald-600/30 hover:-translate-y-0.5 transition-all duration-300"
+                                >
+                                    Sign up
+                                </Link>
+                            </>
+                        )}
                     </div>
 
                     {/* Mobile Menu Button */}
@@ -122,7 +140,6 @@ export default function Header() {
                             }`}
                         onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                     >
-                        {/* Animated Hamburger Icon could go here, keeping simple for now */}
                         {mobileMenuOpen ? <X className="w-7 h-7" /> : <Menu className="w-7 h-7" />}
                     </button>
                 </div>
@@ -145,6 +162,8 @@ export default function Header() {
                             </div>
                         </div>
 
+                        {/* ... (Other sections unchanged if desired, but updating footer for auth) ... */}
+                        {/* Shortening replacement for brevity if needed, but I will replace the whole component to be safe */}
                         <div className="space-y-3">
                             <h3 className="text-xs font-bold text-slate-400 uppercase tracking-widest pl-2">Exams</h3>
                             <div className="space-y-1">
@@ -170,17 +189,22 @@ export default function Header() {
 
                     {/* Footer Actions */}
                     <div className="mt-auto pt-8 border-t border-slate-100 space-y-4">
-                        <MobileMenuLink href="/explore" onClick={() => setMobileMenuOpen(false)}>
-                            Explore Pakistan 🇵🇰
-                        </MobileMenuLink>
-                        <MobileMenuLink href="/contact" onClick={() => setMobileMenuOpen(false)}>
-                            Contact Support
-                        </MobileMenuLink>
-                        <div className="pt-4">
-                            <MobileMenuLink href="/practice" primary onClick={() => setMobileMenuOpen(false)}>
-                                Start Learning Now
+                        {user ? (
+                            <MobileMenuLink href="/dashboard" primary onClick={() => setMobileMenuOpen(false)}>
+                                Go to Dashboard
                             </MobileMenuLink>
-                        </div>
+                        ) : (
+                            <>
+                                <MobileMenuLink href="/login" onClick={() => setMobileMenuOpen(false)}>
+                                    Log in
+                                </MobileMenuLink>
+                                <div className="pt-4">
+                                    <MobileMenuLink href="/signup" primary onClick={() => setMobileMenuOpen(false)}>
+                                        Sign up
+                                    </MobileMenuLink>
+                                </div>
+                            </>
+                        )}
                     </div>
                 </div>
             </div>

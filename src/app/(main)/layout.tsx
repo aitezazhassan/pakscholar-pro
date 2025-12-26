@@ -1,14 +1,18 @@
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
+import { createClient } from '@/lib/supabase/server';
 
-export default function MainLayout({
+export default async function MainLayout({
     children,
 }: {
     children: React.ReactNode;
 }) {
+    const supabase = await createClient();
+    const { data: { user } } = await supabase.auth.getUser();
+
     return (
         <>
-            <Header />
+            <Header user={user} />
             <main className="min-h-screen">{children}</main>
             <Footer />
         </>
