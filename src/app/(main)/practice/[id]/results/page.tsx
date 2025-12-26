@@ -40,11 +40,11 @@ export default function ResultsPage({ params }: { params: Promise<{ id: string }
             setResults(JSON.parse(stored));
         }
 
-        fetch(`/data/mock-exams/${params.id}.json`)
+        fetch(`/data/mock-exams/${id}.json`)
             .then(res => res.json())
             .then(data => setExamData(data))
             .catch(err => console.error('Failed to load exam:', err));
-    }, [params.id]);
+    }, [id]);
 
     if (!results || !examData) {
         return (
@@ -283,7 +283,7 @@ export default function ResultsPage({ params }: { params: Promise<{ id: string }
                     </Link>
 
                     <Link
-                        href={`/practice/${params.id}`}
+                        href={`/practice/${id}`}
                         className="flex items-center gap-2 px-8 py-4 bg-emerald-700 text-white font-semibold rounded-full hover:bg-emerald-800 transition-all hover:shadow-lg"
                     >
                         <RefreshCw className="w-5 h-5" />
