@@ -2,7 +2,8 @@
 
 import { useState, useEffect, use } from 'react';
 import { useRouter, useParams } from 'next/navigation';
-import { Clock, ChevronLeft, ChevronRight, CheckCircle } from 'lucide-react';
+import { Clock, ChevronLeft, ChevronRight, CheckCircle, AlertCircle } from 'lucide-react';
+import Link from 'next/link';
 
 interface ExamData {
     id: string;
@@ -29,18 +30,40 @@ export default function ExamPage() {
     const [answers, setAnswers] = useState<Record<number, number>>({});
     const [timeRemaining, setTimeRemaining] = useState(0);
     const [showSubmitDialog, setShowSubmitDialog] = useState(false);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState<string | null>(null);
 
     // Load exam data
     useEffect(() => {
-        if (!id) return;
+        if (!id) {
+            setError('No exam ID provided');
+            setLoading(false);
+            return;
+        }
+
+        setLoading(true);
+        setError(null);
 
         fetch(`/data/mock-exams/${id}.json`)
-            .then(res => res.json())
+            .then(res => {
+                if (!res.ok) {
+                    throw new Error(`Failed to load exam: ${res.statusText}`);
+                }
+                return res.json();
+            })
             .then(data => {
+                if (!data || !data.questions || data.questions.length === 0) {
+                    throw new Error('Invalid exam data: No questions found');
+                }
                 setExamData(data);
                 setTimeRemaining(data.duration * 60);
+                setLoading(false);
             })
-            .catch(err => console.error('Failed to load exam:', err));
+            .catch(err => {
+                console.error('Failed to load exam:', err);
+                setError(err.message || 'Failed to load exam data');
+                setLoading(false);
+            });
     }, [id]);
 
     // Timer
@@ -85,12 +108,62 @@ export default function ExamPage() {
         router.push(`/practice/${id}/results`);
     };
 
+
+    // Loading state
+    if (loading) {
+        return (
+            <div className="min-h-screen bg-white pt-20 flex items-center justify-center">
+                <div className="text-center">
+                    <div className="w-16 h-16 border-4 border-emerald-600 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+                    <div className="text-2xl font-bold text-gray-900 mb-2">Loading exam...</div>
+                    <p className="text-gray-600">Please wait while we prepare your exam</p>
+                </div>
+            </div>
+        );
+    }
+
+    // Error state
+    if (error) {
+        return (
+            <div className="min-h-screen bg-white pt-20 flex items-center justify-center px-4">
+                <div className="max-w-md text-center">
+                    <div className="w-20 h-20 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <AlertCircle className="w-10 h-10 text-red-600" />
+                    </div>
+                    <h2 className="text-2xl font-bold text-gray-900 mb-4">Failed to Load Exam</h2>
+                    <p className="text-gray-600 mb-8">{error}</p>
+                    <div className="flex gap-4 justify-center">
+                        <Link
+                            href="/practice"
+                            className="px-6 py-3 bg-emerald-600 text-white rounded-full font-semibold hover:bg-emerald-700 transition-colors"
+                        >
+                            Back to Exams
+                        </Link>
+                        <button
+                            onClick={() => window.location.reload()}
+                            className="px-6 py-3 border-2 border-gray-300 text-gray-700 rounded-full font-semibold hover:bg-gray-50 transition-colors"
+                        >
+                            Try Again
+                        </button>
+                    </div>
+                </div>
+            </div>
+        );
+    }
+
+    // Exam not found
     if (!examData) {
         return (
             <div className="min-h-screen bg-white pt-20 flex items-center justify-center">
                 <div className="text-center">
-                    <div className="text-2xl font-bold text-gray-900 mb-2">Loading exam...</div>
-                    <p className="text-gray-600">Please wait</p>
+                    <div className="text-2xl font-bold text-gray-900 mb-2">Exam not found</div>
+                    <p className="text-gray-600 mb-6">The requested exam could not be loaded</p>
+                    <Link
+                        href="/practice"
+                        className="inline-block px-6 py-3 bg-emerald-600 text-white rounded-full font-semibold hover:bg-emerald-700 transition-colors"
+                    >
+                        Back to Exams
+                    </Link>
                 </div>
             </div>
         );
