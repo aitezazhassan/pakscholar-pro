@@ -1,52 +1,46 @@
-'use client';
-
 import { Shield } from 'lucide-react';
+import StandardPageLayout from '@/components/layout/StandardPageLayout';
 
 export default function PrivacyPage() {
     return (
-        <main className="min-h-screen bg-white">
-            <section className="bg-slate-900 py-16">
-                <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
-                    <Shield className="w-12 h-12 mx-auto mb-4 text-emerald-400" />
-                    <h1 className="text-4xl font-bold mb-2">Privacy Policy</h1>
-                    <p className="text-slate-300">Last updated: January 2025</p>
-                </div>
-            </section>
+        <StandardPageLayout
+            title="Privacy Policy"
+            subtitle="How we protect and handle your data at PakScholar Pro."
+            icon={Shield}
+            themeColor="bg-emerald-600"
+            lastUpdated="Last updated: January 2025"
+        >
+            <h2>Introduction</h2>
+            <p>PakScholar Pro is committed to protecting your privacy. This Privacy Policy explains how we collect, use, and safeguard your information when you visit our platform.</p>
 
-            <section className="py-16">
-                <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 prose prose-slate max-w-none">
-                    <h2>Introduction</h2>
-                    <p>PakScholar Pro is committed to protecting your privacy. This Privacy Policy explains how we collect, use, and safeguard your information.</p>
+            <h2>Information We Collect</h2>
+            <p>We collect minimal information required to provide a functional and optimized experience:</p>
+            <ul>
+                <li><strong>Usage Data:</strong> Pages visited, time spent, and interaction patterns.</li>
+                <li><strong>Device Information:</strong> Browser type, operating system, and IP address for security.</li>
+                <li><strong>Cookies:</strong> Essential and analytical cookies to remember your preferences and analyze traffic.</li>
+            </ul>
 
-                    <h2>Information We Collect</h2>
-                    <p>We collect minimal information:</p>
-                    <ul>
-                        <li>Usage data (pages visited, time spent)</li>
-                        <li>Device information (browser type, IP address)</li>
-                        <li>Cookies for analytics and functionality</li>
-                    </ul>
+            <h2>How We Use Your Information</h2>
+            <p>Your data is used solely for the following purposes:</p>
+            <ul>
+                <li>To maintain and improve our study resources.</li>
+                <li>To personalize your learning journey and dashboard content.</li>
+                <li>To monitor and prevent fraudulent or unauthorized access.</li>
+                <li>To analyze platform usage trends and optimize performance.</li>
+            </ul>
 
-                    <h2>How We Use Information</h2>
-                    <p>We use collected information to:</p>
-                    <ul>
-                        <li>Improve our website and services</li>
-                        <li>Analyze user behavior and preferences</li>
-                        <li>Ensure website security</li>
-                    </ul>
+            <h2>Data Security</h2>
+            <p>We implement industry-standard security measures to protect your information. Your account credentials are encrypted and stored securely using Supabase Auth technologies.</p>
 
-                    <h2>Data Security</h2>
-                    <p>We implement appropriate security measures to protect your information. However, no internet transmission is 100% secure.</p>
+            <h2>Third-Party Services</h2>
+            <p>We may use trusted third-party services like Google Analytics to understand how users interact with our site. These services have their own privacy policies regarding data handling.</p>
 
-                    <h2>Third-Party Services</h2>
-                    <p>We may use third-party analytics services (Google Analytics) that collect information about your use of our website.</p>
+            <h2>Your Rights</h2>
+            <p>You have the right to access, update, or delete your account information at any time via your Dashboard settings. For complete data deletion requests, please contact our support team.</p>
 
-                    <h2>Your Rights</h2>
-                    <p>You have the right to access, correct, or delete your personal information. Contact us for any privacy concerns.</p>
-
-                    <h2>Contact Us</h2>
-                    <p>For privacy-related questions, email us at: support@pakscholarpro.com</p>
-                </div>
-            </section>
-        </main>
+            <h2>Contact Us</h2>
+            <p>If you have any questions about this Privacy Policy, please reach out to us at: <strong>privacy@pakscholarpro.com</strong></p>
+        </StandardPageLayout>
     );
 }

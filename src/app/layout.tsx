@@ -1,5 +1,7 @@
 import type { Metadata } from 'next';
 import { Playfair_Display, Inter, JetBrains_Mono, Noto_Nastaliq_Urdu } from 'next/font/google';
+import { Toaster } from 'react-hot-toast';
+import AuthStatusBanner from '@/components/ui/AuthStatusBanner';
 import './globals.css';
 
 const playfair = Playfair_Display({
@@ -83,7 +85,11 @@ export default function RootLayout({
       lang="en"
       className={`${playfair.variable} ${inter.variable} ${jetbrainsMono.variable} ${notoNastaliq.variable}`}
     >
-      <body className="font-sans antialiased">{children}</body>
+      <body className="font-sans antialiased">
+        <Toaster position="top-right" />
+        <AuthStatusBanner />
+        {children}
+      </body>
     </html>
   );
 }

@@ -1,47 +1,39 @@
-'use client';
-
 import { FileText } from 'lucide-react';
+import StandardPageLayout from '@/components/layout/StandardPageLayout';
 
 export default function TermsPage() {
     return (
-        <main className="min-h-screen bg-white">
-            <section className="bg-slate-900 py-16">
-                <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
-                    <FileText className="w-12 h-12 mx-auto mb-4 text-blue-400" />
-                    <p className="mt-6 text-lg leading-8 text-gray-300">These Terms of Service (&quot;Terms&quot;) govern your use of PakScholar Pro.</p>
-                    <p className="text-slate-300">Last updated: January 2025</p>
-                </div>
-            </section>
+        <StandardPageLayout
+            title="Terms of Service"
+            subtitle="The rules and guidelines for using PakScholar Pro."
+            icon={FileText}
+            themeColor="bg-blue-600"
+            lastUpdated="Last updated: January 2025"
+        >
+            <h2>1. Acceptance of Terms</h2>
+            <p>By accessing and using PakScholar Pro, you acknowledge that you have read, understood, and agree to be bound by these Terms of Service. If you do not agree with any part of these terms, you must discontinue use of the platform immediately.</p>
 
-            <section className="py-16">
-                <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 prose prose-slate max-w-none">
-                    <h2>Acceptance of Terms</h2>
-                    <p>By accessing PakScholar Pro, you agree to these Terms of Service. If you disagree with any part, please do not use our website.</p>
+            <h2>2. Use of Services</h2>
+            <p>PakScholar Pro provides educational resources free of charge for personal, non-commercial use. You agree to use the services only for lawful purposes and in a way that does not infringe the rights of others.</p>
+            <ul>
+                <li><strong>Prohibited Conduct:</strong> You may not attempt to scrape, reverse-engineer, or disrupt any part of the service.</li>
+                <li><strong>Content Integrity:</strong> You may not redistribute or sell any content found on this platform without explicit written consent.</li>
+            </ul>
 
-                    <h2>Use of Services</h2>
-                    <p>Our services are provided free of charge for educational purposes. You agree to:</p>
-                    <ul>
-                        <li>Use the website for lawful purposes only</li>
-                        <li>Not copy or redistribute our content without permission</li>
-                        <li>Not attempt to hack or disrupt our services</li>
-                    </ul>
+            <h2>3. Intellectual Property</h2>
+            <p>All materials on PakScholar Pro, including text, graphics, logos, and software, are the property of PakScholar Pro or its content suppliers and are protected by international copyright laws. Any unauthorized use of these materials may violate copyright, trademark, and other laws.</p>
 
-                    <h2>Intellectual Property</h2>
-                    <p>All content on PakScholar Pro is owned by us or our content suppliers. Unauthorized use is prohibited.</p>
+            <h2>4. Disclaimer of Warranties</h2>
+            <p>The information provided on PakScholar Pro is for general educational purposes only. While we strive for accuracy, we make no warranties regarding the completeness or correctness of the content. We are not officially affiliated with PPSC, FPSC, CSS, or any other examination board.</p>
 
-                    <h2>Disclaimer</h2>
-                    <p>Educational content is provided "as is" without warranties. We are not affiliated with PPSC, FPSC, or CSS examination boards.</p>
+            <h2>5. Limitation of Liability</h2>
+            <p>In no event shall PakScholar Pro be liable for any damages (including, without limitation, damages for loss of data or profit) arising out of the use or inability to use the materials on our website.</p>
 
-                    <h2>Limitation of Liability</h2>
-                    <p>We are not liable for any damages arising from your use of our website or reliance on our content.</p>
+            <h2>6. Governing Law</h2>
+            <p>These terms and conditions are governed by and construed in accordance with the laws of Pakistan, and you irrevocably submit to the exclusive jurisdiction of the courts in that location.</p>
 
-                    <h2>Changes to Terms</h2>
-                    <p>We reserve the right to modify these terms at any time. Continued use constitutes acceptance of changes.</p>
-
-                    <h2>Contact</h2>
-                    <p>Questions about Terms? Email: support@pakscholarpro.com</p>
-                </div>
-            </section>
-        </main>
+            <h2>7. Contact Information</h2>
+            <p>If you have any questions about these Terms, please contact us at: <strong>legal@pakscholarpro.com</strong></p>
+        </StandardPageLayout>
     );
 }

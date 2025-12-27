@@ -1,92 +1,88 @@
-'use client';
-
+import { Map, Link as LinkIcon, BookOpen, Award, FileText, Settings, User } from 'lucide-react';
+import StandardPageLayout from '@/components/layout/StandardPageLayout';
 import Link from 'next/link';
-import { Folder, FileText } from 'lucide-react';
 
 export default function SitemapPage() {
     const sections = [
         {
-            title: 'Main Pages',
-            links: [
-                { name: 'Home', href: '/' },
-                { name: 'About', href: '/about' },
-                { name: 'Contact', href: '/contact' },
-                { name: 'FAQ', href: '/faq' },
-                { name: 'How It Works', href: '/how-it-works' }
-            ]
-        },
-        {
-            title: 'Subjects',
+            title: 'Core Subjects',
+            icon: BookOpen,
             links: [
                 { name: 'Pakistan Studies', href: '/pakistan-studies' },
                 { name: 'Islamic Studies', href: '/islamic-studies' },
                 { name: 'Mathematics', href: '/mathematics' },
-                { name: 'English', href: '/english' },
+                { name: 'English Grammar', href: '/english' },
                 { name: 'General Science', href: '/science' },
-                { name: 'Current Affairs', href: '/current-affairs' }
+                { name: 'Current Affairs', href: '/current-affairs' },
             ]
         },
         {
-            title: 'Exams',
+            title: 'Exam Guides',
+            icon: Award,
             links: [
-                { name: 'PPSC Guide', href: '/exams/ppsc' },
-                { name: 'FPSC Guide', href: '/exams/fpsc' },
-                { name: 'CSS Guide', href: '/exams/css' }
+                { name: 'PPSC Exam Guide', href: '/exams/ppsc' },
+                { name: 'FPSC Exam Guide', href: '/exams/fpsc' },
+                { name: 'CSS Exam Guide', href: '/exams/css' },
+                { name: 'Mock Exams', href: '/practice' },
+                { name: 'Past Papers', href: '/past-papers' },
             ]
         },
         {
             title: 'Explore Pakistan',
+            icon: Map,
             links: [
-                { name: 'Overview', href: '/explore' },
-                { name: 'Punjab', href: '/explore/punjab' },
-                { name: 'Sindh', href: '/explore/sindh' },
-                { name: 'KPK', href: '/explore/kpk' },
-                { name: 'Balochistan', href: '/explore/balochistan' }
+                { name: 'National Overview', href: '/explore' },
+                { name: 'Punjab Province', href: '/explore/punjab' },
+                { name: 'Sindh Province', href: '/explore/sindh' },
+                { name: 'KPK Province', href: '/explore/kpk' },
+                { name: 'Balochistan Province', href: '/explore/balochistan' },
             ]
         },
         {
-            title: 'Resources',
+            title: 'Account & Support',
+            icon: User,
             links: [
-                { name: 'Practice Tests', href: '/practice' },
-                { name: 'Past Papers', href: '/past-papers' },
-                { name: 'Resources Hub', href: '/resources' }
+                { name: 'User Dashboard', href: '/dashboard' },
+                { name: 'Help Center', href: '/help' },
+                { name: 'Privacy Policy', href: '/privacy' },
+                { name: 'Terms of Service', href: '/terms' },
+                { name: 'Contact Us', href: '/contact' },
             ]
         }
     ];
 
     return (
-        <main className="min-h-screen bg-white">
-            <section className="bg-slate-900 py-16">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
-                    <Folder className="w-12 h-12 mx-auto mb-4 text-emerald-400" />
-                    <h1 className="text-4xl font-bold mb-2">Sitemap</h1>
-                    <p className="text-slate-300">Browse all pages on PakScholar Pro</p>
-                </div>
-            </section>
-
-            <section className="py-16">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        {sections.map((section, idx) => (
-                            <div key={idx} className="bg-slate-50 rounded-2xl p-6">
-                                <h2 className="text-xl font-bold text-slate-900 mb-4 flex items-center gap-2">
-                                    <FileText className="w-5 h-5 text-emerald-600" />
-                                    {section.title}
-                                </h2>
-                                <ul className="space-y-2">
-                                    {section.links.map((link) => (
-                                        <li key={link.href}>
-                                            <Link href={link.href} className="text-slate-700 hover:text-emerald-600 transition-colors">
-                                                → {link.name}
-                                            </Link>
-                                        </li>
-                                    ))}
-                                </ul>
+        <StandardPageLayout
+            title="Sitemap"
+            subtitle="A comprehensive directory of all pages and resources available on PakScholar Pro."
+            icon={Map}
+            themeColor="bg-slate-700"
+        >
+            <div className="grid md:grid-cols-2 gap-12">
+                {sections.map((section, idx) => (
+                    <div key={idx} className="bg-slate-50 rounded-3xl p-8 border border-slate-100">
+                        <div className="flex items-center gap-3 mb-8">
+                            <div className="p-3 bg-white rounded-xl shadow-sm">
+                                <section.icon className="w-6 h-6 text-slate-600" />
                             </div>
-                        ))}
+                            <h2 className="text-2xl font-bold text-slate-900 italic font-serif">{section.title}</h2>
+                        </div>
+                        <ul className="space-y-4">
+                            {section.links.map((link, lIdx) => (
+                                <li key={lIdx}>
+                                    <Link
+                                        href={link.href}
+                                        className="text-lg text-slate-600 hover:text-emerald-600 flex items-center gap-2 group transition-all"
+                                    >
+                                        <LinkIcon className="w-4 h-4 text-slate-300 group-hover:text-emerald-400 group-hover:scale-110 transition-all" />
+                                        {link.name}
+                                    </Link>
+                                </li>
+                            ))}
+                        </ul>
                     </div>
-                </div>
-            </section>
-        </main>
+                ))}
+            </div>
+        </StandardPageLayout>
     );
 }

@@ -1,67 +1,66 @@
-'use client';
-
-import { HelpCircle, BookOpen, MessageSquare, Mail } from 'lucide-react';
+import { HelpCircle } from 'lucide-react';
+import StandardPageLayout from '@/components/layout/StandardPageLayout';
 
 export default function FAQPage() {
     const faqs = [
         {
-            category: 'General',
+            category: 'General Questions',
             questions: [
-                { q: 'Is PakScholar Pro free?', a: 'Yes! All our study materials, practice tests, and resources are completely free.' },
-                { q: 'Do I need to create an account?', a: 'No account needed. Access all resources directly from our website.' },
+                { q: 'Is PakScholar Pro free?', a: 'Absolutely! Our mission is to democratize education. All study materials, practice tests, and guides are free for everyone.' },
+                { q: 'Do I need an account to study?', a: 'You can browse most materials without an account. However, creating a free account allows you to track your progress and save test results.' },
+                { q: 'Is the content up to date?', a: 'Yes, our team regularly updates syllabus-aligned content, especially our Current Affairs and Past Papers sections.' },
             ]
         },
         {
-            category: 'Exams',
+            category: 'Exams & Tests',
             questions: [
-                { q: 'Which exams are covered?', a: 'We cover PPSC, FPSC, CSS, and other major competitive exams in Pakistan.' },
-                { q: 'Are past papers available?', a: 'Yes, we have extensive collection of past papers from recent years.' },
+                { q: 'Which exams do you cover?', a: 'We primarily focus on PPSC, FPSC, CSS, and other competitive departmental exams for government jobs in Pakistan.' },
+                { q: 'How do the practice tests work?', a: 'Our tests simulate the real exam environment with timed sessions and immediate result feedback with detailed explanations.' },
+                { q: 'Can I download the materials?', a: 'Yes, many of our resources are available in PDF format for offline preparation.' },
             ]
         }
     ];
 
     return (
-        <main className="min-h-screen bg-white">
-            <section className="relative isolate overflow-hidden bg-slate-900 pt-24 pb-20">
-                <div className="absolute inset-0 -z-10">
-                    <div className="absolute top-0 z-[-2] h-full w-full bg-[#000000] bg-[radial-gradient(#ffffff33_1px,#00091d_1px)] bg-[size:20px_20px] opacity-[0.2]"></div>
-                    <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-blue-700/20 blur-[100px]" />
-                </div>
-
-                <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center text-white">
-                    <HelpCircle className="w-16 h-16 mx-auto mb-6 text-blue-400" />
-                    <h1 className="text-5xl font-bold mb-4 font-serif">Frequently Asked Questions</h1>
-                    <p className="text-xl text-slate-300">Find answers to common questions</p>
-                </div>
-            </section>
-
-            <section className="py-20 bg-white">
-                <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-                    {faqs.map((category, idx) => (
-                        <div key={idx} className="mb-12">
-                            <h2 className="text-2xl font-bold text-slate-900 mb-6">{category.category}</h2>
-                            <div className="space-y-4">
-                                {category.questions.map((faq, qidx) => (
-                                    <div key={qidx} className="bg-slate-50 rounded-2xl p-6 border-2 border-slate-200">
-                                        <h3 className="font-bold text-slate-900 mb-2">{faq.q}</h3>
-                                        <p className="text-slate-700">{faq.a}</p>
-                                    </div>
-                                ))}
-                            </div>
+        <StandardPageLayout
+            title="Help & FAQ"
+            subtitle="Everything you need to know about using PakScholar Pro efficiently."
+            icon={HelpCircle}
+            themeColor="bg-blue-600"
+        >
+            <div className="space-y-12">
+                {faqs.map((category, idx) => (
+                    <div key={idx}>
+                        <h2 className="text-2xl font-bold text-slate-900 mb-8 border-b pb-2 border-slate-100 italic font-serif">
+                            {category.category}
+                        </h2>
+                        <div className="grid gap-6">
+                            {category.questions.map((faq, qidx) => (
+                                <div key={qidx} className="bg-slate-50 rounded-2xl p-8 border border-slate-200 hover:border-blue-300 transition-colors shadow-sm">
+                                    <h3 className="text-lg font-bold text-slate-900 mb-3 flex items-start gap-3">
+                                        <span className="text-blue-600 font-serif">Q:</span>
+                                        {faq.q}
+                                    </h3>
+                                    <p className="text-slate-600 leading-relaxed font-medium">
+                                        {faq.a}
+                                    </p>
+                                </div>
+                            ))}
                         </div>
-                    ))}
-                </div>
-            </section>
+                    </div>
+                ))}
+            </div>
 
-            <section className="py-20 bg-gradient-to-br from-blue-900 to-slate-900 text-white">
-                <div className="max-w-4xl mx-auto px-4 text-center">
-                    <h2 className="text-3xl font-bold mb-6">Still Have Questions?</h2>
-                    <p className="text-xl text-blue-100 mb-8">Contact our support team</p>
-                    <a href="/contact" className="px-8 py-4 bg-white text-blue-900 rounded-full font-bold hover:bg-blue-50 inline-block">
-                        Contact Us
-                    </a>
-                </div>
-            </section>
-        </main>
+            <div className="mt-16 p-8 bg-blue-50 rounded-3xl border border-blue-100 text-center">
+                <h3 className="text-xl font-bold text-blue-900 mb-2">Still have questions?</h3>
+                <p className="text-blue-700 mb-6 font-medium">Our support team is here to help you succeed.</p>
+                <a
+                    href="/contact"
+                    className="inline-flex items-center justify-center px-8 py-4 bg-blue-600 text-white rounded-full font-bold hover:bg-blue-700 transition-all shadow-lg shadow-blue-900/10"
+                >
+                    Contact Support
+                </a>
+            </div>
+        </StandardPageLayout>
     );
 }

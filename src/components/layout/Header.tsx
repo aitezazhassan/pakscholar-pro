@@ -1,8 +1,7 @@
 'use client';
 
-import { useState, useEffect } from 'react';
-import Link from 'next/link';
-import { BookOpen, Menu, X, User as UserIcon, LayoutDashboard } from 'lucide-react';
+import { usePathname } from 'next/navigation';
+import { BookOpen, Menu, X, User as UserIcon, LayoutDashboard, Search } from 'lucide-react';
 import { NavDropdown, MobileMenuLink } from '@/components/ui/nav-components';
 import { User } from '@supabase/supabase-js';
 
@@ -14,6 +13,7 @@ export default function Header({ user }: HeaderProps) {
     const [scrolled, setScrolled] = useState(false);
     const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+    const pathname = usePathname();
 
     useEffect(() => {
         const handleScroll = () => {
@@ -103,24 +103,28 @@ export default function Header({ user }: HeaderProps) {
                     </nav>
 
                     {/* CTA Buttons */}
-                    <div className="hidden lg:flex items-center gap-4">
+                    <div className="hidden lg:flex items-center gap-6">
+                        <button className={`p-2 rounded-full transition-all duration-300 ${scrolled ? 'text-slate-500 hover:bg-slate-100 hover:text-emerald-600' : 'text-white/70 hover:bg-white/10 hover:text-white'}`}>
+                            <Search className="w-5 h-5" />
+                        </button>
+
                         {user ? (
                             <Link
                                 href="/dashboard"
-                                className={`flex items-center gap-2 px-4 py-2.5 rounded-full text-sm font-bold transition-all duration-300 ${scrolled
-                                    ? 'bg-emerald-50 text-emerald-700 hover:bg-emerald-100'
-                                    : 'bg-white/10 text-white hover:bg-white/20'
+                                className={`flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-bold transition-all duration-300 ${scrolled
+                                    ? 'bg-emerald-600 text-white shadow-lg shadow-emerald-600/20 hover:bg-emerald-700'
+                                    : 'bg-white/10 text-white backdrop-blur-md border border-white/20 hover:bg-white/20'
                                     }`}
                             >
                                 <LayoutDashboard className="w-4 h-4" />
                                 <span>Dashboard</span>
                             </Link>
                         ) : (
-                            <>
+                            <div className="flex items-center gap-2">
                                 <Link
                                     href="/login"
-                                    className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-300 ${scrolled
-                                        ? 'text-slate-700 hover:bg-slate-100'
+                                    className={`px-4 py-2 rounded-lg text-sm font-bold transition-all duration-300 ${scrolled
+                                        ? 'text-slate-700 hover:bg-slate-100 hover:text-emerald-700'
                                         : 'text-white hover:bg-white/10'
                                         }`}
                                 >
@@ -132,7 +136,7 @@ export default function Header({ user }: HeaderProps) {
                                 >
                                     Sign up
                                 </Link>
-                            </>
+                            </div>
                         )}
                     </div>
 

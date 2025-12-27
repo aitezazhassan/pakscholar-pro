@@ -1,93 +1,76 @@
-'use client';
-
 import { Target, Heart, Users, Award } from 'lucide-react';
+import StandardPageLayout from '@/components/layout/StandardPageLayout';
 
 export default function AboutPage() {
     return (
-        <main className="min-h-screen bg-white">
-            <section className="relative isolate overflow-hidden bg-slate-900 pt-24 pb-20">
-                <div className="absolute inset-0 -z-10">
-                    <div className="absolute top-0 z-[-2] h-full w-full bg-[#000000] bg-[radial-gradient(#ffffff33_1px,#00091d_1px)] bg-[size:20px_20px] opacity-[0.2]"></div>
-                    <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-emerald-700/20 blur-[100px]" />
-                </div>
-
-                <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center text-white">
-                    <div className="text-8xl mb-6">🎓</div>
-                    <h1 className="text-5xl font-bold mb-4 font-serif">About PakScholar Pro</h1>
-                    <p className="text-xl text-slate-300 max-w-2xl mx-auto">
-                        Empowering Pakistani students to achieve their dreams through free, quality education
-                    </p>
-                </div>
-            </section>
-
-            <section className="py-20 bg-white">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="grid md:grid-cols-2 gap-12 items-center mb-20">
-                        <div>
-                            <h2 className="text-3xl font-bold text-slate-900 mb-6">Our Mission</h2>
-                            <p className="text-lg text-slate-700 leading-relaxed mb-4">
-                                PakScholar Pro was created with a simple yet powerful vision: to provide free, comprehensive, and high-quality educational resources to every student preparing for competitive exams in Pakistan.
-                            </p>
-                            <p className="text-lg text-slate-700 leading-relaxed">
-                                We believe that education should be accessible to all, regardless of financial background. Every student deserves the opportunity to excel.
-                            </p>
+        <StandardPageLayout
+            title="About PakScholar Pro"
+            subtitle="The definitive platform for quality exam preparation in Pakistan, built for students by scholars."
+            icon={Target}
+            themeColor="bg-emerald-600"
+        >
+            <div className="space-y-20">
+                <section className="grid md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h2 className="text-3xl font-bold text-slate-900 mb-6 italic font-serif">Mission & Vision</h2>
+                        <p className="text-lg text-slate-600 leading-relaxed mb-6">
+                            PakScholar Pro was founded on the belief that high-quality education and exam preparation should not be locked behind expensive paywalls. In a competitive landscape like Pakistan's civil services, access to accurate and timely information is the key differentiator.
+                        </p>
+                        <p className="text-lg text-slate-600 leading-relaxed">
+                            Our goal is to provide a comprehensive, free, and syllabus-aligned digital study hub that empowers every student to compete on a level playing field.
+                        </p>
+                    </div>
+                    <div className="bg-emerald-50 rounded-3xl p-8 border border-emerald-100 shadow-sm relative overflow-hidden group">
+                        <div className="absolute -right-4 -top-4 w-24 h-24 bg-emerald-200/40 rounded-full blur-2xl group-hover:scale-150 transition-transform"></div>
+                        <div className="space-y-8 relative z-10">
+                            {[
+                                { icon: Award, title: 'Academic Excellence', desc: 'Content curated by subject specialists.' },
+                                { icon: Heart, title: 'Student First', desc: 'Free resources, forever. No hidden costs.' },
+                                { icon: Users, title: 'Community Driven', desc: 'A growing platform for collective success.' }
+                            ].map((item, idx) => (
+                                <div key={idx} className="flex gap-4 items-start">
+                                    <div className="p-3 bg-white rounded-xl shadow-sm">
+                                        <item.icon className="w-6 h-6 text-emerald-600" />
+                                    </div>
+                                    <div>
+                                        <h4 className="font-bold text-slate-900">{item.title}</h4>
+                                        <p className="text-slate-500 text-sm font-medium">{item.desc}</p>
+                                    </div>
+                                </div>
+                            ))}
                         </div>
-                        <div className="bg-emerald-50 rounded-3xl p-8 border-2 border-emerald-100">
-                            <div className="space-y-6">
-                                <div className="flex items-start gap-4">
-                                    <Target className="w-8 h-8 text-emerald-600 flex-shrink-0" />
-                                    <div>
-                                        <h3 className="font-bold text-slate-900 mb-1">Excellence</h3>
-                                        <p className="text-slate-700">Providing top-quality study materials</p>
-                                    </div>
-                                </div>
-                                <div className="flex items-start gap-4">
-                                    <Heart className="w-8 h-8 text-emerald-600 flex-shrink-0" />
-                                    <div>
-                                        <h3 className="font-bold text-slate-900 mb-1">Accessibility</h3>
-                                        <p className="text-slate-700">Completely free for all students</p>
-                                    </div>
-                                </div>
-                                <div className="flex items-start gap-4">
-                                    <Users className="w-8 h-8 text-emerald-600 flex-shrink-0" />
-                                    <div>
-                                        <h3 className="font-bold text-slate-900 mb-1">Community</h3>
-                                        <p className="text-slate-700">Supporting each other's success</p>
-                                    </div>
-                                </div>
+                    </div>
+                </section>
+
+                <section className="bg-slate-50 rounded-3xl p-12 border border-slate-100 italic">
+                    <h2 className="text-3xl font-bold text-slate-900 mb-12 text-center font-serif">Platform Statistics</h2>
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+                        {[
+                            { label: 'Students', value: '100K+' },
+                            { label: 'MCQs', value: '15K+' },
+                            { label: 'Past Papers', value: '500+' },
+                            { label: 'Subjects', value: '12+' }
+                        ].map((stat, idx) => (
+                            <div key={idx} className="text-center">
+                                <div className="text-4xl font-black text-emerald-600 mb-1">{stat.value}</div>
+                                <div className="text-sm font-bold text-slate-400 uppercase tracking-widest leading-none">{stat.label}</div>
                             </div>
-                        </div>
+                        ))}
                     </div>
+                </section>
 
-                    <div className="grid md:grid-cols-3 gap-8">
-                        <div className="text-center p-8 bg-slate-50 rounded-2xl">
-                            <div className="text-4xl font-bold text-emerald-700 mb-2">100K+</div>
-                            <div className="text-slate-700">Students Helped</div>
-                        </div>
-                        <div className="text-center p-8 bg-slate-50 rounded-2xl">
-                            <div className="text-4xl font-bold text-blue-700 mb-2">10K+</div>
-                            <div className="text-slate-700">Practice Questions</div>
-                        </div>
-                        <div className="text-center p-8 bg-slate-50 rounded-2xl">
-                            <div className="text-4xl font-bold text-purple-700 mb-2">100%</div>
-                            <div className="text-slate-700">Free Forever</div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section className="py-20 bg-gradient-to-br from-emerald-900 to-slate-900 text-white">
-                <div className="max-w-4xl mx-auto px-4 text-center">
-                    <Award className="w-16 h-16 mx-auto mb-6 text-emerald-400" />
-                    <h2 className="text-4xl font-bold mb-6">Join Thousands of Successful Students</h2>
-                    <p className="text-xl text-emerald-100 mb-8">
-                        Start your journey to success with PakScholar Pro today
+                <section className="text-center max-w-2xl mx-auto space-y-6">
+                    <h2 className="text-3xl font-bold text-slate-900 font-serif italic">The Future of Learning</h2>
+                    <p className="text-lg text-slate-600">
+                        We are constantly evolving. From AI-driven performance analytics to real-time mock exam rankings, we are building the next generation of educational tools for Pakistani scholars.
                     </p>
-                    <a href="/pakistan-studies" className="px-8 py-4 bg-white text-emerald-900 rounded-full font-bold hover:bg-emerald-50 inline-block">
-                        Start Learning
-                    </a>
-                </div>
-            </section>
-        </main>
+                    <div className="pt-6">
+                        <a href="/explore" className="inline-flex items-center justify-center px-10 py-5 bg-slate-900 text-white rounded-full font-black text-lg hover:bg-slate-800 transition-all shadow-xl shadow-slate-900/30">
+                            Explore the Platform
+                        </a>
+                    </div>
+                </section>
+            </div>
+        </StandardPageLayout>
     );
 }
