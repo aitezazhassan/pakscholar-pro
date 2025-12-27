@@ -36,8 +36,8 @@ export default function Header({ user }: HeaderProps) {
 
     const exams = [
         { name: 'PPSC Guide', href: '/exams/ppsc' },
-        { name: 'FPSC Guide', href: '/exams/fpsc' },
-        { name: 'CSS Guide', href: '/exams/css' }
+        { name: 'Past Papers', href: '/past-papers' },
+        { name: 'Mock Exams', href: '/practice' }
     ];
 
     const resources = [

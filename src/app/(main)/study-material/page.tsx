@@ -4,7 +4,7 @@ import { Book, Globe, Languages, Calculator, Monitor, Sparkles, ArrowRight, Chec
 
 export const metadata: Metadata = {
     title: 'Study Material - Complete PPSC Exam Preparation',
-    description: 'Comprehensive study material for PPSC, CSS, and FPSC exams. Cover all subjects with detailed notes, MCQs, and practice questions.',
+    description: 'Comprehensive study material for PPSC exams. Cover all subjects with detailed notes, MCQs, and practice questions.',
 };
 
 const subjects = [
@@ -87,7 +87,7 @@ export default function StudyMaterialPage() {
                             Complete Study Material
                         </h1>
                         <p className="text-xl md:text-2xl text-emerald-50 mb-8 max-w-3xl mx-auto">
-                            Everything you need to ace PPSC, CSS, and FPSC exams. Comprehensive notes, practice MCQs, and expert guidance.
+                            Everything you need to ace PPSC exams. Comprehensive notes, practice MCQs, and expert guidance.
                         </p>
 
                         {/* Stats */}

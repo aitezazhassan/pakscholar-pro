@@ -4,7 +4,7 @@ import { ArrowRight, BookOpen, CheckCircle, Scale, Shield } from 'lucide-react';
 
 export const metadata: Metadata = {
     title: 'Constitution of Pakistan 1973 - Complete Study Guide | PPSC Preparation',
-    description: 'Comprehensive guide to Pakistan\'s Constitution: Fundamental Rights, Parliament structure, Federal-Provincial relations, and recent amendments. Essential for PPSC, CSS, and FPSC exams.',
+    description: 'Comprehensive guide to Pakistan\'s Constitution: Fundamental Rights, Parliament structure, Federal-Provincial relations, and recent amendments. Essential for PPSC exams.',
 };
 
 export default function ConstitutionPage() {

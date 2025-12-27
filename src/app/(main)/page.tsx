@@ -38,7 +38,7 @@ const HeroSection = () => {
           </h1>
 
           <p className="mt-6 text-lg leading-8 text-slate-300 max-w-2xl mx-auto">
-            The modern way to prepare for PPSC, FPSC & CSS. Smart tools, verified data, and a focused study environment.
+            The modern way to prepare for PPSC exams. Smart tools, verified data, and a focused study environment.
           </p>
 
           {/* Search Bar */}

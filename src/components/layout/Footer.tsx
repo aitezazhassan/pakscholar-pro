@@ -45,9 +45,8 @@ export default function Footer() {
                         <h4 className="text-white font-bold mb-6 text-sm uppercase tracking-widest pl-1 border-l-2 border-emerald-500">Resources</h4>
                         <ul className="space-y-4 text-sm font-medium">
                             <li><Link href="/exams/ppsc" className="hover:text-emerald-400 hover:translate-x-1 transition-all flex items-center gap-2">PPSC Guide</Link></li>
-                            <li><Link href="/exams/fpsc" className="hover:text-emerald-400 hover:translate-x-1 transition-all flex items-center gap-2">FPSC Guide</Link></li>
-                            <li><Link href="/exams/css" className="hover:text-emerald-400 hover:translate-x-1 transition-all flex items-center gap-2">CSS Guide</Link></li>
-                            <li><Link href="/practice" className="hover:text-emerald-400 hover:translate-x-1 transition-all flex items-center gap-2">Practice Tests</Link></li>
+                            <li><Link href="/study-material" className="hover:text-emerald-400 hover:translate-x-1 transition-all flex items-center gap-2">Study Material</Link></li>
+                            <li><Link href="/practice" className="hover:text-emerald-400 hover:translate-x-1 transition-all flex items-center gap-2">Mock Exams</Link></li>
                             <li><Link href="/past-papers" className="hover:text-emerald-400 hover:translate-x-1 transition-all flex items-center gap-2">Past Papers</Link></li>
                         </ul>
                     </div>
