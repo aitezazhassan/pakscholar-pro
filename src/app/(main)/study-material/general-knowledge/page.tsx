@@ -114,11 +114,11 @@ export default function GeneralKnowledgePage() {
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {topics.map((topic) => {
                         const Icon = topic.icon;
-                        return (
-                            <div
-                                key={topic.id}
-                                className="group bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 border-2 border-gray-100 hover:border-transparent hover:scale-105"
-                            >
+                        const isAvailable = topic.id === 'pakistan-affairs' || topic.id === 'world-geography';
+                        const href = `/study-material/general-knowledge/${topic.id}`;
+
+                        const cardContent = (
+                            <>
                                 {/* Icon */}
                                 <div className={`w-14 h-14 bg-gradient-to-r ${topic.gradient} rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
                                     <Icon className="w-7 h-7 text-white" />
@@ -144,10 +144,34 @@ export default function GeneralKnowledgePage() {
                                     </div>
                                 </div>
 
-                                {/* Coming Soon Badge */}
-                                <div className="inline-flex items-center gap-2 px-3 py-1 bg-emerald-100 text-emerald-700 text-sm font-semibold rounded-full">
-                                    Coming Soon
-                                </div>
+                                {/* Status Badge */}
+                                {isAvailable ? (
+                                    <div className="flex items-center gap-2 text-emerald-600 font-semibold group-hover:gap-4 transition-all">
+                                        <span>View Content</span>
+                                        <ArrowRight className="w-5 h-5" />
+                                    </div>
+                                ) : (
+                                    <div className="inline-flex items-center gap-2 px-3 py-1 bg-gray-100 text-gray-600 text-sm font-semibold rounded-full">
+                                        Coming Soon
+                                    </div>
+                                )}
+                            </>
+                        );
+
+                        return isAvailable ? (
+                            <Link
+                                key={topic.id}
+                                href={href}
+                                className="group bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 border-2 border-gray-100 hover:border-emerald-500 hover:scale-105 block"
+                            >
+                                {cardContent}
+                            </Link>
+                        ) : (
+                            <div
+                                key={topic.id}
+                                className="group bg-white rounded-2xl p-6 shadow-lg transition-all duration-300 border-2 border-gray-100"
+                            >
+                                {cardContent}
                             </div>
                         );
                     })}
