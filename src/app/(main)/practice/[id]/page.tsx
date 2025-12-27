@@ -169,8 +169,55 @@ export default function ExamPage() {
         );
     }
 
+    // Safety check: ensure currentQuestion is within bounds
+    if (currentQuestion >= examData.questions.length) {
+        return (
+            <div className="min-h-screen bg-white pt-20 flex items-center justify-center px-4">
+                <div className="max-w-md text-center">
+                    <div className="w-20 h-20 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <AlertCircle className="w-10 h-10 text-red-600" />
+                    </div>
+                    <h2 className="text-2xl font-bold text-gray-900 mb-4">Question Not Found</h2>
+                    <p className="text-gray-600 mb-8">
+                        The exam has {examData.questions.length} questions, but you're trying to access question {currentQuestion + 1}.
+                    </p>
+                    <Link
+                        href="/practice"
+                        className="inline-block px-6 py-3 bg-emerald-600 text-white rounded-full font-semibold hover:bg-emerald-700 transition-colors"
+                    >
+                        Back to Exams
+                    </Link>
+                </div>
+            </div>
+        );
+    }
+
     const question = examData.questions[currentQuestion];
-    const progress = ((Object.keys(answers).length / examData.totalQuestions) * 100).toFixed(0);
+
+    // Additional safety check for the question object
+    if (!question) {
+        return (
+            <div className="min-h-screen bg-white pt-20 flex items-center justify-center px-4">
+                <div className="max-w-md text-center">
+                    <div className="w-20 h-20 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <AlertCircle className="w-10 h-10 text-red-600" />
+                    </div>
+                    <h2 className="text-2xl font-bold text-gray-900 mb-4">Invalid Question</h2>
+                    <p className="text-gray-600 mb-8">
+                        Question {currentQuestion + 1} could not be loaded.
+                    </p>
+                    <Link
+                        href="/practice"
+                        className="inline-block px-6 py-3 bg-emerald-600 text-white rounded-full font-semibold hover:bg-emerald-700 transition-colors"
+                    >
+                        Back to Exams
+                    </Link>
+                </div>
+            </div>
+        );
+    }
+
+    const progress = ((Object.keys(answers).length / examData.questions.length) * 100).toFixed(0);
 
     return (
         <main className="min-h-screen bg-white pt-20">
@@ -189,7 +236,7 @@ export default function ExamPage() {
                         {/* Progress */}
                         <div className="flex items-center gap-3">
                             <div className="text-sm text-gray-600">
-                                {Object.keys(answers).length} / {examData.totalQuestions} answered
+                                {Object.keys(answers).length} / {examData.questions.length} answered
                             </div>
                             <div className="w-32 h-2 bg-gray-200 rounded-full overflow-hidden">
                                 <div
@@ -274,9 +321,9 @@ export default function ExamPage() {
                         </button>
 
                         <div className="flex gap-2">
-                            {Array.from({ length: Math.min(10, examData.totalQuestions) }, (_, i) => {
+                            {Array.from({ length: Math.min(10, examData.questions.length) }, (_, i) => {
                                 const questionNum = Math.floor((currentQuestion / 10)) * 10 + i;
-                                if (questionNum >= examData.totalQuestions) return null;
+                                if (questionNum >= examData.questions.length) return null;
 
                                 return (
                                     <button
@@ -296,8 +343,8 @@ export default function ExamPage() {
                         </div>
 
                         <button
-                            onClick={() => setCurrentQuestion(Math.min(examData.totalQuestions - 1, currentQuestion + 1))}
-                            disabled={currentQuestion === examData.totalQuestions - 1}
+                            onClick={() => setCurrentQuestion(Math.min(examData.questions.length - 1, currentQuestion + 1))}
+                            disabled={currentQuestion === examData.questions.length - 1}
                             className="flex items-center gap-2 px-6 py-3 bg-emerald-700 text-white font-semibold rounded-full hover:bg-emerald-800 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
                         >
                             <span>Next</span>
