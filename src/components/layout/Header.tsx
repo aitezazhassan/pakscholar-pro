@@ -1,5 +1,7 @@
 'use client';
 
+import { useState, useEffect } from 'react';
+import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { BookOpen, Menu, X, User as UserIcon, LayoutDashboard, Search } from 'lucide-react';
 import { NavDropdown, MobileMenuLink } from '@/components/ui/nav-components';
