@@ -48,7 +48,9 @@ export default function UrduPage() {
                     </Link>
 
                     <div className="max-w-3xl">
-                        <h1 className="text-4xl md:text-5xl font-bold mb-4">Urdu (اردو)</h1>
+                        <h1 className="text-4xl md:text-5xl font-bold mb-4">
+                            Urdu <span className="font-[var(--font-noto-nastaliq)]">(اردو)</span>
+                        </h1>
                         <p className="text-xl text-purple-50 mb-6">
                             Master Urdu for PPSC exams. Grammar, comprehension, and essay writing skills.
                         </p>
@@ -77,7 +79,9 @@ export default function UrduPage() {
                                     <Icon className="w-7 h-7 text-white" />
                                 </div>
                                 <h3 className="text-xl font-bold text-gray-900 mb-2">{topic.name}</h3>
-                                <p className="text-gray-600 mb-4 text-sm">{topic.description}</p>
+                                <p className={`text-gray-600 mb-4 text-sm ${topic.description.match(/[\u0600-\u06FF]/) ? 'font-[var(--font-noto-nastaliq)] text-lg leading-loose text-right' : ''}`}>
+                                    {topic.description}
+                                </p>
                                 <div className="flex items-center gap-3 mb-4">
                                     <div className="flex items-center gap-1 text-xs text-gray-500">
                                         <CheckCircle className="w-3 h-3 text-purple-600" />
