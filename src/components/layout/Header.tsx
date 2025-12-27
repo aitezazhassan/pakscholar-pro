@@ -25,13 +25,13 @@ export default function Header({ user }: HeaderProps) {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
-    const subjects = [
-        { name: 'Pakistan Studies', href: '/pakistan-studies' },
-        { name: 'Islamic Studies', href: '/islamic-studies' },
-        { name: 'Mathematics', href: '/mathematics' },
-        { name: 'English', href: '/english' },
-        { name: 'General Science', href: '/science' },
-        { name: 'Current Affairs', href: '/current-affairs' }
+    const studyMaterial = [
+        { name: 'General Knowledge', href: '/study-material/general-knowledge' },
+        { name: 'English', href: '/study-material/english' },
+        { name: 'Mathematics', href: '/study-material/mathematics' },
+        { name: 'Computer Science', href: '/study-material/computer-science' },
+        { name: 'Urdu', href: '/study-material/urdu' },
+        { name: 'Islamic Studies', href: '/study-material/islamic-studies' }
     ];
 
     const exams = [
@@ -41,9 +41,9 @@ export default function Header({ user }: HeaderProps) {
     ];
 
     const resources = [
-        { name: 'Practice Tests', href: '/practice' },
+        { name: 'Mock Exams', href: '/practice' },
         { name: 'Past Papers', href: '/past-papers' },
-        { name: 'Study Resources', href: '/resources' }
+        { name: 'Current Affairs', href: '/current-affairs' }
     ];
 
     return (
@@ -65,9 +65,9 @@ export default function Header({ user }: HeaderProps) {
                     {/* Desktop Navigation */}
                     <nav className="hidden lg:flex items-center space-x-1">
                         <NavDropdown
-                            id="subjects"
-                            label="Subjects"
-                            items={subjects}
+                            id="study-material"
+                            label="Study Material"
+                            items={studyMaterial}
                             activeId={activeDropdown}
                             scrolled={scrolled}
                             onMouseEnter={setActiveDropdown}
@@ -160,9 +160,9 @@ export default function Header({ user }: HeaderProps) {
                     {/* Groups */}
                     <div className="space-y-6">
                         <div className="space-y-3">
-                            <h3 className="text-xs font-bold text-slate-400 uppercase tracking-widest pl-2">Subjects</h3>
+                            <h3 className="text-xs font-bold text-slate-400 uppercase tracking-widest pl-2">Study Material</h3>
                             <div className="grid grid-cols-2 gap-2">
-                                {subjects.map(item => (
+                                {studyMaterial.map(item => (
                                     <MobileMenuLink key={item.name} href={item.href} onClick={() => setMobileMenuOpen(false)}>
                                         {item.name}
                                     </MobileMenuLink>
