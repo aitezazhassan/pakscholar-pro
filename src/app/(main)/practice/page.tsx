@@ -5,13 +5,22 @@ import { Clock, FileText, Award, ArrowRight } from 'lucide-react';
 
 const mockExams = [
     {
-        id: 'pms-160',
-        title: 'PMS Model Paper 160',
-        description: 'Complete 100-question mock exam covering all major subjects for PMS preparation',
+        id: 'pms-2023',
+        title: 'PMS 2023 Exam',
+        description: 'Complete 100-question PMS exam covering General Knowledge, Pakistan Affairs, Current Affairs, Geography, Everyday Science, Computer, Mathematics, Urdu, and Islamiat',
         questions: 100,
         duration: 120,
-        subjects: ['General Knowledge', 'Pakistan Affairs', 'Geography', 'Science', 'Computer', 'Math'],
+        subjects: ['General Knowledge', 'Pakistan Affairs', 'Current Affairs', 'Geography', 'Everyday Science', 'Computer', 'Mathematics', 'Urdu', 'Islamiat'],
         difficulty: 'Intermediate'
+    },
+    {
+        id: 'pms-160',
+        title: 'PMS Model Paper 160 (Sample)',
+        description: 'Sample 3-question mock exam for PMS preparation - Full version coming soon',
+        questions: 3,
+        duration: 5,
+        subjects: ['General Knowledge'],
+        difficulty: 'Beginner'
     }
 ];
 

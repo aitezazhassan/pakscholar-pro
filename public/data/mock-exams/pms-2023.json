@@ -1,0 +1,1211 @@
+{
+    "id": "pms-2023",
+    "title": "PMS 2023 Exam",
+    "description": "Complete 100-question PMS exam covering General Knowledge, Pakistan Affairs, Current Affairs, Geography, Everyday Science, Computer, Mathematics, Urdu, and Islamiat",
+    "duration": 120,
+    "totalQuestions": 100,
+    "passingScore": 50,
+    "subjects": {
+        "General Knowledge": 28,
+        "Pakistan Affairs": 9,
+        "Current Affairs": 5,
+        "Geography": 18,
+        "Everyday Science": 14,
+        "Computer": 5,
+        "Mathematics": 3,
+        "Urdu": 1,
+        "Islamiat": 2
+    },
+    "questions": [
+        {
+            "id": 1,
+            "question": "Where is the Kala Pani Jail located?",
+            "options": [
+                "Lakshadweep Islands",
+                "Andaman Islands",
+                "Mauritius",
+                "Sri Lanka"
+            ],
+            "correctAnswer": 1,
+            "subject": "General Knowledge",
+            "topic": "History",
+            "explanation": "The Kala Pani Jail, officially known as the Cellular Jail, is located in Port Blair, part of the Andaman and Nicobar Islands, India. The name reflects the immense suffering of Indian freedom fighters who were imprisoned there by the British, isolated by the vast sea."
+        },
+        {
+            "id": 2,
+            "question": "To which country did Benjamin Franklin (1706-1790) belong?",
+            "options": [
+                "US",
+                "UK",
+                "Canada",
+                "China"
+            ],
+            "correctAnswer": 0,
+            "subject": "General Knowledge",
+            "topic": "Personalities",
+            "explanation": "Benjamin Franklin was one of the Founding Fathers of the United States."
+        },
+        {
+            "id": 3,
+            "question": "What was the profession of the President of Ukraine, Volodymyr Zelenskyy, before he became president?",
+            "options": [
+                "Lawyer",
+                "Politician",
+                "Comedian",
+                "Scientist"
+            ],
+            "correctAnswer": 2,
+            "subject": "General Knowledge",
+            "topic": "Current Leaders",
+            "explanation": "Volodymyr Zelenskyy was a comedian and actor before becoming President of Ukraine."
+        },
+        {
+            "id": 4,
+            "question": "What is a subsidy?",
+            "options": [
+                "A benefit given to individuals or businesses by the government",
+                "A tax imposed by the government",
+                "A loan given by the government",
+                "A fee charged by the government"
+            ],
+            "correctAnswer": 0,
+            "subject": "General Knowledge",
+            "topic": "Economics",
+            "explanation": "A subsidy is a financial assistance provided by the government to support businesses or individuals."
+        },
+        {
+            "id": 5,
+            "question": "The book 'A Promised Land' was written by:",
+            "options": [
+                "Richard Holbrook",
+                "Donald Trump",
+                "Barack Obama",
+                "Joe Biden"
+            ],
+            "correctAnswer": 2,
+            "subject": "General Knowledge",
+            "topic": "Literature",
+            "explanation": "Barack Obama wrote 'A Promised Land', his presidential memoir."
+        },
+        {
+            "id": 6,
+            "question": "Who is the author of the book 'In Search of Identity'?",
+            "options": [
+                "Naguib Mahfouz",
+                "Anwar el-Sadat",
+                "Ahmad Zewail",
+                "Taha Hussein"
+            ],
+            "correctAnswer": 1,
+            "subject": "General Knowledge",
+            "topic": "Literature",
+            "explanation": "Anwar el-Sadat, former President of Egypt, wrote 'In Search of Identity'."
+        },
+        {
+            "id": 7,
+            "question": "The ongoing Israel-Palestine crisis resulted from which 1947 Decision?",
+            "options": [
+                "The Balfour Declaration",
+                "The UN Partition Plan for Palestine",
+                "The creation of the State of Israel",
+                "The Sykes-Picot Agreement"
+            ],
+            "correctAnswer": 1,
+            "subject": "General Knowledge",
+            "topic": "International Relations",
+            "explanation": "The Israel-Palestine crisis has its roots in the United Nations General Assembly Resolution 181, also known as the Partition Plan, adopted on November 29, 1947. This plan proposed dividing British Mandate Palestine into two independent states—one for Jews and one for Arabs—which led to long-standing disputes and the ongoing conflict."
+        },
+        {
+            "id": 8,
+            "question": "The Houthi uprising is taking place in which country?",
+            "options": [
+                "Syria",
+                "Iraq",
+                "Yemen",
+                "Libya"
+            ],
+            "correctAnswer": 2,
+            "subject": "General Knowledge",
+            "topic": "Current Affairs",
+            "explanation": "The Houthi movement is an armed political and religious group in Yemen."
+        },
+        {
+            "id": 9,
+            "question": "THALNOVA is a project of which sector?",
+            "options": [
+                "Energy",
+                "Agriculture",
+                "Business",
+                "Healthcare"
+            ],
+            "correctAnswer": 0,
+            "subject": "General Knowledge",
+            "topic": "Energy",
+            "explanation": "ThalNova is a 330MW lignite-fired power plant located at the Thar Coal Block-II in Sindh. It is part of the China-Pakistan Economic Corridor (CPEC) and contributes to the energy sector, focusing on power generation through locally sourced coal."
+        },
+        {
+            "id": 10,
+            "question": "New York Stock Exchange (NYSE) is also known as:",
+            "options": [
+                "Big Board",
+                "Nasdaq",
+                "Big Apple",
+                "Wall Street"
+            ],
+            "correctAnswer": 0,
+            "subject": "General Knowledge",
+            "topic": "Finance",
+            "explanation": "The New York Stock Exchange (NYSE) is also known as the Big Board."
+        },
+        {
+            "id": 11,
+            "question": "Questionnaire method is used for collecting:",
+            "options": [
+                "Visual data",
+                "Primary data",
+                "Secondary data",
+                "Small quantity of data"
+            ],
+            "correctAnswer": 1,
+            "subject": "General Knowledge",
+            "topic": "Research Methods",
+            "explanation": "Questionnaires are a primary data collection method used in research."
+        },
+        {
+            "id": 12,
+            "question": "The Order of the Rising Sun is an award of which country?",
+            "options": [
+                "China",
+                "Japan",
+                "South Korea",
+                "India"
+            ],
+            "correctAnswer": 1,
+            "subject": "General Knowledge",
+            "topic": "Awards",
+            "explanation": "The Order of the Rising Sun is a Japanese order established in 1875."
+        },
+        {
+            "id": 13,
+            "question": "What does opportunity cost refer to?",
+            "options": [
+                "The cost of purchasing an item",
+                "The cost of producing a good or service",
+                "Giving up the opportunity to choose the next best alternative",
+                "The amount of money spent on a product"
+            ],
+            "correctAnswer": 2,
+            "subject": "General Knowledge",
+            "topic": "Economics",
+            "explanation": "Opportunity cost is the value of the next best alternative foregone when making a decision."
+        },
+        {
+            "id": 14,
+            "question": "What is the recent goal of the International Monetary Fund (IMF)?",
+            "options": [
+                "Economic contraction",
+                "Modest growth",
+                "Hyperinflation",
+                "Global recession"
+            ],
+            "correctAnswer": 1,
+            "subject": "General Knowledge",
+            "topic": "International Organizations",
+            "explanation": "The IMF aims to promote modest economic growth and financial stability globally."
+        },
+        {
+            "id": 15,
+            "question": "Which country did Hitler attack first during World War II?",
+            "options": [
+                "Czechoslovakia",
+                "Poland",
+                "Soviet Union",
+                "Germany"
+            ],
+            "correctAnswer": 1,
+            "subject": "General Knowledge",
+            "topic": "History",
+            "explanation": "Nazi Germany invaded Poland on September 1, 1939, marking the start of World War II."
+        },
+        {
+            "id": 16,
+            "question": "Julian Assange is associated with which organization?",
+            "options": [
+                "Amnesty International",
+                "WikiLeaks",
+                "Greenpeace",
+                "United Nations"
+            ],
+            "correctAnswer": 1,
+            "subject": "General Knowledge",
+            "topic": "Media",
+            "explanation": "Julian Assange is the founder of WikiLeaks, an organization that publishes classified information."
+        },
+        {
+            "id": 17,
+            "question": "IMF funds are primarily provided for which of the following?",
+            "options": [
+                "To ensure a stable exchange rate",
+                "To reduce excess government expenditure",
+                "Humanitarian aid",
+                "Measures to reduce inflation"
+            ],
+            "correctAnswer": 0,
+            "subject": "General Knowledge",
+            "topic": "International Finance",
+            "explanation": "The IMF provides funds primarily to help countries maintain stable exchange rates and balance of payments."
+        },
+        {
+            "id": 18,
+            "question": "Carbon heat waves hit which continent:",
+            "options": [
+                "Asia",
+                "Australia",
+                "Europe",
+                "America"
+            ],
+            "correctAnswer": 2,
+            "subject": "General Knowledge",
+            "topic": "Climate",
+            "explanation": "Europe has experienced severe heat waves in recent years due to climate change."
+        },
+        {
+            "id": 19,
+            "question": "Which from the following countries does not yield veto-power?",
+            "options": [
+                "UK",
+                "US",
+                "China",
+                "Germany"
+            ],
+            "correctAnswer": 3,
+            "subject": "General Knowledge",
+            "topic": "International Organizations",
+            "explanation": "Only the five permanent members of the UN Security Council (US, UK, France, Russia, China) have veto power. Germany is not a permanent member."
+        },
+        {
+            "id": 20,
+            "question": "Who is called the Father of History?",
+            "options": [
+                "Socrates",
+                "Herodotus",
+                "Aristotle",
+                "Thucydides"
+            ],
+            "correctAnswer": 1,
+            "subject": "General Knowledge",
+            "topic": "History",
+            "explanation": "Herodotus is known as the Father of History for his systematic collection and recording of historical events."
+        },
+        {
+            "id": 21,
+            "question": "'Think and Grow Rich' was written by:",
+            "options": [
+                "Robert Kiyosaki",
+                "Stephen R. Covey",
+                "Napoleon Hill",
+                "Dale Carnegie"
+            ],
+            "correctAnswer": 2,
+            "subject": "General Knowledge",
+            "topic": "Literature",
+            "explanation": "Napoleon Hill wrote 'Think and Grow Rich', a classic self-help book on personal success."
+        },
+        {
+            "id": 22,
+            "question": "The 2024 Olympics were held in which country?",
+            "options": [
+                "US",
+                "France",
+                "Japan",
+                "Australia"
+            ],
+            "correctAnswer": 1,
+            "subject": "General Knowledge",
+            "topic": "Sports",
+            "explanation": "The 2024 Summer Olympics were held in Paris, France."
+        },
+        {
+            "id": 23,
+            "question": "Reuters is the news agency of:",
+            "options": [
+                "UK",
+                "US",
+                "Germany",
+                "Canada"
+            ],
+            "correctAnswer": 0,
+            "subject": "General Knowledge",
+            "topic": "Media",
+            "explanation": "Reuters is a British news agency founded in London."
+        },
+        {
+            "id": 24,
+            "question": "Who is the author of the book 'Nineteen Eighty-Four'?",
+            "options": [
+                "Thomas Hardy",
+                "George Orwell",
+                "Emile Zola",
+                "Walter Scott"
+            ],
+            "correctAnswer": 1,
+            "subject": "General Knowledge",
+            "topic": "Literature",
+            "explanation": "George Orwell wrote the dystopian novel 'Nineteen Eighty-Four' published in 1949."
+        },
+        {
+            "id": 25,
+            "question": "What does a trade surplus mean?",
+            "options": [
+                "A country imports more than it exports",
+                "A country exports more than it imports",
+                "A country has balanced trade",
+                "A country has no international trade"
+            ],
+            "correctAnswer": 1,
+            "subject": "General Knowledge",
+            "topic": "Economics",
+            "explanation": "A trade surplus occurs when a country's exports exceed its imports."
+        },
+        {
+            "id": 26,
+            "question": "The UN Charter was finalized at which conference?",
+            "options": [
+                "Yalta Conference",
+                "Bretton Woods Conference",
+                "San Francisco Conference",
+                "Geneva Conference"
+            ],
+            "correctAnswer": 2,
+            "subject": "General Knowledge",
+            "topic": "International Organizations",
+            "explanation": "The UN Charter was signed at the San Francisco Conference in 1945."
+        },
+        {
+            "id": 27,
+            "question": "World Environment Day is observed every year on:",
+            "options": [
+                "05th June",
+                "05th April",
+                "16th November",
+                "8th December"
+            ],
+            "correctAnswer": 0,
+            "subject": "General Knowledge",
+            "topic": "Environment",
+            "explanation": "World Environment Day is celebrated annually on June 5th."
+        },
+        {
+            "id": 28,
+            "question": "The book 'A Brief History of Time' is written by:",
+            "options": [
+                "Albert Einstein",
+                "Stephen Hawking",
+                "Carl Sagan",
+                "Oswald Spengler"
+            ],
+            "correctAnswer": 1,
+            "subject": "General Knowledge",
+            "topic": "Literature",
+            "explanation": "Stephen Hawking wrote 'A Brief History of Time', a popular science book about cosmology."
+        },
+        {
+            "id": 29,
+            "question": "The first Muslim ruler to introduce the system of price control in the sub-continent was:",
+            "options": [
+                "Alauddin Khilji",
+                "Babar",
+                "Sher Shah Suri",
+                "Balban"
+            ],
+            "correctAnswer": 0,
+            "subject": "Pakistan Affairs",
+            "topic": "History",
+            "explanation": "Alauddin Khilji implemented a comprehensive price control system in the Delhi Sultanate."
+        },
+        {
+            "id": 30,
+            "question": "The Battle of Plassey was fought between:",
+            "options": [
+                "The British East India Company and the Nawab of Bengal",
+                "The British East India Company and the French East India Company",
+                "The Durrani Empire and the Marathas",
+                "The Marathas and the Nawab of Bengal"
+            ],
+            "correctAnswer": 0,
+            "subject": "Pakistan Affairs",
+            "topic": "History",
+            "explanation": "The Battle of Plassey (1757) was fought between the British East India Company and the Nawab of Bengal, Siraj ud-Daulah."
+        },
+        {
+            "id": 31,
+            "question": "The first EU-Pakistan Summit was held in:",
+            "options": [
+                "2004, London",
+                "2009, Brussels",
+                "2000, Paris",
+                "2016, Berlin"
+            ],
+            "correctAnswer": 1,
+            "subject": "Pakistan Affairs",
+            "topic": "International Relations",
+            "explanation": "The first EU-Pakistan Summit was held in Brussels in 2009."
+        },
+        {
+            "id": 32,
+            "question": "'Cutting Edge' is the autobiography of:",
+            "options": [
+                "Javed Miandad",
+                "Sohail Abbas",
+                "Saeed Anwar",
+                "Inzamam ul Haq"
+            ],
+            "correctAnswer": 0,
+            "subject": "Pakistan Affairs",
+            "topic": "Sports",
+            "explanation": "Javed Miandad, the legendary Pakistani cricketer, wrote his autobiography 'Cutting Edge'."
+        },
+        {
+            "id": 33,
+            "question": "Who is the President of the Oxford Union from Pakistan?",
+            "options": [
+                "Israr Kakar",
+                "Ibrar Kakar",
+                "Amjad Saqib",
+                "Khuram Dastagir"
+            ],
+            "correctAnswer": 1,
+            "subject": "Pakistan Affairs",
+            "topic": "Personalities",
+            "explanation": "Ibrar Kakar became the first Pakistani to be elected President of the Oxford Union."
+        },
+        {
+            "id": 34,
+            "question": "At the time of the partition of India, Kashmiris were divided into which parties?",
+            "options": [
+                "Muslim League and Congress",
+                "National Conference and Muslim Conference",
+                "Indian Congress and Sikh Sabha",
+                "Unionist Party and Khilafat Movement"
+            ],
+            "correctAnswer": 1,
+            "subject": "Pakistan Affairs",
+            "topic": "History",
+            "explanation": "At the time of partition, Kashmiris were divided between the National Conference and Muslim Conference."
+        },
+        {
+            "id": 35,
+            "question": "The Pakistan-China Boundary Agreement was signed on:",
+            "options": [
+                "June 2, 1961",
+                "March 2, 1963",
+                "January 2, 1965",
+                "April 2, 1948"
+            ],
+            "correctAnswer": 1,
+            "subject": "Pakistan Affairs",
+            "topic": "International Relations",
+            "explanation": "The Pakistan-China Boundary Agreement was signed on March 2, 1963."
+        },
+        {
+            "id": 36,
+            "question": "'Kitab ul Hind' was written by:",
+            "options": [
+                "Ibn Batuta",
+                "Al-Razi",
+                "Al-Biruni",
+                "Al-Khwarizmi"
+            ],
+            "correctAnswer": 2,
+            "subject": "Pakistan Affairs",
+            "topic": "Literature",
+            "explanation": "Al-Biruni wrote 'Kitab ul Hind' (Book of India), a comprehensive study of Indian culture and science."
+        },
+        {
+            "id": 37,
+            "question": "The Central National Muhammadan Association was founded by:",
+            "options": [
+                "Syed Ameer Ali",
+                "Allama Shibli Noumani",
+                "Ch. Rehmat Ali",
+                "Allama Iqbal"
+            ],
+            "correctAnswer": 0,
+            "subject": "Pakistan Affairs",
+            "topic": "History",
+            "explanation": "Syed Ameer Ali founded the Central National Muhammadan Association in 1877."
+        },
+        {
+            "id": 38,
+            "question": "In the early 1970s, Pakistan played a role in rapprochement between which two countries?",
+            "options": [
+                "China and India",
+                "United States and China",
+                "India and China",
+                "Pakistan and India"
+            ],
+            "correctAnswer": 1,
+            "subject": "Current Affairs",
+            "topic": "International Relations",
+            "explanation": "Pakistan played a crucial role in facilitating dialogue between the United States and China in the early 1970s, leading to President Nixon's historic visit to China."
+        },
+        {
+            "id": 39,
+            "question": "Cyril Ramaphosa is the president of which country?",
+            "options": [
+                "Nigeria",
+                "Ghana",
+                "Kenya",
+                "South Africa"
+            ],
+            "correctAnswer": 3,
+            "subject": "Current Affairs",
+            "topic": "World Leaders",
+            "explanation": "Cyril Ramaphosa is the current President of South Africa."
+        },
+        {
+            "id": 40,
+            "question": "Who was awarded the UK Brain of the Year Award in 2023?",
+            "options": [
+                "Amjad Saqib",
+                "Dr. Abdul Qadeer Khan",
+                "Muhammad Naeem",
+                "Dr. Shahid Malik"
+            ],
+            "correctAnswer": 0,
+            "subject": "Current Affairs",
+            "topic": "Awards",
+            "explanation": "Amjad Saqib, founder of Akhuwat, was awarded the UK Brain of the Year Award in 2023."
+        },
+        {
+            "id": 41,
+            "question": "Which nation changed all criminal laws from colonial times in July 2024?",
+            "options": [
+                "Pakistan",
+                "India",
+                "South Africa",
+                "Australia"
+            ],
+            "correctAnswer": 1,
+            "subject": "Current Affairs",
+            "topic": "Legal Reforms",
+            "explanation": "India replaced all colonial-era criminal laws with new codes in July 2024."
+        },
+        {
+            "id": 42,
+            "question": "What was the amount of the IMF loan provided to Pakistan in June 2023?",
+            "options": [
+                "$2 billion",
+                "$3 billion",
+                "$4 billion",
+                "$5 billion"
+            ],
+            "correctAnswer": 1,
+            "subject": "Current Affairs",
+            "topic": "Economics",
+            "explanation": "Pakistan received a $3 billion Stand-By Arrangement from the IMF in June 2023."
+        },
+        {
+            "id": 43,
+            "question": "What is a peninsula?",
+            "options": [
+                "A landmass surrounded by water on three sides",
+                "A landmass surrounded by water on all sides",
+                "Type of mountain range",
+                "A small island"
+            ],
+            "correctAnswer": 0,
+            "subject": "Geography",
+            "topic": "Physical Geography",
+            "explanation": "A peninsula is a piece of land that is surrounded by water on three sides."
+        },
+        {
+            "id": 44,
+            "question": "Which country is located north of the Gulf of Aden?",
+            "options": [
+                "Yemen",
+                "Somalia",
+                "Djibouti",
+                "Oman"
+            ],
+            "correctAnswer": 0,
+            "subject": "Geography",
+            "topic": "World Geography",
+            "explanation": "Yemen is located north of the Gulf of Aden."
+        },
+        {
+            "id": 45,
+            "question": "What are moraines?",
+            "options": [
+                "Layers of sediment formed by rivers",
+                "Deposits of rock and debris left by glaciers",
+                "Erosion caused by wind in deserts",
+                "Volcanic materials ejected during an eruption"
+            ],
+            "correctAnswer": 1,
+            "subject": "Geography",
+            "topic": "Physical Geography",
+            "explanation": "Moraines are accumulations of rock and debris transported and deposited by glaciers."
+        },
+        {
+            "id": 46,
+            "question": "Which country is referred to as the Boot of Europe?",
+            "options": [
+                "Italy",
+                "Greece",
+                "Spain",
+                "Portugal"
+            ],
+            "correctAnswer": 0,
+            "subject": "Geography",
+            "topic": "World Geography",
+            "explanation": "Italy is called the Boot of Europe due to its distinctive boot-like shape on the map."
+        },
+        {
+            "id": 47,
+            "question": "What is the meaning of the term 'Apartheid'?",
+            "options": [
+                "A system of racial segregation and discrimination",
+                "A policy of racial equality",
+                "A form of democratic governance",
+                "A movement for civil rights"
+            ],
+            "correctAnswer": 0,
+            "subject": "Geography",
+            "topic": "Political Geography",
+            "explanation": "Apartheid was a system of institutionalized racial segregation that existed in South Africa from 1948 to 1994."
+        },
+        {
+            "id": 48,
+            "question": "How much percentage of Kashmir is under the jurisdiction of Pakistan:",
+            "options": [
+                "40%",
+                "30%",
+                "35%",
+                "25%"
+            ],
+            "correctAnswer": 0,
+            "subject": "Geography",
+            "topic": "Pakistan Geography",
+            "explanation": "Approximately 40% of Kashmir is under Pakistan's administration (Azad Kashmir and Gilgit-Baltistan)."
+        },
+        {
+            "id": 49,
+            "question": "What is the name of the ocean that lies between Europe and the United States?",
+            "options": [
+                "Indian Ocean",
+                "Pacific Ocean",
+                "Atlantic Ocean",
+                "Arctic Ocean"
+            ],
+            "correctAnswer": 2,
+            "subject": "Geography",
+            "topic": "World Geography",
+            "explanation": "The Atlantic Ocean lies between Europe and the United States."
+        },
+        {
+            "id": 50,
+            "question": "Rhodesia is the old name of:",
+            "options": [
+                "Zimbabwe",
+                "Zambia",
+                "Malawi",
+                "Botswana"
+            ],
+            "correctAnswer": 0,
+            "subject": "Geography",
+            "topic": "World Geography",
+            "explanation": "Rhodesia was the former name of Zimbabwe before it gained independence in 1980."
+        },
+        {
+            "id": 51,
+            "question": "Warsak Dam is situated in which province?",
+            "options": [
+                "Punjab",
+                "Sindh",
+                "KPK",
+                "Balochistan"
+            ],
+            "correctAnswer": 2,
+            "subject": "Geography",
+            "topic": "Pakistan Geography",
+            "explanation": "Warsak Dam is located in Khyber Pakhtunkhwa (KPK) province, near Peshawar."
+        },
+        {
+            "id": 52,
+            "question": "Population density means:",
+            "options": [
+                "The total number of people in a country",
+                "The ratio of rural to urban population",
+                "The total land area of a country",
+                "Number of people per square kilometer"
+            ],
+            "correctAnswer": 3,
+            "subject": "Geography",
+            "topic": "Human Geography",
+            "explanation": "Population density is the number of people living per unit of area, typically per square kilometer."
+        },
+        {
+            "id": 53,
+            "question": "The largest island in the world is:",
+            "options": [
+                "Madagascar",
+                "Greenland",
+                "Borneo",
+                "New Guinea"
+            ],
+            "correctAnswer": 1,
+            "subject": "Geography",
+            "topic": "World Geography",
+            "explanation": "Greenland is the world's largest island with an area of approximately 2.16 million square kilometers."
+        },
+        {
+            "id": 54,
+            "question": "Which of the following is the main reason for a Tsunami?",
+            "options": [
+                "Earthquake",
+                "Wind storm",
+                "Storm in the sea",
+                "Hail storm"
+            ],
+            "correctAnswer": 0,
+            "subject": "Geography",
+            "topic": "Physical Geography",
+            "explanation": "Tsunamis are primarily caused by underwater earthquakes that displace large volumes of water."
+        },
+        {
+            "id": 55,
+            "question": "The biggest district of Pakistan by area is:",
+            "options": [
+                "Karachi",
+                "Bahawalpur",
+                "Chagai",
+                "Hyderabad"
+            ],
+            "correctAnswer": 2,
+            "subject": "Geography",
+            "topic": "Pakistan Geography",
+            "explanation": "Chagai district in Balochistan is the largest district of Pakistan by area."
+        },
+        {
+            "id": 56,
+            "question": "The largest coal-producing country in the world is:",
+            "options": [
+                "US",
+                "India",
+                "China",
+                "Australia"
+            ],
+            "correctAnswer": 2,
+            "subject": "Geography",
+            "topic": "Economic Geography",
+            "explanation": "China is the world's largest coal producer, accounting for nearly half of global coal production."
+        },
+        {
+            "id": 57,
+            "question": "Mariupol is a city in which country?",
+            "options": [
+                "Australia",
+                "Ukraine",
+                "Poland",
+                "Iran"
+            ],
+            "correctAnswer": 1,
+            "subject": "Geography",
+            "topic": "World Geography",
+            "explanation": "Mariupol is a port city in southeastern Ukraine on the Sea of Azov."
+        },
+        {
+            "id": 58,
+            "question": "Samarkand is a major city in which country?",
+            "options": [
+                "Kazakhstan",
+                "Uzbekistan",
+                "Kyrgyzstan",
+                "Tajikistan"
+            ],
+            "correctAnswer": 1,
+            "subject": "Geography",
+            "topic": "World Geography",
+            "explanation": "Samarkand is one of the oldest continuously inhabited cities in Central Asia, located in Uzbekistan. Note: The capital of Uzbekistan is Tashkent."
+        },
+        {
+            "id": 59,
+            "question": "The layers of the atmosphere are divided into how many layers?",
+            "options": [
+                "5",
+                "4",
+                "6",
+                "3"
+            ],
+            "correctAnswer": 0,
+            "subject": "Geography",
+            "topic": "Physical Geography",
+            "explanation": "The atmosphere is divided into five main layers: Troposphere, Stratosphere, Mesosphere, Thermosphere, and Exosphere."
+        },
+        {
+            "id": 60,
+            "question": "Libya, Algeria, and Tunisia belong to which continent?",
+            "options": [
+                "Asia",
+                "Africa",
+                "Europe",
+                "South America"
+            ],
+            "correctAnswer": 1,
+            "subject": "Geography",
+            "topic": "World Geography",
+            "explanation": "Libya, Algeria, and Tunisia are all countries in North Africa."
+        },
+        {
+            "id": 61,
+            "question": "A solar cell converts solar energy into:",
+            "options": [
+                "Chemical energy",
+                "Electrical energy",
+                "Thermal energy",
+                "Kinetic energy"
+            ],
+            "correctAnswer": 1,
+            "subject": "Everyday Science",
+            "topic": "Physics",
+            "explanation": "Solar cells convert sunlight directly into electrical energy through the photovoltaic effect."
+        },
+        {
+            "id": 62,
+            "question": "A stone is a unit of which measurement?",
+            "options": [
+                "Weight",
+                "Time",
+                "Length",
+                "Area"
+            ],
+            "correctAnswer": 0,
+            "subject": "Everyday Science",
+            "topic": "Measurements",
+            "explanation": "A stone is a unit of weight equal to 14 pounds or approximately 6.35 kilograms."
+        },
+        {
+            "id": 63,
+            "question": "Refractometer is used to determine:",
+            "options": [
+                "Sugars",
+                "Fats",
+                "Proteins",
+                "Vitamins"
+            ],
+            "correctAnswer": 0,
+            "subject": "Everyday Science",
+            "topic": "Instruments",
+            "explanation": "A refractometer measures the refractive index of a substance and is commonly used to determine sugar content in solutions."
+        },
+        {
+            "id": 64,
+            "question": "For what achievement did James Chadwick receive the Nobel Prize in 1935?",
+            "options": [
+                "Discovery of the electron",
+                "Discovery of the neutron",
+                "Theory of relativity",
+                "Invention of the microscope"
+            ],
+            "correctAnswer": 1,
+            "subject": "Everyday Science",
+            "topic": "Physics",
+            "explanation": "James Chadwick was awarded the Nobel Prize in Physics in 1935 for discovering the neutron."
+        },
+        {
+            "id": 65,
+            "question": "A geographic area containing plants, animals and other organisms interacting with each other and their environment forming a bubble of life is called:",
+            "options": [
+                "Ecosystem",
+                "Atmosphere",
+                "Lithosphere",
+                "Hydrosphere"
+            ],
+            "correctAnswer": 0,
+            "subject": "Everyday Science",
+            "topic": "Biology",
+            "explanation": "An ecosystem is a community of living organisms interacting with their physical environment."
+        },
+        {
+            "id": 66,
+            "question": "The synthesis of an RNA molecule from DNA is called:",
+            "options": [
+                "Translation",
+                "Transcription",
+                "Replication",
+                "Transformation"
+            ],
+            "correctAnswer": 1,
+            "subject": "Everyday Science",
+            "topic": "Biology",
+            "explanation": "Transcription is the process by which genetic information from DNA is copied to RNA."
+        },
+        {
+            "id": 67,
+            "question": "What is the process called when a cell engulfs another cell?",
+            "options": [
+                "Pinocytosis",
+                "Phagocytosis",
+                "Exocytosis",
+                "Diffusion"
+            ],
+            "correctAnswer": 1,
+            "subject": "Everyday Science",
+            "topic": "Biology",
+            "explanation": "Phagocytosis is the process by which a cell engulfs solid particles or other cells."
+        },
+        {
+            "id": 68,
+            "question": "Thalassemia is due to abnormality in:",
+            "options": [
+                "White Blood Cells",
+                "Platelets",
+                "Plasma",
+                "Hemoglobin"
+            ],
+            "correctAnswer": 3,
+            "subject": "Everyday Science",
+            "topic": "Biology",
+            "explanation": "Thalassemia is a genetic blood disorder caused by abnormal hemoglobin production."
+        },
+        {
+            "id": 69,
+            "question": "The number of babies produced per 1000 population:",
+            "options": [
+                "Dispersion",
+                "Natality",
+                "Mortality Rate",
+                "Population Growth Rate"
+            ],
+            "correctAnswer": 1,
+            "subject": "Everyday Science",
+            "topic": "Biology",
+            "explanation": "Natality (birth rate) is the number of live births per 1000 population in a given time period."
+        },
+        {
+            "id": 70,
+            "question": "What are Detritivores also called?",
+            "options": [
+                "Herbivores",
+                "Decomposers",
+                "Carnivores",
+                "Producers"
+            ],
+            "correctAnswer": 1,
+            "subject": "Everyday Science",
+            "topic": "Biology",
+            "explanation": "Detritivores are organisms that feed on dead organic matter and are also called decomposers."
+        },
+        {
+            "id": 71,
+            "question": "Which of the following is a nonrenewable source of energy?",
+            "options": [
+                "Solar energy",
+                "Wind energy",
+                "Geothermal energy",
+                "Nuclear energy"
+            ],
+            "correctAnswer": 3,
+            "subject": "Everyday Science",
+            "topic": "Energy",
+            "explanation": "Nuclear energy is considered nonrenewable because it relies on finite uranium resources."
+        },
+        {
+            "id": 72,
+            "question": "Light-year is a unit of:",
+            "options": [
+                "Time",
+                "Distance",
+                "Speed",
+                "Intensity of light"
+            ],
+            "correctAnswer": 1,
+            "subject": "Everyday Science",
+            "topic": "Physics",
+            "explanation": "A light-year is the distance light travels in one year, approximately 9.46 trillion kilometers."
+        },
+        {
+            "id": 73,
+            "question": "Animals that eat both plants and animals are known as:",
+            "options": [
+                "Herbivores",
+                "Omnivores",
+                "Carnivores",
+                "Detritivores"
+            ],
+            "correctAnswer": 1,
+            "subject": "Everyday Science",
+            "topic": "Biology",
+            "explanation": "Omnivores are organisms that consume both plant and animal matter."
+        },
+        {
+            "id": 74,
+            "question": "What is the approximate percentage of water in carbonated drinks?",
+            "options": [
+                "92%",
+                "82%",
+                "70%",
+                "60%"
+            ],
+            "correctAnswer": 0,
+            "subject": "Everyday Science",
+            "topic": "Chemistry",
+            "explanation": "Carbonated drinks typically contain approximately 92% water."
+        },
+        {
+            "id": 75,
+            "question": "What is the use of a firewall in a computer?",
+            "options": [
+                "To recover lost data",
+                "Protect against unauthorized access and threats",
+                "To increase processing speed",
+                "Monitor website traffic"
+            ],
+            "correctAnswer": 1,
+            "subject": "Computer",
+            "topic": "Security",
+            "explanation": "A firewall is a network security system that monitors and controls incoming and outgoing network traffic based on predetermined security rules."
+        },
+        {
+            "id": 76,
+            "question": "A set of rules for data communication is called:",
+            "options": [
+                "Topology",
+                "Standard",
+                "Protocol",
+                "Networking"
+            ],
+            "correctAnswer": 2,
+            "subject": "Computer",
+            "topic": "Networking",
+            "explanation": "A protocol is a set of rules governing data communication between devices."
+        },
+        {
+            "id": 77,
+            "question": "What is the technique by which passwords and usernames can be stolen?",
+            "options": [
+                "Hacking",
+                "Phishing",
+                "Spamming",
+                "Sniffing"
+            ],
+            "correctAnswer": 1,
+            "subject": "Computer",
+            "topic": "Security",
+            "explanation": "Phishing is a fraudulent attempt to obtain sensitive information by disguising as a trustworthy entity."
+        },
+        {
+            "id": 78,
+            "question": "Which of the following computer languages is written in binary codes only?",
+            "options": [
+                "Machine language",
+                "Assembly Language",
+                "High-level Language",
+                "Low-level Language"
+            ],
+            "correctAnswer": 0,
+            "subject": "Computer",
+            "topic": "Programming",
+            "explanation": "Machine language consists entirely of binary code (0s and 1s) that can be directly executed by a computer's CPU."
+        },
+        {
+            "id": 79,
+            "question": "Silicon Valley is famous for:",
+            "options": [
+                "Film making",
+                "Computers",
+                "Textile",
+                "Automobile Manufacturing"
+            ],
+            "correctAnswer": 1,
+            "subject": "Computer",
+            "topic": "Technology",
+            "explanation": "Silicon Valley in California is renowned as a global center for technology and computer innovation."
+        },
+        {
+            "id": 80,
+            "question": "If the mean of 7 terms is 40, the sum of the terms will be:",
+            "options": [
+                "280",
+                "400",
+                "320",
+                "140"
+            ],
+            "correctAnswer": 0,
+            "subject": "Mathematics",
+            "topic": "Statistics",
+            "explanation": "Sum = Mean × Number of terms = 40 × 7 = 280"
+        },
+        {
+            "id": 81,
+            "question": "A train covers a distance in 5 hours at 45 km/h. What speed is required to cover the same distance in 3 hours?",
+            "options": [
+                "60 km/h",
+                "75 km/h",
+                "80 km/h",
+                "85 km/h"
+            ],
+            "correctAnswer": 1,
+            "subject": "Mathematics",
+            "topic": "Speed and Distance",
+            "explanation": "Distance = 45 × 5 = 225 km. Required speed = 225 ÷ 3 = 75 km/h"
+        },
+        {
+            "id": 82,
+            "question": "If the average marks of three batches of 55, 60 and 45 students respectively is 50, 55, and 60, then the average marks of all the students is:",
+            "options": [
+                "53.33",
+                "54.68",
+                "55",
+                "None of these"
+            ],
+            "correctAnswer": 1,
+            "subject": "Mathematics",
+            "topic": "Statistics",
+            "explanation": "Total marks = (55×50) + (60×55) + (45×60) = 2750 + 3300 + 2700 = 8750. Total students = 160. Average = 8750 ÷ 160 = 54.68"
+        },
+        {
+            "id": 83,
+            "question": "Who was Ibn-e-Insha?",
+            "options": [
+                "Travelogue-writer",
+                "Poet",
+                "Columnist",
+                "All of these"
+            ],
+            "correctAnswer": 3,
+            "subject": "Urdu",
+            "topic": "Literature",
+            "explanation": "Ibn-e-Insha was a versatile Pakistani writer known for his poetry, travelogues, and columns."
+        },
+        {
+            "id": 84,
+            "question": "Before Damascus, which city was the capital of the Muslim Empire?",
+            "options": [
+                "Kufa",
+                "Madina",
+                "Baghdad",
+                "Jerusalem"
+            ],
+            "correctAnswer": 0,
+            "subject": "Islamiat",
+            "topic": "Islamic History",
+            "explanation": "Caliph Ali ibn Abi Talib moved the capital from Madina to Kufa in 656 CE. The capital was later shifted to Damascus by the Umayyads."
+        },
+        {
+            "id": 85,
+            "question": "Who is the author of the biography 'Muhammad: His Life Based on the Earliest Sources'?",
+            "options": [
+                "Karen Armstrong",
+                "Martin Lings",
+                "William Montgomery Watt",
+                "Reza Aslan"
+            ],
+            "correctAnswer": 1,
+            "subject": "Islamiat",
+            "topic": "Islamic Literature",
+            "explanation": "Martin Lings (1909-2005), also known as Abu Bakr Siraj ad-Din, was a British scholar who converted to Islam. He is best known for his acclaimed biography 'Muhammad: His Life Based on the Earliest Sources'."
+        }
+    ]
+}
