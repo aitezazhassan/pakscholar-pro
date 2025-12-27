@@ -4,6 +4,7 @@ import { useEffect, useState, use } from 'react';
 import Link from 'next/link';
 import { useRouter, useParams } from 'next/navigation';
 import { Award, CheckCircle, XCircle, Home, RefreshCw } from 'lucide-react';
+import { SaveQuizResults } from '@/components/quiz/SaveQuizResults';
 
 interface ExamData {
     id: string;
@@ -94,8 +95,27 @@ export default function ResultsPage() {
         return `${mins}m ${secs}s`;
     };
 
+    // Prepare answers data for saving
+    const answersData = examData.questions.map(q => ({
+        questionId: q.id,
+        userAnswer: results.answers[q.id]?.toString() || '',
+        correctAnswer: q.correctAnswer.toString(),
+        isCorrect: results.answers[q.id] === q.correctAnswer,
+    }));
+
     return (
         <main className="min-h-screen bg-white pt-20">
+            {/* Save quiz results to database */}
+            <SaveQuizResults
+                examId={examData.id}
+                examTitle={examData.title}
+                totalQuestions={results.totalQuestions}
+                correctAnswers={correctAnswers}
+                scorePercentage={parseFloat(score)}
+                timeTakenSeconds={results.timeSpent}
+                answersData={answersData}
+            />
+
             {/* Header */}
             <div className={`border-b-4 ${passed ? 'bg-gradient-to-br from-emerald-50 to-white border-emerald-500' : 'bg-gradient-to-br from-gray-50 to-white border-gray-400'}`}>
                 <div className="max-w-5xl mx-auto px-4 py-12 text-center">
