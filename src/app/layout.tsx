@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 import { Playfair_Display, Inter, JetBrains_Mono, Noto_Nastaliq_Urdu } from 'next/font/google';
 import { Toaster } from 'react-hot-toast';
 import AuthStatusBanner from '@/components/ui/AuthStatusBanner';
+import { PWAInstaller } from '@/components/pwa/PWAInstaller';
+import { InstallPrompt } from '@/components/pwa/InstallPrompt';
 import './globals.css';
 
 const playfair = Playfair_Display({
@@ -43,6 +45,20 @@ export const metadata: Metadata = {
   authors: [{ name: 'PakScholar Pro Team' }],
   creator: 'PakScholar Pro',
   publisher: 'PakScholar Pro',
+  manifest: '/manifest.json',
+  themeColor: '#059669',
+  viewport: {
+    width: 'device-width',
+    initialScale: 1,
+    maximumScale: 5,
+    userScalable: true,
+    viewportFit: 'cover',
+  },
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: 'default',
+    title: 'PakScholar Pro',
+  },
   formatDetection: {
     email: false,
     address: false,
@@ -86,9 +102,11 @@ export default function RootLayout({
       className={`${playfair.variable} ${inter.variable} ${jetbrainsMono.variable} ${notoNastaliq.variable}`}
     >
       <body className="font-sans antialiased">
+        <PWAInstaller />
         <Toaster position="top-right" />
         <AuthStatusBanner />
         {children}
+        <InstallPrompt />
       </body>
     </html>
   );
