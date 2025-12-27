@@ -94,13 +94,13 @@ export default function Header({ user }: HeaderProps) {
 
                         {/* Direct Links */}
                         <Link
-                            href="/explore"
+                            href="/study-material"
                             className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-300 ${scrolled
                                 ? 'text-slate-700 hover:bg-slate-100'
                                 : 'text-white hover:bg-white/10'
                                 }`}
                         >
-                            Explore 🇵🇰
+                            Study Hub
                         </Link>
                     </nav>
 
