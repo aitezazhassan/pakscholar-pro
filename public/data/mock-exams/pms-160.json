@@ -1,10 +1,10 @@
 {
   "id": "pms-160",
-  "title": "PMS Model Paper 160",
-  "description": "Complete 100-question mock exam for PMS preparation covering all major subjects",
-  "duration": 120,
-  "totalQuestions": 100,
-  "passingScore": 50,
+  "title": "PMS Model Paper 160 (Sample)",
+  "description": "Sample 3-question mock exam for PMS preparation - Full version coming soon",
+  "duration": 5,
+  "totalQuestions": 3,
+  "passingScore": 2,
   "subjects": {
     "General Knowledge": 28,
     "Pakistan Affairs": 9,
