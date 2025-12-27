@@ -2,8 +2,11 @@
 
 import { useState, useEffect, use } from 'react';
 import { useRouter, useParams } from 'next/navigation';
-import { Clock, ChevronLeft, ChevronRight, CheckCircle, AlertCircle } from 'lucide-react';
+import { Clock, ChevronLeft, ChevronRight, CheckCircle, AlertCircle, List, Maximize2 } from 'lucide-react';
 import Link from 'next/link';
+import { Swipeable } from '@/components/mobile/Swipeable';
+import { BottomSheet } from '@/components/mobile/BottomSheet';
+import { TouchButton } from '@/components/mobile/TouchButton';
 
 interface ExamData {
     id: string;
@@ -32,6 +35,8 @@ export default function ExamPage() {
     const [showSubmitDialog, setShowSubmitDialog] = useState(false);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
+    const [showQuestionSheet, setShowQuestionSheet] = useState(false);
+    const [isFullscreen, setIsFullscreen] = useState(false);
 
     // Load exam data
     useEffect(() => {
@@ -106,6 +111,28 @@ export default function ExamPage() {
         };
         localStorage.setItem('exam-results', JSON.stringify(results));
         router.push(`/practice/${id}/results`);
+    };
+
+    const toggleFullscreen = () => {
+        if (!document.fullscreenElement) {
+            document.documentElement.requestFullscreen();
+            setIsFullscreen(true);
+        } else {
+            document.exitFullscreen();
+            setIsFullscreen(false);
+        }
+    };
+
+    const handleSwipeLeft = () => {
+        if (examData && currentQuestion < examData.questions.length - 1) {
+            setCurrentQuestion(currentQuestion + 1);
+        }
+    };
+
+    const handleSwipeRight = () => {
+        if (currentQuestion > 0) {
+            setCurrentQuestion(currentQuestion - 1);
+        }
     };
 
 
