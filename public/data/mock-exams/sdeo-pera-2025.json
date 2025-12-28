@@ -1,0 +1,578 @@
+{
+    "id": "sdeo-pera-2025",
+    "title": "PPSC SDEO PERA Phase II (Dec 2025)",
+    "description": "Complete General Knowledge exam covering Geography, Computer Science, Biology, Math, English, and Urdu. Based on actual PPSC SDEO PERA exam held December 2025.",
+    "duration": 90,
+    "totalQuestions": 40,
+    "passingScore": 20,
+    "subjects": {
+        "Geography": 14,
+        "Computer": 7,
+        "Everyday Science": 4,
+        "Mathematics": 6,
+        "English": 5,
+        "Urdu": 4
+    },
+    "questions": [
+        {
+            "id": 1,
+            "question": "\"Monsoon\" refers to:",
+            "options": [
+                "Continuous rainfall",
+                "Seasonal reversal of winds",
+                "Tropical Cyclones",
+                "High tides"
+            ],
+            "correctAnswer": 1,
+            "subject": "Geography",
+            "topic": "Climate",
+            "explanation": "The word 'Monsoon' comes from Arabic 'Mausim' meaning season. It refers to a seasonal change in wind direction. In South Asia, this results in wet summers (winds from sea) and dry winters (winds from land)."
+        },
+        {
+            "id": 2,
+            "question": "Which country is known as the \"Land of Thousand Lakes\"?",
+            "options": [
+                "Norway",
+                "Canada",
+                "Finland",
+                "Switzerland"
+            ],
+            "correctAnswer": 2,
+            "subject": "Geography",
+            "topic": "Countries",
+            "explanation": "Finland has approximately 188,000 lakes formed by glacial melting during the last Ice Age, earning it the nickname 'Land of a Thousand Lakes'."
+        },
+        {
+            "id": 3,
+            "question": "The Sur Range (Salt Range area) is famous for:",
+            "options": [
+                "Gold",
+                "Coal",
+                "Iron Ore",
+                "Uranium"
+            ],
+            "correctAnswer": 1,
+            "subject": "Geography",
+            "topic": "Pakistan Geography",
+            "explanation": "The Salt Range and Surghar Range in Punjab, Pakistan contain significant deposits of coal (mostly Lignite), gypsum, and salt. Used in brick kilns and power generation."
+        },
+        {
+            "id": 4,
+            "question": "The Kirthar Range lies on the boundary of which two provinces?",
+            "options": [
+                "Punjab and Sindh",
+                "Balochistan and KPK",
+                "Sindh and Balochistan",
+                "Punjab and Balochistan"
+            ],
+            "correctAnswer": 2,
+            "subject": "Geography",
+            "topic": "Pakistan Geography",
+            "explanation": "The Kirthar Mountains form a natural boundary between Sindh and Balochistan. The highest peak is Zardak. It is also part of the Kirthar National Park."
+        },
+        {
+            "id": 5,
+            "question": "Tectonic plates meet in Pakistan's South-West region. Which plates are these?",
+            "options": [
+                "Pacific and Eurasian",
+                "Indian and Eurasian",
+                "Arabian and African",
+                "Nazca and Indian"
+            ],
+            "correctAnswer": 1,
+            "subject": "Geography",
+            "topic": "Plate Tectonics",
+            "explanation": "Pakistan is located at the collision zone of the Indian Plate and the Eurasian Plate. This geological activity formed the Himalayas and causes frequent earthquakes in the region."
+        },
+        {
+            "id": 6,
+            "question": "The Karachi-Chaman-Quetta highway is known as:",
+            "options": [
+                "N-5",
+                "N-10",
+                "N-25",
+                "N-55"
+            ],
+            "correctAnswer": 2,
+            "subject": "Geography",
+            "topic": "Pakistan Geography",
+            "explanation": "The N-25 National Highway (also known as the RCD Highway) connects Karachi to Chaman via Quetta. It is a major trade route connecting Pakistan to Afghanistan and Iran."
+        },
+        {
+            "id": 7,
+            "question": "Gwadar lies on which sea coast?",
+            "options": [
+                "Red Sea",
+                "Arabian Sea",
+                "Caspian Sea",
+                "Bay of Bengal"
+            ],
+            "correctAnswer": 1,
+            "subject": "Geography",
+            "topic": "Pakistan Geography",
+            "explanation": "Gwadar is a port city on the southwestern coast of Balochistan, Pakistan, bordering the Arabian Sea. It is the centerpiece of the CPEC project."
+        },
+        {
+            "id": 8,
+            "question": "The Neelum-Jhelum Hydropower project is located in:",
+            "options": [
+                "Mirpur",
+                "Muzaffarabad",
+                "Gilgit",
+                "Skardu"
+            ],
+            "correctAnswer": 1,
+            "subject": "Geography",
+            "topic": "Pakistan Geography",
+            "explanation": "The Neelum-Jhelum project is a run-of-the-river hydroelectric power scheme in Azad Kashmir, near Muzaffarabad. It diverts water from the Neelum River to the Jhelum River."
+        },
+        {
+            "id": 9,
+            "question": "Pakistan is NOT a member of which organization?",
+            "options": [
+                "SAARC",
+                "OIC",
+                "ASEAN",
+                "SCO"
+            ],
+            "correctAnswer": 2,
+            "subject": "Geography",
+            "topic": "International Organizations",
+            "explanation": "ASEAN (Association of Southeast Asian Nations) is a regional bloc of 10 Southeast Asian states. Pakistan is a Sectoral Dialogue Partner but not a full member. Pakistan IS a member of SAARC, OIC, UN, and SCO."
+        },
+        {
+            "id": 10,
+            "question": "The Permanent Secretariat to coordinate the action of SAARC is in:",
+            "options": [
+                "Islamabad",
+                "New Delhi",
+                "Kathmandu",
+                "Dhaka"
+            ],
+            "correctAnswer": 2,
+            "subject": "Geography",
+            "topic": "International Organizations",
+            "explanation": "The Secretariat of SAARC was established in Kathmandu, Nepal, on January 16, 1987."
+        },
+        {
+            "id": 11,
+            "question": "The Pak-China border agreement was held in the year:",
+            "options": [
+                "1958",
+                "1963",
+                "1965",
+                "1972"
+            ],
+            "correctAnswer": 1,
+            "subject": "Geography",
+            "topic": "Pakistan History",
+            "explanation": "The Sino-Pakistan Frontier Agreement was signed on March 2, 1963. Pakistan ceded some disputed territory to China, and China recognized Pakistani sovereignty over Gilgit-Baltistan."
+        },
+        {
+            "id": 12,
+            "question": "Operation Gibraltar was held in which year?",
+            "options": [
+                "1948",
+                "1965",
+                "1971",
+                "1999"
+            ],
+            "correctAnswer": 1,
+            "subject": "Geography",
+            "topic": "Pakistan History",
+            "explanation": "Operation Gibraltar was the codename for a military operation launched by Pakistan in August 1965 to infiltrate Kashmir, which triggered the Indo-Pak War of 1965."
+        },
+        {
+            "id": 13,
+            "question": "The IMF headquarters is in:",
+            "options": [
+                "Geneva",
+                "New York",
+                "Washington D.C.",
+                "Paris"
+            ],
+            "correctAnswer": 2,
+            "subject": "Geography",
+            "topic": "International Organizations",
+            "explanation": "Both the IMF and World Bank are headquartered in Washington, D.C., USA. They were established following the Bretton Woods Conference in 1944."
+        },
+        {
+            "id": 14,
+            "question": "The \"Great Wall of Sindh\" refers to:",
+            "options": [
+                "Kot Diji Fort",
+                "Ranikot Fort",
+                "Mohenjo Daro",
+                "Faiz Mahal"
+            ],
+            "correctAnswer": 1,
+            "subject": "Geography",
+            "topic": "Pakistan Geography",
+            "explanation": "Ranikot Fort (near Jamshoro) is believed to be the world's largest fort, with a circumference of approximately 32 kilometers. It is often called the Great Wall of Sindh."
+        },
+        {
+            "id": 15,
+            "question": "Which of the following is an example of Freeware?",
+            "options": [
+                "MS Windows",
+                "Adobe Photoshop",
+                "Oracle VirtualBox",
+                "MS Office"
+            ],
+            "correctAnswer": 2,
+            "subject": "Computer",
+            "topic": "Software",
+            "explanation": "Freeware is software available for use at no monetary cost. Oracle VirtualBox is free to use. Other examples include Chrome browser, Skype, etc."
+        },
+        {
+            "id": 16,
+            "question": "The \"Conditional Formatting\" option is present in MS Excel under:",
+            "options": [
+                "Insert Tab",
+                "Home Tab",
+                "Data Tab",
+                "View Tab"
+            ],
+            "correctAnswer": 1,
+            "subject": "Computer",
+            "topic": "MS Office",
+            "explanation": "Conditional Formatting (used to highlight cells based on values) is located in the Home tab in the 'Styles' group."
+        },
+        {
+            "id": 17,
+            "question": "Which shortcut is used to insert a new slide in PowerPoint?",
+            "options": [
+                "Ctrl + N",
+                "Ctrl + M",
+                "Ctrl + S",
+                "Ctrl + D"
+            ],
+            "correctAnswer": 1,
+            "subject": "Computer",
+            "topic": "MS Office",
+            "explanation": "Ctrl + M inserts a New Slide in the current presentation. Ctrl + N opens a New Presentation."
+        },
+        {
+            "id": 18,
+            "question": "Which tab is used to insert a footnote in MS Word?",
+            "options": [
+                "Insert",
+                "References",
+                "Review",
+                "Layout"
+            ],
+            "correctAnswer": 1,
+            "subject": "Computer",
+            "topic": "MS Office",
+            "explanation": "Footnotes and Endnotes are citations placed at the bottom of the page. You find them in the References tab (Shortcut: Ctrl+Alt+F)."
+        },
+        {
+            "id": 19,
+            "question": "Which AI Platform is commonly used to assist in generating text for emails?",
+            "options": [
+                "Siri",
+                "ChatGPT",
+                "Alexa",
+                "Cortana"
+            ],
+            "correctAnswer": 1,
+            "subject": "Computer",
+            "topic": "Artificial Intelligence",
+            "explanation": "ChatGPT (by OpenAI) is a Large Language Model (LLM) designed to generate human-like text, widely used for drafting emails, essays, and code."
+        },
+        {
+            "id": 20,
+            "question": "DeepMind's tool for solving protein folding is called:",
+            "options": [
+                "AlphaGo",
+                "AlphaFold",
+                "Gemini",
+                "Dall-E"
+            ],
+            "correctAnswer": 1,
+            "subject": "Computer",
+            "topic": "Artificial Intelligence",
+            "explanation": "DeepMind (Google subsidiary) created AlphaFold, an AI system that predicts a protein's 3D structure from its amino acid sequence, solving a 50-year-old biology challenge."
+        },
+        {
+            "id": 21,
+            "question": "What is the maximum zoom percentage in MS Excel?",
+            "options": [
+                "100%",
+                "300%",
+                "400%",
+                "500%"
+            ],
+            "correctAnswer": 2,
+            "subject": "Computer",
+            "topic": "MS Office",
+            "explanation": "Excel Max Zoom: 400%, Word Max Zoom: 500%, PowerPoint Max Zoom: 400%."
+        },
+        {
+            "id": 22,
+            "question": "Which is present in all viruses?",
+            "options": [
+                "DNA",
+                "RNA",
+                "Guanine",
+                "Cell Wall"
+            ],
+            "correctAnswer": 2,
+            "subject": "Everyday Science",
+            "topic": "Biology",
+            "explanation": "Viruses contain either DNA or RNA (never both), but Guanine is a nitrogenous base present in BOTH DNA and RNA. Therefore, regardless of virus type, Guanine will be found."
+        },
+        {
+            "id": 23,
+            "question": "The concept of Homeostasis refers to:",
+            "options": [
+                "Respiration rate",
+                "Maintaining internal stability/balance",
+                "Cell division",
+                "Digestion"
+            ],
+            "correctAnswer": 1,
+            "subject": "Everyday Science",
+            "topic": "Biology",
+            "explanation": "Homeostasis is the process by which living organisms regulate their internal environment (temperature, pH, water level) to maintain a stable, constant condition."
+        },
+        {
+            "id": 24,
+            "question": "Which of the following allows electricity to pass in a molten state?",
+            "options": [
+                "Insulator",
+                "Electrolyte",
+                "Polymer",
+                "Noble Gas"
+            ],
+            "correctAnswer": 1,
+            "subject": "Everyday Science",
+            "topic": "Chemistry",
+            "explanation": "An Electrolyte is a substance that produces an electrically conducting solution when dissolved in a polar solvent or melted. It contains free-moving ions."
+        },
+        {
+            "id": 25,
+            "question": "Tibia and Fibula bones are present in:",
+            "options": [
+                "Fore Limb (Arm)",
+                "Hind Limb (Leg)",
+                "Skull",
+                "Ribcage"
+            ],
+            "correctAnswer": 1,
+            "subject": "Everyday Science",
+            "topic": "Biology",
+            "explanation": "Leg (Hind Limb): Femur (thigh), Tibia (shin), Fibula (calf). Arm (Fore Limb): Humerus, Radius, Ulna."
+        },
+        {
+            "id": 26,
+            "question": "If x/y = 9/40, then (x+y)/(x-y) = ?",
+            "options": [
+                "40/9",
+                "49/31",
+                "-49/31",
+                "9/41"
+            ],
+            "correctAnswer": 2,
+            "subject": "Mathematics",
+            "topic": "Algebra",
+            "explanation": "Given x/y = 9/40. (x+y)/(x-y) = (x/y + 1)/(x/y - 1) = (9/40 + 1)/(9/40 - 1) = (49/40)/(-31/40) = -49/31."
+        },
+        {
+            "id": 27,
+            "question": "If y = x² - 9, how many times does it intercept the y-axis?",
+            "options": [
+                "Once",
+                "Twice",
+                "Three times",
+                "Never"
+            ],
+            "correctAnswer": 0,
+            "subject": "Mathematics",
+            "topic": "Algebra",
+            "explanation": "A function intercepts the y-axis when x = 0. Substituting: y = 0 - 9 = -9. There is only one unique value for y when x = 0. Therefore, it intercepts the y-axis exactly once."
+        },
+        {
+            "id": 28,
+            "question": "If 2:4 = 6:?",
+            "options": [
+                "10",
+                "12",
+                "15",
+                "20"
+            ],
+            "correctAnswer": 1,
+            "subject": "Mathematics",
+            "topic": "Ratio",
+            "explanation": "2:4 simplifies to 1:2 (the second number is double the first). So, 6:? must also be 1:2. Therefore ? = 12."
+        },
+        {
+            "id": 29,
+            "question": "Evaluate: (3/1) × (4/3) × (5/4) × (17/16)",
+            "options": [
+                "15",
+                "17",
+                "20",
+                "51"
+            ],
+            "correctAnswer": 1,
+            "subject": "Mathematics",
+            "topic": "Simplification",
+            "explanation": "Notice the diagonal cancellation: numerators cancel with denominators of next fraction. Remaining: 17/1 = 17."
+        },
+        {
+            "id": 30,
+            "question": "A Parallelogram has sides 15cm and 10cm. Find the perimeter.",
+            "options": [
+                "25cm",
+                "50cm",
+                "150cm",
+                "35cm"
+            ],
+            "correctAnswer": 1,
+            "subject": "Mathematics",
+            "topic": "Geometry",
+            "explanation": "Perimeter of a parallelogram = 2(length + width) = 2(15 + 10) = 2 × 25 = 50 cm."
+        },
+        {
+            "id": 31,
+            "question": "Area of an equilateral triangle is (9/16)√3. Find the length of side.",
+            "options": [
+                "3/2",
+                "4/3",
+                "1/2",
+                "2"
+            ],
+            "correctAnswer": 0,
+            "subject": "Mathematics",
+            "topic": "Geometry",
+            "explanation": "Area of Equilateral Triangle = (√3/4)a². Given (9/16)√3 = (√3/4)a². Solving: a² = 9/4, so a = 3/2."
+        },
+        {
+            "id": 32,
+            "question": "\"Mauwazatain\" means:",
+            "options": [
+                "Two long Surahs",
+                "Two Surahs of Quran (Surah Falaq & Surah Naas)",
+                "First two verses",
+                "Last two verses of Baqarah"
+            ],
+            "correctAnswer": 1,
+            "subject": "Islamiat",
+            "topic": "Quran",
+            "explanation": "Al-Mu'awwidhatayn refers to the last two Surahs of the Quran (Surah Al-Falaq and Surah An-Naas), which are recited for protection."
+        },
+        {
+            "id": 33,
+            "question": "\"Ghasibana\" in English means:",
+            "options": [
+                "Useful",
+                "Usurpation",
+                "Donation",
+                "Taxation"
+            ],
+            "correctAnswer": 1,
+            "subject": "English",
+            "topic": "Vocabulary",
+            "explanation": "Usurpation means taking someone's power or property by force or illegally. (Urdu: Ghasab karna)."
+        },
+        {
+            "id": 34,
+            "question": "Mynah : Bird :: Terrapin : ?",
+            "options": [
+                "Snake",
+                "Fish",
+                "Turtle",
+                "Frog"
+            ],
+            "correctAnswer": 2,
+            "subject": "English",
+            "topic": "Analogy",
+            "explanation": "This is an analogy. A Mynah is a type of Bird. A Terrapin is a type of small Turtle living in fresh or brackish water."
+        },
+        {
+            "id": 35,
+            "question": "Happening after one's death is called:",
+            "options": [
+                "Post-mortem",
+                "Posthumous",
+                "Legacy",
+                "Inheritance"
+            ],
+            "correctAnswer": 1,
+            "subject": "English",
+            "topic": "Vocabulary",
+            "explanation": "Posthumous: Occurring after the death of the originator (e.g., a posthumous award). Post-mortem: An examination of a dead body."
+        },
+        {
+            "id": 36,
+            "question": "Which word correctly completes: 'No one _____ about one's future plan.'",
+            "options": [
+                "knows",
+                "spies",
+                "descries",
+                "predicts"
+            ],
+            "correctAnswer": 0,
+            "subject": "English",
+            "topic": "Grammar",
+            "explanation": "'Knows' is the most appropriate verb here. 'Descry' means to catch sight of, which doesn't fit the context."
+        },
+        {
+            "id": 37,
+            "question": "ROM is a:",
+            "options": [
+                "Software",
+                "Hardware",
+                "Operating System",
+                "Application"
+            ],
+            "correctAnswer": 1,
+            "subject": "Computer",
+            "topic": "Hardware",
+            "explanation": "ROM (Read-Only Memory) is a type of non-volatile memory hardware that stores instructions permanently (like BIOS). Data on ROM cannot be easily modified."
+        },
+        {
+            "id": 38,
+            "question": "بھیڑ کی کھٹی کھانا (Bheray ki khutti khana) means:",
+            "options": [
+                "Khudkushi (Suicide)",
+                "Jhagra (Fight)",
+                "Safar (Travel)",
+                "Khushi (Happiness)"
+            ],
+            "correctAnswer": 0,
+            "subject": "Urdu",
+            "topic": "Muhawarat",
+            "explanation": "This Urdu idiom means to take a fatal risk or commit suicide. It literally refers to eating poisonous berries."
+        },
+        {
+            "id": 39,
+            "question": "چغلش (Chughalish) means:",
+            "options": [
+                "Mohabbat (Love)",
+                "Jhagra (Fight/Conflict)",
+                "Dosti (Friendship)",
+                "Safar (Journey)"
+            ],
+            "correctAnswer": 1,
+            "subject": "Urdu",
+            "topic": "Vocabulary",
+            "explanation": "Chughalish refers to conflict, dispute, or a verbal fight."
+        },
+        {
+            "id": 40,
+            "question": "دال نہ گلنا (Daal na galna) is a:",
+            "options": [
+                "Zarb-ul-Misal (Proverb)",
+                "Muhawara (Idiom)",
+                "Tashbeeh (Simile)",
+                "Isti'ara (Metaphor)"
+            ],
+            "correctAnswer": 1,
+            "subject": "Urdu",
+            "topic": "Muhawarat",
+            "explanation": "Daal na galna is an idiom meaning 'to not succeed' or 'tricks not working'."
+        }
+    ]
+}

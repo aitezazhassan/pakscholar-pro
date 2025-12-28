@@ -40,6 +40,7 @@ const subjectNameMap: Record<string, string> = {
     'current-affairs': 'Current Affairs',
     'computer': 'Computer',
     'mathematics': 'Mathematics',
+    'english': 'English',
     'islamic-studies': 'Islamiat',
     'urdu': 'Urdu',
 };
@@ -59,13 +60,42 @@ export default function SubjectPracticePage({ params }: { params: Promise<{ subj
     useEffect(() => {
         const fetchQuestions = async () => {
             try {
-                const response = await fetch('/data/mock-exams/pms-2023.json');
-                const data: ExamData = await response.json();
+                // Load from multiple exam sources
+                const examFiles = [
+                    '/data/mock-exams/pms-2023.json',
+                    '/data/mock-exams/sdeo-pera-2025.json'
+                ];
+
+                const allQuestions: Question[] = [];
+
+                for (const file of examFiles) {
+                    try {
+                        const response = await fetch(file);
+                        const data: ExamData = await response.json();
+                        // Add source info to each question
+                        const questionsWithSource = data.questions.map(q => ({
+                            ...q,
+                            source: file.includes('pms-2023') ? 'PMS 2023' : 'SDEO PERA 2025'
+                        }));
+                        allQuestions.push(...questionsWithSource);
+                    } catch {
+                        console.warn(`Failed to load ${file}`);
+                    }
+                }
 
                 // Filter questions by subject
                 const subjectName = subjectNameMap[subject];
-                const filtered = data.questions.filter(q => q.subject === subjectName);
-                setQuestions(filtered);
+                const filtered = allQuestions.filter(q => q.subject === subjectName);
+
+                // Deduplicate by question text and assign unique IDs
+                const unique = filtered.reduce((acc, q, idx) => {
+                    if (!acc.some(existing => existing.question === q.question)) {
+                        acc.push({ ...q, id: idx + 1 });
+                    }
+                    return acc;
+                }, [] as Question[]);
+
+                setQuestions(unique);
                 setLoading(false);
             } catch {
                 console.error('Failed to load questions');
@@ -228,12 +258,12 @@ export default function SubjectPracticePage({ params }: { params: Promise<{ subj
                                 >
                                     <div className="flex items-start gap-3">
                                         <div className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 ${isAnswered
-                                                ? isCorrectOption
-                                                    ? 'bg-green-500 text-white'
-                                                    : isSelected
-                                                        ? 'bg-red-500 text-white'
-                                                        : 'bg-gray-200 text-gray-500'
-                                                : 'bg-gray-100 text-gray-600'
+                                            ? isCorrectOption
+                                                ? 'bg-green-500 text-white'
+                                                : isSelected
+                                                    ? 'bg-red-500 text-white'
+                                                    : 'bg-gray-200 text-gray-500'
+                                            : 'bg-gray-100 text-gray-600'
                                             }`}>
                                             {isAnswered && isCorrectOption ? (
                                                 <CheckCircle className="w-5 h-5" />

@@ -5,13 +5,23 @@ import { Clock, FileText, Award, ArrowRight } from 'lucide-react';
 
 const mockExams = [
     {
+        id: 'sdeo-pera-2025',
+        title: 'PPSC SDEO PERA Phase II (Dec 2025)',
+        description: 'Latest exam covering Geography, Computer Science, Biology, Math, English, and Urdu - Based on actual exam held December 2025',
+        questions: 40,
+        duration: 90,
+        subjects: ['Geography', 'Computer', 'Everyday Science', 'Mathematics', 'English', 'Urdu'],
+        difficulty: 'Intermediate',
+        isNew: true
+    },
+    {
         id: 'pms-2023',
         title: 'PMS 2023 Exam',
         description: 'Complete 100-question PMS exam covering General Knowledge, Pakistan Affairs, Current Affairs, Geography, Everyday Science, Computer, Mathematics, Urdu, and Islamiat',
         questions: 100,
         duration: 120,
         subjects: ['General Knowledge', 'Pakistan Affairs', 'Current Affairs', 'Geography', 'Everyday Science', 'Computer', 'Mathematics', 'Urdu', 'Islamiat'],
-        difficulty: 'Intermediate'
+        difficulty: 'Advanced'
     },
     {
         id: 'pms-160',
