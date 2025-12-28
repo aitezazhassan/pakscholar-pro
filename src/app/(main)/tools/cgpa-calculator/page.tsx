@@ -2,7 +2,48 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { AlertCircle, CheckCircle, Loader2, Calculator, GraduationCap, Lock, Shield, BookOpen, ArrowLeft } from 'lucide-react';
+import { AlertCircle, CheckCircle, Loader2, Calculator, GraduationCap, Lock, Shield, BookOpen, ArrowLeft, Info } from 'lucide-react';
+
+interface Course {
+    code: string;
+    name: string;
+    creditHours: number;
+    marks: number;
+    grade: string;
+    gradePoints: number;
+    qualityPoints: number;
+}
+
+interface Semester {
+    semester: number;
+    semesterName: string;
+    courses: Course[];
+    totalCreditHours: number;
+    totalQualityPoints: number;
+    gpa: number;
+}
+
+interface StudentResult {
+    studentInfo: {
+        name: string;
+        registrationNo: string;
+        program: string;
+        faculty: string;
+    };
+    semesters: Semester[];
+    cgpa: number;
+    totalCreditHours: number;
+    totalQualityPoints: number;
+    status: string;
+}
+
+interface APIResponse {
+    success: boolean;
+    data?: StudentResult;
+    error?: string;
+    isDemo?: boolean;
+    message?: string;
+}
 
 export default function CGPACalculatorPage() {
     const [formData, setFormData] = useState({
@@ -20,42 +61,15 @@ export default function CGPACalculatorPage() {
         loading: false,
         error: null as string | null,
         success: false,
-        result: null as ResultType | null
+        result: null as StudentResult | null,
+        isDemo: false,
+        message: ''
     });
 
     const [stats, setStats] = useState({
         totalCalculations: 12547,
         activeUsers: 3421
     });
-
-    interface Course {
-        code: string;
-        name: string;
-        creditHours: number;
-        marks: number;
-        grade: string;
-        points: number;
-    }
-
-    interface Semester {
-        semester: number;
-        courses: Course[];
-        gpa: number;
-        totalCreditHours: number;
-    }
-
-    interface ResultType {
-        studentInfo: {
-            name: string;
-            registrationNo: string;
-            program: string;
-            semester: string;
-        };
-        semesters: Semester[];
-        cgpa: number;
-        totalCreditHours: number;
-        totalQualityPoints: number;
-    }
 
     // Real-time validation
     useEffect(() => {
@@ -97,44 +111,6 @@ export default function CGPACalculatorPage() {
         }));
     };
 
-    const simulateCalculation = async (): Promise<ResultType> => {
-        await new Promise(resolve => setTimeout(resolve, 2000));
-
-        return {
-            studentInfo: {
-                name: 'Student Name',
-                registrationNo: formData.registrationNo.toUpperCase(),
-                program: 'BS Computer Science',
-                semester: 'Fall 2024'
-            },
-            semesters: [
-                {
-                    semester: 1,
-                    courses: [
-                        { code: 'CS-101', name: 'Intro to Computing', creditHours: 3, marks: 85, grade: 'A', points: 4.0 },
-                        { code: 'MATH-101', name: 'Calculus I', creditHours: 3, marks: 78, grade: 'B+', points: 3.5 },
-                        { code: 'ENG-101', name: 'English I', creditHours: 3, marks: 82, grade: 'A-', points: 3.7 }
-                    ],
-                    gpa: 3.73,
-                    totalCreditHours: 9
-                },
-                {
-                    semester: 2,
-                    courses: [
-                        { code: 'CS-102', name: 'Programming Fund.', creditHours: 4, marks: 88, grade: 'A', points: 4.0 },
-                        { code: 'MATH-102', name: 'Calculus II', creditHours: 3, marks: 75, grade: 'B', points: 3.0 },
-                        { code: 'PHY-101', name: 'Physics', creditHours: 3, marks: 80, grade: 'A-', points: 3.7 }
-                    ],
-                    gpa: 3.61,
-                    totalCreditHours: 10
-                }
-            ],
-            cgpa: 3.67,
-            totalCreditHours: 19,
-            totalQualityPoints: 69.73
-        };
-    };
-
     const handleSubmit = async () => {
         if (!validation.isValid) {
             setState(prev => ({ ...prev, error: 'Please enter a valid registration number' }));
@@ -146,20 +122,69 @@ export default function CGPACalculatorPage() {
             return;
         }
 
-        setState({ loading: true, error: null, success: false, result: null });
+        setState({ loading: true, error: null, success: false, result: null, isDemo: false, message: '' });
 
         try {
-            const result = await simulateCalculation();
-            setState({ loading: false, error: null, success: true, result });
-            setStats(prev => ({ totalCalculations: prev.totalCalculations + 1, activeUsers: prev.activeUsers }));
+            const response = await fetch('/api/cgpa', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    registrationNo: formData.registrationNo,
+                    includeTwoDegree: formData.secondDegree
+                })
+            });
+
+            const data: APIResponse = await response.json();
+
+            if (!response.ok) {
+                setState({
+                    loading: false,
+                    error: data.error || 'Failed to calculate CGPA',
+                    success: false,
+                    result: null,
+                    isDemo: false,
+                    message: ''
+                });
+                return;
+            }
+
+            if (data.success && data.data) {
+                setState({
+                    loading: false,
+                    error: null,
+                    success: true,
+                    result: data.data,
+                    isDemo: data.isDemo || false,
+                    message: data.message || ''
+                });
+                setStats(prev => ({ totalCalculations: prev.totalCalculations + 1, activeUsers: prev.activeUsers }));
+            } else {
+                setState({
+                    loading: false,
+                    error: data.error || 'No result data found',
+                    success: false,
+                    result: null,
+                    isDemo: false,
+                    message: ''
+                });
+            }
         } catch {
-            setState({ loading: false, error: 'Failed to calculate CGPA. Please try again.', success: false, result: null });
+            setState({
+                loading: false,
+                error: 'Network error. Please check your connection and try again.',
+                success: false,
+                result: null,
+                isDemo: false,
+                message: ''
+            });
         }
     };
 
     const handleReset = () => {
         setFormData({ registrationNo: '', dataConsent: false, secondDegree: false });
-        setState({ loading: false, error: null, success: false, result: null });
+        setState({ loading: false, error: null, success: false, result: null, isDemo: false, message: '' });
     };
 
     const handleKeyPress = (e: React.KeyboardEvent) => {
@@ -195,8 +220,8 @@ export default function CGPACalculatorPage() {
                             <Calculator className="w-8 h-8 text-white" />
                         </div>
                         <div>
-                            <h1 className="text-3xl md:text-4xl font-bold">CGPA Calculator</h1>
-                            <p className="text-emerald-100 mt-1">Calculate your cumulative GPA instantly</p>
+                            <h1 className="text-3xl md:text-4xl font-bold">UAF CGPA Calculator</h1>
+                            <p className="text-emerald-100 mt-1">Automatic CGPA calculation from LMS data</p>
                         </div>
                     </div>
                 </div>
@@ -235,7 +260,7 @@ export default function CGPACalculatorPage() {
                                 </div>
                                 <div>
                                     <h2 className="text-2xl font-bold text-gray-900">Calculate Your CGPA</h2>
-                                    <p className="text-gray-600 text-sm">Enter your details to get instant results</p>
+                                    <p className="text-gray-600 text-sm">Enter your AG number to get instant results from LMS</p>
                                 </div>
                             </div>
 
@@ -250,11 +275,21 @@ export default function CGPACalculatorPage() {
                                 </div>
                             )}
 
+                            {state.isDemo && state.message && (
+                                <div className="mb-6 bg-amber-50 border border-amber-200 rounded-lg p-4 flex items-start space-x-3">
+                                    <Info className="w-5 h-5 text-amber-600 flex-shrink-0 mt-0.5" />
+                                    <div className="flex-1">
+                                        <p className="text-amber-800 font-medium">Demo Mode</p>
+                                        <p className="text-amber-700 text-sm mt-1">{state.message}</p>
+                                    </div>
+                                </div>
+                            )}
+
                             <div className="space-y-6">
                                 {/* Registration Number Input */}
                                 <div>
                                     <label htmlFor="registrationNo" className="block text-sm font-semibold text-gray-700 mb-2">
-                                        Registration Number *
+                                        Registration Number (AG Number) *
                                     </label>
                                     <input
                                         type="text"
@@ -301,7 +336,7 @@ export default function CGPACalculatorPage() {
                                         />
                                         <div className="flex-1">
                                             <span className="text-sm text-gray-700 group-hover:text-gray-900 transition">
-                                                I agree and allow this site to access my result data from the LMS system for calculation purposes. *
+                                                I agree and allow this site to access my result data from the UAF LMS system for calculation purposes. *
                                             </span>
                                             <p className="text-xs text-gray-500 mt-1">
                                                 Your data is processed in real-time and not stored on our servers.
@@ -320,7 +355,7 @@ export default function CGPACalculatorPage() {
                                         />
                                         <div className="flex-1">
                                             <span className="text-sm text-gray-700 group-hover:text-gray-900 transition">
-                                                Include second degree features (e.g., B.Ed)
+                                                Include 2nd degree features (e.g., B.Ed)
                                             </span>
                                             <p className="text-xs text-gray-500 mt-1">
                                                 Enable this if you&apos;re pursuing a second degree alongside your primary degree.
@@ -339,7 +374,7 @@ export default function CGPACalculatorPage() {
                                         {state.loading ? (
                                             <span className="flex items-center justify-center space-x-2">
                                                 <Loader2 className="w-5 h-5 animate-spin" />
-                                                <span>Calculating...</span>
+                                                <span>Fetching from LMS...</span>
                                             </span>
                                         ) : (
                                             <span className="flex items-center justify-center space-x-2">
@@ -363,20 +398,32 @@ export default function CGPACalculatorPage() {
                             {/* Results Section */}
                             {state.result && (
                                 <div className="mt-8 pt-8 border-t border-gray-200">
-                                    <h3 className="text-xl font-bold text-gray-900 mb-4">Your Results</h3>
+                                    <div className="flex items-center justify-between mb-4">
+                                        <h3 className="text-xl font-bold text-gray-900">Your Results</h3>
+                                        {state.isDemo && (
+                                            <span className="px-3 py-1 bg-amber-100 text-amber-700 text-xs font-medium rounded-full">
+                                                Demo Data
+                                            </span>
+                                        )}
+                                    </div>
 
                                     {/* CGPA Card */}
                                     <div className="bg-gradient-to-br from-emerald-500 to-teal-600 rounded-xl p-6 text-white mb-6 shadow-lg">
-                                        <p className="text-emerald-100 text-sm font-medium">Cumulative GPA</p>
-                                        <p className="text-5xl font-bold mt-2">{state.result.cgpa.toFixed(2)}</p>
-                                        <div className="mt-4 pt-4 border-t border-emerald-400 flex justify-between text-sm">
+                                        <div className="flex items-center justify-between">
                                             <div>
-                                                <p className="text-emerald-100">Total Credit Hours</p>
-                                                <p className="text-xl font-semibold mt-1">{state.result.totalCreditHours}</p>
+                                                <p className="text-emerald-100 text-sm font-medium">Cumulative GPA</p>
+                                                <p className="text-5xl font-bold mt-2">{state.result.cgpa.toFixed(2)}</p>
+                                                <p className="text-emerald-100 text-sm mt-2">{state.result.status}</p>
                                             </div>
-                                            <div>
-                                                <p className="text-emerald-100">Quality Points</p>
-                                                <p className="text-xl font-semibold mt-1">{state.result.totalQualityPoints.toFixed(2)}</p>
+                                            <div className="text-right">
+                                                <div className="mb-3">
+                                                    <p className="text-emerald-100 text-xs">Total Credit Hours</p>
+                                                    <p className="text-2xl font-bold">{state.result.totalCreditHours}</p>
+                                                </div>
+                                                <div>
+                                                    <p className="text-emerald-100 text-xs">Quality Points</p>
+                                                    <p className="text-2xl font-bold">{state.result.totalQualityPoints.toFixed(1)}</p>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -398,18 +445,19 @@ export default function CGPACalculatorPage() {
                                                 <p className="font-medium text-gray-900">{state.result.studentInfo.program}</p>
                                             </div>
                                             <div>
-                                                <p className="text-gray-600">Semester</p>
-                                                <p className="font-medium text-gray-900">{state.result.studentInfo.semester}</p>
+                                                <p className="text-gray-600">Faculty</p>
+                                                <p className="font-medium text-gray-900">{state.result.studentInfo.faculty}</p>
                                             </div>
                                         </div>
                                     </div>
 
                                     {/* Semester Details */}
                                     <div className="space-y-4">
+                                        <h4 className="font-semibold text-gray-900">Semester Breakdown</h4>
                                         {state.result.semesters.map((sem, idx) => (
-                                            <details key={idx} className="group bg-gray-50 rounded-lg">
+                                            <details key={idx} className="group bg-gray-50 rounded-lg" open={idx === 0}>
                                                 <summary className="cursor-pointer p-4 font-semibold text-gray-900 hover:bg-gray-100 rounded-lg transition flex items-center justify-between">
-                                                    <span>Semester {sem.semester} - GPA: {sem.gpa.toFixed(2)}</span>
+                                                    <span>{sem.semesterName} - GPA: <span className="text-emerald-600">{sem.gpa.toFixed(2)}</span></span>
                                                     <span className="text-sm text-gray-600">({sem.totalCreditHours} Credit Hours)</span>
                                                 </summary>
                                                 <div className="p-4 pt-0">
@@ -423,6 +471,7 @@ export default function CGPACalculatorPage() {
                                                                     <th className="text-center py-2 text-gray-600 font-medium">Marks</th>
                                                                     <th className="text-center py-2 text-gray-600 font-medium">Grade</th>
                                                                     <th className="text-center py-2 text-gray-600 font-medium">GP</th>
+                                                                    <th className="text-center py-2 text-gray-600 font-medium">QP</th>
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
@@ -433,19 +482,43 @@ export default function CGPACalculatorPage() {
                                                                         <td className="py-2 text-center text-gray-700">{course.creditHours}</td>
                                                                         <td className="py-2 text-center text-gray-700">{course.marks}</td>
                                                                         <td className="py-2 text-center">
-                                                                            <span className="inline-block bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded font-medium">
+                                                                            <span className={`inline-block px-2 py-0.5 rounded font-medium ${course.grade.startsWith('A') ? 'bg-emerald-100 text-emerald-800' :
+                                                                                    course.grade.startsWith('B') ? 'bg-blue-100 text-blue-800' :
+                                                                                        course.grade.startsWith('C') ? 'bg-yellow-100 text-yellow-800' :
+                                                                                            course.grade.startsWith('D') ? 'bg-orange-100 text-orange-800' :
+                                                                                                'bg-red-100 text-red-800'
+                                                                                }`}>
                                                                                 {course.grade}
                                                                             </span>
                                                                         </td>
-                                                                        <td className="py-2 text-center font-semibold text-gray-900">{course.points.toFixed(1)}</td>
+                                                                        <td className="py-2 text-center font-semibold text-gray-900">{course.gradePoints.toFixed(1)}</td>
+                                                                        <td className="py-2 text-center text-gray-700">{course.qualityPoints.toFixed(1)}</td>
                                                                     </tr>
                                                                 ))}
                                                             </tbody>
+                                                            <tfoot>
+                                                                <tr className="border-t-2 border-gray-300 bg-gray-100">
+                                                                    <td colSpan={2} className="py-2 font-semibold text-gray-900">Semester Total</td>
+                                                                    <td className="py-2 text-center font-semibold text-gray-900">{sem.totalCreditHours}</td>
+                                                                    <td className="py-2 text-center text-gray-700">-</td>
+                                                                    <td className="py-2 text-center text-gray-700">-</td>
+                                                                    <td className="py-2 text-center text-gray-700">-</td>
+                                                                    <td className="py-2 text-center font-semibold text-gray-900">{sem.totalQualityPoints.toFixed(1)}</td>
+                                                                </tr>
+                                                            </tfoot>
                                                         </table>
                                                     </div>
                                                 </div>
                                             </details>
                                         ))}
+                                    </div>
+
+                                    {/* CGPA Formula */}
+                                    <div className="mt-6 p-4 bg-emerald-50 rounded-lg border border-emerald-200">
+                                        <h4 className="font-semibold text-emerald-800 mb-2">CGPA Calculation Formula</h4>
+                                        <p className="text-sm text-emerald-700">
+                                            CGPA = Total Quality Points / Total Credit Hours = {state.result.totalQualityPoints.toFixed(1)} / {state.result.totalCreditHours} = <strong>{state.result.cgpa.toFixed(2)}</strong>
+                                        </p>
                                     </div>
                                 </div>
                             )}
@@ -486,7 +559,7 @@ export default function CGPACalculatorPage() {
                             <ol className="space-y-3 text-sm text-gray-600">
                                 <li className="flex space-x-3">
                                     <span className="flex-shrink-0 w-6 h-6 bg-emerald-100 text-emerald-700 rounded-full flex items-center justify-center text-xs font-bold">1</span>
-                                    <span>Enter your UAF registration number</span>
+                                    <span>Enter your UAF registration number (AG No.)</span>
                                 </li>
                                 <li className="flex space-x-3">
                                     <span className="flex-shrink-0 w-6 h-6 bg-emerald-100 text-emerald-700 rounded-full flex items-center justify-center text-xs font-bold">2</span>
@@ -494,13 +567,29 @@ export default function CGPACalculatorPage() {
                                 </li>
                                 <li className="flex space-x-3">
                                     <span className="flex-shrink-0 w-6 h-6 bg-emerald-100 text-emerald-700 rounded-full flex items-center justify-center text-xs font-bold">3</span>
-                                    <span>System fetches your results securely</span>
+                                    <span>System fetches your results from UAF LMS</span>
                                 </li>
                                 <li className="flex space-x-3">
                                     <span className="flex-shrink-0 w-6 h-6 bg-emerald-100 text-emerald-700 rounded-full flex items-center justify-center text-xs font-bold">4</span>
-                                    <span>CGPA calculated instantly with breakdown</span>
+                                    <span>CGPA calculated instantly with full breakdown</span>
                                 </li>
                             </ol>
+                        </div>
+
+                        {/* Grade Scale */}
+                        <div className="bg-white rounded-2xl shadow-lg p-6 border border-gray-100">
+                            <h3 className="font-bold text-gray-900 mb-4">UAF Grading Scale</h3>
+                            <div className="space-y-2 text-sm">
+                                <div className="flex justify-between"><span className="text-gray-600">85-100</span><span className="font-medium text-emerald-600">A (4.0)</span></div>
+                                <div className="flex justify-between"><span className="text-gray-600">80-84</span><span className="font-medium text-emerald-600">A- (3.7)</span></div>
+                                <div className="flex justify-between"><span className="text-gray-600">75-79</span><span className="font-medium text-blue-600">B+ (3.3)</span></div>
+                                <div className="flex justify-between"><span className="text-gray-600">70-74</span><span className="font-medium text-blue-600">B (3.0)</span></div>
+                                <div className="flex justify-between"><span className="text-gray-600">65-69</span><span className="font-medium text-blue-600">B- (2.7)</span></div>
+                                <div className="flex justify-between"><span className="text-gray-600">60-64</span><span className="font-medium text-yellow-600">C+ (2.3)</span></div>
+                                <div className="flex justify-between"><span className="text-gray-600">55-59</span><span className="font-medium text-yellow-600">C (2.0)</span></div>
+                                <div className="flex justify-between"><span className="text-gray-600">50-54</span><span className="font-medium text-orange-600">C- (1.7)</span></div>
+                                <div className="flex justify-between"><span className="text-gray-600">&lt;50</span><span className="font-medium text-red-600">F (0.0)</span></div>
+                            </div>
                         </div>
 
                         {/* More Tools */}
@@ -521,6 +610,16 @@ export default function CGPACalculatorPage() {
                             </div>
                         </div>
                     </div>
+                </div>
+
+                {/* Disclaimer */}
+                <div className="mt-12 p-6 bg-gray-50 rounded-xl border border-gray-200">
+                    <h3 className="font-semibold text-gray-900 mb-2">Disclaimer</h3>
+                    <p className="text-sm text-gray-600">
+                        This is an unofficial tool for UAF students. The calculator fetches data directly from UAF LMS and performs calculations in real-time.
+                        We do not store any personal information. For official results, please refer to your university's official channels.
+                        If you encounter any errors, please contact us.
+                    </p>
                 </div>
             </div>
         </main>
