@@ -7,10 +7,10 @@ const mockExams = [
     {
         id: 'sdeo-pera-2025',
         title: 'PPSC SDEO PERA Phase II (Dec 2025)',
-        description: 'Latest exam covering Geography, Computer Science, Biology, Math, English, and Urdu - Based on actual exam held December 2025',
-        questions: 40,
-        duration: 90,
-        subjects: ['Geography', 'Computer', 'Everyday Science', 'Mathematics', 'English', 'Urdu'],
+        description: 'Complete 100-question exam covering Geography, Computer Science, Biology, Math, English, Urdu, and Islamiat - Based on actual exam held December 2025',
+        questions: 100,
+        duration: 120,
+        subjects: ['Geography', 'Computer', 'Everyday Science', 'Mathematics', 'English', 'Urdu', 'Islamiat'],
         difficulty: 'Intermediate',
         isNew: true
     },

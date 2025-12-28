@@ -149,7 +149,7 @@ export default function MCQBankPage() {
                         {/* Stats */}
                         <div className="flex justify-center gap-8 md:gap-12">
                             <div className="text-center">
-                                <div className="text-4xl md:text-5xl font-bold text-emerald-400">140+</div>
+                                <div className="text-4xl md:text-5xl font-bold text-emerald-400">200+</div>
                                 <div className="text-slate-400">Total MCQs</div>
                             </div>
                             <div className="text-center">
