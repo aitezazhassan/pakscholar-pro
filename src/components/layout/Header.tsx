@@ -43,6 +43,7 @@ export default function Header({ user }: HeaderProps) {
     const resources = [
         { name: 'MCQ Bank', href: '/mcq-bank' },
         { name: 'Mock Exams', href: '/practice' },
+        { name: 'Tools', href: '/tools' },
         { name: 'Past Papers', href: '/past-papers' },
         { name: 'Current Affairs', href: '/current-affairs' }
     ];
