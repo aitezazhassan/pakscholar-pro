@@ -39,6 +39,16 @@ const topics = [
         gradient: 'from-purple-500 to-pink-600',
     },
     {
+        id: 'geography',
+        name: 'Geography (PMS Level)',
+        icon: Globe2,
+        description: 'Solar System, Mass Movements, Ocean Currents, Determinism vs Possibilism',
+        topics: 6,
+        mcqs: 18,
+        color: 'cyan',
+        gradient: 'from-cyan-500 to-blue-600',
+    },
+    {
         id: 'everyday-science',
         name: 'Everyday Science',
         icon: Sparkles,
@@ -114,7 +124,7 @@ export default function GeneralKnowledgePage() {
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {topics.map((topic) => {
                         const Icon = topic.icon;
-                        const isAvailable = topic.id === 'pakistan-affairs' || topic.id === 'world-geography';
+                        const isAvailable = topic.id === 'pakistan-affairs' || topic.id === 'world-geography' || topic.id === 'geography';
                         const href = `/study-material/general-knowledge/${topic.id}`;
 
                         const cardContent = (
