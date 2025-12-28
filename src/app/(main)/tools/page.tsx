@@ -15,10 +15,12 @@ const tools = [
         icon: Calculator,
         gradient: 'from-emerald-500 to-teal-600',
         href: '/tools/cgpa-calculator',
-        stats: '12,500+ calculations',
-        isNew: true,
+        stats: 'Coming Soon',
+        isNew: false,
+        comingSoon: true, // Hidden until university approves
     },
     {
+
         id: 'grade-calculator',
         name: 'Grade Calculator',
         description: 'Convert marks to grades and calculate GPA for individual subjects',
