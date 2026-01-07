@@ -34,15 +34,36 @@ const notoNastaliq = Noto_Nastaliq_Urdu({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://pakscholar.pro'),
+  metadataBase: new URL('https://pakscholar-pro.vercel.app'),
   title: {
-    default: 'PakScholar Pro | PPSC Exam Preparation',
+    default: 'PakScholar Pro - Pakistan\'s #1 Free PPSC Exam Preparation Platform',
     template: '%s | PakScholar Pro',
   },
   description:
-    'Official PPSC syllabus-aligned exam preparation. Current Affairs, Mathematics, General Knowledge, English, and Past Papers for Punjab Public Service Commission.',
-  keywords: ['PPSC', 'Punjab Public Service Commission', 'Current Affairs', 'Mathematics', 'General Knowledge', 'English', 'Past Papers', 'Pakistan Geography', 'Exam Preparation', 'PPSC Syllabus'],
-  authors: [{ name: 'PakScholar Pro Team' }],
+    'Free PPSC exam preparation with 200+ MCQs, mock exams, and study material. Join 12,547 students preparing for PPSC Lecturer, Assistant Director, Tehsildar, and other competitive exams in Pakistan. 100% free, no premium walls.',
+  keywords: [
+    'PPSC exam preparation',
+    'PPSC MCQs',
+    'PPSC mock test',
+    'Punjab Public Service Commission',
+    'PPSC Lecturer exam',
+    'PPSC Assistant Director',
+    'Pakistan competitive exams',
+    'free PPSC preparation',
+    'PPSC past papers',
+    'PPSC syllabus',
+    'General Knowledge MCQs',
+    'Geography MCQs Pakistan',
+    'Computer Science MCQs',
+    'Mathematics MCQs',
+    'English MCQs PPSC',
+    'Current Affairs Pakistan',
+    'PPSC study material',
+    'PPSC exam pattern',
+    'PPSC online test',
+    'PPSC practice questions'
+  ],
+  authors: [{ name: 'Aitezaz Hassan', url: 'https://pakscholar-pro.vercel.app' }],
   creator: 'PakScholar Pro',
   publisher: 'PakScholar Pro',
   manifest: '/manifest.json',
@@ -67,16 +88,27 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_PK',
+    url: 'https://pakscholar-pro.vercel.app',
     siteName: 'PakScholar Pro',
-    title: 'PakScholar Pro | PPSC Exam Preparation',
+    title: 'PakScholar Pro - Free PPSC Exam Preparation Platform',
     description:
-      'Official PPSC syllabus-aligned exam preparation for Punjab Public Service Commission.',
+      'Join 12,547 students preparing for PPSC exams with 200+ free MCQs, mock exams, and comprehensive study material. No premium walls, completely free.',
+    images: [
+      {
+        url: '/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'PakScholar Pro - Pakistan\'s #1 PPSC Exam Preparation Platform',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'PakScholar Pro | PPSC Prep',
+    title: 'PakScholar Pro - Free PPSC Exam Prep',
     description:
-      'Official PPSC exam preparation platform',
+      'Free PPSC exam preparation with 200+ MCQs and mock exams. Join 12,547 students.',
+    images: ['/og-image.png'],
+    creator: '@pakscholarpro',
   },
   robots: {
     index: true,
@@ -88,6 +120,9 @@ export const metadata: Metadata = {
       'max-image-preview': 'large',
       'max-snippet': -1,
     },
+  },
+  alternates: {
+    canonical: 'https://pakscholar-pro.vercel.app',
   },
 };
 
