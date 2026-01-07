@@ -12,6 +12,7 @@ import {
   RefreshCw
 } from 'lucide-react';
 import { GradientCTA } from '@/components/ui/layout-components';
+import { FeatureCard, SubjectCard } from '@/components/ui/premium';
 
 // --- SUB-COMPONENT: HERO SECTION ---
 const HeroSection = () => {
@@ -135,6 +136,164 @@ const HeroSection = () => {
         </div>
       </div>
     </div>
+  );
+};
+
+// --- SUB-COMPONENT: FEATURE SHOWCASE ---
+const FeatureShowcase = () => {
+  const features = [
+    {
+      title: 'MCQ Bank',
+      description: '200+ categorized questions with detailed explanations across all subjects',
+      icon: BookOpen,
+      href: '/mcq-bank',
+      gradient: 'from-emerald-500 to-teal-600',
+      stats: { label: 'Total Questions', value: '200+' },
+      badge: 'Popular',
+      size: 'large' as const,
+    },
+    {
+      title: 'Mock Exams',
+      description: 'Full-length practice tests with instant results',
+      icon: Calculator,
+      href: '/practice',
+      gradient: 'from-blue-500 to-cyan-600',
+      stats: { label: 'Available Exams', value: '2' },
+    },
+    {
+      title: 'Study Material',
+      description: 'Comprehensive notes and guides for all subjects',
+      icon: BookOpen,
+      href: '/study-material',
+      gradient: 'from-purple-500 to-pink-600',
+    },
+    {
+      title: 'Past Papers',
+      description: 'Previous years\' papers with solutions',
+      icon: RefreshCw,
+      href: '/past-papers',
+      gradient: 'from-amber-500 to-orange-600',
+    },
+  ];
+
+  return (
+    <section className="py-20 bg-gradient-to-b from-white to-slate-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Section Header */}
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            Everything You Need to <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-teal-600">Succeed</span>
+          </h2>
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            Comprehensive tools and resources designed for PPSC exam success
+          </p>
+        </div>
+
+        {/* Bento Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {features.map((feature, index) => (
+            <FeatureCard
+              key={feature.title}
+              {...feature}
+              className={`animate-slide-up-fade delay-${index * 100}`}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+// --- SUB-COMPONENT: SUBJECT CARDS ---
+const SubjectCards = () => {
+  const subjects = [
+    {
+      name: 'General Knowledge',
+      icon: BookOpen,
+      mcqCount: 85,
+      progress: 60,
+      gradient: 'from-emerald-500 to-teal-600',
+      href: '/mcq-bank/general-knowledge',
+    },
+    {
+      name: 'Geography',
+      icon: BookOpen,
+      mcqCount: 45,
+      progress: 40,
+      gradient: 'from-blue-500 to-cyan-600',
+      href: '/mcq-bank/geography',
+    },
+    {
+      name: 'Computer Science',
+      icon: Calculator,
+      mcqCount: 30,
+      progress: 75,
+      gradient: 'from-cyan-500 to-blue-600',
+      href: '/mcq-bank/computer',
+      isNew: true,
+    },
+    {
+      name: 'Mathematics',
+      icon: Calculator,
+      mcqCount: 25,
+      progress: 50,
+      gradient: 'from-red-500 to-orange-600',
+      href: '/mcq-bank/mathematics',
+    },
+    {
+      name: 'English',
+      icon: BookOpen,
+      mcqCount: 20,
+      progress: 30,
+      gradient: 'from-indigo-500 to-purple-600',
+      href: '/mcq-bank/english',
+    },
+    {
+      name: 'Urdu',
+      icon: BookOpen,
+      mcqCount: 15,
+      progress: 20,
+      gradient: 'from-pink-500 to-rose-600',
+      href: '/mcq-bank/urdu',
+    },
+  ];
+
+  return (
+    <section className="py-20 bg-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Section Header */}
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            Practice by <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-teal-600">Subject</span>
+          </h2>
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            Master each subject with our curated MCQ collections
+          </p>
+        </div>
+
+        {/* Subject Grid */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {subjects.map((subject, index) => (
+            <SubjectCard
+              key={subject.name}
+              {...subject}
+              className={`animate-slide-up-fade delay-${index * 100}`}
+            />
+          ))}
+        </div>
+
+        {/* View All CTA */}
+        <div className="mt-12 text-center">
+          <a
+            href="/mcq-bank"
+            className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-emerald-600 to-teal-600 text-white font-semibold rounded-xl shadow-lg hover:shadow-emerald-500/50 transition-all hover:scale-105"
+          >
+            View All Subjects
+            <ArrowRight className="w-5 h-5" />
+          </a>
+        </div>
+      </div>
+    </section>
   );
 };
 
@@ -343,6 +502,8 @@ export default function HomePage() {
   return (
     <main className="min-h-screen bg-white font-sans text-slate-900">
       <HeroSection />
+      <FeatureShowcase />
+      <SubjectCards />
       <DailyKnowledgeHub />
       <AcademicCalculator />
       <SubjectGrid />
