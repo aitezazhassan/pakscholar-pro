@@ -16,43 +16,85 @@ import { GradientCTA } from '@/components/ui/layout-components';
 // --- SUB-COMPONENT: HERO SECTION ---
 const HeroSection = () => {
   return (
-    <div className="relative isolate overflow-hidden bg-slate-900 pb-16 pt-14 sm:pb-20">
-      {/* Background Effects */}
+    <div className="relative isolate overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-emerald-900 pb-20 pt-14 sm:pb-24">
+      {/* Animated Background Effects */}
       <div className="absolute inset-0 -z-10 h-full w-full">
-        <div className="absolute top-0 z-[-2] h-screen w-screen bg-[#000000] bg-[radial-gradient(#ffffff33_1px,#00091d_1px)] bg-[size:20px_20px] opacity-[0.2]"></div>
-        <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-emerald-700/20 blur-[100px]" />
-        <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] rounded-full bg-blue-700/20 blur-[100px]" />
+        {/* Grid Pattern */}
+        <div className="absolute top-0 z-[-2] h-screen w-screen bg-[radial-gradient(#ffffff15_1px,transparent_1px)] bg-[size:20px_20px] opacity-50"></div>
+
+        {/* Gradient Orbs */}
+        <div className="absolute top-[-10%] left-[-5%] w-[500px] h-[500px] rounded-full bg-emerald-500/20 blur-[120px] animate-float"></div>
+        <div className="absolute bottom-[-10%] right-[-5%] w-[400px] h-[400px] rounded-full bg-teal-500/20 blur-[100px] animate-float" style={{ animationDelay: '2s' }}></div>
+        <div className="absolute top-[40%] right-[20%] w-[300px] h-[300px] rounded-full bg-blue-500/10 blur-[80px] animate-float" style={{ animationDelay: '4s' }}></div>
       </div>
 
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="mx-auto max-w-4xl text-center pt-16">
-          <div className="mb-8 flex justify-center">
-            <div className="relative rounded-full px-3 py-1 text-sm leading-6 text-emerald-400 ring-1 ring-white/10 hover:ring-white/20">
-              Updated for PPSC 2025 Syllabus. <a href="#" className="font-semibold text-white"><span className="absolute inset-0" aria-hidden="true" />Read more <span aria-hidden="true">&rarr;</span></a>
+        <div className="mx-auto max-w-4xl text-center pt-16 sm:pt-20">
+          {/* Badge */}
+          <div className="mb-8 flex justify-center animate-slide-down-fade">
+            <div className="relative rounded-full px-4 py-1.5 text-sm leading-6 text-emerald-300 ring-1 ring-emerald-500/30 hover:ring-emerald-500/50 transition-all backdrop-blur-sm bg-emerald-500/10">
+              <span className="inline-flex items-center gap-2">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                </span>
+                200+ New MCQs Added This Week
+                <ArrowRight className="w-4 h-4 inline" />
+              </span>
             </div>
           </div>
 
-          <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl font-serif">
-            From Aspirant to Officer.<br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-400">Your Journey Starts Here.</span>
+          {/* Main Heading */}
+          <h1 className="text-5xl font-bold tracking-tight text-white sm:text-7xl font-serif animate-slide-up-fade delay-100">
+            Master PPSC Exams with
+            <br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-400 to-cyan-400 animate-gradient">
+              Pakistan's #1 Platform
+            </span>
           </h1>
 
-          <p className="mt-6 text-lg leading-8 text-slate-300 max-w-2xl mx-auto">
-            The modern way to prepare for PPSC exams. Smart tools, verified data, and a focused study environment.
+          {/* Subtitle */}
+          <p className="mt-6 text-lg sm:text-xl leading-8 text-slate-300 max-w-2xl mx-auto animate-slide-up-fade delay-200">
+            Smart tools, verified content, and a focused study environment designed for PPSC success.
           </p>
 
-          {/* Search Bar */}
-          <div className="mt-10 relative max-w-xl mx-auto">
+          {/* Stats Counter */}
+          <div className="mt-10 flex flex-wrap justify-center gap-6 sm:gap-8 text-sm text-slate-300 animate-slide-up-fade delay-300">
+            <div className="flex items-center gap-2">
+              <div className="w-8 h-8 rounded-full bg-emerald-500/20 flex items-center justify-center">
+                <CheckCircle2 className="w-5 h-5 text-emerald-400" />
+              </div>
+              <span><strong className="text-white font-semibold">12,547</strong> Students</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="w-8 h-8 rounded-full bg-teal-500/20 flex items-center justify-center">
+                <BookOpen className="w-5 h-5 text-teal-400" />
+              </div>
+              <span><strong className="text-white font-semibold">200+</strong> MCQs</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="w-8 h-8 rounded-full bg-blue-500/20 flex items-center justify-center">
+                <Calculator className="w-5 h-5 text-blue-400" />
+              </div>
+              <span><strong className="text-white font-semibold">2</strong> Mock Exams</span>
+            </div>
+          </div>
+
+          {/* Enhanced Search Bar */}
+          <div className="mt-12 relative max-w-2xl mx-auto animate-scale-in delay-400">
             <div className="relative group">
-              <div className="absolute -inset-1 bg-gradient-to-r from-emerald-600 to-blue-600 rounded-lg blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-200"></div>
-              <div className="relative flex items-center bg-white rounded-lg p-2 shadow-2xl">
-                <Search className="h-6 w-6 text-slate-400 ml-3" />
+              {/* Glow Effect */}
+              <div className="absolute -inset-1 bg-gradient-to-r from-emerald-600 via-teal-600 to-blue-600 rounded-2xl blur-lg opacity-30 group-hover:opacity-60 transition duration-500"></div>
+
+              {/* Search Input */}
+              <div className="relative flex items-center bg-white rounded-xl p-2 shadow-2xl">
+                <Search className="h-6 w-6 text-slate-400 ml-4 flex-shrink-0" />
                 <input
                   type="text"
-                  className="w-full p-4 text-slate-900 placeholder-slate-500 focus:outline-none rounded-lg"
+                  className="w-full px-4 py-4 text-slate-900 placeholder-slate-500 focus:outline-none rounded-lg text-base sm:text-lg"
                   placeholder="Search 'Tehsildar Past Papers' or 'Math Formulas'..."
                 />
-                <button className="bg-emerald-700 text-white px-6 py-3 rounded-md font-semibold hover:bg-emerald-800 transition-colors">
+                <button className="bg-gradient-to-r from-emerald-600 to-teal-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold hover:from-emerald-700 hover:to-teal-700 transition-all shadow-lg hover:shadow-xl flex-shrink-0">
                   Search
                 </button>
               </div>
@@ -60,11 +102,35 @@ const HeroSection = () => {
           </div>
 
           {/* Quick Tags */}
-          <div className="mt-8 flex flex-wrap justify-center gap-3 text-sm text-slate-400">
-            <span className="py-1">Trending Now:</span>
-            <button className="px-3 py-1 bg-white/5 rounded-full border border-white/10 hover:border-emerald-500 hover:text-white transition-all">GK 2024</button>
-            <button className="px-3 py-1 bg-white/5 rounded-full border border-white/10 hover:border-emerald-500 hover:text-white transition-all">Islamic Studies</button>
-            <button className="px-3 py-1 bg-white/5 rounded-full border border-white/10 hover:border-emerald-500 hover:text-white transition-all">Math Tricks</button>
+          <div className="mt-8 flex flex-wrap justify-center gap-3 text-sm animate-fade-in delay-500">
+            <span className="text-slate-400">Trending:</span>
+            <button className="px-4 py-1.5 bg-white/5 rounded-full border border-white/10 hover:border-emerald-500 hover:bg-emerald-500/10 hover:text-emerald-300 transition-all backdrop-blur-sm">
+              GK 2024
+            </button>
+            <button className="px-4 py-1.5 bg-white/5 rounded-full border border-white/10 hover:border-emerald-500 hover:bg-emerald-500/10 hover:text-emerald-300 transition-all backdrop-blur-sm">
+              Islamic Studies
+            </button>
+            <button className="px-4 py-1.5 bg-white/5 rounded-full border border-white/10 hover:border-emerald-500 hover:bg-emerald-500/10 hover:text-emerald-300 transition-all backdrop-blur-sm">
+              Math Tricks
+            </button>
+          </div>
+
+          {/* CTA Buttons */}
+          <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in delay-600">
+            <a
+              href="/practice"
+              className="group relative inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-emerald-600 to-teal-600 text-white font-semibold rounded-xl shadow-lg hover:shadow-emerald-500/50 transition-all hover:scale-105"
+            >
+              Start Practice
+              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            </a>
+            <a
+              href="/mcq-bank"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-white/10 backdrop-blur-sm text-white font-semibold rounded-xl border border-white/20 hover:bg-white/20 transition-all"
+            >
+              <BookOpen className="w-5 h-5" />
+              Browse MCQ Bank
+            </a>
           </div>
         </div>
       </div>
