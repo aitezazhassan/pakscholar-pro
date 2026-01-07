@@ -4,6 +4,7 @@ import { Toaster } from 'react-hot-toast';
 import AuthStatusBanner from '@/components/ui/AuthStatusBanner';
 import { PWAInstaller } from '@/components/pwa/PWAInstaller';
 import { InstallPrompt } from '@/components/pwa/InstallPrompt';
+import StructuredData from '@/components/seo/StructuredData';
 import './globals.css';
 
 const playfair = Playfair_Display({
@@ -137,6 +138,7 @@ export default function RootLayout({
       className={`${playfair.variable} ${inter.variable} ${jetbrainsMono.variable} ${notoNastaliq.variable}`}
     >
       <body className="font-sans antialiased">
+        <StructuredData />
         <PWAInstaller />
         <Toaster position="top-right" />
         <AuthStatusBanner />
