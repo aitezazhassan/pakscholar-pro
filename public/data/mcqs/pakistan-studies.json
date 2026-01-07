@@ -1,0 +1,106 @@
+{
+    "subject": "Pakistan Studies",
+    "totalQuestions": 40,
+    "questions": [
+        {
+            "id": "ps-001",
+            "subject": "Pakistan Studies",
+            "topic": "History",
+            "question": "Who is known as the founder of Pakistan?",
+            "options": {
+                "A": "Allama Iqbal",
+                "B": "Quaid-e-Azam Muhammad Ali Jinnah",
+                "C": "Liaquat Ali Khan",
+                "D": "Sir Syed Ahmad Khan"
+            },
+            "correctAnswer": "B",
+            "explanation": "Quaid-e-Azam Muhammad Ali Jinnah is known as the founder of Pakistan. He led the All-India Muslim League and the Pakistan Movement.",
+            "difficulty": "Easy",
+            "tags": [
+                "history",
+                "founder",
+                "jinnah"
+            ]
+        },
+        {
+            "id": "ps-002",
+            "subject": "Pakistan Studies",
+            "topic": "Geography",
+            "question": "What is the capital of Pakistan?",
+            "options": {
+                "A": "Karachi",
+                "B": "Lahore",
+                "C": "Islamabad",
+                "D": "Rawalpindi"
+            },
+            "correctAnswer": "C",
+            "explanation": "Islamabad is the capital of Pakistan. It was built in the 1960s to replace Karachi as the capital.",
+            "difficulty": "Easy",
+            "tags": [
+                "geography",
+                "capital",
+                "cities"
+            ]
+        },
+        {
+            "id": "ps-003",
+            "subject": "Pakistan Studies",
+            "topic": "Constitution",
+            "question": "When was the current Constitution of Pakistan adopted?",
+            "options": {
+                "A": "1956",
+                "B": "1962",
+                "C": "1973",
+                "D": "1985"
+            },
+            "correctAnswer": "C",
+            "explanation": "The current Constitution of Pakistan was adopted on April 14, 1973. It is the third constitution of Pakistan.",
+            "difficulty": "Medium",
+            "tags": [
+                "constitution",
+                "law",
+                "dates"
+            ]
+        },
+        {
+            "id": "ps-004",
+            "subject": "Pakistan Studies",
+            "topic": "Geography",
+            "question": "Which is the longest river in Pakistan?",
+            "options": {
+                "A": "Ravi",
+                "B": "Chenab",
+                "C": "Indus",
+                "D": "Jhelum"
+            },
+            "correctAnswer": "C",
+            "explanation": "The Indus River is the longest river in Pakistan, flowing approximately 3,180 km through the country.",
+            "difficulty": "Easy",
+            "tags": [
+                "geography",
+                "rivers",
+                "indus"
+            ]
+        },
+        {
+            "id": "ps-005",
+            "subject": "Pakistan Studies",
+            "topic": "History",
+            "question": "In which city was the Pakistan Resolution passed in 1940?",
+            "options": {
+                "A": "Karachi",
+                "B": "Lahore",
+                "C": "Dhaka",
+                "D": "Delhi"
+            },
+            "correctAnswer": "B",
+            "explanation": "The Pakistan Resolution (Lahore Resolution) was passed on March 23, 1940, in Lahore at the annual session of the All-India Muslim League.",
+            "difficulty": "Easy",
+            "tags": [
+                "history",
+                "resolution",
+                "lahore"
+            ]
+        }
+    ]
+}

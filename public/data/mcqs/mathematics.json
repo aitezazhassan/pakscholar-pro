@@ -1,0 +1,106 @@
+{
+    "subject": "Mathematics",
+    "totalQuestions": 30,
+    "questions": [
+        {
+            "id": "math-001",
+            "subject": "Mathematics",
+            "topic": "Arithmetic",
+            "question": "What is 15% of 200?",
+            "options": {
+                "A": "25",
+                "B": "30",
+                "C": "35",
+                "D": "40"
+            },
+            "correctAnswer": "B",
+            "explanation": "To find 15% of 200: (15/100) × 200 = 0.15 × 200 = 30",
+            "difficulty": "Easy",
+            "tags": [
+                "percentage",
+                "arithmetic",
+                "calculation"
+            ]
+        },
+        {
+            "id": "math-002",
+            "subject": "Mathematics",
+            "topic": "Algebra",
+            "question": "If x + 5 = 12, what is the value of x?",
+            "options": {
+                "A": "5",
+                "B": "6",
+                "C": "7",
+                "D": "8"
+            },
+            "correctAnswer": "C",
+            "explanation": "Solving for x: x + 5 = 12, therefore x = 12 - 5 = 7",
+            "difficulty": "Easy",
+            "tags": [
+                "algebra",
+                "equations",
+                "solving"
+            ]
+        },
+        {
+            "id": "math-003",
+            "subject": "Mathematics",
+            "topic": "Geometry",
+            "question": "What is the sum of angles in a triangle?",
+            "options": {
+                "A": "90 degrees",
+                "B": "180 degrees",
+                "C": "270 degrees",
+                "D": "360 degrees"
+            },
+            "correctAnswer": "B",
+            "explanation": "The sum of all interior angles in any triangle is always 180 degrees. This is a fundamental property of triangles.",
+            "difficulty": "Easy",
+            "tags": [
+                "geometry",
+                "triangles",
+                "angles"
+            ]
+        },
+        {
+            "id": "math-004",
+            "subject": "Mathematics",
+            "topic": "Ratios",
+            "question": "If the ratio of boys to girls in a class is 3:2 and there are 15 boys, how many girls are there?",
+            "options": {
+                "A": "8",
+                "B": "10",
+                "C": "12",
+                "D": "15"
+            },
+            "correctAnswer": "B",
+            "explanation": "If boys:girls = 3:2 and boys = 15, then 3 parts = 15, so 1 part = 5. Girls = 2 parts = 2 × 5 = 10",
+            "difficulty": "Medium",
+            "tags": [
+                "ratios",
+                "proportions",
+                "word-problems"
+            ]
+        },
+        {
+            "id": "math-005",
+            "subject": "Mathematics",
+            "topic": "Arithmetic",
+            "question": "What is the average of 10, 20, 30, 40, and 50?",
+            "options": {
+                "A": "25",
+                "B": "30",
+                "C": "35",
+                "D": "40"
+            },
+            "correctAnswer": "B",
+            "explanation": "Average = Sum of all numbers / Count of numbers = (10+20+30+40+50) / 5 = 150 / 5 = 30",
+            "difficulty": "Easy",
+            "tags": [
+                "average",
+                "arithmetic",
+                "mean"
+            ]
+        }
+    ]
+}

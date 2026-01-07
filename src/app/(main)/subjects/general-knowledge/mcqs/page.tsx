@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import { BreadcrumbNav } from '@/components/ui/BreadcrumbNav';
+import { MCQPractice } from '@/components/quiz/MCQPractice';
 
 export const metadata: Metadata = {
     title: 'General Knowledge MCQs - PPSC Practice Questions',
@@ -19,14 +20,10 @@ export default function GeneralKnowledgeMCQs() {
 
                 <div className="text-center mb-12">
                     <h1 className="text-4xl font-bold text-slate-900 mb-4">General Knowledge MCQs</h1>
-                    <p className="text-lg text-slate-600">Practice 50+ questions to test your knowledge</p>
+                    <p className="text-lg text-slate-600">Practice questions to test your knowledge</p>
                 </div>
 
-                {/* Placeholder - Will be replaced with actual MCQ component */}
-                <div className="bg-white rounded-2xl p-8 border border-slate-200 text-center">
-                    <p className="text-slate-600 mb-4">MCQ practice interface coming soon</p>
-                    <p className="text-sm text-slate-500">This page will feature interactive MCQ questions with instant feedback</p>
-                </div>
+                <MCQPractice subject="general-knowledge" />
             </div>
         </div>
     );
