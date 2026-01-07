@@ -1,0 +1,106 @@
+{
+    "subject": "Islamic Studies",
+    "totalQuestions": 40,
+    "questions": [
+        {
+            "id": "is-001",
+            "subject": "Islamic Studies",
+            "topic": "Quran",
+            "question": "How many Surahs are there in the Holy Quran?",
+            "options": {
+                "A": "110",
+                "B": "114",
+                "C": "120",
+                "D": "124"
+            },
+            "correctAnswer": "B",
+            "explanation": "The Holy Quran contains 114 Surahs (chapters). The longest is Surah Al-Baqarah with 286 verses, and the shortest is Surah Al-Kawthar with 3 verses.",
+            "difficulty": "Easy",
+            "tags": [
+                "quran",
+                "surahs",
+                "basics"
+            ]
+        },
+        {
+            "id": "is-002",
+            "subject": "Islamic Studies",
+            "topic": "Hadith",
+            "question": "Who is known as the most authentic collector of Hadith?",
+            "options": {
+                "A": "Imam Muslim",
+                "B": "Imam Bukhari",
+                "C": "Imam Abu Dawood",
+                "D": "Imam Tirmidhi"
+            },
+            "correctAnswer": "B",
+            "explanation": "Imam Bukhari is known for compiling Sahih al-Bukhari, considered the most authentic collection of Hadith. He spent 16 years collecting and verifying hadiths.",
+            "difficulty": "Easy",
+            "tags": [
+                "hadith",
+                "scholars",
+                "sahih-bukhari"
+            ]
+        },
+        {
+            "id": "is-003",
+            "subject": "Islamic Studies",
+            "topic": "Seerah",
+            "question": "In which year did the Prophet Muhammad (PBUH) migrate to Madinah?",
+            "options": {
+                "A": "620 CE",
+                "B": "622 CE",
+                "C": "624 CE",
+                "D": "626 CE"
+            },
+            "correctAnswer": "B",
+            "explanation": "The Prophet Muhammad (PBUH) migrated from Makkah to Madinah in 622 CE. This event, known as Hijrah, marks the beginning of the Islamic calendar.",
+            "difficulty": "Easy",
+            "tags": [
+                "seerah",
+                "hijrah",
+                "dates"
+            ]
+        },
+        {
+            "id": "is-004",
+            "subject": "Islamic Studies",
+            "topic": "Pillars of Islam",
+            "question": "How many pillars of Islam are there?",
+            "options": {
+                "A": "4",
+                "B": "5",
+                "C": "6",
+                "D": "7"
+            },
+            "correctAnswer": "B",
+            "explanation": "There are 5 pillars of Islam: Shahada (faith), Salah (prayer), Zakat (charity), Sawm (fasting), and Hajj (pilgrimage).",
+            "difficulty": "Easy",
+            "tags": [
+                "pillars",
+                "basics",
+                "fundamentals"
+            ]
+        },
+        {
+            "id": "is-005",
+            "subject": "Islamic Studies",
+            "topic": "Islamic History",
+            "question": "Who was the first Caliph of Islam?",
+            "options": {
+                "A": "Hazrat Umar (RA)",
+                "B": "Hazrat Usman (RA)",
+                "C": "Hazrat Ali (RA)",
+                "D": "Hazrat Abu Bakr (RA)"
+            },
+            "correctAnswer": "D",
+            "explanation": "Hazrat Abu Bakr (RA) was the first Caliph of Islam, serving from 632-634 CE. He was also the closest companion of Prophet Muhammad (PBUH).",
+            "difficulty": "Easy",
+            "tags": [
+                "caliphs",
+                "history",
+                "companions"
+            ]
+        }
+    ]
+}
