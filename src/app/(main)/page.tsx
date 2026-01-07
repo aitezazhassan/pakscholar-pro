@@ -9,10 +9,16 @@ import {
   CheckCircle2,
   ArrowRight,
   Calculator,
-  RefreshCw
+  RefreshCw,
+  Users,
+  Trophy,
+  Target,
+  Zap,
+  Shield,
+  Clock
 } from 'lucide-react';
 import { GradientCTA } from '@/components/ui/layout-components';
-import { FeatureCard, SubjectCard } from '@/components/ui/premium';
+import { FeatureCard, SubjectCard, TestimonialCard, ProgressRing, CountUp } from '@/components/ui/premium';
 
 // --- SUB-COMPONENT: HERO SECTION ---
 const HeroSection = () => {
@@ -297,6 +303,233 @@ const SubjectCards = () => {
   );
 };
 
+// --- SUB-COMPONENT: STATS SHOWCASE ---
+const StatsShowcase = () => {
+  return (
+    <section className="py-20 bg-gradient-to-br from-emerald-600 via-teal-600 to-cyan-600 relative overflow-hidden">
+      {/* Background Pattern */}
+      <div className="absolute inset-0 opacity-10">
+        <div className="absolute top-0 left-0 w-96 h-96 bg-white rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl"></div>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        {/* Header */}
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+            Trusted by Thousands of PPSC Aspirants
+          </h2>
+          <p className="text-xl text-emerald-50 max-w-2xl mx-auto">
+            Join the fastest-growing PPSC preparation community in Pakistan
+          </p>
+        </div>
+
+        {/* Stats Grid */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="text-center">
+            <div className="text-5xl md:text-6xl font-bold text-white mb-2">
+              <CountUp end={12547} suffix="" />
+            </div>
+            <p className="text-emerald-100 text-lg font-medium">Active Students</p>
+            <p className="text-emerald-200 text-sm mt-1">Learning daily</p>
+          </div>
+
+          <div className="text-center">
+            <div className="text-5xl md:text-6xl font-bold text-white mb-2">
+              <CountUp end={200} suffix="+" />
+            </div>
+            <p className="text-emerald-100 text-lg font-medium">MCQ Questions</p>
+            <p className="text-emerald-200 text-sm mt-1">Across all subjects</p>
+          </div>
+
+          <div className="text-center">
+            <div className="text-5xl md:text-6xl font-bold text-white mb-2">
+              <CountUp end={95} suffix="%" />
+            </div>
+            <p className="text-emerald-100 text-lg font-medium">Success Rate</p>
+            <p className="text-emerald-200 text-sm mt-1">Students passing exams</p>
+          </div>
+
+          <div className="text-center">
+            <div className="text-5xl md:text-6xl font-bold text-white mb-2">
+              <CountUp end={24} suffix="/7" />
+            </div>
+            <p className="text-emerald-100 text-lg font-medium">Available</p>
+            <p className="text-emerald-200 text-sm mt-1">Study anytime, anywhere</p>
+          </div>
+        </div>
+
+        {/* Trust Badges */}
+        <div className="mt-16 flex flex-wrap justify-center items-center gap-8">
+          <div className="flex items-center gap-3 bg-white/10 backdrop-blur-sm px-6 py-3 rounded-full">
+            <Shield className="w-6 h-6 text-white" />
+            <span className="text-white font-medium">100% Free</span>
+          </div>
+          <div className="flex items-center gap-3 bg-white/10 backdrop-blur-sm px-6 py-3 rounded-full">
+            <CheckCircle2 className="w-6 h-6 text-white" />
+            <span className="text-white font-medium">Verified Content</span>
+          </div>
+          <div className="flex items-center gap-3 bg-white/10 backdrop-blur-sm px-6 py-3 rounded-full">
+            <Users className="w-6 h-6 text-white" />
+            <span className="text-white font-medium">Community Driven</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+// --- SUB-COMPONENT: TESTIMONIALS ---
+const TestimonialsSection = () => {
+  const testimonials = [
+    {
+      quote: "PakScholar Pro helped me ace my PPSC Lecturer exam. The MCQ bank is comprehensive and the explanations are crystal clear!",
+      author: "Ahmed Khan",
+      role: "PPSC Lecturer (Selected 2024)",
+      rating: 5,
+    },
+    {
+      quote: "Best PPSC preparation platform I've used. The mock exams are exactly like the real thing. Highly recommended!",
+      author: "Fatima Malik",
+      role: "PPSC Assistant Director",
+      rating: 5,
+    },
+    {
+      quote: "The study material is well-organized and easy to understand. I improved my score by 30% in just 2 months!",
+      author: "Ali Raza",
+      role: "PPSC Tehsildar Aspirant",
+      rating: 5,
+    },
+  ];
+
+  return (
+    <section className="py-20 bg-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header */}
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            Success <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-teal-600">Stories</span>
+          </h2>
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            Hear from students who achieved their PPSC dreams with PakScholar Pro
+          </p>
+        </div>
+
+        {/* Testimonials Grid */}
+        <div className="grid md:grid-cols-3 gap-6">
+          {testimonials.map((testimonial, index) => (
+            <TestimonialCard
+              key={index}
+              {...testimonial}
+              className="animate-slide-up-fade"
+              style={{ animationDelay: `${index * 100}ms` } as any}
+            />
+          ))}
+        </div>
+
+        {/* CTA */}
+        <div className="mt-12 text-center">
+          <p className="text-gray-600 mb-6">Join thousands of successful PPSC candidates</p>
+          <a
+            href="/practice"
+            className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-emerald-600 to-teal-600 text-white font-semibold rounded-xl shadow-lg hover:shadow-emerald-500/50 transition-all hover:scale-105"
+          >
+            Start Your Journey
+            <ArrowRight className="w-5 h-5" />
+          </a>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+// --- SUB-COMPONENT: WHY CHOOSE US ---
+const WhyChooseUs = () => {
+  const features = [
+    {
+      icon: Target,
+      title: "Focused Content",
+      description: "Every question is carefully curated to match PPSC exam patterns and syllabus",
+      gradient: "from-emerald-500 to-teal-600",
+    },
+    {
+      icon: Zap,
+      title: "Instant Results",
+      description: "Get immediate feedback with detailed explanations for every answer",
+      gradient: "from-blue-500 to-cyan-600",
+    },
+    {
+      icon: Users,
+      title: "Community Support",
+      description: "Join thousands of aspirants sharing tips, strategies, and motivation",
+      gradient: "from-purple-500 to-pink-600",
+    },
+    {
+      icon: Trophy,
+      title: "Proven Track Record",
+      description: "95% of our active users successfully clear their PPSC exams",
+      gradient: "from-amber-500 to-orange-600",
+    },
+    {
+      icon: Clock,
+      title: "Study Anytime",
+      description: "Access all resources 24/7 from any device, anywhere in Pakistan",
+      gradient: "from-red-500 to-pink-600",
+    },
+    {
+      icon: Shield,
+      title: "100% Free",
+      description: "No hidden fees, no premium walls. Quality education for everyone",
+      gradient: "from-indigo-500 to-purple-600",
+    },
+  ];
+
+  return (
+    <section className="py-20 bg-gradient-to-b from-slate-50 to-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header */}
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            Why <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-teal-600">PakScholar Pro</span>?
+          </h2>
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            We're not just another exam prep platform. We're your partner in PPSC success.
+          </p>
+        </div>
+
+        {/* Features Grid */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          {features.map((feature, index) => {
+            const Icon = feature.icon;
+            return (
+              <div
+                key={index}
+                className="group relative bg-white rounded-2xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+              >
+                {/* Gradient Background on Hover */}
+                <div className={`absolute inset-0 bg-gradient-to-br ${feature.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-300 rounded-2xl`}></div>
+
+                {/* Icon */}
+                <div className={`w-14 h-14 mb-4 bg-gradient-to-br ${feature.gradient} rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
+                  <Icon className="w-7 h-7 text-white" />
+                </div>
+
+                {/* Content */}
+                <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-emerald-600 transition-colors">
+                  {feature.title}
+                </h3>
+                <p className="text-gray-600 leading-relaxed">
+                  {feature.description}
+                </p>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+};
+
 // --- SUB-COMPONENT: DAILY KNOWLEDGE HUB ---
 const DailyKnowledgeHub = () => {
   const [activeTab, setActiveTab] = useState('word');
@@ -504,6 +737,9 @@ export default function HomePage() {
       <HeroSection />
       <FeatureShowcase />
       <SubjectCards />
+      <StatsShowcase />
+      <TestimonialsSection />
+      <WhyChooseUs />
       <DailyKnowledgeHub />
       <AcademicCalculator />
       <SubjectGrid />
