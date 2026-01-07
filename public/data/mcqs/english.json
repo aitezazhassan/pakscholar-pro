@@ -1,0 +1,106 @@
+{
+    "subject": "English",
+    "totalQuestions": 35,
+    "questions": [
+        {
+            "id": "eng-001",
+            "subject": "English",
+            "topic": "Grammar",
+            "question": "Which of the following is a noun?",
+            "options": {
+                "A": "Quickly",
+                "B": "Beautiful",
+                "C": "Happiness",
+                "D": "Run"
+            },
+            "correctAnswer": "C",
+            "explanation": "Happiness is a noun (a thing/concept). Quickly is an adverb, Beautiful is an adjective, and Run is a verb.",
+            "difficulty": "Easy",
+            "tags": [
+                "grammar",
+                "parts-of-speech",
+                "nouns"
+            ]
+        },
+        {
+            "id": "eng-002",
+            "subject": "English",
+            "topic": "Vocabulary",
+            "question": "What is the antonym of 'ancient'?",
+            "options": {
+                "A": "Old",
+                "B": "Modern",
+                "C": "Historic",
+                "D": "Traditional"
+            },
+            "correctAnswer": "B",
+            "explanation": "Modern is the antonym (opposite) of ancient. Ancient means very old, while modern means new or contemporary.",
+            "difficulty": "Easy",
+            "tags": [
+                "vocabulary",
+                "antonyms",
+                "words"
+            ]
+        },
+        {
+            "id": "eng-003",
+            "subject": "English",
+            "topic": "Idioms",
+            "question": "What does the idiom 'break the ice' mean?",
+            "options": {
+                "A": "To destroy something",
+                "B": "To start a conversation",
+                "C": "To be very cold",
+                "D": "To solve a problem"
+            },
+            "correctAnswer": "B",
+            "explanation": "'Break the ice' means to initiate conversation in a social setting or to make people feel more comfortable.",
+            "difficulty": "Medium",
+            "tags": [
+                "idioms",
+                "phrases",
+                "meanings"
+            ]
+        },
+        {
+            "id": "eng-004",
+            "subject": "English",
+            "topic": "Grammar",
+            "question": "Choose the correct sentence:",
+            "options": {
+                "A": "He don't like pizza",
+                "B": "He doesn't likes pizza",
+                "C": "He doesn't like pizza",
+                "D": "He don't likes pizza"
+            },
+            "correctAnswer": "C",
+            "explanation": "The correct form is 'He doesn't like pizza'. Use 'doesn't' (does not) with third person singular (he/she/it), and the base form of the verb.",
+            "difficulty": "Easy",
+            "tags": [
+                "grammar",
+                "verb-agreement",
+                "tenses"
+            ]
+        },
+        {
+            "id": "eng-005",
+            "subject": "English",
+            "topic": "Vocabulary",
+            "question": "What is the synonym of 'happy'?",
+            "options": {
+                "A": "Sad",
+                "B": "Joyful",
+                "C": "Angry",
+                "D": "Tired"
+            },
+            "correctAnswer": "B",
+            "explanation": "Joyful is a synonym (similar meaning) of happy. Both words express a state of pleasure or contentment.",
+            "difficulty": "Easy",
+            "tags": [
+                "vocabulary",
+                "synonyms",
+                "words"
+            ]
+        }
+    ]
+}

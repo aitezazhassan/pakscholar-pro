@@ -1,0 +1,106 @@
+{
+    "subject": "Computer Science",
+    "totalQuestions": 30,
+    "questions": [
+        {
+            "id": "cs-001",
+            "subject": "Computer Science",
+            "topic": "Fundamentals",
+            "question": "What does CPU stand for?",
+            "options": {
+                "A": "Central Processing Unit",
+                "B": "Computer Personal Unit",
+                "C": "Central Program Utility",
+                "D": "Computer Processing Utility"
+            },
+            "correctAnswer": "A",
+            "explanation": "CPU stands for Central Processing Unit. It is the primary component of a computer that performs most of the processing.",
+            "difficulty": "Easy",
+            "tags": [
+                "fundamentals",
+                "hardware",
+                "acronyms"
+            ]
+        },
+        {
+            "id": "cs-002",
+            "subject": "Computer Science",
+            "topic": "MS Office",
+            "question": "Which shortcut key is used to save a document in MS Word?",
+            "options": {
+                "A": "Ctrl + P",
+                "B": "Ctrl + S",
+                "C": "Ctrl + O",
+                "D": "Ctrl + N"
+            },
+            "correctAnswer": "B",
+            "explanation": "Ctrl + S is the shortcut to save a document in MS Word and most other applications. Ctrl + P is Print, Ctrl + O is Open, and Ctrl + N is New.",
+            "difficulty": "Easy",
+            "tags": [
+                "ms-office",
+                "shortcuts",
+                "word"
+            ]
+        },
+        {
+            "id": "cs-003",
+            "subject": "Computer Science",
+            "topic": "Internet",
+            "question": "What does WWW stand for?",
+            "options": {
+                "A": "World Wide Web",
+                "B": "World Web Wide",
+                "C": "Wide World Web",
+                "D": "Web World Wide"
+            },
+            "correctAnswer": "A",
+            "explanation": "WWW stands for World Wide Web, the system of interlinked hypertext documents accessed via the Internet.",
+            "difficulty": "Easy",
+            "tags": [
+                "internet",
+                "acronyms",
+                "basics"
+            ]
+        },
+        {
+            "id": "cs-004",
+            "subject": "Computer Science",
+            "topic": "Programming",
+            "question": "Which of the following is a programming language?",
+            "options": {
+                "A": "HTML",
+                "B": "Python",
+                "C": "CSS",
+                "D": "HTTP"
+            },
+            "correctAnswer": "B",
+            "explanation": "Python is a programming language. HTML and CSS are markup/styling languages, and HTTP is a protocol.",
+            "difficulty": "Easy",
+            "tags": [
+                "programming",
+                "languages",
+                "basics"
+            ]
+        },
+        {
+            "id": "cs-005",
+            "subject": "Computer Science",
+            "topic": "Fundamentals",
+            "question": "What is the brain of the computer?",
+            "options": {
+                "A": "RAM",
+                "B": "Hard Disk",
+                "C": "CPU",
+                "D": "Monitor"
+            },
+            "correctAnswer": "C",
+            "explanation": "The CPU (Central Processing Unit) is often called the brain of the computer because it performs all the processing and calculations.",
+            "difficulty": "Easy",
+            "tags": [
+                "fundamentals",
+                "hardware",
+                "cpu"
+            ]
+        }
+    ]
+}
