@@ -1,0 +1,166 @@
+{
+  "subject": "General Knowledge",
+  "totalQuestions": 50,
+  "questions": [
+    {
+      "id": "gk-001",
+      "subject": "General Knowledge",
+      "topic": "World Geography",
+      "question": "What is the capital of Australia?",
+      "options": {
+        "A": "Sydney",
+        "B": "Melbourne",
+        "C": "Canberra",
+        "D": "Brisbane"
+      },
+      "correctAnswer": "C",
+      "explanation": "Canberra is the capital of Australia. While Sydney is the largest city, Canberra was chosen as the capital in 1908 as a compromise between Sydney and Melbourne.",
+      "difficulty": "Easy",
+      "tags": ["geography", "capitals", "australia"]
+    },
+    {
+      "id": "gk-002",
+      "subject": "General Knowledge",
+      "topic": "World Geography",
+      "question": "Which is the longest river in the world?",
+      "options": {
+        "A": "Amazon River",
+        "B": "Nile River",
+        "C": "Yangtze River",
+        "D": "Mississippi River"
+      },
+      "correctAnswer": "B",
+      "explanation": "The Nile River is the longest river in the world at approximately 6,650 km (4,130 miles), flowing through northeastern Africa.",
+      "difficulty": "Easy",
+      "tags": ["geography", "rivers", "africa"]
+    },
+    {
+      "id": "gk-003",
+      "subject": "General Knowledge",
+      "topic": "Famous Personalities",
+      "question": "Who invented the telephone?",
+      "options": {
+        "A": "Thomas Edison",
+        "B": "Alexander Graham Bell",
+        "C": "Nikola Tesla",
+        "D": "Guglielmo Marconi"
+      },
+      "correctAnswer": "B",
+      "explanation": "Alexander Graham Bell invented the telephone in 1876. He was awarded the first U.S. patent for the invention of the telephone.",
+      "difficulty": "Easy",
+      "tags": ["inventions", "scientists", "technology"]
+    },
+    {
+      "id": "gk-004",
+      "subject": "General Knowledge",
+      "topic": "Important Dates",
+      "question": "When did World War II end?",
+      "options": {
+        "A": "1943",
+        "B": "1944",
+        "C": "1945",
+        "D": "1946"
+      },
+      "correctAnswer": "C",
+      "explanation": "World War II ended in 1945. Germany surrendered on May 8, 1945 (V-E Day), and Japan surrendered on September 2, 1945 (V-J Day).",
+      "difficulty": "Easy",
+      "tags": ["history", "world-war", "dates"]
+    },
+    {
+      "id": "gk-005",
+      "subject": "General Knowledge",
+      "topic": "International Organizations",
+      "question": "Where is the headquarters of the United Nations located?",
+      "options": {
+        "A": "Geneva, Switzerland",
+        "B": "New York, USA",
+        "C": "Paris, France",
+        "D": "Brussels, Belgium"
+      },
+      "correctAnswer": "B",
+      "explanation": "The United Nations headquarters is located in New York City, USA. It was established there in 1952.",
+      "difficulty": "Easy",
+      "tags": ["organizations", "UN", "geography"]
+    },
+    {
+      "id": "gk-006",
+      "subject": "General Knowledge",
+      "topic": "World Geography",
+      "question": "Which country has the largest population in the world?",
+      "options": {
+        "A": "India",
+        "B": "China",
+        "C": "United States",
+        "D": "Indonesia"
+      },
+      "correctAnswer": "A",
+      "explanation": "As of 2023, India has surpassed China to become the world's most populous country with over 1.4 billion people.",
+      "difficulty": "Easy",
+      "tags": ["geography", "population", "countries"]
+    },
+    {
+      "id": "gk-007",
+      "subject": "General Knowledge",
+      "topic": "Famous Personalities",
+      "question": "Who wrote the famous play 'Romeo and Juliet'?",
+      "options": {
+        "A": "Charles Dickens",
+        "B": "William Shakespeare",
+        "C": "Mark Twain",
+        "D": "Oscar Wilde"
+      },
+      "correctAnswer": "B",
+      "explanation": "William Shakespeare wrote Romeo and Juliet around 1594-1596. It is one of his most famous tragedies.",
+      "difficulty": "Easy",
+      "tags": ["literature", "shakespeare", "plays"]
+    },
+    {
+      "id": "gk-008",
+      "subject": "General Knowledge",
+      "topic": "Inventions",
+      "question": "Who is known as the father of computers?",
+      "options": {
+        "A": "Bill Gates",
+        "B": "Steve Jobs",
+        "C": "Charles Babbage",
+        "D": "Alan Turing"
+      },
+      "correctAnswer": "C",
+      "explanation": "Charles Babbage is known as the father of computers. He designed the Analytical Engine in the 1830s, which had the basic elements of a modern computer.",
+      "difficulty": "Medium",
+      "tags": ["technology", "computers", "inventors"]
+    },
+    {
+      "id": "gk-009",
+      "subject": "General Knowledge",
+      "topic": "World Geography",
+      "question": "What is the smallest country in the world by area?",
+      "options": {
+        "A": "Monaco",
+        "B": "Vatican City",
+        "C": "San Marino",
+        "D": "Liechtenstein"
+      },
+      "correctAnswer": "B",
+      "explanation": "Vatican City is the smallest country in the world with an area of approximately 0.44 square kilometers (0.17 square miles).",
+      "difficulty": "Medium",
+      "tags": ["geography", "countries", "records"]
+    },
+    {
+      "id": "gk-010",
+      "subject": "General Knowledge",
+      "topic": "Important Dates",
+      "question": "In which year did Pakistan gain independence?",
+      "options": {
+        "A": "1945",
+        "B": "1946",
+        "C": "1947",
+        "D": "1948"
+      },
+      "correctAnswer": "C",
+      "explanation": "Pakistan gained independence on August 14, 1947, when British India was partitioned into two independent dominions: India and Pakistan.",
+      "difficulty": "Easy",
+      "tags": ["pakistan", "independence", "history"]
+    }
+  ]
+}
