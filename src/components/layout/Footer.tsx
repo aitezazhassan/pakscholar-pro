@@ -1,120 +1,110 @@
 import Link from 'next/link';
-import { BookOpen, Mail, MapPin, Phone, Facebook, Twitter, Linkedin, Github } from 'lucide-react';
+import { BookOpen, Facebook, Twitter, Linkedin, Github, Crown, Cpu, Target, Newspaper, ShieldCheck } from 'lucide-react';
 
 export default function Footer() {
     return (
-        <footer className="bg-slate-950 text-slate-400 py-24 border-t border-slate-900">
+        <footer className="bg-zinc-950 text-zinc-400 py-16 sm:py-20 border-t border-white/10">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Main Grid */}
-                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-20">
+                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10 mb-16">
                     {/* Brand Section */}
-                    <div className="lg:col-span-1 space-y-8">
+                    <div className="lg:col-span-1 space-y-6">
                         <Link href="/" className="flex items-center space-x-3 group w-fit" aria-label="PakScholar Pro Home">
-                            <div className="w-10 h-10 bg-gradient-to-br from-emerald-600 to-emerald-800 rounded-xl flex items-center justify-center shadow-lg group-hover:scale-105 transition-transform duration-300">
-                                <BookOpen className="w-6 h-6 text-white" aria-hidden="true" />
+                            <div className="w-10 h-10 bg-gradient-to-br from-emerald-500 to-emerald-700 rounded-xl flex items-center justify-center shadow-lg shadow-emerald-500/20 group-hover:scale-105 transition-transform duration-300 border border-emerald-400/30">
+                                <BookOpen className="w-5 h-5 text-black" aria-hidden="true" />
                             </div>
-                            <span className="text-xl font-bold text-white tracking-tight group-hover:text-emerald-400 transition-colors">PakScholar Pro</span>
+                            <span className="text-xl font-extrabold text-white tracking-tight">
+                                PakScholar<span className="text-emerald-400">Pro</span>
+                            </span>
                         </Link>
-                        <p className="text-sm leading-relaxed text-slate-400 font-medium max-w-xs">
-                            Empowering Pakistani students with free, high-quality resources for competitive exams. Built with ❤️ for the nation.
+                        <p className="text-xs leading-relaxed text-zinc-400 font-normal max-w-xs">
+                            Pakistan's premier Cyber-Official examination platform. Zero latency simulations, official -0.25 negative marking, and high-yield intelligence.
                         </p>
-                        <div className="flex gap-3">
-                            <a
-                                href="https://facebook.com/pakscholarpro"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                aria-label="Follow us on Facebook"
-                                className="w-10 h-10 bg-slate-900 border border-slate-800 hover:bg-emerald-600 hover:border-emerald-500 hover:text-white rounded-xl flex items-center justify-center transition-all duration-300 group"
-                            >
-                                <Facebook className="w-5 h-5 group-hover:scale-110 transition-transform" aria-hidden="true" />
-                            </a>
-                            <a
-                                href="https://twitter.com/pakscholarpro"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                aria-label="Follow us on Twitter"
-                                className="w-10 h-10 bg-slate-900 border border-slate-800 hover:bg-emerald-600 hover:border-emerald-500 hover:text-white rounded-xl flex items-center justify-center transition-all duration-300 group"
-                            >
-                                <Twitter className="w-5 h-5 group-hover:scale-110 transition-transform" aria-hidden="true" />
-                            </a>
-                            <a
-                                href="https://linkedin.com/company/pakscholarpro"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                aria-label="Follow us on LinkedIn"
-                                className="w-10 h-10 bg-slate-900 border border-slate-800 hover:bg-emerald-600 hover:border-emerald-500 hover:text-white rounded-xl flex items-center justify-center transition-all duration-300 group"
-                            >
-                                <Linkedin className="w-5 h-5 group-hover:scale-110 transition-transform" aria-hidden="true" />
-                            </a>
+                        <div className="flex gap-2">
                             <a
                                 href="https://github.com/aitezazhassan/pakscholar-pro"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 aria-label="View source code on GitHub"
-                                className="w-10 h-10 bg-slate-900 border border-slate-800 hover:bg-emerald-600 hover:border-emerald-500 hover:text-white rounded-xl flex items-center justify-center transition-all duration-300 group"
+                                className="w-9 h-9 bg-zinc-900 border border-white/10 hover:bg-emerald-500 hover:border-emerald-400 hover:text-black text-zinc-300 rounded-xl flex items-center justify-center transition-all duration-300"
                             >
-                                <Github className="w-5 h-5 group-hover:scale-110 transition-transform" aria-hidden="true" />
+                                <Github className="w-4 h-4" />
                             </a>
                         </div>
                     </div>
 
-                    {/* Subjects */}
+                    {/* Examination Tools */}
                     <div>
-                        <h4 className="text-white font-bold mb-6 text-sm uppercase tracking-widest pl-1 border-l-2 border-emerald-500">Subjects</h4>
-                        <ul className="space-y-4 text-sm font-medium">
-                            <li><Link href="/pakistan-studies" className="hover:text-emerald-400 hover:translate-x-1 transition-all flex items-center gap-2">Pakistan Studies</Link></li>
-                            <li><Link href="/islamic-studies" className="hover:text-emerald-400 hover:translate-x-1 transition-all flex items-center gap-2">Islamic Studies</Link></li>
-                            <li><Link href="/mathematics" className="hover:text-emerald-400 hover:translate-x-1 transition-all flex items-center gap-2">Mathematics</Link></li>
-                            <li><Link href="/english" className="hover:text-emerald-400 hover:translate-x-1 transition-all flex items-center gap-2">English</Link></li>
-                            <li><Link href="/science" className="hover:text-emerald-400 hover:translate-x-1 transition-all flex items-center gap-2">General Science</Link></li>
-                            <li><Link href="/current-affairs" className="hover:text-emerald-400 hover:translate-x-1 transition-all flex items-center gap-2">Current Affairs</Link></li>
+                        <h4 className="text-white font-bold mb-4 text-xs font-mono uppercase tracking-widest pl-2 border-l-2 border-emerald-400">
+                            Exam Simulators
+                        </h4>
+                        <ul className="space-y-3 text-xs font-mono">
+                            <li>
+                                <Link href="/practice/mock-exams" className="hover:text-emerald-400 transition-colors flex items-center gap-1.5">
+                                    <Target className="w-3.5 h-3.5 text-emerald-400" />
+                                    <span>PPSC Mock Simulator (-0.25)</span>
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href="/subjects/mathematics" className="hover:text-emerald-400 transition-colors flex items-center gap-1.5">
+                                    <Cpu className="w-3.5 h-3.5 text-amber-400" />
+                                    <span>The Math Lab Solver</span>
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href="/current-affairs" className="hover:text-emerald-400 transition-colors flex items-center gap-1.5">
+                                    <Newspaper className="w-3.5 h-3.5 text-cyan-400" />
+                                    <span>Current Affairs Live Stream</span>
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href="/past-papers" className="hover:text-emerald-400 transition-colors flex items-center gap-1.5">
+                                    <ShieldCheck className="w-3.5 h-3.5 text-purple-400" />
+                                    <span>2020–2025 Past Paper Keys</span>
+                                </Link>
+                            </li>
                         </ul>
                     </div>
 
-                    {/* More Links */}
+                    {/* Elite Pass Membership */}
                     <div>
-                        <h4 className="text-white font-bold mb-6 text-sm uppercase tracking-widest pl-1 border-l-2 border-emerald-500">Resources</h4>
-                        <ul className="space-y-4 text-sm font-medium">
-                            <li><Link href="/exams/ppsc" className="hover:text-emerald-400 hover:translate-x-1 transition-all flex items-center gap-2">PPSC Guide</Link></li>
-                            <li><Link href="/study-material" className="hover:text-emerald-400 hover:translate-x-1 transition-all flex items-center gap-2">Study Material</Link></li>
-                            <li><Link href="/practice" className="hover:text-emerald-400 hover:translate-x-1 transition-all flex items-center gap-2">Mock Exams</Link></li>
-                            <li><Link href="/past-papers" className="hover:text-emerald-400 hover:translate-x-1 transition-all flex items-center gap-2">Past Papers</Link></li>
+                        <h4 className="text-white font-bold mb-4 text-xs font-mono uppercase tracking-widest pl-2 border-l-2 border-amber-400">
+                            Pro Membership
+                        </h4>
+                        <ul className="space-y-3 text-xs font-mono">
+                            <li>
+                                <Link href="/pro-pass" className="text-amber-400 font-bold hover:underline flex items-center gap-1.5">
+                                    <Crown className="w-3.5 h-3.5" />
+                                    <span>Upgrade to Elite Pass</span>
+                                </Link>
+                            </li>
+                            <li><span className="text-zinc-500">PKR 999 (3-Month Access)</span></li>
+                            <li><span className="text-zinc-500">Direct JazzCash / Easypaisa</span></li>
+                            <li><span className="text-zinc-500">10,000+ Verified MCQ Keys</span></li>
                         </ul>
                     </div>
 
-                    {/* Newsletter */}
+                    {/* Official Notice */}
                     <div>
-                        <h4 className="text-white font-bold mb-6 text-sm uppercase tracking-widest pl-1 border-l-2 border-emerald-500">Stay Updated</h4>
-                        <p className="text-sm text-slate-400 mb-6 leading-relaxed">Get exam updates, study tips, and new resources delivered to your inbox.</p>
-                        <div className="flex flex-col gap-3">
-                            <input
-                                type="email"
-                                placeholder="Enter your email"
-                                aria-label="Email address for newsletter"
-                                className="w-full px-4 py-3 bg-slate-900 border border-slate-800 rounded-xl text-white placeholder-slate-600 focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition-all font-medium"
-                            />
-                            <button
-                                type="button"
-                                aria-label="Subscribe to newsletter"
-                                className="w-full px-6 py-3 bg-emerald-700 text-white rounded-xl font-bold hover:bg-emerald-600 transition-all shadow-lg shadow-emerald-900/20 active:scale-95"
-                            >
-                                Subscribe
-                            </button>
+                        <h4 className="text-white font-bold mb-4 text-xs font-mono uppercase tracking-widest pl-2 border-l-2 border-emerald-400">
+                            Standards & Integrity
+                        </h4>
+                        <p className="text-xs text-zinc-400 leading-relaxed font-mono mb-4">
+                            Questions and explanations adhere strictly to BISE, PPSC, and FPSC syllabi with verified answer keys.
+                        </p>
+                        <div className="p-3 rounded-xl bg-zinc-900 border border-white/5 text-[11px] font-mono text-emerald-400">
+                            ✓ PWA Offline Capable
                         </div>
                     </div>
                 </div>
 
                 {/* Bottom Bar */}
-                <div className="border-t border-slate-900 pt-8 flex flex-col md:flex-row items-center justify-between gap-6 text-sm font-medium">
-                    <p className="text-slate-500 text-center md:text-left">
-                        © 2025 PakScholar Pro. Made with ❤️ in Pakistan 🇵🇰
-                    </p>
-                    <div className="flex flex-wrap justify-center gap-8 text-slate-500">
-                        <Link href="/sitemap-page" className="hover:text-emerald-400 transition-colors">Sitemap</Link>
+                <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs font-mono text-zinc-500">
+                    <p>© 2025–2026 PakScholar Pro. Built for Academic Excellence in Pakistan 🇵🇰</p>
+                    <div className="flex flex-wrap justify-center gap-6">
                         <Link href="/privacy" className="hover:text-emerald-400 transition-colors">Privacy</Link>
                         <Link href="/terms" className="hover:text-emerald-400 transition-colors">Terms</Link>
-                        <Link href="/cookies" className="hover:text-emerald-400 transition-colors">Cookies</Link>
-                        <Link href="/help" className="hover:text-emerald-400 transition-colors">Help Center</Link>
+                        <Link href="/help" className="hover:text-emerald-400 transition-colors">Support</Link>
                     </div>
                 </div>
             </div>

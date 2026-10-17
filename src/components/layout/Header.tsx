@@ -3,8 +3,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { BookOpen, Menu, X, User as UserIcon, LayoutDashboard, Search } from 'lucide-react';
-import { NavDropdown, MobileMenuLink } from '@/components/ui/nav-components';
+import { BookOpen, Menu, X, LayoutDashboard, Search, Crown, Cpu, Target, Newspaper, Compass } from 'lucide-react';
 import { User } from '@supabase/supabase-js';
 
 interface HeaderProps {
@@ -13,7 +12,6 @@ interface HeaderProps {
 
 export default function Header({ user }: HeaderProps) {
     const [scrolled, setScrolled] = useState(false);
-    const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const pathname = usePathname();
 
@@ -25,118 +23,101 @@ export default function Header({ user }: HeaderProps) {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
-    const studyMaterial = [
-        { name: 'General Knowledge', href: '/study-material/general-knowledge' },
-        { name: 'English', href: '/study-material/english' },
-        { name: 'Mathematics', href: '/study-material/mathematics' },
-        { name: 'Computer Science', href: '/study-material/computer-science' },
-        { name: 'Urdu', href: '/study-material/urdu' },
-        { name: 'Islamic Studies', href: '/study-material/islamic-studies' }
-    ];
-
-    const exams = [
-        { name: 'PPSC Guide', href: '/exams/ppsc' },
-        { name: 'Past Papers', href: '/past-papers' },
-        { name: 'Mock Exams', href: '/practice' }
-    ];
-
-    const resources = [
-        { name: 'MCQ Bank', href: '/mcq-bank' },
-        { name: 'Mock Exams', href: '/practice' },
-        { name: 'Tools', href: '/tools' },
-        { name: 'Past Papers', href: '/past-papers' },
-        { name: 'Current Affairs', href: '/current-affairs' }
+    const navLinks = [
+        { name: 'Mock Simulator', href: '/practice/mock-exams', icon: Target, badge: '-0.25' },
+        { name: 'Math Lab', href: '/subjects/mathematics', icon: Cpu },
+        { name: 'Current Affairs', href: '/current-affairs', icon: Newspaper, live: true },
+        { name: 'Subjects', href: '/subjects', icon: BookOpen },
+        { name: 'Past Papers', href: '/past-papers', icon: Compass },
     ];
 
     return (
-        <header className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white/90 backdrop-blur-md shadow-sm border-b border-slate-200/50' : 'bg-transparent'
-            }`}>
+        <header
+            className={`fixed top-0 w-full z-50 transition-all duration-300 ${
+                scrolled
+                    ? 'bg-zinc-950/80 backdrop-blur-xl border-b border-white/10 shadow-2xl shadow-black/80'
+                    : 'bg-zinc-950/40 backdrop-blur-md border-b border-white/5'
+            }`}
+        >
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                <div className="flex h-20 items-center justify-between">
-                    {/* Logo */}
+                <div className="flex h-16 sm:h-20 items-center justify-between">
+                    {/* Brand Logo */}
                     <Link href="/" className="flex items-center space-x-3 group">
-                        <div className="w-10 h-10 bg-gradient-to-br from-emerald-600 to-emerald-800 rounded-xl shadow-lg flex items-center justify-center group-hover:scale-105 group-hover:rotate-3 transition-all duration-300">
-                            <BookOpen className="w-6 h-6 text-white" />
+                        <div className="w-9 h-9 sm:w-10 sm:h-10 bg-gradient-to-br from-emerald-500 to-emerald-700 rounded-xl shadow-lg shadow-emerald-500/20 flex items-center justify-center group-hover:scale-105 group-hover:rotate-3 transition-all duration-300 border border-emerald-400/30">
+                            <BookOpen className="w-5 h-5 text-black" />
                         </div>
-                        <span className={`text-xl font-extrabold tracking-tight transition-colors ${scrolled ? 'text-slate-900' : 'text-white'
-                            }`}>
-                            PakScholar<span className="text-emerald-500">Pro</span>
-                        </span>
+                        <div className="flex flex-col">
+                            <span className="text-lg sm:text-xl font-extrabold tracking-tight text-white flex items-center gap-1">
+                                PakScholar
+                                <span className="text-emerald-400 font-mono text-sm sm:text-base px-1.5 py-0.2 rounded bg-emerald-500/10 border border-emerald-500/30 shadow-[0_0_10px_rgba(16,185,129,0.3)]">
+                                    PRO
+                                </span>
+                            </span>
+                            <span className="text-[9px] font-mono tracking-widest text-zinc-400 uppercase -mt-0.5 hidden sm:block">
+                                CYBER-OFFICIAL EDITION
+                            </span>
+                        </div>
                     </Link>
 
                     {/* Desktop Navigation */}
                     <nav className="hidden lg:flex items-center space-x-1">
-                        <NavDropdown
-                            id="study-material"
-                            label="Study Material"
-                            items={studyMaterial}
-                            activeId={activeDropdown}
-                            scrolled={scrolled}
-                            onMouseEnter={setActiveDropdown}
-                            onMouseLeave={() => setActiveDropdown(null)}
-                        />
-                        <NavDropdown
-                            id="exams"
-                            label="Exams"
-                            items={exams}
-                            activeId={activeDropdown}
-                            scrolled={scrolled}
-                            onMouseEnter={setActiveDropdown}
-                            onMouseLeave={() => setActiveDropdown(null)}
-                        />
-                        <NavDropdown
-                            id="resources"
-                            label="Resources"
-                            items={resources}
-                            activeId={activeDropdown}
-                            scrolled={scrolled}
-                            onMouseEnter={setActiveDropdown}
-                            onMouseLeave={() => setActiveDropdown(null)}
-                        />
-
-                        {/* Direct Links */}
-                        <Link
-                            href="/study-material"
-                            className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-300 ${scrolled
-                                ? 'text-slate-700 hover:bg-slate-100'
-                                : 'text-white hover:bg-white/10'
-                                }`}
-                        >
-                            Study Hub
-                        </Link>
+                        {navLinks.map((link) => {
+                            const Icon = link.icon;
+                            const isActive = pathname === link.href;
+                            return (
+                                <Link
+                                    key={link.name}
+                                    href={link.href}
+                                    className={`relative px-3.5 py-1.5 rounded-lg text-xs font-mono font-medium transition-all duration-200 flex items-center gap-1.5 ${
+                                        isActive
+                                            ? 'text-emerald-400 bg-emerald-500/10 border border-emerald-500/30 shadow-[0_0_12px_rgba(16,185,129,0.2)]'
+                                            : 'text-zinc-300 hover:text-white hover:bg-white/5 border border-transparent'
+                                    }`}
+                                >
+                                    <Icon className="w-3.5 h-3.5" />
+                                    <span>{link.name}</span>
+                                    {link.badge && (
+                                        <span className="text-[9px] px-1 py-0.2 rounded bg-amber-500/20 text-amber-400 border border-amber-500/30">
+                                            {link.badge}
+                                        </span>
+                                    )}
+                                    {link.live && (
+                                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping inline-block" />
+                                    )}
+                                </Link>
+                            );
+                        })}
                     </nav>
 
-                    {/* CTA Buttons */}
-                    <div className="hidden lg:flex items-center gap-6">
-                        <button className={`p-2 rounded-full transition-all duration-300 ${scrolled ? 'text-slate-500 hover:bg-slate-100 hover:text-emerald-600' : 'text-white/70 hover:bg-white/10 hover:text-white'}`}>
-                            <Search className="w-5 h-5" />
-                        </button>
+                    {/* CTA Actions */}
+                    <div className="hidden lg:flex items-center gap-3">
+                        <Link
+                            href="/pro-pass"
+                            className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-mono font-bold text-amber-300 bg-amber-500/10 border border-amber-500/30 hover:bg-amber-500/20 shadow-lg shadow-amber-500/10 hover:shadow-amber-500/20 transition-all active:scale-95"
+                        >
+                            <Crown className="w-3.5 h-3.5 text-amber-400 animate-pulse" />
+                            <span>Elite Pass (PKR 999)</span>
+                        </Link>
 
                         {user ? (
                             <Link
                                 href="/dashboard"
-                                className={`flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-bold transition-all duration-300 ${scrolled
-                                    ? 'bg-emerald-600 text-white shadow-lg shadow-emerald-600/20 hover:bg-emerald-700'
-                                    : 'bg-white/10 text-white backdrop-blur-md border border-white/20 hover:bg-white/20'
-                                    }`}
+                                className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-xl text-xs font-mono font-bold text-emerald-400 bg-zinc-900 border border-white/10 hover:border-emerald-500/40 transition-all"
                             >
-                                <LayoutDashboard className="w-4 h-4" />
+                                <LayoutDashboard className="w-3.5 h-3.5" />
                                 <span>Dashboard</span>
                             </Link>
                         ) : (
                             <div className="flex items-center gap-2">
                                 <Link
                                     href="/login"
-                                    className={`px-4 py-2 rounded-lg text-sm font-bold transition-all duration-300 ${scrolled
-                                        ? 'text-slate-700 hover:bg-slate-100 hover:text-emerald-700'
-                                        : 'text-white hover:bg-white/10'
-                                        }`}
+                                    className="px-3 py-1.5 rounded-lg text-xs font-mono text-zinc-300 hover:text-white hover:bg-white/5 transition-all"
                                 >
                                     Log in
                                 </Link>
                                 <Link
                                     href="/signup"
-                                    className="px-6 py-2.5 bg-emerald-600 text-white rounded-full text-sm font-bold shadow-lg shadow-emerald-600/20 hover:bg-emerald-700 hover:shadow-xl hover:shadow-emerald-600/30 hover:-translate-y-0.5 transition-all duration-300"
+                                    className="px-4 py-1.5 bg-emerald-500 hover:bg-emerald-400 text-black rounded-xl text-xs font-mono font-bold shadow-lg shadow-emerald-500/20 transition-all active:scale-95"
                                 >
                                     Sign up
                                 </Link>
@@ -144,80 +125,105 @@ export default function Header({ user }: HeaderProps) {
                         )}
                     </div>
 
-                    {/* Mobile Menu Button */}
+                    {/* Mobile Menu Toggle Button */}
                     <button
-                        className={`lg:hidden p-2 rounded-lg transition-colors ${scrolled ? 'text-slate-700 hover:bg-slate-100' : 'text-white hover:bg-white/10'
-                            }`}
+                        className="lg:hidden p-2 rounded-xl text-zinc-300 hover:text-white bg-zinc-900/60 border border-white/10"
                         onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                        aria-label="Toggle navigation"
                     >
-                        {mobileMenuOpen ? <X className="w-7 h-7" /> : <Menu className="w-7 h-7" />}
+                        {mobileMenuOpen ? <X className="w-5 h-5 text-emerald-400" /> : <Menu className="w-5 h-5" />}
                     </button>
                 </div>
             </div>
 
-            {/* Mobile Menu */}
-            <div className={`lg:hidden fixed inset-0 z-40 bg-white/95 backdrop-blur-xl transition-transform duration-500 ease-in-out ${mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
-                }`} style={{ top: '80px', height: 'calc(100vh - 80px)' }}>
-                <div className="flex flex-col h-full overflow-y-auto px-6 py-8 space-y-8">
-                    {/* Groups */}
-                    <div className="space-y-6">
-                        <div className="space-y-3">
-                            <h3 className="text-xs font-bold text-slate-400 uppercase tracking-widest pl-2">Study Material</h3>
-                            <div className="grid grid-cols-2 gap-2">
-                                {studyMaterial.map(item => (
-                                    <MobileMenuLink key={item.name} href={item.href} onClick={() => setMobileMenuOpen(false)}>
-                                        {item.name}
-                                    </MobileMenuLink>
-                                ))}
-                            </div>
-                        </div>
-
-                        {/* ... (Other sections unchanged if desired, but updating footer for auth) ... */}
-                        {/* Shortening replacement for brevity if needed, but I will replace the whole component to be safe */}
-                        <div className="space-y-3">
-                            <h3 className="text-xs font-bold text-slate-400 uppercase tracking-widest pl-2">Exams</h3>
-                            <div className="space-y-1">
-                                {exams.map(item => (
-                                    <MobileMenuLink key={item.name} href={item.href} onClick={() => setMobileMenuOpen(false)}>
-                                        {item.name}
-                                    </MobileMenuLink>
-                                ))}
-                            </div>
-                        </div>
-
-                        <div className="space-y-3">
-                            <h3 className="text-xs font-bold text-slate-400 uppercase tracking-widest pl-2">Resources</h3>
-                            <div className="space-y-1">
-                                {resources.map(item => (
-                                    <MobileMenuLink key={item.name} href={item.href} onClick={() => setMobileMenuOpen(false)}>
-                                        {item.name}
-                                    </MobileMenuLink>
-                                ))}
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* Footer Actions */}
-                    <div className="mt-auto pt-8 border-t border-slate-100 space-y-4">
-                        {user ? (
-                            <MobileMenuLink href="/dashboard" primary onClick={() => setMobileMenuOpen(false)}>
-                                Go to Dashboard
-                            </MobileMenuLink>
-                        ) : (
-                            <>
-                                <MobileMenuLink href="/login" onClick={() => setMobileMenuOpen(false)}>
-                                    Log in
-                                </MobileMenuLink>
-                                <div className="pt-4">
-                                    <MobileMenuLink href="/signup" primary onClick={() => setMobileMenuOpen(false)}>
-                                        Sign up
-                                    </MobileMenuLink>
+            {/* Mobile Slide-down Drawer */}
+            {mobileMenuOpen && (
+                <div
+                    className="lg:hidden fixed inset-0 z-40 bg-zinc-950/95 backdrop-blur-2xl border-t border-white/10"
+                    style={{ top: '64px', height: 'calc(100vh - 64px)' }}
+                >
+                    <div className="flex flex-col h-full overflow-y-auto px-6 py-6 space-y-6">
+                        {/* Elite Pass Banner */}
+                        <Link
+                            href="/pro-pass"
+                            onClick={() => setMobileMenuOpen(false)}
+                            className="p-4 rounded-2xl bg-gradient-to-r from-amber-500/20 via-amber-500/10 to-transparent border border-amber-500/30 flex items-center justify-between"
+                        >
+                            <div className="flex items-center gap-3">
+                                <div className="p-2.5 rounded-xl bg-amber-500/20 text-amber-400">
+                                    <Crown className="w-5 h-5" />
                                 </div>
-                            </>
-                        )}
+                                <div>
+                                    <span className="text-white font-bold text-sm block">Upgrade to Elite Pass</span>
+                                    <span className="text-[11px] font-mono text-amber-400">Full 100-Q Mocks + Verified Keys</span>
+                                </div>
+                            </div>
+                            <span className="text-xs font-mono text-amber-400 font-bold bg-amber-500/10 px-2 py-1 rounded border border-amber-500/20">
+                                PKR 999
+                            </span>
+                        </Link>
+
+                        {/* Navigation Items */}
+                        <div className="space-y-2">
+                            <span className="text-[10px] font-mono uppercase tracking-widest text-zinc-500 pl-2">
+                                Examination Navigation
+                            </span>
+                            {navLinks.map((link) => {
+                                const Icon = link.icon;
+                                return (
+                                    <Link
+                                        key={link.name}
+                                        href={link.href}
+                                        onClick={() => setMobileMenuOpen(false)}
+                                        className="flex items-center justify-between p-3 rounded-xl bg-zinc-900/60 border border-white/5 text-zinc-200 hover:text-white hover:border-emerald-500/30 transition-all font-mono text-xs"
+                                    >
+                                        <div className="flex items-center gap-2.5">
+                                            <Icon className="w-4 h-4 text-emerald-400" />
+                                            <span>{link.name}</span>
+                                        </div>
+                                        {link.badge && (
+                                            <span className="text-[10px] px-2 py-0.5 rounded bg-amber-500/20 text-amber-400 border border-amber-500/30">
+                                                {link.badge}
+                                            </span>
+                                        )}
+                                    </Link>
+                                );
+                            })}
+                        </div>
+
+                        {/* Auth / Account Actions */}
+                        <div className="mt-auto pt-6 border-t border-white/10 space-y-3">
+                            {user ? (
+                                <Link
+                                    href="/dashboard"
+                                    onClick={() => setMobileMenuOpen(false)}
+                                    className="w-full inline-flex items-center justify-center gap-2 py-3 rounded-xl bg-emerald-500 text-black font-bold text-xs font-mono"
+                                >
+                                    <LayoutDashboard className="w-4 h-4" />
+                                    <span>Access Dashboard</span>
+                                </Link>
+                            ) : (
+                                <div className="grid grid-cols-2 gap-3">
+                                    <Link
+                                        href="/login"
+                                        onClick={() => setMobileMenuOpen(false)}
+                                        className="inline-flex items-center justify-center py-2.5 rounded-xl bg-zinc-900 border border-white/10 text-white font-mono text-xs font-semibold"
+                                    >
+                                        Log in
+                                    </Link>
+                                    <Link
+                                        href="/signup"
+                                        onClick={() => setMobileMenuOpen(false)}
+                                        className="inline-flex items-center justify-center py-2.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-black font-mono text-xs font-bold"
+                                    >
+                                        Sign up
+                                    </Link>
+                                </div>
+                            )}
+                        </div>
                     </div>
                 </div>
-            </div>
+            )}
         </header>
     );
 }
