@@ -17,6 +17,7 @@ import {
   Compass,
 } from 'lucide-react';
 import { User } from '@supabase/supabase-js';
+import { AppleSpotlightSearch } from '@/components/search/AppleSpotlightSearch';
 
 interface HeaderProps {
   user?: User | null;
@@ -25,6 +26,7 @@ interface HeaderProps {
 export default function Header({ user }: HeaderProps) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
   const pathname = usePathname();
 
   useEffect(() => {
@@ -33,6 +35,18 @@ export default function Header({ user }: HeaderProps) {
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Global Cmd+K / Ctrl+K listener
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+        e.preventDefault();
+        setSearchOpen((prev) => !prev);
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
   }, []);
 
   const navLinks = [
@@ -97,6 +111,18 @@ export default function Header({ user }: HeaderProps) {
 
           {/* Right Action Buttons */}
           <div className="hidden md:flex items-center gap-3">
+            <button
+              onClick={() => setSearchOpen(true)}
+              className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-medium text-zinc-500 dark:text-zinc-400 bg-zinc-100 dark:bg-zinc-800/60 hover:text-zinc-900 dark:hover:text-white border border-black/[0.04] dark:border-white/[0.06] transition-all"
+              title="Search questions (Cmd+K)"
+            >
+              <Search className="w-3.5 h-3.5" />
+              <span>Search</span>
+              <kbd className="px-1.5 py-0.2 rounded border border-black/[0.08] dark:border-white/[0.1] bg-white dark:bg-zinc-700 text-[10px] font-mono">
+                ⌘K
+              </kbd>
+            </button>
+
             <Link
               href="/pro-pass"
               className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-semibold text-amber-900 dark:text-amber-200 bg-amber-50 dark:bg-amber-950/40 border border-amber-200/80 dark:border-amber-800/40 hover:bg-amber-100/80 dark:hover:bg-amber-950/70 transition-all shadow-sm active:scale-[0.98]"
@@ -149,7 +175,22 @@ export default function Header({ user }: HeaderProps) {
           className="md:hidden fixed inset-0 z-40 bg-[#FBFBFD]/95 dark:bg-[#0A0A0C]/95 backdrop-blur-2xl border-t border-black/[0.06] dark:border-white/[0.08]"
           style={{ top: '64px', height: 'calc(100vh - 64px)' }}
         >
-          <div className="flex flex-col h-full overflow-y-auto px-6 py-6 space-y-6">
+          <div className="flex flex-col h-full overflow-y-auto px-6 py-6 space-y-4">
+            {/* Quick Search Button */}
+            <button
+              onClick={() => {
+                setMobileMenuOpen(false);
+                setSearchOpen(true);
+              }}
+              className="w-full p-3.5 rounded-2xl bg-zinc-100 dark:bg-zinc-800/80 border border-black/[0.05] dark:border-white/[0.08] flex items-center justify-between text-xs text-zinc-600 dark:text-zinc-300 shadow-sm"
+            >
+              <div className="flex items-center gap-2.5">
+                <Search className="w-4 h-4 text-[#0F5132] dark:text-emerald-400" />
+                <span className="font-medium text-zinc-800 dark:text-white">Search Question Bank</span>
+              </div>
+              <span className="text-[10px] text-zinc-400">10,000+ MCQs</span>
+            </button>
+
             {/* Elite Pass Card */}
             <Link
               href="/pro-pass"
@@ -229,6 +270,9 @@ export default function Header({ user }: HeaderProps) {
           </div>
         </div>
       )}
+
+      {/* Global Apple Spotlight Search Modal */}
+      <AppleSpotlightSearch isOpen={searchOpen} onClose={() => setSearchOpen(false)} />
     </header>
   );
 }

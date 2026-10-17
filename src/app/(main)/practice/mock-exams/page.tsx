@@ -20,114 +20,35 @@ import {
 import Link from 'next/link';
 import { AppleCard } from '@/components/ui/AppleCard';
 import { AppleBadge } from '@/components/ui/AppleBadge';
-
-interface ExamQuestion {
-  id: number;
-  subject: string;
-  question: string;
-  options: string[];
-  correctIndex: number;
-  explanation: string;
-}
-
-const SAMPLE_EXAM_QUESTIONS: ExamQuestion[] = [
-  {
-    id: 1,
-    subject: 'Pakistan Studies',
-    question: 'Under the 1973 Constitution of Pakistan, which Article deals with the disqualification of lawmakers on grounds of defection?',
-    options: ['Article 58(2)(b)', 'Article 63-A', 'Article 62(1)(f)', 'Article 245'],
-    correctIndex: 1,
-    explanation: 'Article 63-A of the Constitution of Pakistan prescribes rules and procedures for disqualification on grounds of defection.',
-  },
-  {
-    id: 2,
-    subject: 'Mathematics',
-    question: 'The ratio of ages of two persons is 3 : 5. If the sum of their ages is 64 years, what is the age of the elder person?',
-    options: ['24 years', '32 years', '40 years', '48 years'],
-    correctIndex: 2,
-    explanation: 'Sum of ratio parts = 3 + 5 = 8 parts. 1 part = 64 / 8 = 8 years. Elder person = 5 * 8 = 40 years.',
-  },
-  {
-    id: 3,
-    subject: 'General Knowledge',
-    question: 'Which strait separates Asia from North America and connects the Arctic Ocean with the Bering Sea?',
-    options: ['Strait of Gibraltar', 'Bering Strait', 'Strait of Malacca', 'Bosphorus Strait'],
-    correctIndex: 1,
-    explanation: 'The Bering Strait connects the Bering Sea with the Chukchi Sea of the Arctic Ocean, separating Russia from Alaska.',
-  },
-  {
-    id: 4,
-    subject: 'Islamic Studies',
-    question: 'The Treaty of Hudaibiyah was signed in which Hijri year?',
-    options: ['4 A.H.', '6 A.H.', '8 A.H.', '9 A.H.'],
-    correctIndex: 1,
-    explanation: 'The Treaty of Hudaibiyah was concluded in Zul-Qadah, 6 A.H. between the Muslims of Medina and the Quraish of Mecca.',
-  },
-  {
-    id: 5,
-    subject: 'Computer Science',
-    question: 'In computer networking, which protocol is responsible for resolving an IP address to a physical MAC address?',
-    options: ['DNS', 'DHCP', 'ARP', 'ICMP'],
-    correctIndex: 2,
-    explanation: 'ARP (Address Resolution Protocol) maps dynamic IP addresses to a permanent physical machine address (MAC) in a local network.',
-  },
-  {
-    id: 6,
-    subject: 'English',
-    question: 'Select the correct synonym for the word "EPHEMERAL":',
-    options: ['Permanent', 'Transitory', 'Sacred', 'Immense'],
-    correctIndex: 1,
-    explanation: '"Ephemeral" means lasting for a very short time; transitory, fleeting.',
-  },
-  {
-    id: 7,
-    subject: 'Pakistan Studies',
-    question: 'Who served as the first Chief Election Commissioner of Pakistan?',
-    options: ['Khan F.M. Khan', 'Justice Sajjad Ahmad Jan', 'Justice Muhammad Rustam Kiyani', 'Akhter Hussain'],
-    correctIndex: 0,
-    explanation: 'Khan F.M. Khan was appointed as the first Chief Election Commissioner of Pakistan on March 25, 1956.',
-  },
-  {
-    id: 8,
-    subject: 'Mathematics',
-    question: 'If 12 men can complete a construction project in 18 days, in how many days can 9 men complete the identical project?',
-    options: ['20 days', '22 days', '24 days', '27 days'],
-    correctIndex: 2,
-    explanation: 'Total man-days = 12 * 18 = 216 man-days. Days required by 9 men = 216 / 9 = 24 days.',
-  },
-  {
-    id: 9,
-    subject: 'General Knowledge',
-    question: 'What is the capital city of Kazakhstan, formerly known as Nur-Sultan?',
-    options: ['Almaty', 'Astana', 'Tashkent', 'Bishkek'],
-    correctIndex: 1,
-    explanation: 'In September 2022, Kazakhstan officially renamed its capital back to Astana from Nur-Sultan.',
-  },
-  {
-    id: 10,
-    subject: 'Current Affairs',
-    question: 'Which city hosted the 23rd Council of Heads of Government of the Shanghai Cooperation Organisation (SCO) in October 2024?',
-    options: ['Tashkent', 'Islamabad', 'Beijing', 'Moscow'],
-    correctIndex: 1,
-    explanation: 'Islamabad, Pakistan hosted the 23rd SCO Council of Heads of Government on October 15–16, 2024.',
-  },
-];
+import { MASTER_QUESTION_BANK } from '@/data/question-bank';
+import { saveExamResult, toggleBookmark, isBookmarked } from '@/lib/storage-engine';
+import { ExamMCQ, ExamSessionResult } from '@/types/exam-engine';
 
 export default function PpscSimulatorPage() {
   const [examStarted, setExamStarted] = useState(false);
   const [examCompleted, setExamCompleted] = useState(false);
+  const [testLength, setTestLength] = useState<number>(10);
+  const [activeQuestions, setActiveQuestions] = useState<ExamMCQ[]>([]);
   const [currentQuestionIdx, setCurrentQuestionIdx] = useState(0);
   const [selectedAnswers, setSelectedAnswers] = useState<Record<number, number>>({});
   const [flaggedQuestions, setFlaggedQuestions] = useState<Record<number, boolean>>({});
   const [timeLeft, setTimeLeft] = useState<number>(15 * 60);
+  const [bookmarkedIds, setBookmarkedIds] = useState<Record<string, boolean>>({});
 
+  // Initialize questions on mount or testLength change
+  useEffect(() => {
+    const shuffled = [...MASTER_QUESTION_BANK].sort(() => 0.5 - Math.random());
+    setActiveQuestions(shuffled.slice(0, testLength));
+  }, [testLength]);
+
+  // Timer Effect
   useEffect(() => {
     if (!examStarted || examCompleted) return;
     const interval = setInterval(() => {
       setTimeLeft((prev) => {
         if (prev <= 1) {
           clearInterval(interval);
-          setExamCompleted(true);
+          handleFinishTest();
           return 0;
         }
         return prev - 1;
@@ -156,31 +77,75 @@ export default function PpscSimulatorPage() {
     }));
   };
 
-  const calculateResults = () => {
+  const handleBookmarkCurrent = () => {
+    const current = activeQuestions[currentQuestionIdx];
+    if (!current) return;
+    const nowSaved = toggleBookmark(current.id);
+    setBookmarkedIds((prev) => ({ ...prev, [String(current.id)]: nowSaved }));
+  };
+
+  const calculateResults = (): ExamSessionResult => {
     let correct = 0;
     let wrong = 0;
     let unattempted = 0;
+    const subjectPerformance: Record<
+      string,
+      { total: number; correct: number; wrong: number; score: number }
+    > = {};
 
-    SAMPLE_EXAM_QUESTIONS.forEach((q, idx) => {
+    activeQuestions.forEach((q, idx) => {
+      const sub = q.subject;
+      if (!subjectPerformance[sub]) {
+        subjectPerformance[sub] = { total: 0, correct: 0, wrong: 0, score: 0 };
+      }
+      subjectPerformance[sub].total++;
+
       if (selectedAnswers[idx] === undefined) {
         unattempted++;
       } else if (selectedAnswers[idx] === q.correctIndex) {
         correct++;
+        subjectPerformance[sub].correct++;
+        subjectPerformance[sub].score += 1.0;
       } else {
         wrong++;
+        subjectPerformance[sub].wrong++;
+        subjectPerformance[sub].score -= 0.25;
       }
     });
 
     const rawScore = correct * 1.0;
     const penalty = wrong * 0.25;
     const netScore = Math.max(0, parseFloat((rawScore - penalty).toFixed(2)));
-    const percentage = parseFloat(((netScore / SAMPLE_EXAM_QUESTIONS.length) * 100).toFixed(1));
+    const percentage = parseFloat(((netScore / activeQuestions.length) * 100).toFixed(1));
     const passed = percentage >= 50.0;
 
-    return { correct, wrong, unattempted, rawScore, penalty, netScore, percentage, passed };
+    return {
+      examId: `mock-${Date.now()}`,
+      examTitle: `PPSC Mock Exam (${activeQuestions.length} Questions)`,
+      completedAt: new Date().toISOString(),
+      totalQuestions: activeQuestions.length,
+      attempted: correct + wrong,
+      correct,
+      wrong,
+      unattempted,
+      rawScore,
+      penalty,
+      netScore,
+      percentage,
+      passed,
+      timeTakenSeconds: (testLength === 10 ? 15 * 60 : 35 * 60) - timeLeft,
+      answers: selectedAnswers,
+      subjectPerformance,
+    };
   };
 
-  const currentQ = SAMPLE_EXAM_QUESTIONS[currentQuestionIdx];
+  const handleFinishTest = () => {
+    setExamCompleted(true);
+    const res = calculateResults();
+    saveExamResult(res);
+  };
+
+  const currentQ = activeQuestions[currentQuestionIdx] || MASTER_QUESTION_BANK[0];
   const results = examCompleted ? calculateResults() : null;
 
   return (
@@ -190,7 +155,7 @@ export default function PpscSimulatorPage() {
         {/* SCREEN 1: INTRO / LAUNCHPAD */}
         {/* ========================================================= */}
         {!examStarted && !examCompleted && (
-          <div className="max-w-2xl mx-auto text-center py-12">
+          <div className="max-w-2xl mx-auto text-center py-10">
             <AppleBadge variant="amber" size="md" className="mb-4">
               OFFICIAL PPSC -0.25 PENALTY RULES
             </AppleBadge>
@@ -203,14 +168,48 @@ export default function PpscSimulatorPage() {
               <strong className="text-amber-700 dark:text-amber-400">-0.25</strong> marks.
             </p>
 
+            {/* Test Duration Selector */}
+            <div className="mb-8 p-1.5 rounded-2xl bg-zinc-100 dark:bg-zinc-800/60 inline-flex items-center gap-1.5 text-xs font-semibold">
+              <button
+                onClick={() => {
+                  setTestLength(10);
+                  setTimeLeft(15 * 60);
+                }}
+                className={`px-4 py-2 rounded-xl transition-all ${
+                  testLength === 10
+                    ? 'bg-white dark:bg-zinc-700 text-zinc-900 dark:text-white shadow-sm'
+                    : 'text-zinc-500 hover:text-zinc-900 dark:text-zinc-400'
+                }`}
+              >
+                10-Q Sprint (15 Min)
+              </button>
+              <button
+                onClick={() => {
+                  setTestLength(25);
+                  setTimeLeft(35 * 60);
+                }}
+                className={`px-4 py-2 rounded-xl transition-all ${
+                  testLength === 25
+                    ? 'bg-white dark:bg-zinc-700 text-zinc-900 dark:text-white shadow-sm'
+                    : 'text-zinc-500 hover:text-zinc-900 dark:text-zinc-400'
+                }`}
+              >
+                25-Q Half Mock (35 Min)
+              </button>
+            </div>
+
             <div className="grid grid-cols-3 gap-3 mb-8 text-xs text-center">
               <AppleCard hoverLift={false} className="p-4">
                 <span className="text-zinc-500 dark:text-zinc-400 text-[11px] block font-medium">Questions</span>
-                <span className="text-lg font-bold text-zinc-900 dark:text-white mt-1 block">10 MCQs</span>
+                <span className="text-lg font-bold text-zinc-900 dark:text-white mt-1 block">
+                  {testLength} MCQs
+                </span>
               </AppleCard>
               <AppleCard hoverLift={false} className="p-4">
                 <span className="text-zinc-500 dark:text-zinc-400 text-[11px] block font-medium">Time Limit</span>
-                <span className="text-lg font-bold text-[#0F5132] dark:text-emerald-400 mt-1 block">15:00 Mins</span>
+                <span className="text-lg font-bold text-[#0F5132] dark:text-emerald-400 mt-1 block">
+                  {testLength === 10 ? '15:00' : '35:00'} Mins
+                </span>
               </AppleCard>
               <AppleCard hoverLift={false} className="p-4">
                 <span className="text-zinc-500 dark:text-zinc-400 text-[11px] block font-medium">Passing Cutoff</span>
@@ -221,12 +220,11 @@ export default function PpscSimulatorPage() {
             <button
               onClick={() => {
                 setExamStarted(true);
-                setTimeLeft(15 * 60);
               }}
               className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-2xl bg-[#0F5132] hover:bg-[#0c4128] text-white font-semibold text-sm shadow-md hover:shadow-lg transition-all active:scale-[0.99]"
             >
               <Target className="w-4 h-4" />
-              <span>Begin Timed Mock Test</span>
+              <span>Begin Timed Mock Test ({testLength} Questions)</span>
             </button>
           </div>
         )}
@@ -241,7 +239,7 @@ export default function PpscSimulatorPage() {
               <div className="flex items-center gap-3">
                 <span className="text-zinc-500 dark:text-zinc-400">Question</span>
                 <span className="text-sm font-bold text-zinc-900 dark:text-white bg-zinc-100 dark:bg-zinc-800 px-2.5 py-1 rounded-lg">
-                  {currentQuestionIdx + 1} of {SAMPLE_EXAM_QUESTIONS.length}
+                  {currentQuestionIdx + 1} of {activeQuestions.length}
                 </span>
                 <AppleBadge variant="neutral" size="sm" className="hidden sm:inline-flex">
                   {currentQ.subject}
@@ -262,6 +260,17 @@ export default function PpscSimulatorPage() {
 
               <div className="flex items-center gap-2">
                 <button
+                  onClick={handleBookmarkCurrent}
+                  className="p-2 rounded-lg border border-black/[0.08] dark:border-white/[0.1] bg-white dark:bg-zinc-800 text-zinc-600 dark:text-zinc-300 hover:bg-zinc-50 transition-colors"
+                  title="Bookmark question"
+                >
+                  <Bookmark
+                    className={`w-4 h-4 ${
+                      bookmarkedIds[String(currentQ.id)] ? 'fill-[#0F5132] text-[#0F5132]' : ''
+                    }`}
+                  />
+                </button>
+                <button
                   onClick={toggleFlag}
                   className={`px-3 py-1.5 rounded-lg text-xs font-medium border transition-all ${
                     flaggedQuestions[currentQuestionIdx]
@@ -272,7 +281,7 @@ export default function PpscSimulatorPage() {
                   {flaggedQuestions[currentQuestionIdx] ? '★ Flagged' : '☆ Review Later'}
                 </button>
                 <button
-                  onClick={() => setExamCompleted(true)}
+                  onClick={handleFinishTest}
                   className="px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-rose-50 text-rose-700 border border-rose-200 dark:bg-rose-950/40 dark:text-rose-300 dark:border-rose-800/40 hover:bg-rose-100 transition-all"
                 >
                   Finish Test
@@ -286,8 +295,14 @@ export default function PpscSimulatorPage() {
               <div className="lg:col-span-8 space-y-4">
                 <AppleCard hoverLift={false} className="p-6 sm:p-8">
                   <div className="flex items-center justify-between mb-3 text-xs text-zinc-500 dark:text-zinc-400">
-                    <span>Question {currentQuestionIdx + 1}</span>
-                    <span>{currentQ.subject}</span>
+                    <span className="font-medium">
+                      Question {currentQuestionIdx + 1} • {currentQ.topic || currentQ.subject}
+                    </span>
+                    {currentQ.pastPaperRef && (
+                      <span className="text-[11px] font-mono text-[#0F5132] dark:text-emerald-400">
+                        {currentQ.pastPaperRef}
+                      </span>
+                    )}
                   </div>
                   <h2 className="text-base sm:text-lg font-semibold text-zinc-900 dark:text-white mb-6 leading-relaxed">
                     {currentQ.question}
@@ -337,9 +352,9 @@ export default function PpscSimulatorPage() {
                   </button>
 
                   <button
-                    disabled={currentQuestionIdx === SAMPLE_EXAM_QUESTIONS.length - 1}
+                    disabled={currentQuestionIdx === activeQuestions.length - 1}
                     onClick={() =>
-                      setCurrentQuestionIdx((p) => Math.min(SAMPLE_EXAM_QUESTIONS.length - 1, p + 1))
+                      setCurrentQuestionIdx((p) => Math.min(activeQuestions.length - 1, p + 1))
                     }
                     className="inline-flex items-center gap-1.5 px-5 py-2 rounded-xl bg-[#0F5132] hover:bg-[#0c4128] text-white font-semibold disabled:opacity-30 disabled:cursor-not-allowed transition-all"
                   >
@@ -356,7 +371,7 @@ export default function PpscSimulatorPage() {
                   </h3>
 
                   <div className="grid grid-cols-5 gap-2 mb-4">
-                    {SAMPLE_EXAM_QUESTIONS.map((_, qIdx) => {
+                    {activeQuestions.map((_, qIdx) => {
                       const isAttempted = selectedAnswers[qIdx] !== undefined;
                       const isFlagged = flaggedQuestions[qIdx];
                       const isCurrent = currentQuestionIdx === qIdx;
@@ -398,7 +413,7 @@ export default function PpscSimulatorPage() {
                     </div>
                     <div className="flex items-center gap-2">
                       <span className="w-2.5 h-2.5 rounded bg-zinc-300 dark:bg-zinc-700" />
-                      <span>Unattempted ({SAMPLE_EXAM_QUESTIONS.length - Object.keys(selectedAnswers).length})</span>
+                      <span>Unattempted ({activeQuestions.length - Object.keys(selectedAnswers).length})</span>
                     </div>
                   </div>
                 </AppleCard>
@@ -424,7 +439,7 @@ export default function PpscSimulatorPage() {
                 Exam Performance Scorecard
               </h1>
               <p className="text-xs text-zinc-500 dark:text-zinc-400">
-                Calculated strictly in accordance with official PPSC scoring rules.
+                Calculated strictly in accordance with official PPSC scoring rules. Results saved to your study log.
               </p>
             </div>
 
@@ -433,7 +448,7 @@ export default function PpscSimulatorPage() {
               <AppleCard hoverLift={false} className="p-4">
                 <span className="text-zinc-500 dark:text-zinc-400 text-[11px] block font-medium">Net Score</span>
                 <span className="text-2xl font-extrabold text-[#0F5132] dark:text-emerald-400 mt-1 block">
-                  {results.netScore} / {SAMPLE_EXAM_QUESTIONS.length}
+                  {results.netScore} / {activeQuestions.length}
                 </span>
               </AppleCard>
               <AppleCard hoverLift={false} className="p-4">
@@ -461,7 +476,7 @@ export default function PpscSimulatorPage() {
               <h3 className="text-sm font-semibold text-zinc-900 dark:text-white tracking-tight">
                 Question Breakdown & Official Explanations
               </h3>
-              {SAMPLE_EXAM_QUESTIONS.map((q, idx) => {
+              {activeQuestions.map((q, idx) => {
                 const userAns = selectedAnswers[idx];
                 const isCorrect = userAns === q.correctIndex;
                 const isUnanswered = userAns === undefined;
@@ -511,6 +526,8 @@ export default function PpscSimulatorPage() {
                   setExamCompleted(false);
                   setSelectedAnswers({});
                   setFlaggedQuestions({});
+                  const shuffled = [...MASTER_QUESTION_BANK].sort(() => 0.5 - Math.random());
+                  setActiveQuestions(shuffled.slice(0, testLength));
                 }}
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white dark:bg-zinc-800 border border-black/[0.08] dark:border-white/[0.1] text-zinc-800 dark:text-zinc-200 text-xs font-semibold hover:bg-zinc-50 transition-all"
               >
