@@ -86,11 +86,6 @@ const nextConfig: NextConfig = {
         destination: '/subjects/computer-science',
         permanent: true,
       },
-      {
-        source: '/current-affairs',
-        destination: '/subjects/pakistan-studies/notes/current-affairs',
-        permanent: true,
-      },
 
       // Study Material → Subject Notes
       {
