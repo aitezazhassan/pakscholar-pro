@@ -17,7 +17,7 @@ export default async function MainLayout({
     }
 
     return (
-        <div className="min-h-screen bg-zinc-950 text-zinc-100 flex flex-col selection:bg-emerald-500 selection:text-black">
+        <div className="min-h-screen bg-[#FBFBFD] dark:bg-[#0A0A0C] text-zinc-900 dark:text-zinc-100 flex flex-col selection:bg-emerald-700 selection:text-white font-sans antialiased">
             <Header user={user} />
             <main className="flex-1 pb-16 md:pb-0 pt-16 sm:pt-20">{children}</main>
             <Footer />
