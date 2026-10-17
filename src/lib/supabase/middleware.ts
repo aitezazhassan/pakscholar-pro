@@ -18,6 +18,17 @@ export async function updateSession(request: NextRequest) {
         return response;
     }
 
+    const isDashboardRoute = request.nextUrl.pathname.startsWith('/dashboard');
+    const hasAuthCookie = request.cookies.getAll().some(
+        c => c.name.includes('-auth-token') || c.name.startsWith('sb-')
+    );
+
+    // Fast-path: If visiting a public page and no auth cookies exist,
+    // skip network auth call completely. This eliminates latency and prevents 504 Edge Timeouts.
+    if (!isDashboardRoute && !hasAuthCookie) {
+        return response;
+    }
+
     const supabase = createServerClient(
         supabaseUrl,
         supabaseKey,
@@ -43,17 +54,27 @@ export async function updateSession(request: NextRequest) {
         }
     )
 
-    const {
-        data: { user },
-    } = await supabase.auth.getUser()
+    // Fail-safe: Strict 2.5s timeout on auth check so Vercel Edge never exceeds
+    // the invocation limit and causes 504 MIDDLEWARE_INVOCATION_TIMEOUT.
+    let user = null;
+    try {
+        const authPromise = supabase.auth.getUser();
+        const timeoutPromise = new Promise<{ data: { user: null }; error: Error }>((resolve) =>
+            setTimeout(() => resolve({ data: { user: null }, error: new Error('Auth timeout') }), 2500)
+        );
+        const result = await Promise.race([authPromise, timeoutPromise]);
+        user = result.data.user;
+    } catch (err) {
+        console.warn('Supabase middleware auth check failed or timed out:', err);
+    }
 
     if (
         !user &&
         !request.nextUrl.pathname.startsWith('/login') &&
         !request.nextUrl.pathname.startsWith('/auth') &&
-        request.nextUrl.pathname.startsWith('/dashboard')
+        isDashboardRoute
     ) {
-        // no user, potentially respond by redirecting the user to the login page
+        // no user on protected dashboard route, redirect to login page
         const url = request.nextUrl.clone()
         url.pathname = '/login'
         return NextResponse.redirect(url)
@@ -61,3 +82,4 @@ export async function updateSession(request: NextRequest) {
 
     return response
 }
+

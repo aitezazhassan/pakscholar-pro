@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import { BreadcrumbNav } from '@/components/ui/BreadcrumbNav';
+import { MCQPractice } from '@/components/quiz/MCQPractice';
 
 export const metadata: Metadata = {
     title: 'Computer Science MCQs - PPSC Practice Questions',
@@ -22,10 +23,7 @@ export default function ComputerScienceMCQs() {
                     <p className="text-lg text-slate-600">Practice 30+ questions on CS fundamentals</p>
                 </div>
 
-                <div className="bg-white rounded-2xl p-8 border border-slate-200 text-center">
-                    <p className="text-slate-600 mb-4">MCQ practice interface coming soon</p>
-                    <p className="text-sm text-slate-500">This page will feature interactive MCQ questions with instant feedback</p>
-                </div>
+                <MCQPractice subject="computer-science" />
             </div>
         </div>
     );
