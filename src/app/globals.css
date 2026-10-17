@@ -67,6 +67,12 @@
     --border: 226 232 240;
     --ring: 16 185 129;
 
+    /* Font Variables (Apple & System Native) */
+    --font-inter: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --font-playfair: "Playfair Display", Georgia, Cambria, "Times New Roman", Times, serif;
+    --font-jetbrains: "SF Mono", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    --font-noto-nastaliq: "Noto Nastaliq Urdu", "Jameel Noori Nastaleeq", "Urdu Typesetting", serif;
+
     /* Shadows */
     --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
     --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);

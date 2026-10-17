@@ -1,38 +1,10 @@
 import type { Metadata } from 'next';
-import { Playfair_Display, Inter, JetBrains_Mono, Noto_Nastaliq_Urdu } from 'next/font/google';
 import { Toaster } from 'react-hot-toast';
 import AuthStatusBanner from '@/components/ui/AuthStatusBanner';
 import { PWAInstaller } from '@/components/pwa/PWAInstaller';
 import { InstallPrompt } from '@/components/pwa/InstallPrompt';
 import StructuredData from '@/components/seo/StructuredData';
 import './globals.css';
-
-const playfair = Playfair_Display({
-  subsets: ['latin'],
-  weight: ['400', '500', '600', '700', '900'],
-  variable: '--font-playfair',
-  display: 'swap',
-});
-
-const inter = Inter({
-  subsets: ['latin'],
-  weight: ['300', '400', '500', '600', '700'],
-  variable: '--font-inter',
-  display: 'swap',
-});
-
-const jetbrainsMono = JetBrains_Mono({
-  subsets: ['latin'],
-  weight: ['400', '500', '600'],
-  variable: '--font-jetbrains',
-  display: 'swap',
-});
-
-const notoNastaliq = Noto_Nastaliq_Urdu({
-  subsets: ['arabic'],
-  variable: '--font-noto-nastaliq',
-  display: 'swap',
-});
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://pakscholar-pro.vercel.app'),
@@ -133,10 +105,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${playfair.variable} ${inter.variable} ${jetbrainsMono.variable} ${notoNastaliq.variable}`}
-    >
+    <html lang="en" className="font-sans">
       <body className="font-sans antialiased">
         <StructuredData />
         <PWAInstaller />
